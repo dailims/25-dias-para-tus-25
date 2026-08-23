@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>25 días para tus 25 ❤️</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe0eb);
+    color: #5a3040;
+    text-align: center;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 55px;
+    color: #a64d6f;
+}
+
+.subtitulo {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.corazon {
+    font-size: 70px;
+    animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.dia {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.dia.bloqueado {
+    opacity: 0.5;
+}
+
+.numero {
+    font-size: 14px;
+    color: #a64d6f;
+    font-weight: bold;
+}
+
+.emoji {
+    font-size: 35px;
+    margin: 10px;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="corazon">❤️</div>
+
+    <h1>25 días para tus 25</h1>
+
+    <p class="subtitulo">
+        Un pequeño regalo para acompañarte<br>
+        desde el 26 de agosto hasta tu cumpleaños.
+    </p>
+
+    <p>
+        ✨ Cada día habrá algo nuevo esperando por ti ✨
+    </p>
+
+    <div class="calendario">
+
+        <div class="dia">
+            <div class="numero">DÍA 1</div>
+            <div class="emoji">🔓</div>
+            <h3>El comienzo</h3>
+            <p>Hoy empieza tu regalo ❤️</p>
+        </div>
+
+        <div class="dia bloqueado">
+            <div class="numero">DÍA 2</div>
+            <div class="emoji">🔒</div>
+            <h3>Bloqueado</h3>
+            <p>Vuelve mañana...</p>
+        </div>
+
+        <div class="dia bloqueado">
+            <div class="numero">DÍA 3</div>
+            <div class="emoji">🔒</div>
+            <h3>Bloqueado</h3>
+            <p>Vuelve mañana...</p>
+        </div>
+
+        <div class="dia bloqueado">
+            <div class="numero">DÍA 4</div>
+            <div class="emoji">🔒</div>
+            <h3>Bloqueado</h3>
+            <p>Vuelve mañana...</p>
+        </div>
+
+        <div class="dia bloqueado">
+            <div class="numero">DÍA 5</div>
+            <div class="emoji">🔒</div>
+            <h3>Bloqueado</h3>
+            <p>Vuelve mañana...</p>
+        </div>
+
+    </div>
+
+    <footer>
+        Hecho especialmente para ti ❤️
+    </footer>
+
+</div>
+
+</body>
+</html>
