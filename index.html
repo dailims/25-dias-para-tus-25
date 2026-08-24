@@ -8,20 +8,37 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root{
-    --rosa:#e9a8bd;
-    --rosa-claro:#f8dce7;
-    --rosa-profundo:#c96d91;
-    --dorado:#d8b36a;
-    --dorado-claro:#f1d99c;
-    --negro:#080708;
-    --negro2:#111012;
-    --blanco:#fffafc;
-    --gris:#cfc7cb;
+    --black:#080708;
+    --black2:#111012;
+    --black3:#171318;
+
+    --pink:#e8a7bd;
+    --pink2:#f5cedc;
+    --pink3:#c86d91;
+
+    --gold:#d8b36a;
+    --gold2:#f0d899;
+
+    --white:#fffafd;
+    --gray:#cfc5cb;
+
+    --transition:.45s ease;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -36,10 +53,19 @@ html{
 body{
     min-height:100vh;
     background:
-        radial-gradient(circle at 20% 20%, rgba(233,168,189,.10), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(216,179,106,.08), transparent 30%),
-        var(--negro);
-    color:var(--blanco);
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(232,167,189,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(216,179,106,.08),
+            transparent 30%
+        ),
+        var(--black);
+
+    color:var(--white);
     font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
 }
@@ -53,14 +79,26 @@ button{
     cursor:pointer;
 }
 
+
+/* =========================================================
+   PANTALLAS
+========================================================= */
+
 .screen{
     position:fixed;
     inset:0;
+
     display:none;
+
     overflow-y:auto;
+
     opacity:0;
-    transform:translateY(15px);
-    transition:.6s ease;
+    transform:translateY(20px);
+
+    transition:
+        opacity .55s ease,
+        transform .55s ease;
+
     z-index:10;
 }
 
@@ -70,47 +108,48 @@ button{
     transform:translateY(0);
 }
 
-.center-screen{
+.center{
     min-height:100vh;
+
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
     padding:30px;
 }
 
 .content{
     width:min(1100px,92%);
     margin:auto;
-    padding:60px 0;
+    padding:80px 0;
 }
+
+
+/* =========================================================
+   FUENTES
+========================================================= */
 
 .serif{
     font-family:'Cormorant Garamond',serif;
 }
 
 .gold{
-    color:var(--dorado);
+    color:var(--gold);
 }
 
 .pink{
-    color:var(--rosa);
+    color:var(--pink);
 }
 
-.small-title{
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:var(--dorado);
-    font-size:.72rem;
-    margin-bottom:20px;
-}
-
-h1,h2,h3{
+h1,
+h2,
+h3{
     font-family:'Cormorant Garamond',serif;
 }
 
 h1{
     font-size:clamp(4rem,10vw,8rem);
-    line-height:.8;
+    line-height:.85;
 }
 
 h2{
@@ -122,603 +161,989 @@ p{
     line-height:1.8;
 }
 
-.gold-line{
-    width:80px;
+.small-title{
+    color:var(--gold);
+    font-size:.7rem;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+.line{
+    width:70px;
     height:1px;
-    background:var(--dorado);
+    background:var(--gold);
     margin:25px auto;
 }
 
 .glow{
     text-shadow:
-        0 0 10px rgba(216,179,106,.3),
-        0 0 30px rgba(216,179,106,.15);
+        0 0 15px rgba(216,179,106,.25),
+        0 0 35px rgba(216,179,106,.10);
 }
 
-/* PARTICULAS */
 
-.particles{
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+#particles{
     position:fixed;
     inset:0;
     pointer-events:none;
-    overflow:hidden;
     z-index:1;
+    overflow:hidden;
 }
 
 .particle{
     position:absolute;
+
     width:2px;
     height:2px;
-    background:var(--dorado-claro);
+
+    background:var(--gold2);
+
     border-radius:50%;
-    opacity:.45;
-    animation:float 8s infinite ease-in-out;
+
+    opacity:.35;
+
+    animation:
+        floating
+        8s
+        infinite
+        ease-in-out;
 }
 
-@keyframes float{
+@keyframes floating{
+
     0%,100%{
         transform:translateY(0);
-        opacity:.2;
+        opacity:.15;
     }
+
     50%{
-        transform:translateY(-40px);
+        transform:translateY(-45px);
         opacity:.8;
     }
 }
 
-/* PORTADA */
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.main-button{
+    margin-top:35px;
+
+    padding:16px 34px;
+
+    border:1px solid var(--gold);
+
+    background:transparent;
+
+    color:white;
+
+    font-size:.68rem;
+    letter-spacing:3px;
+
+    transition:var(--transition);
+}
+
+.main-button:hover{
+    background:var(--gold);
+    color:#0b090a;
+
+    box-shadow:
+        0 0 30px
+        rgba(216,179,106,.25);
+
+    transform:translateY(-2px);
+}
+
+.back-button{
+    position:fixed;
+
+    top:22px;
+    left:22px;
+
+    z-index:100;
+
+    padding:11px 18px;
+
+    border:1px solid
+        rgba(216,179,106,.4);
+
+    background:rgba(8,7,8,.85);
+
+    color:var(--gold);
+
+    font-size:.62rem;
+    letter-spacing:2px;
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
 
 #cover{
     background:
-        linear-gradient(rgba(5,4,5,.40),rgba(5,4,5,.88)),
-        radial-gradient(circle at center,rgba(201,109,145,.15),transparent 45%);
+        radial-gradient(
+            circle at center,
+            rgba(200,109,145,.13),
+            transparent 45%
+        );
 }
 
-.cover-inner{
+.cover{
     position:relative;
     z-index:2;
+
+    width:min(850px,90%);
+
     text-align:center;
-    max-width:850px;
 }
 
 .cover-sub{
-    letter-spacing:8px;
-    text-transform:uppercase;
-    color:var(--dorado);
-    font-size:.7rem;
     margin-bottom:35px;
+
+    color:var(--gold);
+
+    font-size:.7rem;
+
+    letter-spacing:7px;
+
+    text-transform:uppercase;
 }
 
-.cover-inner h1{
+.cover h1{
     margin-bottom:25px;
 }
 
-.cover-inner .intro{
-    max-width:650px;
+.cover-text{
+    width:min(650px,100%);
     margin:auto;
-    color:#ddd3d8;
-    font-size:1rem;
+
+    color:#ddd4d9;
+
+    font-size:.98rem;
 }
 
 .cover-date{
     margin-top:30px;
-    color:var(--rosa);
+
+    color:var(--pink);
+
+    font-size:.7rem;
+
     letter-spacing:4px;
-    font-size:.75rem;
 }
 
-/* BOTONES */
 
-.main-btn{
-    margin-top:35px;
-    padding:16px 35px;
-    border:1px solid var(--dorado);
-    background:transparent;
-    color:var(--blanco);
-    letter-spacing:3px;
-    font-size:.72rem;
-    transition:.35s;
-}
+/* =========================================================
+   CONTRASEÑA
+========================================================= */
 
-.main-btn:hover{
-    background:var(--dorado);
-    color:#100c0e;
-    box-shadow:0 0 30px rgba(216,179,106,.25);
-}
+.password-card{
+    width:min(520px,92%);
 
-.back-btn{
-    position:fixed;
-    top:22px;
-    left:22px;
-    z-index:100;
-    border:1px solid rgba(216,179,106,.5);
-    background:rgba(8,7,8,.8);
-    color:var(--dorado);
-    padding:11px 18px;
-    font-size:.65rem;
-    letter-spacing:2px;
-}
+    padding:50px 38px;
 
-/* PASSWORD */
-
-.password-box{
-    width:min(450px,90%);
     text-align:center;
-    padding:45px 35px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(216,179,106,.25);
-    backdrop-filter:blur(15px);
+
+    border:1px solid
+        rgba(216,179,106,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    backdrop-filter:blur(16px);
 }
 
-.password-box h2{
+.password-card h2{
+    margin-top:12px;
     font-size:3.5rem;
 }
 
-.password-box p{
-    color:#cfc5ca;
+.password-description{
+    margin-top:20px;
+
+    color:#cfc5cb;
+}
+
+.riddle{
+    margin:35px auto;
+
+    padding:30px;
+
+    border-top:1px solid
+        rgba(216,179,106,.35);
+
+    border-bottom:1px solid
+        rgba(216,179,106,.35);
+}
+
+.riddle p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
+}
+
+.password-input{
+    width:100%;
+
+    padding:16px;
+
+    background:#0d0b0d;
+
+    border:1px solid
+        rgba(216,179,106,.4);
+
+    color:white;
+
+    outline:none;
+
+    text-align:center;
+
+    font-size:1.3rem;
+
+    letter-spacing:10px;
+}
+
+.password-error{
+    min-height:22px;
+
+    margin-top:12px;
+
+    color:var(--pink);
+
+    font-size:.72rem;
+}
+
+
+/* =========================================================
+   INTRODUCCIÓN
+========================================================= */
+
+.introduction{
+    width:min(800px,92%);
+
+    padding:65px 40px;
+
+    text-align:center;
+
+    border:1px solid
+        rgba(216,179,106,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+}
+
+.introduction h2{
     margin-top:15px;
 }
 
-.pass-input{
-    width:100%;
-    margin-top:28px;
-    padding:16px;
-    background:#0d0b0d;
-    border:1px solid rgba(216,179,106,.4);
-    color:white;
-    text-align:center;
-    letter-spacing:12px;
-    font-size:1.4rem;
-    outline:none;
-}
-
-.error{
-    min-height:20px;
-    color:#e9a8bd;
-    font-size:.75rem;
-    margin-top:12px;
-}
-
-/* INTRO */
-
-.intro-card{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    padding:65px 35px;
-    border:1px solid rgba(216,179,106,.22);
-    background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
-}
-
-.intro-card p{
+.introduction p{
     max-width:650px;
-    margin:25px auto;
-    color:#ddd5d9;
+
+    margin:22px auto;
+
+    color:#ded5da;
 }
 
-/* CALENDARIO */
+
+/* =========================================================
+   CALENDARIO
+========================================================= */
 
 .calendar-header{
     text-align:center;
-    margin-bottom:45px;
+
+    margin-bottom:50px;
 }
 
 .calendar-header h2{
-    margin-bottom:15px;
+    margin-top:15px;
 }
 
 .calendar-header p{
-    color:#bbb0b5;
-    max-width:650px;
-    margin:auto;
+    width:min(650px,100%);
+
+    margin:25px auto 0;
+
+    color:#bbb1b7;
 }
 
 .calendar{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(105px,1fr));
-    gap:14px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(110px,1fr)
+        );
+
+    gap:15px;
 }
 
-.day-card{
-    min-height:120px;
+.day{
+    min-height:125px;
+
     position:relative;
-    border:1px solid rgba(216,179,106,.25);
-    background:linear-gradient(145deg,#151216,#0d0b0d);
+
+    border:1px solid
+        rgba(216,179,106,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171318,
+            #0d0b0d
+        );
+
     color:white;
-    padding:18px;
-    transition:.35s;
+
+    transition:var(--transition);
+
     overflow:hidden;
 }
 
-.day-card:before{
+.day::before{
     content:"";
+
     position:absolute;
     inset:0;
-    background:radial-gradient(circle at top right,rgba(233,168,189,.13),transparent 55%);
-    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(232,167,189,.12),
+            transparent 60%
+        );
 }
 
-.day-card:hover{
+.day:hover{
     transform:translateY(-5px);
-    border-color:var(--dorado);
-    box-shadow:0 10px 35px rgba(0,0,0,.45);
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.45);
 }
 
 .day-number{
+    position:relative;
+    z-index:2;
+
+    margin:18px;
+
     font-family:'Cormorant Garamond',serif;
-    font-size:2.5rem;
-    color:var(--dorado);
+
+    color:var(--gold);
+
+    font-size:2.7rem;
 }
 
-.day-label{
-    font-size:.62rem;
+.day-text{
+    position:relative;
+    z-index:2;
+
+    margin:0 18px;
+
+    color:#aaa0a6;
+
+    font-size:.58rem;
+
     letter-spacing:2px;
+
     text-transform:uppercase;
-    color:#bdb3b8;
 }
 
-.day-card.special{
-    border-color:rgba(233,168,189,.55);
+.day.special{
+    border-color:
+        rgba(232,167,189,.5);
 }
 
-/* DIAS */
+
+/* =========================================================
+   PÁGINAS DE CADA DÍA
+========================================================= */
 
 .day-page{
     min-height:100vh;
-    position:relative;
 }
 
 .day-content{
     width:min(850px,90%);
+
     margin:auto;
+
+    padding:
+        100px
+        0
+        80px;
+
     text-align:center;
-    padding:100px 0 80px;
 }
 
-.day-content .day-small{
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:var(--dorado);
+.day-label{
+    color:var(--gold);
+
     font-size:.7rem;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
 }
 
 .day-content h2{
     margin-top:15px;
 }
 
-.day-text{
-    margin:35px auto;
-    max-width:700px;
-    color:#e3dbe0;
-    font-size:1.05rem;
+.day-body{
+    margin-top:35px;
+
+    color:#e1d8dd;
+
+    font-size:1rem;
 }
 
-.day-text p{
-    margin-bottom:15px;
+.day-body p{
+    margin-bottom:20px;
 }
 
-.divider{
-    width:55px;
-    height:1px;
-    background:var(--dorado);
-    margin:30px auto;
+.big-serif{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.65rem;
+
+    line-height:1.6;
 }
 
-/* FOTOS */
+
+/* =========================================================
+   FOTOS
+========================================================= */
 
 .photo-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:25px;
-    max-width:800px;
-    margin:40px auto;
+
+    width:min(800px,100%);
+
+    margin:45px auto;
 }
 
 .photo-card{
     position:relative;
+
     aspect-ratio:4/5;
+
     overflow:hidden;
-    border:1px solid rgba(216,179,106,.3);
-    cursor:pointer;
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
     background:#111;
+
+    cursor:pointer;
 }
 
 .photo-card img{
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     opacity:0;
+
     transform:scale(1.08);
-    transition:1s;
+
+    transition:1s ease;
 }
 
 .photo-card.revealed img{
     opacity:1;
+
     transform:scale(1);
 }
 
 .photo-cover{
     position:absolute;
     inset:0;
+
     display:flex;
-    justify-content:center;
     align-items:center;
-    background:linear-gradient(145deg,#151015,#080708);
-    color:var(--dorado);
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171318,
+            #080708
+        );
+
+    color:var(--gold);
+
+    font-size:.65rem;
+
     letter-spacing:3px;
-    font-size:.7rem;
+
     transition:.7s;
 }
 
-.photo-card.revealed .photo-cover{
+.photo-card.revealed
+.photo-cover{
     opacity:0;
+
     pointer-events:none;
 }
 
-/* ESTRELLAS */
+
+/* =========================================================
+   DÍA 8 — 25 ESTRELLAS
+========================================================= */
 
 .stars{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:18px;
-    max-width:650px;
-    margin:45px auto;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:15px;
+
+    width:min(650px,100%);
+
+    margin:45px auto 25px;
 }
 
 .star{
     aspect-ratio:1;
-    border:1px solid rgba(216,179,106,.35);
-    background:rgba(255,255,255,.025);
-    color:var(--dorado);
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:var(--gold);
+
     font-size:2rem;
+
     transition:.3s;
 }
 
 .star:hover{
-    transform:scale(1.08) rotate(4deg);
-    background:rgba(216,179,106,.08);
+    transform:
+        scale(1.1)
+        rotate(5deg);
+
+    background:
+        rgba(216,179,106,.08);
 }
 
-.reason-box{
-    max-width:650px;
+.reason{
+    width:min(700px,100%);
+
     min-height:110px;
-    margin:25px auto;
-    padding:30px;
+
+    margin:auto;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border:1px solid rgba(233,168,189,.3);
-    color:#eee4e9;
+
+    padding:30px;
+
+    border:1px solid
+        rgba(232,167,189,.3);
+
     font-family:'Cormorant Garamond',serif;
+
     font-size:1.5rem;
+
+    color:#eee5e9;
 }
 
-/* PISTAS */
 
-.clue-box{
-    max-width:700px;
-    margin:30px auto;
-    padding:45px 35px;
-    border-top:1px solid rgba(216,179,106,.4);
-    border-bottom:1px solid rgba(216,179,106,.4);
+/* =========================================================
+   PISTAS
+========================================================= */
+
+.clue{
+    width:min(720px,100%);
+
+    margin:40px auto;
+
+    padding:40px 30px;
+
+    border-top:1px solid
+        rgba(216,179,106,.35);
+
+    border-bottom:1px solid
+        rgba(216,179,106,.35);
 }
 
 .clue-title{
-    color:var(--dorado);
-    letter-spacing:3px;
-    font-size:.7rem;
-    text-transform:uppercase;
     margin-bottom:25px;
+
+    color:var(--gold);
+
+    font-size:.7rem;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
 }
 
-.clue-box p{
+.clue p{
     font-family:'Cormorant Garamond',serif;
-    font-size:1.4rem;
-    line-height:1.6;
-    color:#eee7eb;
-}
 
-/* ADIVINANZA */
+    font-size:1.45rem;
 
-.riddle{
-    max-width:700px;
-    margin:40px auto;
-    padding:40px;
-    background:rgba(255,255,255,.025);
-    border:1px solid rgba(216,179,106,.2);
-}
-
-.riddle p{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.5rem;
     line-height:1.7;
 }
 
-.riddle-answer{
-    display:flex;
-    max-width:550px;
-    margin:25px auto;
-    gap:10px;
-}
 
-.riddle-answer input{
-    flex:1;
-    padding:15px;
-    background:#0d0b0d;
-    color:white;
-    border:1px solid rgba(216,179,106,.3);
-    outline:none;
-}
-
-/* CANCIÓN */
-
-.song-unlock{
-    max-width:600px;
-    margin:40px auto;
-}
-
-.song-unlock input{
-    width:100%;
-    padding:17px;
-    text-align:center;
-    background:#0d0b0d;
-    color:white;
-    border:1px solid rgba(216,179,106,.35);
-    outline:none;
-}
-
-.song-result{
-    display:none;
-    margin-top:30px;
-}
-
-.song-result.show{
-    display:block;
-}
-
-/* HUELLAS */
+/* =========================================================
+   HUELLITAS
+========================================================= */
 
 .footprints{
     display:flex;
+
     justify-content:center;
-    gap:30px;
-    margin:35px 0;
-    opacity:.7;
+
+    gap:28px;
+
+    margin:25px 0;
+
+    opacity:.65;
 }
 
 .footprint{
-    color:var(--rosa);
-    font-size:1.6rem;
-    transform:rotate(-15deg);
+    color:var(--pink);
+
+    font-size:1.3rem;
+
+    transform:rotate(-18deg);
 }
 
 .footprint:nth-child(even){
-    transform:rotate(15deg);
+    transform:rotate(18deg);
 }
 
-/* CUENTA REGRESIVA */
+
+/* =========================================================
+   ADIVINANZAS
+========================================================= */
+
+.answer-row{
+    display:flex;
+
+    width:min(600px,100%);
+
+    margin:30px auto;
+
+    gap:10px;
+}
+
+.answer-row input{
+    flex:1;
+
+    padding:16px;
+
+    background:#0d0b0d;
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
+    color:white;
+
+    outline:none;
+}
+
+.answer-row button{
+    margin-top:0;
+}
+
+.answer-result{
+    min-height:25px;
+
+    margin-top:15px;
+
+    color:var(--pink);
+}
+
+
+/* =========================================================
+   CANCIÓN
+========================================================= */
+
+.song-box{
+    width:min(650px,100%);
+
+    margin:40px auto;
+}
+
+.song-box input{
+    width:100%;
+
+    padding:17px;
+
+    background:#0d0b0d;
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
+    color:white;
+
+    text-align:center;
+
+    outline:none;
+}
+
+.song-success{
+    display:none;
+
+    margin-top:35px;
+
+    padding:30px;
+
+    border:1px solid
+        rgba(216,179,106,.3);
+}
+
+.song-success.show{
+    display:block;
+
+    animation:appear .7s ease;
+}
+
+audio{
+    width:100%;
+
+    margin-top:25px;
+}
+
+
+/* =========================================================
+   CUENTA REGRESIVA
+========================================================= */
 
 .countdown{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:15px;
-    max-width:750px;
+
+    width:min(750px,100%);
+
     margin:50px auto;
 }
 
-.time-box{
+.time{
     padding:25px 10px;
-    border:1px solid rgba(216,179,106,.35);
-    background:rgba(255,255,255,.025);
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
+    background:
+        rgba(255,255,255,.025);
 }
 
-.time-box strong{
+.time strong{
     display:block;
+
+    color:var(--gold);
+
     font-family:'Cormorant Garamond',serif;
-    color:var(--dorado);
-    font-size:3rem;
+
+    font-size:3.3rem;
 }
 
-.time-box span{
-    font-size:.6rem;
+.time span{
+    color:#aaa0a6;
+
+    font-size:.58rem;
+
     letter-spacing:2px;
-    color:#aaa0a5;
+
     text-transform:uppercase;
 }
 
-/* VIDEO */
 
-.video-wrap{
-    max-width:850px;
-    margin:40px auto;
-    border:1px solid rgba(216,179,106,.35);
-    background:#050505;
-    display:none;
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final{
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
 }
 
-.video-wrap.show{
+.final-inner{
+    width:min(900px,92%);
+}
+
+.final-inner h1{
+    font-size:
+        clamp(
+            4rem,
+            11vw,
+            9rem
+        );
+}
+
+.final-message{
+    width:min(700px,100%);
+
+    margin:30px auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.45rem;
+
+    line-height:1.7;
+
+    color:#ded5da;
+}
+
+.video-container{
+    display:none;
+
+    width:min(850px,100%);
+
+    margin:40px auto;
+
+    border:1px solid
+        rgba(216,179,106,.35);
+
+    background:#000;
+}
+
+.video-container.show{
     display:block;
+
     animation:appear 1s ease;
 }
 
-.video-wrap video{
+.video-container video{
     width:100%;
+
     display:block;
+
     max-height:600px;
 }
 
+.final-text{
+    display:none;
+}
+
+.final-text.show{
+    display:block;
+
+    animation:appear 1s ease;
+}
+
+.signature{
+    margin-top:45px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:2rem;
+
+    color:var(--gold);
+}
+
+.heart{
+    color:var(--pink);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+========================================================= */
+
 @keyframes appear{
+
     from{
         opacity:0;
         transform:scale(.96);
     }
+
     to{
         opacity:1;
         transform:scale(1);
     }
 }
 
-/* FINAL */
 
-.final-page{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.final-content{
-    width:min(900px,90%);
-}
-
-.final-content h1{
-    font-size:clamp(4rem,11vw,9rem);
-}
-
-.final-message{
-    max-width:700px;
-    margin:30px auto;
-    color:#ddd4d9;
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.45rem;
-    line-height:1.6;
-}
-
-.signature{
-    margin-top:45px;
-    color:var(--dorado);
-    font-family:'Cormorant Garamond',serif;
-    font-size:2rem;
-}
-
-.heart{
-    color:var(--rosa);
-}
-
-/* CONFETI */
+/* =========================================================
+   CONFETI
+========================================================= */
 
 .confetti{
     position:fixed;
+
+    top:-20px;
+
     width:8px;
     height:8px;
-    top:-20px;
+
     z-index:500;
-    animation:fall 4s linear forwards;
+
+    animation:
+        fall
+        4s
+        linear
+        forwards;
 }
 
 @keyframes fall{
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+        transform:
+            translateY(110vh)
+            rotate(720deg);
     }
 }
 
-/* RESPONSIVE */
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:650px){
 
     .content{
-        padding:75px 0;
+        padding:70px 0;
+    }
+
+    .day-content{
+        padding-top:90px;
     }
 
     .photo-grid{
@@ -726,65 +1151,96 @@ p{
     }
 
     .stars{
-        grid-template-columns:repeat(5,1fr);
         gap:8px;
     }
 
     .star{
-        font-size:1.2rem;
+        font-size:1.25rem;
     }
 
     .countdown{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .time-box strong{
-        font-size:2.2rem;
+    .time strong{
+        font-size:2.4rem;
     }
 
-    .back-btn{
+    .answer-row{
+        flex-direction:column;
+    }
+
+    .answer-row button{
+        width:100%;
+    }
+
+    .back-button{
         top:12px;
         left:12px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="particles" id="particles"></div>
+
+<!-- =========================================================
+     PARTÍCULAS
+========================================================= -->
+
+<div id="particles"></div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PORTADA
-===================================================== -->
+========================================================= -->
 
-<section id="cover" class="screen active center-screen">
+<section
+    id="cover"
+    class="screen active center"
+>
 
-    <div class="cover-inner">
+    <div class="cover">
 
         <div class="cover-sub">
             Algo preparado especialmente para ti
         </div>
 
-        <h1 class="serif glow">
+        <h1 class="glow">
             Para Ana Lidia
         </h1>
 
-        <div class="gold-line"></div>
+        <div class="line"></div>
 
-        <p class="intro">
+        <p class="cover-text">
+
             Hay regalos que caben en una caja...
+
             y hay otros que necesitan tiempo,
-            recuerdos, pequeñas sorpresas
+
+            recuerdos,
+
+            pequeñas sorpresas
+
             y un poquito de magia.
+
         </p>
 
         <div class="cover-date">
-            26 DE AGOSTO — 19 DE SEPTIEMBRE
+
+            1 DE SEPTIEMBRE —
+            19 DE SEPTIEMBRE
+
         </div>
 
-        <button class="main-btn" onclick="goTo('password')">
+        <button
+            class="main-button"
+            onclick="showScreen('password')"
+        >
             COMENZAR
         </button>
 
@@ -793,59 +1249,81 @@ p{
 </section>
 
 
-<!-- =====================================================
-     CONTRASEÑA
-===================================================== -->
+<!-- =========================================================
+     ADIVINANZA + CONTRASEÑA
+========================================================= -->
 
-<section id="password" class="screen center-screen">
+<section
+    id="password"
+    class="screen center"
+>
 
-    <div class="password-box">
+    <div class="password-card">
 
         <div class="small-title">
-            Antes de continuar
+            Antes de entrar
         </div>
 
         <h2>
             Una pequeña prueba
         </h2>
 
-        <div class="gold-line"></div>
+        <div class="line"></div>
 
-        <p>
-            Hay una contraseña escondida en una pequeña adivinanza.
-            Si sabes la respuesta, sabrás qué números debes escribir.
+        <p class="password-description">
+
+            Hay una pequeña adivinanza.
+
+            Su respuesta te dará la contraseña
+            para continuar.
+
         </p>
+
 
         <div class="riddle">
 
             <p>
-                No es una fecha cualquiera.<br>
-                Es un número que representa<br>
-                algo muy especial en esta historia.
+                No es solamente un número.
             </p>
 
-            <div class="divider"></div>
-
             <p>
-                Piensa en aquello que hoy<br>
-                estamos celebrando...
+                Es una edad que está a punto
+                de convertirse en celebración.
+            </p>
+
+            <div class="line"></div>
+
+            <p class="gold">
+                ¿Qué número representa
+                este cumpleaños?
             </p>
 
         </div>
 
+
         <input
             id="passwordInput"
-            class="pass-input"
+            class="password-input"
             type="password"
-            maxlength="4"
+            maxlength="2"
             inputmode="numeric"
-            placeholder="••••"
-            onkeydown="if(event.key==='Enter')checkPassword()"
+            placeholder="••"
+            onkeydown="
+                if(event.key==='Enter')
+                checkPassword()
+            "
         >
 
-        <div id="passwordError" class="error"></div>
+        <div
+            id="passwordError"
+            class="password-error"
+        ></div>
 
-        <button class="main-btn" onclick="checkPassword()">
+
+        <button
+            class="main-button"
+            onclick="checkPassword()"
+        >
             DESBLOQUEAR
         </button>
 
@@ -854,425 +1332,616 @@ p{
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      INTRODUCCIÓN
-===================================================== -->
+========================================================= -->
 
-<section id="intro" class="screen">
+<section
+    id="introduction"
+    class="screen center"
+>
 
-    <button class="back-btn" onclick="goTo('cover')">
-        VOLVER
-    </button>
+    <div class="introduction">
 
-    <div class="center-screen">
-
-        <div class="intro-card">
-
-            <div class="small-title">
-                Para ti
-            </div>
-
-            <h2>
-                25 pequeños momentos
-            </h2>
-
-            <div class="gold-line"></div>
-
-            <p>
-                Desde hoy comienza una pequeña cuenta atrás.
-            </p>
-
-            <p>
-                Cada día habrá algo diferente:
-                una pista, un recuerdo, una canción,
-                una pregunta, una sorpresa o simplemente
-                unas palabras para ti.
-            </p>
-
-            <p>
-                No intentes descubrirlo todo de una vez.
-                Algunas cosas están hechas para encontrarse
-                poquito a poquito.
-            </p>
-
-            <p class="serif gold" style="font-size:1.5rem;">
-                Y recuerda...
-                lo mejor siempre se guarda para el final.
-            </p>
-
-            <button class="main-btn" onclick="goTo('calendar')">
-                ENTRAR AL CALENDARIO
-            </button>
-
+        <div class="small-title">
+            Para ti
         </div>
+
+        <h2>
+            Una cuenta atrás
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            Desde el 1 de septiembre
+            comienza algo preparado especialmente
+            para ti.
+        </p>
+
+        <p>
+            Cada día guarda algo diferente:
+            una pista,
+            un recuerdo,
+            una canción,
+            un juego
+            o simplemente unas palabras.
+        </p>
+
+        <p>
+            Algunas cosas serán fáciles de descubrir.
+            Otras tendrán que esperar.
+        </p>
+
+        <p class="serif gold big-serif">
+            No intentes descubrirlo todo de una vez.
+        </p>
+
+        <p>
+            Porque el último día
+            es el que guarda la sorpresa más importante.
+        </p>
+
+        <button
+            class="main-button"
+            onclick="showScreen('calendar')"
+        >
+            ENTRAR
+        </button>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     CALENDARIO
-===================================================== -->
+<!-- =========================================================
+     CALENDARIO 1 — 19
+========================================================= -->
 
-<section id="calendar" class="screen">
+<section
+    id="calendar"
+    class="screen"
+>
 
     <div class="content">
 
         <div class="calendar-header">
 
             <div class="small-title">
-                La cuenta atrás
+                Septiembre
             </div>
 
             <h2>
-                25 días para ti
+                Nuestra cuenta atrás
             </h2>
 
-            <div class="gold-line"></div>
+            <div class="line"></div>
 
             <p>
-                Cada número guarda algo.
-                Algunos secretos todavía no están listos para abrirse.
+                Diecinueve días.
+                Diecinueve pequeñas sorpresas.
+                Un cumpleaños que merece algo especial.
             </p>
 
         </div>
 
-        <div class="calendar" id="calendarGrid"></div>
+        <div
+            id="calendarGrid"
+            class="calendar"
+        ></div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     CONTENEDOR DE DÍAS
-===================================================== -->
+<!-- =========================================================
+     AQUÍ SE GENERAN LOS 19 DÍAS
+========================================================= -->
 
 <div id="daysContainer"></div>
 
 
 <script>
 
-/* =====================================================
+/* =========================================================
    CONFIGURACIÓN
-===================================================== */
-
-const PASSWORD = "2509";
-
-const START_DATE = new Date(2026, 7, 26);
-const BIRTHDAY = new Date(2026, 8, 19);
+========================================================= */
 
 /*
-   Archivos que ya establecimos.
-*/
-const MEDIA = {
-    fotoDia3: "dia03_recuerdo.jpg",
-    fotoDia4: "dia04_foto_beso.jpg",
-    fotoDia15_1: "dia15_recuerdo_01.jpg",
-    fotoDia15_2: "dia15_recuerdo_02.jpg",
+   IMPORTANTE:
 
-    /*
-       PON AQUÍ EL NOMBRE DEL VIDEO CUANDO LO SUBAS.
-    */
-    videoFinal: "video_final.mp4"
+   El calendario es del 1 al 19.
+
+   El 19 es el cumpleaños número 25.
+*/
+
+const PASSWORD = "25";
+
+
+/*
+   ARCHIVOS
+*/
+
+const MEDIA = {
+
+    dia03:
+        "dia03_recuerdo.jpg",
+
+    dia04:
+        "dia04_foto_beso.jpg",
+
+    dia15_01:
+        "dia15_recuerdo_01.jpg",
+
+    dia15_02:
+        "dia15_recuerdo_02.jpg",
+
+    dia10Audio:
+        "cancion_dia10.mp3",
+
+    dia14Audio:
+        "cancion_dia14.mp3",
+
+    finalVideo:
+        "video_final.mp4"
+
 };
 
 
-/* =====================================================
-   CONTENIDO
-===================================================== */
+/*
+   AQUÍ DEBES PONER EL NOMBRE EXACTO
+   DE LA CANCIÓN QUE LAS UNIÓ.
+
+   Por ejemplo:
+
+   const SONG_ANSWER = "nombre exacto";
+
+*/
+
+const SONG_ANSWER =
+    "NOMBRE DE LA CANCION";
+
+
+/* =========================================================
+   CONTENIDO DE LOS 19 DÍAS
+========================================================= */
 
 const days = {
 
-1: {
+
+/* ---------------------------------------------------------
+   DÍA 1
+--------------------------------------------------------- */
+
+1:{
     title:"El comienzo",
+
     html:`
+
         <p>
-            Todo comenzó mucho antes de que llegaras
-            hasta este día.
+            Hoy comienza esta pequeña cuenta atrás.
         </p>
 
         <p>
-            Pero desde hoy quiero regalarte
-            una pequeña historia hecha de momentos.
+            Diecinueve días para llegar
+            hasta uno muy especial.
         </p>
 
-        <p class="serif gold" style="font-size:1.6rem;">
+        <p class="gold big-serif">
             Y este es solamente el principio.
         </p>
+
     `
 },
 
-2: {
-    title:"Una pequeña sorpresa",
+
+/* ---------------------------------------------------------
+   DÍA 2
+--------------------------------------------------------- */
+
+2:{
+    title:"Un pequeño secreto",
+
     html:`
+
         <p>
-            Si estás leyendo esto significa que
-            ya empezaste a descubrirlo.
+            Hay cosas que todavía
+            no estás preparada para descubrir.
         </p>
 
         <p>
-            Y todavía quedan muchas cosas
-            escondidas detrás de cada número.
+            Algunas pistas van a ser fáciles.
         </p>
 
-        <p class="serif gold" style="font-size:1.6rem;">
-            No tengas tanta prisa.
+        <p>
+            Otras...
+            no tanto.
         </p>
+
+        <p class="gold big-serif">
+            Ten paciencia.
+        </p>
+
     `
 },
 
-3: {
+
+/* ---------------------------------------------------------
+   DÍA 3 — FOTO
+--------------------------------------------------------- */
+
+3:{
     title:"Un recuerdo",
+
     html:`
+
         <p>
             Hay recuerdos que no necesitan
             demasiadas palabras.
         </p>
 
         <p>
-            Solo necesitan que los volvamos a mirar.
+            Solo necesitan volver a mirarse.
         </p>
 
         <div class="photo-grid">
-            <div class="photo-card" onclick="revealPhoto(this)">
-                <img src="${MEDIA.fotoDia3}" alt="Recuerdo">
+
+            <div
+                class="photo-card"
+                onclick="revealPhoto(this)"
+            >
+
+                <img
+                    src="${MEDIA.dia03}"
+                    alt="Recuerdo"
+                >
+
                 <div class="photo-cover">
                     TOCA PARA DESCUBRIR
                 </div>
+
             </div>
+
         </div>
+
     `
 },
 
-4: {
-    title:"Hay recuerdos que hablan solos",
+
+/* ---------------------------------------------------------
+   DÍA 4 — BESO
+--------------------------------------------------------- */
+
+4:{
+    title:"Ese momento",
+
     html:`
+
         <p>
-            Esta vez no voy a explicarte nada.
+            Esta vez tampoco voy a decirte
+            qué estás a punto de encontrar.
         </p>
 
         <p>
-            Solo quiero que descubras el recuerdo
-            que escondí detrás de este día.
+            Solo toca la pantalla.
         </p>
 
         <div class="photo-grid">
-            <div class="photo-card" onclick="revealPhoto(this)">
-                <img src="${MEDIA.fotoDia4}" alt="Foto">
+
+            <div
+                class="photo-card"
+                onclick="revealPhoto(this)"
+            >
+
+                <img
+                    src="${MEDIA.dia04}"
+                    alt="Recuerdo"
+                >
+
                 <div class="photo-cover">
                     TOCA PARA DESCUBRIR
                 </div>
+
             </div>
+
         </div>
+
     `
 },
 
-5: {
-    title:"Un día más",
-    html:`
-        <p>
-            A veces las cosas más bonitas
-            no necesitan una gran explicación.
-        </p>
 
-        <p class="serif gold" style="font-size:1.7rem;">
-            Solo necesitan ser sinceras.
-        </p>
-    `
-},
+/* ---------------------------------------------------------
+   DÍA 5
+--------------------------------------------------------- */
 
-6: {
+5:{
     title:"Para guardar",
+
     html:`
-        <p>
-            Hay cosas que quiero que permanezcan
-            incluso cuando pase el tiempo.
-        </p>
 
         <p>
-            Porque algunos momentos merecen
-            quedarse guardados para siempre.
+            Hay momentos pequeños
+            que terminan significando muchísimo.
         </p>
+
+        <p class="gold big-serif">
+            Este es uno de ellos.
+        </p>
+
     `
 },
 
-7: {
-    title:"Antes de mañana",
+
+/* ---------------------------------------------------------
+   DÍA 6
+--------------------------------------------------------- */
+
+6:{
+    title:"Un día más",
+
     html:`
+
         <p>
-            Mañana tendrás que descubrir
+            Ya llevamos varios días.
+        </p>
+
+        <p>
+            Y todavía queda muchísimo
+            por descubrir.
+        </p>
+
+        <p class="gold big-serif">
+            Sigue guardando cada pista.
+        </p>
+
+    `
+},
+
+
+/* ---------------------------------------------------------
+   DÍA 7
+--------------------------------------------------------- */
+
+7:{
+    title:"Mañana",
+
+    html:`
+
+        <p>
+            Mañana vas a encontrar
             algo un poquito diferente.
         </p>
 
-        <p class="serif gold" style="font-size:1.7rem;">
-            Y esta vez tendrás que elegir.
+        <p>
+            No tendrás que buscar una sola respuesta.
         </p>
+
+        <p class="gold big-serif">
+            Tendrás que elegir.
+        </p>
+
     `
 },
 
-8: {
-    title:"25 cosas por las que te quiero",
+
+/* ---------------------------------------------------------
+   DÍA 8 — 25 COSAS
+--------------------------------------------------------- */
+
+8:{
+    title:"25 cosas por las que te amo",
+
     html:`
+
         <p>
-            Hoy tienes 25 estrellas.
+            Hoy tienes delante
+            veinticinco estrellas.
         </p>
 
         <p>
-            Puedes elegir cualquiera.
-            Cada una esconde una razón.
+            Puedes tocar cualquiera.
         </p>
 
-        <div class="stars" id="stars"></div>
+        <p>
+            Cada una guarda una razón.
+        </p>
 
-        <div class="reason-box" id="reasonBox">
+        <div
+            id="stars"
+            class="stars"
+        ></div>
+
+        <div
+            id="reason"
+            class="reason"
+        >
             Elige una estrella.
         </div>
+
     `
 },
 
-9: {
-    title:"Algo que conozco de ti",
+
+/* ---------------------------------------------------------
+   DÍA 9 — ESPAGUETI
+--------------------------------------------------------- */
+
+9:{
+    title:"Adivina",
+
     html:`
+
+        <p>
+            Hoy quiero comprobar
+            cuánto sabes de ti misma.
+        </p>
+
         <div class="riddle">
 
             <p>
-                Hay algo que te encanta comer.
-            </p>
-
-            <div class="divider"></div>
-
-            <p>
-                Cuando aparece en un plato,
-                probablemente ya sabes
-                de qué estoy hablando.
+                Es algo que te encanta comer.
             </p>
 
             <p>
-                Y si además tienes hambre...
+                Lleva pasta,
+                puede llevar salsa
+                y cuando tienes hambre...
             </p>
 
             <p class="gold">
-                mejor no hacerte esperar demasiado.
+                probablemente sea una excelente idea.
             </p>
 
         </div>
 
-        <p>
-            Una pista:
-            tiene salsa, tiene pasta
-            y te encanta.
+        <p class="big-serif">
+            ¿Qué es?
         </p>
 
-        <div class="riddle-answer">
+        <div class="answer-row">
 
             <input
-                id="riddle9"
+                id="answer9"
                 placeholder="Escribe tu respuesta..."
             >
 
-            <button class="main-btn"
-                    style="margin-top:0"
-                    onclick="checkRiddle9()">
+            <button
+                class="main-button"
+                onclick="checkDay9()"
+            >
                 COMPROBAR
             </button>
 
         </div>
 
-        <div id="riddle9Result" class="error"></div>
+        <div
+            id="result9"
+            class="answer-result"
+        ></div>
+
     `
 },
 
-10: {
+
+/* ---------------------------------------------------------
+   DÍA 10 — CANCIÓN
+--------------------------------------------------------- */
+
+10:{
     title:"Una canción",
+
     html:`
+
         <p>
-            Hay canciones que simplemente escuchamos.
+            Hay canciones que escuchamos
+            y nada más.
         </p>
 
         <p>
-            Y hay otras que terminan teniendo
-            un significado diferente.
+            Y hay canciones que terminan
+            guardando recuerdos.
         </p>
 
-        <div class="divider"></div>
-
-        <p class="serif gold" style="font-size:1.7rem;">
+        <p class="gold big-serif">
             Esta es una de esas.
         </p>
 
-        <audio controls style="width:100%;margin-top:30px;">
-            <source src="cancion_dia10.mp3" type="audio/mpeg">
+        <audio controls>
+
+            <source
+                src="${MEDIA.dia10Audio}"
+                type="audio/mpeg"
+            >
+
         </audio>
+
     `
 },
 
-11: {
-    title:"¿Cuánto sabes de mí?",
+
+/* ---------------------------------------------------------
+   DÍA 11 — ELLA
+--------------------------------------------------------- */
+
+11:{
+    title:"¿Cuánto sabes de ti?",
+
     html:`
-        <p>
-            Hoy no hay fotos.
-        </p>
 
         <p>
-            Tampoco hay una canción escondida.
+            Hoy la pista está hecha
+            de pequeñas cosas que te gustan.
         </p>
 
-        <p>
-            Solo una pequeña adivinanza
-            hecha con algunas cosas que sé de ti.
-        </p>
-
-        <div class="riddle">
+        <div class="clue">
 
             <p>
-                Mi color favorito es el que parece
-                haber sido creado para llenar
-                todo de ternura.
+                Tu color favorito
+                tiene un poquito de rosa.
             </p>
 
             <p>
-                Me gusta escuchar música.
+                Te encanta la música.
             </p>
 
             <p>
-                Me encantan las series y las películas.
+                Te gustan las series
+                y las películas.
             </p>
 
             <p>
-                Me gusta el aguacate.
+                El aguacate tiene un lugar
+                bastante importante.
             </p>
 
             <p>
-                Y cuando tengo hambre...
+                Y si tienes hambre...
             </p>
 
             <p class="gold">
-                mejor tener cuidado.
+                mejor que nadie se meta contigo.
             </p>
 
         </div>
 
-        <p class="serif gold" style="font-size:1.6rem;">
-            ¿Quién soy?
+        <p class="big-serif gold">
+            Porque sí...
+            te conozco.
         </p>
+
     `
 },
 
-12: {
+
+/* ---------------------------------------------------------
+   DÍA 12 — FLORES + PELUCHE
+--------------------------------------------------------- */
+
+12:{
     title:"La pista escondida",
+
     html:`
-        <div class="clue-box">
+
+        <div class="clue">
 
             <div class="clue-title">
                 Pista #1
             </div>
 
             <p>
-                Hay algo que nace,<br>
-                que un día florece,<br>
-                y cuando aparece,<br>
+                Hay algo que nace,
+            </p>
+
+            <p>
+                que un día florece,
+            </p>
+
+            <p>
+                y cuando aparece,
+            </p>
+
+            <p>
                 todo el mundo embellece.
             </p>
 
@@ -1284,8 +1953,11 @@ const days = {
 
             <p>
                 <strong>
-                Deseo que contigo permanezca,
-                </strong><br>
+                    Deseo que contigo permanezca,
+                </strong>
+            </p>
+
+            <p>
                 y que con los años jamás desvanezca.
             </p>
 
@@ -1297,23 +1969,25 @@ const days = {
                 y al ver su belleza,
             </p>
 
-            <p>
-                <strong>
+            <p class="gold">
                 recuerdes lo mucho que te quiero.
-                </strong>
             </p>
 
         </div>
 
+
         <div class="footprints">
+
             <span class="footprint">•</span>
             <span class="footprint">•</span>
             <span class="footprint">•</span>
             <span class="footprint">•</span>
             <span class="footprint">•</span>
+
         </div>
 
-        <div class="clue-box">
+
+        <div class="clue">
 
             <div class="clue-title">
                 Pista #2
@@ -1338,9 +2012,21 @@ const days = {
             <br>
 
             <p>
-                <strong>No camina,</strong><br>
-                <strong>no habla,</strong><br>
-                <strong>no puede abrazarte primero,</strong>
+                <strong>
+                    No camina,
+                </strong>
+            </p>
+
+            <p>
+                <strong>
+                    no habla,
+                </strong>
+            </p>
+
+            <p>
+                <strong>
+                    no puede abrazarte primero,
+                </strong>
             </p>
 
             <p>
@@ -1356,18 +2042,17 @@ const days = {
 
         </div>
 
-        <div class="divider"></div>
 
-        <p class="serif" style="font-size:1.5rem;">
+        <p class="big-serif">
             Ahora tienes las dos pistas,
             pero todavía no la respuesta.
         </p>
 
-        <p class="serif" style="font-size:1.5rem;">
+        <p>
             No me lo digas.
         </p>
 
-        <p class="gold serif" style="font-size:1.7rem;">
+        <p class="gold big-serif">
             Guárdatelo en el corazón.
         </p>
 
@@ -1376,15 +2061,15 @@ const days = {
             para poder descubrirlo.
         </p>
 
-        <div class="divider"></div>
+        <div class="line"></div>
 
         <p>
-            Dos pequeñas pistas,<br>
+            Dos pequeñas pistas,
             dos secretos por guardar:
         </p>
 
         <p>
-            una para conservar,<br>
+            una para conservar,
             otra para abrazar.
         </p>
 
@@ -1393,7 +2078,7 @@ const days = {
             te voy a revelar.
         </p>
 
-        <p class="gold serif" style="font-size:1.7rem;">
+        <p class="gold big-serif">
             Tendrás que esperar, amor...
         </p>
 
@@ -1401,47 +2086,69 @@ const days = {
             porque lo más bonito
             todavía está por llegar.
         </p>
+
     `
 },
 
-13: {
-    title:"Un pequeño juego",
+
+/* ---------------------------------------------------------
+   DÍA 13
+--------------------------------------------------------- */
+
+13:{
+    title:"Una pequeña pista",
+
     html:`
-        <p>
-            Hoy no tienes que buscar una respuesta.
-        </p>
 
         <p>
-            Solo quiero que mires con atención
-            y dejes que tu intuición haga el resto.
+            Algunas cosas no necesitan
+            que te diga exactamente qué buscar.
         </p>
 
-        <div class="divider"></div>
-
-        <p class="serif gold" style="font-size:1.8rem;">
-            Algunas cosas se entienden
-            sin necesidad de explicarlas.
+        <p>
+            Solo tienes que observar.
         </p>
+
+        <div class="clue">
+
+            <p>
+                A veces la respuesta
+                está justo delante de nosotros.
+            </p>
+
+            <p class="gold">
+                Solo hay que saber mirar.
+            </p>
+
+        </div>
+
     `
 },
 
-14: {
+
+/* ---------------------------------------------------------
+   DÍA 14 — CANCIÓN QUE LAS UNIÓ
+--------------------------------------------------------- */
+
+14:{
     title:"La canción que nos unió",
+
     html:`
-        <p>
-            Esta vez sí tienes que descubrirla.
-        </p>
 
         <p>
-            Hay una canción que ocupa
-            un lugar especial en nuestra historia.
+            Esta vez no voy a poner
+            la canción directamente.
         </p>
 
-        <p class="serif gold" style="font-size:1.7rem;">
-            La canción que nos unió.
+        <p>
+            Primero tendrás que descubrirla.
         </p>
 
-        <div class="song-unlock">
+        <p class="gold big-serif">
+            Es la canción que nos unió.
+        </p>
+
+        <div class="song-box">
 
             <input
                 id="songAnswer"
@@ -1449,386 +2156,395 @@ const days = {
             >
 
             <button
-                class="main-btn"
-                onclick="checkSong()">
+                class="main-button"
+                onclick="checkSong()"
+            >
                 DESCUBRIR
             </button>
 
-            <div id="songResult" class="song-result">
+            <div
+                id="songSuccess"
+                class="song-success"
+            >
 
-                <div class="divider"></div>
-
-                <p class="serif gold" style="font-size:1.8rem;">
+                <p class="gold big-serif">
                     Esa era.
                 </p>
 
                 <p>
-                    Ahora sí puedes escucharla.
+                    Ahora sí.
                 </p>
 
-                <audio controls style="width:100%;margin-top:25px;">
-                    <source src="cancion_dia14.mp3" type="audio/mpeg">
+                <audio controls>
+
+                    <source
+                        src="${MEDIA.dia14Audio}"
+                        type="audio/mpeg"
+                    >
+
                 </audio>
 
             </div>
 
         </div>
+
     `
 },
 
-15: {
+
+/* ---------------------------------------------------------
+   DÍA 15 — DOS FOTOS
+--------------------------------------------------------- */
+
+15:{
     title:"Dos recuerdos",
+
     html:`
+
         <p>
             Hoy hay dos recuerdos escondidos.
         </p>
 
         <p>
-            No aparecen hasta que tú decidas
-            descubrirlos.
+            Ninguno aparecerá
+            hasta que tú decidas descubrirlo.
         </p>
 
         <div class="photo-grid">
 
-            <div class="photo-card" onclick="revealPhoto(this)">
-                <img src="${MEDIA.fotoDia15_1}" alt="Recuerdo 1">
+            <div
+                class="photo-card"
+                onclick="revealPhoto(this)"
+            >
+
+                <img
+                    src="${MEDIA.dia15_01}"
+                    alt="Recuerdo"
+                >
+
                 <div class="photo-cover">
                     DESCUBRIR
                 </div>
+
             </div>
 
-            <div class="photo-card" onclick="revealPhoto(this)">
-                <img src="${MEDIA.fotoDia15_2}" alt="Recuerdo 2">
+
+            <div
+                class="photo-card"
+                onclick="revealPhoto(this)"
+            >
+
+                <img
+                    src="${MEDIA.dia15_02}"
+                    alt="Recuerdo"
+                >
+
                 <div class="photo-cover">
                     DESCUBRIR
                 </div>
+
             </div>
 
         </div>
+
     `
 },
 
-16: {
-    title:"Una pista diferente",
+
+/* ---------------------------------------------------------
+   DÍA 16 — ZAPATOS
+--------------------------------------------------------- */
+
+16:{
+    title:"Otra pista",
+
     html:`
-        <p>
-            Hoy no hay que descubrir una canción,
-            ni una foto.
-        </p>
 
         <p>
-            Hay una pista relacionada
-            con algo que se usa para caminar.
+            Hoy tienes que pensar
+            en algo que va contigo.
         </p>
 
-        <div class="clue-box">
-
-            <div class="clue-title">
-                Pista
-            </div>
+        <div class="clue">
 
             <p>
-                Van contigo a todas partes.
+                Te acompaña cuando caminas.
             </p>
 
             <p>
-                Te acompañan cuando sales,
-                cuando caminas
-                y cuando decides irte de un lugar a otro.
+                Está contigo cuando sales.
+            </p>
+
+            <p>
+                Y aunque casi nunca piensas
+                demasiado en ello...
             </p>
 
             <p class="gold">
-                Hoy tienes que pensar en ellos.
+                siempre va contigo.
             </p>
 
         </div>
 
-        <p class="serif" style="font-size:1.5rem;">
-            Y no...
-            todavía no voy a decirte para qué.
+        <p class="big-serif">
+            No voy a decirte más.
         </p>
+
     `
 },
 
-17: {
+
+/* ---------------------------------------------------------
+   DÍA 17
+--------------------------------------------------------- */
+
+17:{
     title:"Ya falta poquito",
+
     html:`
+
         <p>
-            Hemos llegado bastante lejos.
+            Mira cuánto has avanzado.
         </p>
 
         <p>
-            Y si miras hacia atrás,
-            ya has descubierto muchas cosas.
+            Ya descubriste recuerdos,
+            canciones,
+            pistas
+            y pequeños secretos.
         </p>
 
-        <div class="divider"></div>
-
-        <div class="riddle">
+        <div class="clue">
 
             <p>
-                Hay algo que aparece cuando
-                una espera está llegando a su final.
-            </p>
-
-            <p>
-                No es un regalo.
-            </p>
-
-            <p>
-                No es una canción.
-            </p>
-
-            <p>
-                No es una fotografía.
+                Cuando una espera está llegando
+                a su final,
+                aparece una sensación especial.
             </p>
 
             <p class="gold">
-                Es simplemente esa sensación
-                de saber que falta muy poquito.
+                Esa sensación de saber
+                que falta muy poquito.
             </p>
 
         </div>
 
-        <p>
-            Mira bien los próximos días.
+        <p class="big-serif">
+            Y ahora sí...
         </p>
+
+        <p class="gold big-serif">
+            estamos muy cerca.
+        </p>
+
     `
 },
 
-18: {
-    title:"La cuenta atrás",
+
+/* ---------------------------------------------------------
+   DÍA 18 — CUENTA REGRESIVA
+--------------------------------------------------------- */
+
+18:{
+    title:"La cuenta regresiva",
+
     html:`
-        <p>
-            Ahora sí.
-        </p>
 
         <p>
-            Ya no estamos contando días.
+            Hoy ya no estamos contando solamente días.
         </p>
 
-        <p class="serif gold" style="font-size:1.8rem;">
+        <p class="gold big-serif">
             Estamos contando el tiempo.
         </p>
 
         <div class="countdown">
 
-            <div class="time-box">
-                <strong id="daysLeft">00</strong>
-                <span>Días</span>
+            <div class="time">
+
+                <strong id="daysLeft">
+                    00
+                </strong>
+
+                <span>
+                    Días
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="hoursLeft">00</strong>
-                <span>Horas</span>
+
+            <div class="time">
+
+                <strong id="hoursLeft">
+                    00
+                </strong>
+
+                <span>
+                    Horas
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="minutesLeft">00</strong>
-                <span>Minutos</span>
+
+            <div class="time">
+
+                <strong id="minutesLeft">
+                    00
+                </strong>
+
+                <span>
+                    Minutos
+                </span>
+
             </div>
 
-            <div class="time-box">
-                <strong id="secondsLeft">00</strong>
-                <span>Segundos</span>
+
+            <div class="time">
+
+                <strong id="secondsLeft">
+                    00
+                </strong>
+
+                <span>
+                    Segundos
+                </span>
+
             </div>
 
         </div>
 
-        <p class="serif" style="font-size:1.5rem;">
-            Porque cada segundo nos acerca
-            un poquito más a tu día.
+        <p>
+            Cada segundo nos acerca
+            un poquito más.
         </p>
 
-        <p class="gold serif" style="font-size:1.8rem;">
-            19 de septiembre.
+        <p class="gold big-serif">
+            Mañana es tu día.
         </p>
+
     `
 },
 
-19: {
-    title:"Ya casi",
-    html:`
-        <p>
-            Si llegaste hasta aquí,
-            ya sabes que esto no era solamente
-            una cuenta atrás.
-        </p>
 
-        <p>
-            Cada día tenía una pequeña parte
-            de algo que quería regalarte.
-        </p>
+/* ---------------------------------------------------------
+   DÍA 19 — FINAL
+--------------------------------------------------------- */
 
-        <div class="divider"></div>
-
-        <p class="serif gold" style="font-size:1.8rem;">
-            Y todavía queda lo más importante.
-        </p>
-
-        <p>
-            El último día.
-        </p>
-
-        <p>
-            El día para el que empezó todo esto.
-        </p>
-    `
-},
-
-20: {
-    title:"Todavía queda",
-    html:`
-        <p>
-            El calendario todavía guarda secretos.
-        </p>
-
-        <p class="serif gold" style="font-size:1.7rem;">
-            Sigue avanzando.
-        </p>
-    `
-},
-
-21: {
-    title:"Un poquito más",
-    html:`
-        <p>
-            Ya casi podemos dejar de contar.
-        </p>
-
-        <p>
-            Pero todavía no.
-        </p>
-
-        <p class="serif gold" style="font-size:1.7rem;">
-            Todavía queda un poquito de espera.
-        </p>
-    `
-},
-
-22: {
-    title:"Casi llegamos",
-    html:`
-        <p>
-            Hay momentos que se disfrutan
-            incluso antes de llegar.
-        </p>
-
-        <p>
-            Este es uno de ellos.
-        </p>
-    `
-},
-
-23: {
-    title:"Muy poquito",
-    html:`
-        <p>
-            Mira cuánto has avanzado.
-        </p>
-
-        <p class="serif gold" style="font-size:1.8rem;">
-            Ya falta muy poco.
-        </p>
-    `
-},
-
-24: {
-    title:"Mañana",
-    html:`
-        <p>
-            Mañana ya no habrá pistas.
-        </p>
-
-        <p>
-            Mañana no tendrás que descubrir nada.
-        </p>
-
-        <div class="divider"></div>
-
-        <p class="serif gold" style="font-size:2rem;">
-            Mañana será tu día.
-        </p>
-
-        <p>
-            Descansa...
-            porque lo que viene está preparado especialmente para ti.
-        </p>
-    `
-},
-
-25: {
+19:{
     title:"Feliz cumpleaños",
-    html:`
-        <div class="final-page">
 
-            <div class="final-content">
+    html:`
+
+        <div class="final">
+
+            <div class="final-inner">
 
                 <div class="small-title">
                     19 de septiembre
                 </div>
+
 
                 <h1 class="glow">
                     Feliz<br>
                     cumpleaños
                 </h1>
 
-                <div class="gold-line"></div>
+
+                <div class="line"></div>
+
 
                 <p class="final-message">
-                    Hoy termina esta pequeña cuenta atrás,
-                    pero empieza un día que espero que
-                    recuerdes con muchísimo cariño.
+                    Hoy ya no hay más pistas.
                 </p>
 
                 <p class="final-message">
-                    Quería que tu cumpleaños tuviera
-                    algo diferente.
-                    Algo que pudieras ir descubriendo
-                    poquito a poquito,
-                    hasta llegar finalmente aquí.
+                    Hoy es el día para el que
+                    comenzó toda esta cuenta atrás.
                 </p>
+
+                <p class="final-message gold big-serif">
+                    Hoy cumples 25.
+                </p>
+
 
                 <button
-                    class="main-btn"
-                    onclick="showFinalVideo()">
+                    class="main-button"
+                    onclick="revealFinal()"
+                >
                     HAY ALGO PARA TI
                 </button>
 
-                <div class="video-wrap" id="finalVideo">
 
-                    <video controls playsinline>
-                        <source src="${MEDIA.videoFinal}" type="video/mp4">
-                        Tu navegador no puede reproducir este video.
+                <div
+                    id="videoContainer"
+                    class="video-container"
+                >
+
+                    <video
+                        controls
+                        playsinline
+                    >
+
+                        <source
+                            src="${MEDIA.finalVideo}"
+                            type="video/mp4"
+                        >
+
+                        Tu navegador no puede
+                        reproducir este video.
+
                     </video>
 
                 </div>
 
-                <div id="finalText" style="display:none;">
 
-                    <div class="divider"></div>
+                <div
+                    id="finalText"
+                    class="final-text"
+                >
+
+                    <div class="line"></div>
 
                     <p class="final-message">
-                        Espero que este pequeño detalle
-                        te haya hecho sonreír,
-                        que hayas disfrutado cada pista
-                        y que, sobre todo,
-                        hayas sentido todo el cariño
-                        con el que preparé cada parte.
+
+                        Espero que esta pequeña
+                        cuenta atrás te haya hecho
+                        sonreír y que cada día haya
+                        tenido un pedacito especial
+                        para ti.
+
                     </p>
 
                     <p class="final-message">
+
+                        Quería que tu cumpleaños
+                        no fuera solamente un día,
+                        sino una pequeña historia
+                        que pudieras ir descubriendo.
+
+                    </p>
+
+                    <p class="final-message">
+
                         Feliz cumpleaños, Ana Lidia.
+
                     </p>
 
-                    <p class="final-message serif gold">
-                        Que nunca te falten motivos para sonreír,
-                        personas que te quieran
-                        y momentos que quieras guardar.
+                    <p class="final-message gold big-serif">
+
+                        Que nunca te falten razones
+                        para sonreír,
+                        recuerdos bonitos que guardar
+                        y personas que te quieran muchísimo.
+
                     </p>
+
 
                     <div class="signature">
-                        Con amor, DMS <span class="heart">♥</span>
+
+                        Con amor, DMS
+                        <span class="heart">♥</span>
+
                     </div>
 
                 </div>
@@ -1836,97 +2552,117 @@ const days = {
             </div>
 
         </div>
+
     `
 }
 
 };
 
 
-/* =====================================================
-   GENERAR CALENDARIO
-===================================================== */
+/* =========================================================
+   CREAR CALENDARIO 01 — 19
+========================================================= */
 
 function createCalendar(){
 
-    const grid = document.getElementById("calendarGrid");
+    const grid =
+        document.getElementById("calendarGrid");
 
-    grid.innerHTML = "";
+    grid.innerHTML="";
 
-    for(let i=1;i<=25;i++){
+    for(let day=1;day<=19;day++){
 
-        const card = document.createElement("button");
+        const button =
+            document.createElement("button");
 
-        card.className = "day-card";
+        button.className="day";
 
-        if(i===8 || i===12 || i===14 || i===18 || i===25){
-            card.classList.add("special");
+        if(
+            day===8 ||
+            day===12 ||
+            day===14 ||
+            day===18 ||
+            day===19
+        ){
+            button.classList.add("special");
         }
 
-        card.innerHTML = `
-            <div class="day-number">${String(i).padStart(2,"0")}</div>
-            <div class="day-label">
-                ${i===25 ? "Tu cumpleaños" : "Día"}
+        button.innerHTML=`
+
+            <div class="day-number">
+                ${String(day).padStart(2,"0")}
             </div>
+
+            <div class="day-text">
+                ${
+                    day===19
+                    ? "Cumpleaños"
+                    : "Septiembre"
+                }
+            </div>
+
         `;
 
-        card.onclick = () => openDay(i);
+        button.onclick=()=>{
+            openDay(day);
+        };
 
-        grid.appendChild(card);
+        grid.appendChild(button);
     }
 }
 
 
-/* =====================================================
-   CREAR PANTALLAS
-===================================================== */
+/* =========================================================
+   CREAR LAS PANTALLAS DE LOS 19 DÍAS
+========================================================= */
 
 function createDayScreens(){
 
-    const container = document.getElementById("daysContainer");
+    const container =
+        document.getElementById("daysContainer");
 
-    for(let i=1;i<=25;i++){
+    for(let day=1;day<=19;day++){
 
-        const data = days[i] || {
-            title:"Una sorpresa",
-            html:`
-                <p>
-                    Este día todavía guarda
-                    un pequeño secreto.
-                </p>
-            `
-        };
+        const data =
+            days[day];
 
-        const section = document.createElement("section");
+        const section =
+            document.createElement("section");
 
-        section.id = "day" + i;
+        section.id =
+            "day"+day;
 
-        section.className = "screen day-page";
+        section.className =
+            "screen day-page";
 
-        section.innerHTML = `
+        section.innerHTML=`
 
             <button
-                class="back-btn"
-                onclick="goTo('calendar')">
+                class="back-button"
+                onclick="showScreen('calendar')"
+            >
                 VOLVER AL CALENDARIO
             </button>
 
+
             <div class="day-content">
 
-                <div class="day-small">
-                    Día ${String(i).padStart(2,"0")}
+                <div class="day-label">
+                    Día ${String(day).padStart(2,"0")}
                 </div>
 
                 <h2>
                     ${data.title}
                 </h2>
 
-                <div class="gold-line"></div>
+                <div class="line"></div>
 
-                <div class="day-text">
+                <div class="day-body">
                     ${data.html}
                 </div>
 
             </div>
+
         `;
 
         container.appendChild(section);
@@ -1934,56 +2670,71 @@ function createDayScreens(){
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVEGACIÓN
-===================================================== */
+========================================================= */
 
-function goTo(id){
+function showScreen(id){
 
-    document.querySelectorAll(".screen").forEach(screen=>{
-        screen.classList.remove("active");
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen=>{
+            screen.classList.remove("active");
+        });
+
+    const screen =
+        document.getElementById(id);
+
+    if(!screen) return;
+
+    screen.classList.add("active");
+
+    screen.scrollTop=0;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
-    const target = document.getElementById(id);
-
-    if(target){
-        target.classList.add("active");
-        target.scrollTop = 0;
-    }
-
-    window.scrollTo(0,0);
 
     if(id==="day8"){
-        createStars();
+        setTimeout(createStars,100);
     }
+
 
     if(id==="day18"){
         startCountdown();
     }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTRASEÑA
-===================================================== */
+========================================================= */
 
 function checkPassword(){
 
-    const input = document.getElementById("passwordInput");
-    const error = document.getElementById("passwordError");
+    const input =
+        document.getElementById("passwordInput");
 
-    if(input.value === PASSWORD){
+    const error =
+        document.getElementById("passwordError");
 
-        error.textContent = "";
+    if(
+        input.value.trim() === PASSWORD
+    ){
 
-        goTo("intro");
+        error.textContent="";
+
+        showScreen("introduction");
 
     }else{
 
         error.textContent =
-            "Esa no es la contraseña. Piensa un poquito más.";
+            "Pista: piensa en la edad que estás a punto de cumplir.";
 
-        input.value = "";
+        input.value="";
 
         input.animate(
             [
@@ -1992,191 +2743,220 @@ function checkPassword(){
                 {transform:"translateX(7px)"},
                 {transform:"translateX(0)"}
             ],
-            {duration:300}
+            {
+                duration:300
+            }
         );
+
     }
 }
 
 
-/* =====================================================
+/* =========================================================
    ABRIR DÍA
-===================================================== */
+========================================================= */
 
-function openDay(number){
+function openDay(day){
 
-    goTo("day" + number);
+    showScreen(
+        "day"+day
+    );
 
-    if(number === 8){
-        setTimeout(createStars,100);
-    }
-
-    if(number === 18){
-        startCountdown();
-    }
 }
 
 
-/* =====================================================
-   FOTOS
-===================================================== */
+/* =========================================================
+   REVELAR FOTO
+========================================================= */
 
 function revealPhoto(card){
-    card.classList.add("revealed");
+
+    card.classList.add(
+        "revealed"
+    );
+
 }
 
 
-/* =====================================================
-   DÍA 8 — 25 ESTRELLAS
-===================================================== */
+/* =========================================================
+   25 ESTRELLAS
+========================================================= */
 
-const reasons = [
+const reasons=[
 
     "Porque tienes una forma muy tuya de hacerme sonreír.",
 
-    "Porque incluso en los días normales puedes hacer que todo se sienta especial.",
-
     "Porque me encanta tu manera de ser.",
 
-    "Porque hay cosas que solamente tú consigues provocar.",
+    "Porque contigo los momentos pequeños también se vuelven especiales.",
 
-    "Porque contigo siempre hay algún recuerdo que guardar.",
+    "Porque siempre consigues dejar recuerdos bonitos.",
 
-    "Porque tienes una personalidad que no se parece a ninguna otra.",
+    "Porque me gusta compartir momentos contigo.",
 
-    "Porque me encanta escucharte hablar de las cosas que te gustan.",
+    "Porque tu forma de ser es única.",
 
-    "Porque tu sonrisa merece muchísimas más razones para aparecer.",
+    "Porque me encanta escucharte hablar de lo que te gusta.",
 
-    "Porque eres una persona que quiero muchísimo.",
+    "Porque tu sonrisa merece muchísimas razones para aparecer.",
 
-    "Porque contigo los pequeños momentos también cuentan.",
+    "Porque eres una persona muy especial para mí.",
 
-    "Porque me gusta cómo eres cuando estás feliz.",
+    "Porque contigo siempre hay algo que recordar.",
 
-    "Porque hasta tus pequeñas manías terminan siendo parte de ti.",
+    "Porque me encanta cuando estás feliz.",
 
-    "Porque me encanta compartir momentos contigo.",
+    "Porque hasta tus pequeñas manías forman parte de ti.",
 
-    "Porque tienes una manera especial de quedarte en mis pensamientos.",
+    "Porque me gusta cómo somos cuando estamos juntas.",
+
+    "Porque tienes una forma especial de quedarte en mis pensamientos.",
 
     "Porque siempre hay algo nuevo que descubrir de ti.",
 
-    "Porque me haces valorar los recuerdos.",
+    "Porque me encanta crear recuerdos contigo.",
 
     "Porque me gusta la persona que eres.",
 
     "Porque tienes un lugar especial en mi corazón.",
 
-    "Porque me encanta cuando conseguimos reírnos de cualquier cosa.",
+    "Porque me encanta cuando nos reímos de cualquier cosa.",
 
     "Porque hay momentos contigo que no cambiaría.",
 
-    "Porque eres tú, y eso ya es una razón.",
+    "Porque eres tú.",
 
     "Porque quiero seguir creando recuerdos contigo.",
 
     "Porque tu felicidad me importa.",
 
-    "Porque hay personas que llegan y dejan huella.",
+    "Porque algunas personas llegan y dejan huella.",
 
-    "Porque eres una de esas personas."
+    "Porque tú eres una de esas personas."
+
 ];
 
 
 function createStars(){
 
-    const stars = document.getElementById("stars");
+    const container =
+        document.getElementById("stars");
 
-    if(!stars) return;
+    if(!container) return;
 
-    if(stars.children.length) return;
+    if(container.children.length>0)
+        return;
 
-    reasons.forEach((reason,index)=>{
+    reasons.forEach(
+        (reason,index)=>{
 
-        const star = document.createElement("button");
+            const button =
+                document.createElement("button");
 
-        star.className = "star";
+            button.className="star";
 
-        star.innerHTML = "✦";
+            button.innerHTML="✦";
 
-        star.title = "Razón " + (index+1);
+            button.onclick=()=>{
 
-        star.onclick = ()=>{
+                document
+                    .getElementById("reason")
+                    .textContent=reason;
 
-            document.getElementById("reasonBox").textContent =
-                reason;
+                button.animate(
+                    [
+                        {
+                            transform:
+                                "scale(1)"
+                        },
+                        {
+                            transform:
+                                "scale(1.2) rotate(6deg)"
+                        },
+                        {
+                            transform:
+                                "scale(1)"
+                        }
+                    ],
+                    {
+                        duration:400
+                    }
+                );
 
-            star.style.transform =
-                "scale(1.15) rotate(8deg)";
+            };
 
-            setTimeout(()=>{
-                star.style.transform = "";
-            },350);
-        };
+            container.appendChild(
+                button
+            );
 
-        stars.appendChild(star);
-    });
+        }
+    );
+
 }
 
 
-/* =====================================================
-   DÍA 9
-===================================================== */
+/* =========================================================
+   DÍA 9 — ESPAGUETI
+========================================================= */
 
-function checkRiddle9(){
+function checkDay9(){
 
     const input =
-        document.getElementById("riddle9");
+        document.getElementById("answer9");
 
     const result =
-        document.getElementById("riddle9Result");
-
-    if(!input || !result) return;
+        document.getElementById("result9");
 
     const answer =
-        input.value.trim().toLowerCase();
+        input.value
+            .trim()
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g,"");
+
 
     if(
         answer.includes("espagueti") ||
-        answer.includes("spaghetti") ||
-        answer.includes("espaguetti")
+        answer.includes("espaguetti") ||
+        answer.includes("spaghetti")
     ){
 
-        result.style.color = "#d8b36a";
+        result.style.color =
+            "var(--gold)";
 
         result.textContent =
-            "Correcto. Sabía que lo ibas a descubrir.";
+            "Correcto. Sabía que ibas a descubrirlo.";
 
     }else{
 
-        result.style.color = "#e9a8bd";
+        result.style.color =
+            "var(--pink)";
 
         result.textContent =
-            "Mmm... piensa en una comida que te encanta.";
+            "No... piensa en tu comida favorita de pasta.";
+
     }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    DÍA 14 — CANCIÓN
-===================================================== */
+========================================================= */
 
-function normalizeText(text){
+function normalize(text){
 
     return text
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g,"")
+        .replace(
+            /[^a-z0-9\s]/g,
+            ""
+        )
         .trim();
+
 }
-
-
-/*
-   IMPORTANTE:
-   Cambia este texto por el nombre exacto
-   de la canción que las unió.
-*/
-const SONG_ANSWER = "NOMBRE DE LA CANCION";
 
 
 function checkSong(){
@@ -2184,218 +2964,344 @@ function checkSong(){
     const input =
         document.getElementById("songAnswer");
 
-    const result =
-        document.getElementById("songResult");
-
-    if(!input || !result) return;
-
-    const answer =
-        normalizeText(input.value);
+    const success =
+        document.getElementById("songSuccess");
 
     if(
-        answer === normalizeText(SONG_ANSWER)
+        normalize(input.value) ===
+        normalize(SONG_ANSWER)
     ){
 
-        result.classList.add("show");
+        success.classList.add(
+            "show"
+        );
 
-        input.disabled = true;
+        input.disabled=true;
 
     }else{
 
-        alert(
-            "Todavía no... piensa en nuestra canción."
+        input.animate(
+            [
+                {
+                    transform:"translateX(0)"
+                },
+                {
+                    transform:
+                        "translateX(-6px)"
+                },
+                {
+                    transform:
+                        "translateX(6px)"
+                },
+                {
+                    transform:
+                        "translateX(0)"
+                }
+            ],
+            {
+                duration:300
+            }
         );
+
     }
+
 }
 
 
-/* =====================================================
+/* =========================================================
    DÍA 18 — CUENTA REGRESIVA
-===================================================== */
+========================================================= */
 
-let countdownInterval = null;
+let countdownInterval=null;
+
 
 function startCountdown(){
 
     if(countdownInterval){
-        clearInterval(countdownInterval);
+        clearInterval(
+            countdownInterval
+        );
     }
+
 
     function update(){
 
-        const now = new Date();
-
         /*
-           Cumpleaños: 19 de septiembre.
-           Se toma el comienzo del día 19.
+           19 DE SEPTIEMBRE
+           A LAS 00:00:00
+
+           La hora se toma del dispositivo
+           de quien esté viendo la página.
         */
-        const target =
-            new Date(2026,8,19,0,0,0);
+
+        const birthday =
+            new Date(
+                2026,
+                8,
+                19,
+                0,
+                0,
+                0
+            );
+
+        const now =
+            new Date();
 
         let difference =
-            target - now;
+            birthday-now;
 
-        if(difference < 0){
-            difference = 0;
+        if(difference<0){
+            difference=0;
         }
 
+
         const totalSeconds =
-            Math.floor(difference / 1000);
+            Math.floor(
+                difference/1000
+            );
+
 
         const days =
-            Math.floor(totalSeconds / 86400);
+            Math.floor(
+                totalSeconds/86400
+            );
+
 
         const hours =
             Math.floor(
-                (totalSeconds % 86400) / 3600
+                (totalSeconds%86400)/3600
             );
+
 
         const minutes =
             Math.floor(
-                (totalSeconds % 3600) / 60
+                (totalSeconds%3600)/60
             );
 
+
         const seconds =
-            totalSeconds % 60;
+            totalSeconds%60;
+
 
         const d =
-            document.getElementById("daysLeft");
+            document.getElementById(
+                "daysLeft"
+            );
 
         const h =
-            document.getElementById("hoursLeft");
+            document.getElementById(
+                "hoursLeft"
+            );
 
         const m =
-            document.getElementById("minutesLeft");
+            document.getElementById(
+                "minutesLeft"
+            );
 
         const s =
-            document.getElementById("secondsLeft");
+            document.getElementById(
+                "secondsLeft"
+            );
 
-        if(d) d.textContent =
-            String(days).padStart(2,"0");
 
-        if(h) h.textContent =
-            String(hours).padStart(2,"0");
+        if(d)
+            d.textContent =
+                String(days)
+                    .padStart(2,"0");
 
-        if(m) m.textContent =
-            String(minutes).padStart(2,"0");
 
-        if(s) s.textContent =
-            String(seconds).padStart(2,"0");
+        if(h)
+            h.textContent =
+                String(hours)
+                    .padStart(2,"0");
+
+
+        if(m)
+            m.textContent =
+                String(minutes)
+                    .padStart(2,"0");
+
+
+        if(s)
+            s.textContent =
+                String(seconds)
+                    .padStart(2,"0");
+
     }
+
 
     update();
 
     countdownInterval =
-        setInterval(update,1000);
+        setInterval(
+            update,
+            1000
+        );
+
 }
 
 
-/* =====================================================
-   DÍA 25 — VIDEO
-===================================================== */
+/* =========================================================
+   FINAL — REVELAR VIDEO
+========================================================= */
 
-function showFinalVideo(){
+function revealFinal(){
 
     const video =
-        document.getElementById("finalVideo");
+        document.getElementById(
+            "videoContainer"
+        );
 
     const text =
-        document.getElementById("finalText");
+        document.getElementById(
+            "finalText"
+        );
 
-    if(!video) return;
 
-    video.classList.add("show");
+    video.classList.add(
+        "show"
+    );
 
-    if(text){
-        text.style.display = "block";
-    }
+    text.classList.add(
+        "show"
+    );
+
 
     createConfetti();
 
+
     setTimeout(()=>{
+
         video.scrollIntoView({
             behavior:"smooth",
             block:"center"
         });
-    },200);
+
+    },300);
+
 }
 
 
-/* =====================================================
+/* =========================================================
    CONFETI
-===================================================== */
+========================================================= */
 
 function createConfetti(){
 
-    for(let i=0;i<90;i++){
+    for(
+        let i=0;
+        i<90;
+        i++
+    ){
 
         const piece =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        piece.className = "confetti";
+        piece.className=
+            "confetti";
+
 
         piece.style.left =
-            Math.random()*100 + "vw";
+            Math.random()*100+
+            "vw";
+
 
         piece.style.background =
-            Math.random() > .5
+            Math.random()>.5
             ? "#d8b36a"
-            : "#e9a8bd";
+            : "#e8a7bd";
+
 
         piece.style.animationDelay =
-            Math.random()*1.5 + "s";
+            Math.random()*1.5+
+            "s";
+
 
         piece.style.animationDuration =
-            3 + Math.random()*3 + "s";
+            3+
+            Math.random()*3+
+            "s";
 
-        document.body.appendChild(piece);
+
+        document.body.appendChild(
+            piece
+        );
+
 
         setTimeout(()=>{
             piece.remove();
         },7000);
+
     }
+
 }
 
 
-/* =====================================================
-   PARTICULAS
-===================================================== */
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
 
 function createParticles(){
 
     const container =
-        document.getElementById("particles");
+        document.getElementById(
+            "particles"
+        );
 
-    for(let i=0;i<45;i++){
 
-        const particle =
-            document.createElement("div");
+    for(
+        let i=0;
+        i<45;
+        i++
+    ){
 
-        particle.className = "particle";
+        const p =
+            document.createElement(
+                "div"
+            );
 
-        particle.style.left =
-            Math.random()*100 + "%";
+        p.className=
+            "particle";
 
-        particle.style.top =
-            Math.random()*100 + "%";
 
-        particle.style.animationDelay =
-            Math.random()*8 + "s";
+        p.style.left =
+            Math.random()*100+
+            "%";
 
-        particle.style.animationDuration =
-            5 + Math.random()*7 + "s";
 
-        container.appendChild(particle);
+        p.style.top =
+            Math.random()*100+
+            "%";
+
+
+        p.style.animationDelay =
+            Math.random()*8+
+            "s";
+
+
+        p.style.animationDuration =
+            5+
+            Math.random()*7+
+            "s";
+
+
+        container.appendChild(p);
+
     }
+
 }
 
 
-/* =====================================================
-   INICIALIZACIÓN
-===================================================== */
+/* =========================================================
+   INICIAR TODO
+========================================================= */
 
 createCalendar();
+
 createDayScreens();
+
 createParticles();
 
 </script>
