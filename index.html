@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>25 páginas para ti</title>
+<title>25 páginas para Ana Lidia</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +13,30 @@
 
 <style>
 
+/* =========================================================
+   COLORES
+========================================================= */
+
 :root{
-    --black:#0d0b0d;
-    --black2:#151116;
-    --pink:#c98f9e;
-    --pink-light:#e8c8cf;
-    --gold:#c9a96a;
-    --gold-light:#ead7a8;
-    --cream:#f7f0e9;
-    --white:#fffaf7;
-    --muted:#b9adb1;
+    --negro:#0a090b;
+    --negro2:#121014;
+    --negro3:#1b171b;
+
+    --rosa:#c78f9d;
+    --rosa-claro:#e5c2cb;
+
+    --dorado:#c9a86a;
+    --dorado-claro:#ead8a8;
+
+    --blanco:#faf5f2;
+    --texto:#d8ced1;
+    --gris:#a79b9f;
 }
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -36,58 +49,60 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(circle at 20% 10%, rgba(201,143,158,.10), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(201,169,106,.08), transparent 30%),
-        var(--black);
-    color:var(--white);
-    font-family:'Montserrat',sans-serif;
     min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(199,143,157,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(201,168,106,.10),
+            transparent 30%
+        ),
+        var(--negro);
+
+    color:var(--blanco);
+    font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
 }
 
-/* =========================
-   DECORACIÓN
-========================= */
+
+/* pequeñas estrellas de fondo */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    pointer-events:none;
+
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.25) 1px, transparent 1px);
-    background-size:90px 90px;
-    opacity:.08;
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.45) 1px,
+            transparent 1px
+        );
+
+    background-size:110px 110px;
+    opacity:.06;
+    pointer-events:none;
     z-index:0;
 }
 
-.gold-line{
-    width:70px;
-    height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-    );
-    margin:20px auto;
-}
 
-.small-star{
-    color:var(--gold-light);
-    font-size:13px;
-}
-
-/* =========================
+/* =========================================================
    PANTALLAS
-========================= */
+========================================================= */
 
 .screen{
     position:relative;
     z-index:1;
+
     min-height:100vh;
+    width:100%;
+
     display:none;
+
     padding:35px 20px;
 }
 
@@ -95,618 +110,1403 @@ body::before{
     display:flex;
     align-items:center;
     justify-content:center;
-    animation:fadeIn .8s ease;
+
+    animation:screenIn .7s ease;
 }
 
-@keyframes fadeIn{
+@keyframes screenIn{
+
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(18px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
-.container{
-    width:min(950px,100%);
-    text-align:center;
+
+/* =========================================================
+   DECORACIÓN
+========================================================= */
+
+.decor-star{
+    position:absolute;
+    color:var(--dorado-claro);
+    opacity:.5;
+    pointer-events:none;
 }
 
-/* =========================
-   PORTADA
-========================= */
-
-.cover{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-}
-
-.cover-inner{
-    max-width:800px;
-    padding:30px;
-}
-
-.cover-kicker{
-    font-size:11px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    color:var(--pink-light);
-    margin-bottom:28px;
-}
-
-.cover-number{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(150px,30vw,310px);
-    line-height:.65;
-    font-weight:500;
-    color:transparent;
-    -webkit-text-stroke:1px rgba(201,169,106,.7);
-    text-shadow:0 0 45px rgba(201,169,106,.12);
-    margin-bottom:35px;
-}
-
-.cover-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(40px,7vw,78px);
-    font-weight:500;
-    letter-spacing:1px;
-}
-
-.cover-subtitle{
-    margin-top:15px;
+.star1{
+    top:13%;
+    left:10%;
     font-size:12px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--pink-light);
 }
 
-.cover-signature{
-    margin-top:45px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    color:var(--gold-light);
+.star2{
+    top:22%;
+    right:13%;
+    font-size:8px;
 }
 
-.cover-button{
-    margin-top:40px;
+.star3{
+    bottom:17%;
+    left:18%;
+    font-size:9px;
 }
 
-/* =========================
+.star4{
+    bottom:12%;
+    right:10%;
+    font-size:13px;
+}
+
+
+.gold-line{
+    width:80px;
+    height:1px;
+
+    margin:22px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--dorado),
+            transparent
+        );
+}
+
+
+/* =========================================================
    BOTONES
-========================= */
+========================================================= */
 
 button{
-    border:none;
-    cursor:pointer;
     font-family:'Montserrat',sans-serif;
+    cursor:pointer;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
-    padding:14px 28px;
+
+    padding:14px 31px;
+
     background:transparent;
-    border:1px solid rgba(201,169,106,.65);
-    color:var(--cream);
+
+    border:1px solid rgba(201,168,106,.65);
+
+    color:var(--blanco);
+
     font-size:10px;
+    font-weight:500;
     letter-spacing:3px;
     text-transform:uppercase;
-    transition:.35s ease;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease;
 }
 
 .btn:hover{
-    background:var(--gold);
-    color:var(--black);
-    transform:translateY(-2px);
+    background:var(--dorado);
+    color:var(--negro);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 35px rgba(201,168,106,.15);
 }
 
-.btn-pink{
-    border-color:rgba(201,143,158,.7);
+.btn-rosa{
+    border-color:rgba(199,143,157,.75);
 }
 
-.btn-pink:hover{
-    background:var(--pink);
+.btn-rosa:hover{
+    background:var(--rosa);
     color:white;
+
+    box-shadow:
+        0 10px 35px rgba(199,143,157,.18);
 }
 
-/* =========================
-   INTRO
-========================= */
 
-.intro{
-    max-width:680px;
-    margin:auto;
+/* =========================================================
+   PORTADA
+========================================================= */
+
+#cover{
+    padding:0;
 }
 
-.intro h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(40px,6vw,65px);
-    font-weight:500;
-}
-
-.intro p{
-    margin:28px auto;
-    max-width:600px;
-    color:#d8ced0;
-    font-family:'Cormorant Garamond',serif;
-    font-size:22px;
-    line-height:1.7;
-}
-
-.intro strong{
-    color:var(--pink-light);
-    font-weight:600;
-}
-
-/* =========================
-   CALENDARIO
-========================= */
-
-.calendar-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:60px;
-    font-weight:500;
-}
-
-.calendar-subtitle{
-    color:var(--muted);
-    font-size:11px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-top:8px;
-}
-
-.calendar{
-    margin:45px auto;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:13px;
-    max-width:700px;
-}
-
-.day{
-    aspect-ratio:1;
+.cover{
+    min-height:100vh;
     position:relative;
-    border:1px solid rgba(201,169,106,.25);
-    background:rgba(255,255,255,.025);
+
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
-    transition:.3s;
+
+    overflow:hidden;
 }
 
-.day:not(.locked){
-    cursor:pointer;
-}
 
-.day:not(.locked):hover{
-    transform:translateY(-5px);
-    border-color:var(--gold);
-    background:rgba(201,169,106,.08);
-}
+/* círculos decorativos */
 
-.day-number{
-    font-family:'Cormorant Garamond',serif;
-    font-size:36px;
-    color:var(--cream);
-}
+.cover::before{
+    content:"";
 
-.day-name{
-    margin-top:5px;
-    font-size:8px;
-    letter-spacing:2px;
-    color:var(--pink-light);
-    text-transform:uppercase;
-}
-
-.day.locked{
-    opacity:.28;
-}
-
-.day.locked::after{
-    content:"✦";
     position:absolute;
-    top:8px;
-    right:10px;
-    color:var(--gold);
-    font-size:8px;
+
+    width:520px;
+    height:520px;
+
+    border:1px solid rgba(201,168,106,.10);
+    border-radius:50%;
+
+    animation:rotateSlow 25s linear infinite;
 }
 
-/* =========================
-   PÁGINAS
-========================= */
+.cover::after{
+    content:"";
 
-.page{
-    max-width:780px;
-    margin:auto;
+    position:absolute;
+
+    width:720px;
+    height:720px;
+
+    border:1px solid rgba(199,143,157,.06);
+    border-radius:50%;
+
+    animation:rotateSlow 40s linear infinite reverse;
 }
 
-.page-label{
+@keyframes rotateSlow{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.cover-content{
+    position:relative;
+    z-index:3;
+
+    width:min(850px,100%);
+
+    text-align:center;
+
+    padding:50px 25px;
+}
+
+
+/* texto pequeño */
+
+.cover-top{
     font-size:10px;
-    letter-spacing:4px;
-    color:var(--pink-light);
+
+    letter-spacing:5px;
+
     text-transform:uppercase;
-}
 
-.page h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(48px,7vw,75px);
-    font-weight:500;
-    margin-top:10px;
-}
+    color:var(--rosa-claro);
 
-.page-text{
-    max-width:650px;
-    margin:35px auto;
-    font-family:'Cormorant Garamond',serif;
-    font-size:22px;
-    line-height:1.8;
-    color:#ddd2d4;
-}
-
-.page-text p{
     margin-bottom:25px;
 }
 
+
+/* 25 */
+
+.cover-number{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            170px,
+            30vw,
+            300px
+        );
+
+    line-height:.72;
+
+    font-weight:500;
+
+    color:transparent;
+
+    -webkit-text-stroke:
+        1px rgba(201,168,106,.78);
+
+    text-shadow:
+        0 0 50px rgba(201,168,106,.10);
+
+    animation:numberGlow 4s ease-in-out infinite alternate;
+
+}
+
+@keyframes numberGlow{
+
+    from{
+        text-shadow:
+            0 0 20px rgba(201,168,106,.04);
+    }
+
+    to{
+        text-shadow:
+            0 0 65px rgba(201,168,106,.20);
+    }
+
+}
+
+
+/* ANA LIDIA */
+
+.cover-name{
+
+    margin-top:30px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            45px,
+            7vw,
+            75px
+        );
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+}
+
+
+/* páginas para ti */
+
+.cover-title{
+
+    margin-top:7px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            34px,
+            5vw,
+            55px
+        );
+
+    font-weight:400;
+
+    color:var(--rosa-claro);
+
+}
+
+
+/* frase */
+
+.cover-description{
+
+    margin:25px auto 0;
+
+    max-width:520px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:21px;
+
+    line-height:1.5;
+
+    color:var(--texto);
+
+}
+
+
+/* firma */
+
+.cover-signature{
+
+    margin-top:35px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:22px;
+
+    color:var(--dorado-claro);
+
+}
+
+
+/* botón */
+
+.cover-button{
+
+    margin-top:35px;
+
+}
+
+
+/* =========================================================
+   CONTRASEÑA
+========================================================= */
+
+.password-box{
+
+    width:min(530px,100%);
+
+    text-align:center;
+
+    padding:45px 30px;
+
+    border:
+        1px solid
+        rgba(201,168,106,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.25);
+}
+
+.password-small{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--rosa-claro);
+
+    text-transform:uppercase;
+
+}
+
+.password-title{
+
+    margin-top:13px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:52px;
+
+    font-weight:500;
+
+}
+
+.password-text{
+
+    margin:22px auto;
+
+    max-width:430px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:21px;
+
+    line-height:1.6;
+
+    color:var(--texto);
+
+}
+
+.password-input{
+
+    width:220px;
+
+    padding:14px 10px;
+
+    margin:10px 0 20px;
+
+    background:transparent;
+
+    border:none;
+
+    border-bottom:
+        1px solid
+        rgba(201,168,106,.65);
+
+    outline:none;
+
+    color:white;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:25px;
+
+    letter-spacing:12px;
+
+    text-align:center;
+}
+
+.password-message{
+
+    min-height:25px;
+
+    margin-top:18px;
+
+    font-size:11px;
+
+    color:var(--rosa-claro);
+
+}
+
+
+/* =========================================================
+   BIENVENIDA
+========================================================= */
+
+.welcome{
+
+    text-align:center;
+
+    width:min(700px,100%);
+}
+
+.welcome-small{
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:var(--rosa-claro);
+
+}
+
+.welcome h1{
+
+    margin-top:15px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            55px,
+            8vw,
+            85px
+        );
+
+    font-weight:500;
+
+}
+
+.welcome p{
+
+    margin:25px auto;
+
+    max-width:560px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:23px;
+
+    line-height:1.7;
+
+    color:var(--texto);
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+
+    width:min(700px,100%);
+
+    text-align:center;
+
+}
+
+.intro-label{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--rosa-claro);
+
+    text-transform:uppercase;
+
+}
+
+.intro h1{
+
+    margin-top:15px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            70px
+        );
+
+    font-weight:500;
+
+}
+
+.intro-text{
+
+    margin:35px auto;
+
+    max-width:650px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:22px;
+
+    line-height:1.75;
+
+    color:var(--texto);
+
+}
+
+.intro-text strong{
+
+    color:var(--rosa-claro);
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   CALENDARIO
+========================================================= */
+
+.calendar-container{
+
+    width:min(1000px,100%);
+
+    text-align:center;
+
+}
+
+.calendar-label{
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--rosa-claro);
+
+    text-transform:uppercase;
+
+}
+
+.calendar-title{
+
+    margin-top:12px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            75px
+        );
+
+    font-weight:500;
+
+}
+
+.calendar-subtitle{
+
+    margin-top:5px;
+
+    color:var(--gris);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+}
+
+.calendar{
+
+    margin:45px auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:14px;
+
+    max-width:800px;
+
+}
+
+.day{
+
+    position:relative;
+
+    min-height:125px;
+
+    border:
+        1px solid
+        rgba(201,168,106,.23);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.day:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(201,168,106,.8);
+
+    background:
+        rgba(201,168,106,.07);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.20);
+
+}
+
+.day-number{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:40px;
+
+    color:var(--blanco);
+
+}
+
+.day-name{
+
+    margin-top:5px;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--rosa-claro);
+
+}
+
+
+/* =========================================================
+   PÁGINAS
+========================================================= */
+
+.page{
+
+    width:min(800px,100%);
+
+    text-align:center;
+
+}
+
+.page-label{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--rosa-claro);
+
+    text-transform:uppercase;
+
+}
+
+.page h1{
+
+    margin-top:12px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            75px
+        );
+
+    font-weight:500;
+
+}
+
+.page-text{
+
+    max-width:650px;
+
+    margin:35px auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:var(--texto);
+
+}
+
+.page-text p{
+
+    margin-bottom:24px;
+
+}
+
 .highlight{
-    color:var(--pink-light);
+
+    color:var(--rosa-claro);
+
 }
 
 .gold{
-    color:var(--gold-light);
+
+    color:var(--dorado-claro);
+
 }
 
 .page-nav{
-    margin-top:45px;
+
+    margin-top:40px;
+
     display:flex;
+
     justify-content:center;
-    gap:12px;
+
     flex-wrap:wrap;
+
+    gap:12px;
+
 }
 
-/* =========================
-   TARJETAS DÍA 2
-========================= */
+
+/* =========================================================
+   TARJETAS
+========================================================= */
 
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+
     max-width:850px;
+
     margin:40px auto;
+
 }
 
 .card{
+
     min-height:260px;
-    border:1px solid rgba(201,169,106,.25);
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.04),
-        rgba(255,255,255,.015)
-    );
-    padding:22px;
+
+    border:
+        1px solid
+        rgba(201,168,106,.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+    padding:30px;
+
     display:flex;
-    flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
+    text-align:center;
+
     cursor:pointer;
+
     transition:.4s;
+
 }
 
 .card:hover{
-    border-color:var(--gold);
+
     transform:translateY(-5px);
+
+    border-color:
+        rgba(201,168,106,.75);
+
+}
+
+.card-front{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
 }
 
 .card-symbol{
-    font-size:26px;
-    color:var(--gold);
+
+    font-size:27px;
+
+    color:var(--dorado);
+
     margin-bottom:18px;
+
 }
 
 .card h3{
+
     font-family:'Cormorant Garamond',serif;
-    font-size:27px;
+
+    font-size:32px;
+
     font-weight:500;
+
 }
 
 .card-content{
+
     display:none;
+
 }
 
 .card.open{
-    grid-column:span 2;
-    min-height:320px;
+
+    min-height:340px;
+
     cursor:default;
+
 }
 
 .card.open .card-front{
+
     display:none;
+
 }
 
 .card.open .card-content{
+
     display:block;
+
 }
 
 .card-content h3{
+
     font-family:'Cormorant Garamond',serif;
-    font-size:32px;
-    color:var(--pink-light);
-    margin-bottom:20px;
+
+    font-size:35px;
+
+    color:var(--rosa-claro);
+
+    margin-bottom:18px;
+
 }
 
 .card-content p{
+
     font-family:'Cormorant Garamond',serif;
-    font-size:18px;
+
+    font-size:19px;
+
     line-height:1.7;
-    color:#ddd2d4;
+
+    color:var(--texto);
+
 }
 
-/* =========================
-   FOTO DÍA 3
-========================= */
+
+/* =========================================================
+   FOTO
+========================================================= */
 
 .photo-box{
+
+    width:min(600px,100%);
+
     margin:40px auto;
-    width:min(550px,100%);
+
     position:relative;
+
     overflow:hidden;
-    border:1px solid rgba(201,169,106,.35);
+
+    border:
+        1px solid
+        rgba(201,168,106,.35);
+
     background:#111;
+
 }
 
 .photo-box img{
+
     display:block;
+
     width:100%;
-    opacity:0;
-    filter:blur(18px);
-    transform:scale(1.08);
-    transition:2s ease;
+
 }
 
-.photo-box.revealed img{
-    opacity:1;
+.photo-hidden{
+
+    filter:blur(18px);
+
+    transform:scale(1.08);
+
+    opacity:.35;
+
+    transition:
+        1.8s ease;
+
+}
+
+.photo-box.revealed
+.photo-hidden{
+
     filter:blur(0);
+
     transform:scale(1);
+
+    opacity:1;
+
 }
 
 .photo-cover{
+
     position:absolute;
+
     inset:0;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:rgba(13,11,13,.75);
-    transition:1s;
+
+    background:
+        rgba(10,9,11,.72);
+
+    transition:.8s;
+
 }
 
-.photo-box.revealed .photo-cover{
+.photo-box.revealed
+.photo-cover{
+
     opacity:0;
+
     pointer-events:none;
+
 }
 
-/* =========================
+
+/* =========================================================
    ACERTIJO
-========================= */
+========================================================= */
 
 .riddle{
-    max-width:650px;
+
+    width:min(650px,100%);
+
     margin:35px auto;
-    padding:35px;
-    border:1px solid rgba(201,169,106,.3);
-    background:rgba(255,255,255,.025);
+
+    padding:40px 30px;
+
+    border:
+        1px solid
+        rgba(201,168,106,.3);
+
+    background:
+        rgba(255,255,255,.025);
+
 }
 
 .riddle-question{
-    font-family:'Cormorant Garamond',serif;
-    font-size:27px;
-    line-height:1.6;
-}
 
-.answer-area{
-    margin-top:30px;
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    line-height:1.7;
+
 }
 
 .answer-input{
-    width:100%;
-    max-width:400px;
-    padding:15px;
+
+    width:min(400px,100%);
+
+    margin-top:25px;
+
+    padding:14px;
+
     background:transparent;
-    border:1px solid rgba(255,255,255,.25);
-    color:white;
-    text-align:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
     outline:none;
+
+    color:white;
+
+    text-align:center;
+
     font-family:'Montserrat',sans-serif;
+
 }
 
 .answer-message{
-    margin-top:20px;
+
+    margin-top:18px;
+
     min-height:25px;
-    color:var(--pink-light);
+
+    color:var(--rosa-claro);
+
 }
 
-/* =========================
+
+/* =========================================================
    AUDIO
-========================= */
+========================================================= */
 
 .music-box{
-    max-width:550px;
+
+    width:min(580px,100%);
+
     margin:40px auto;
+
     padding:45px 30px;
-    border:1px solid rgba(201,169,106,.35);
+
+    border:
+        1px solid
+        rgba(201,168,106,.35);
+
     background:
-        radial-gradient(circle at center,rgba(201,143,158,.10),transparent 60%);
+        radial-gradient(
+            circle at center,
+            rgba(199,143,157,.10),
+            transparent 65%
+        );
+
 }
 
-.music-symbol{
-    font-size:45px;
-    color:var(--gold);
-    animation:pulse 2s infinite;
+.music-icon{
+
+    font-size:48px;
+
+    color:var(--dorado);
+
+    animation:
+        musicPulse 2.5s infinite;
+
 }
 
-@keyframes pulse{
+@keyframes musicPulse{
+
     0%,100%{
         transform:scale(1);
-        opacity:.7;
     }
+
     50%{
         transform:scale(1.08);
-        opacity:1;
     }
+
 }
 
 .music-title{
+
+    margin:20px 0 8px;
+
     font-family:'Cormorant Garamond',serif;
-    font-size:38px;
-    margin:20px 0 10px;
+
+    font-size:40px;
+
 }
 
 audio{
+
     width:100%;
+
     margin-top:25px;
+
 }
 
-/* =========================
-   DÍA 19
-========================= */
+
+/* =========================================================
+   FINAL 25
+========================================================= */
 
 .final-number{
+
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(180px,35vw,360px);
+
+    font-size:
+        clamp(
+            190px,
+            34vw,
+            350px
+        );
+
     line-height:.7;
+
     color:transparent;
-    -webkit-text-stroke:1px var(--gold);
-    animation:finalGlow 3s infinite alternate;
+
+    -webkit-text-stroke:
+        1px var(--dorado);
+
+    text-shadow:
+        0 0 60px
+        rgba(201,168,106,.15);
+
 }
 
-@keyframes finalGlow{
-    from{
-        text-shadow:0 0 10px rgba(201,169,106,.05);
-    }
-    to{
-        text-shadow:0 0 60px rgba(201,169,106,.25);
-    }
-}
+
+/* =========================================================
+   CONFETI
+========================================================= */
 
 .confetti{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     overflow:hidden;
+
+    z-index:10;
+
 }
 
 .confetti span{
+
     position:absolute;
+
     top:-20px;
+
     width:5px;
-    height:12px;
-    background:var(--gold);
-    animation:fall linear infinite;
+
+    height:13px;
+
+    background:var(--dorado);
+
+    animation:
+        confettiFall
+        linear
+        infinite;
+
 }
 
-@keyframes fall{
+@keyframes confettiFall{
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
     }
+
 }
 
-/* =========================
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:700px){
 
     .calendar{
-        grid-template-columns:repeat(3,1fr);
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:9px;
+
+    }
+
+    .day{
+
+        min-height:105px;
+
     }
 
     .cards{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
 
-    .card.open{
-        grid-column:span 2;
-    }
+    .cover-content{
 
-    .page-text{
-        font-size:20px;
+        padding:30px 20px;
+
     }
 
 }
 
-@media(max-width:450px){
-
-    .screen{
-        padding:25px 15px;
-    }
+@media(max-width:430px){
 
     .calendar{
-        gap:8px;
+
+        grid-template-columns:
+            repeat(3,1fr);
+
     }
 
     .day-number{
-        font-size:30px;
-    }
 
-    .cards{
-        grid-template-columns:1fr;
-    }
+        font-size:32px;
 
-    .card.open{
-        grid-column:span 1;
     }
 
     .cover-number{
-        font-size:150px;
+
+        font-size:160px;
+
     }
 
+}
+
+
+/* =========================================================
+   OCULTAR
+========================================================= */
+
+.hidden{
+    display:none !important;
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =====================================================
+
+<!-- =======================================================
+     DECORACIÓN GLOBAL
+======================================================= -->
+
+<div class="decor-star star1">✦</div>
+<div class="decor-star star2">✧</div>
+<div class="decor-star star3">✦</div>
+<div class="decor-star star4">✧</div>
+
+
+<!-- =======================================================
      PORTADA
-===================================================== -->
+======================================================= -->
 
-<section id="cover" class="screen active cover">
+<section
+    id="cover"
+    class="screen active"
+>
 
-<div class="cover-inner">
+<div class="cover">
 
-<div class="cover-kicker">
-Una pequeña historia preparada para ti
+<div class="cover-content">
+
+<div class="cover-top">
+Para alguien muy especial
 </div>
+
 
 <div class="cover-number">
 25
 </div>
 
-<h1 class="cover-title">
-páginas para ti
-</h1>
 
-<div class="cover-subtitle">
-19 días · 1 historia · muchos recuerdos
+<div class="cover-name">
+Ana Lidia
 </div>
+
+
+<div class="cover-title">
+Páginas para ti
+</div>
+
+
+<div class="gold-line"></div>
+
+
+<div class="cover-description">
+
+Un regalo que no se abre de una sola vez.
+
+<br>
+
+Una pequeña historia para descubrir
+poco a poco.
+
+</div>
+
 
 <div class="cover-signature">
-DMS ✦
+Con cariño · DMS
 </div>
 
+
 <div class="cover-button">
-<button class="btn" onclick="showScreen('intro')">
-Comenzar
+
+<button
+    class="btn btn-rosa"
+    onclick="showScreen('password')"
+>
+ABRIR
 </button>
+
+</div>
+
 </div>
 
 </div>
@@ -714,37 +1514,165 @@ Comenzar
 </section>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
 
-<section id="intro" class="screen">
+<!-- =======================================================
+     CONTRASEÑA
+======================================================= -->
 
-<div class="container intro">
+<section
+    id="password"
+    class="screen"
+>
 
-<div class="small-star">✦</div>
+<div class="password-box">
 
-<h1>Antes de comenzar...</h1>
+<div class="password-small">
+Primera puerta
+</div>
+
+<h1 class="password-title">
+Antes de entrar...
+</h1>
+
+<div class="gold-line"></div>
+
+<div class="password-text">
+
+Hay una pequeña contraseña.
+
+<br><br>
+
+Cuatro números que pertenecen
+a nuestra historia.
+
+</div>
+
+
+<input
+    id="passwordInput"
+    class="password-input"
+    type="password"
+    maxlength="4"
+    inputmode="numeric"
+    placeholder="••••"
+>
+
+
+<br>
+
+
+<button
+    class="btn btn-rosa"
+    onclick="checkPassword()"
+>
+ENTRAR
+</button>
+
+
+<div
+    id="passwordMessage"
+    class="password-message"
+></div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     BIENVENIDA
+======================================================= -->
+
+<section
+    id="welcome"
+    class="screen"
+>
+
+<div class="welcome">
+
+<div class="welcome-small">
+La primera puerta está abierta
+</div>
+
+<h1>
+Bienvenida,<br>
+Ana Lidia
+</h1>
 
 <div class="gold-line"></div>
 
 <p>
 
-<strong>Esto no es solamente un regalo.</strong>
+Ahora sí.
 
 <br><br>
+
+Ya puedes comenzar a descubrir
+lo que preparé para ti.
+
+</p>
+
+
+<button
+    class="btn"
+    onclick="showScreen('intro')"
+>
+VER EL CALENDARIO
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     INTRO
+======================================================= -->
+
+<section
+    id="intro"
+    class="screen"
+>
+
+<div class="intro">
+
+<div class="intro-label">
+✦ Antes de empezar ✦
+</div>
+
+<h1>
+Esto no es solamente un regalo.
+</h1>
+
+<div class="gold-line"></div>
+
+
+<div class="intro-text">
+
+<p>
 
 Es una pequeña historia que preparé para ti,
 
-porque quería que estos días fueran un poquito diferentes.
+porque quería que estos días fueran
+un poquito diferentes.
 
-<br><br>
+</p>
 
-Quería dejarte algo que pudieras descubrir despacio,
+
+<p>
+
+Quería dejarte algo que pudieras
+descubrir despacio,
 
 sin saber exactamente qué viene después.
 
-<br><br>
+</p>
+
+
+<p>
 
 Algo que te haga volver mañana
 
@@ -752,13 +1680,19 @@ con un poquito de curiosidad
 
 y una sonrisa.
 
-<br><br>
+</p>
+
+
+<p>
 
 No quiero contarte demasiado todavía.
 
 Prefiero que lo descubras tú.
 
-<br><br>
+</p>
+
+
+<p>
 
 <strong>Una puerta.</strong>
 
@@ -772,8 +1706,35 @@ Prefiero que lo descubras tú.
 
 </p>
 
-<button class="btn btn-pink" onclick="showScreen('calendar')">
-Abrir la primera puerta
+
+<p>
+
+Así que, amor...
+
+</p>
+
+
+<p>
+
+<strong>déjate llevar.</strong>
+
+</p>
+
+
+<p>
+
+Esto apenas comienza.
+
+</p>
+
+</div>
+
+
+<button
+    class="btn btn-rosa"
+    onclick="showScreen('calendar')"
+>
+ABRIR LA PRIMERA PUERTA
 </button>
 
 </div>
@@ -781,122 +1742,152 @@ Abrir la primera puerta
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      CALENDARIO
-===================================================== -->
+======================================================= -->
 
-<section id="calendar" class="screen">
+<section
+    id="calendar"
+    class="screen"
+>
 
-<div class="container">
+<div class="calendar-container">
 
-<div class="small-star">✦</div>
+<div class="calendar-label">
+✦ Nuestra historia ✦
+</div>
+
 
 <h1 class="calendar-title">
-Nuestra historia
+19 días para tus 25
 </h1>
 
+
 <div class="calendar-subtitle">
-19 días hasta tus 25
+26 de agosto · 19 de septiembre
 </div>
+
 
 <div class="gold-line"></div>
 
+
 <div class="calendar">
+
 
 <div class="day" onclick="openDay(1)">
 <div class="day-number">01</div>
-<div class="day-name">Comienzo</div>
+<div class="day-name">El comienzo</div>
 </div>
+
 
 <div class="day" onclick="openDay(2)">
 <div class="day-number">02</div>
 <div class="day-name">Lo que nos une</div>
 </div>
 
+
 <div class="day" onclick="openDay(3)">
 <div class="day-number">03</div>
-<div class="day-name">Recuerdo</div>
+<div class="day-name">Un recuerdo</div>
 </div>
+
 
 <div class="day" onclick="openDay(4)">
 <div class="day-number">04</div>
 <div class="day-name">Acertijo</div>
 </div>
 
+
 <div class="day" onclick="openDay(5)">
 <div class="day-number">05</div>
-<div class="day-name">Algo especial</div>
+<div class="day-name">Por descubrir</div>
 </div>
+
 
 <div class="day" onclick="openDay(6)">
 <div class="day-number">06</div>
-<div class="day-name">Para ti</div>
+<div class="day-name">Una razón</div>
 </div>
+
 
 <div class="day" onclick="openDay(7)">
 <div class="day-number">07</div>
 <div class="day-name">Siete cosas</div>
 </div>
 
+
 <div class="day" onclick="openDay(8)">
 <div class="day-number">08</div>
 <div class="day-name">Un momento</div>
 </div>
 
+
 <div class="day" onclick="openDay(9)">
 <div class="day-number">09</div>
-<div class="day-name">La puerta</div>
+<div class="day-name">Una puerta</div>
 </div>
+
 
 <div class="day" onclick="openDay(10)">
 <div class="day-number">10</div>
 <div class="day-name">La canción</div>
 </div>
 
+
 <div class="day" onclick="openDay(11)">
 <div class="day-number">11</div>
-<div class="day-name">Una página</div>
+<div class="day-name">Nuestra historia</div>
 </div>
+
 
 <div class="day" onclick="openDay(12)">
 <div class="day-number">12</div>
-<div class="day-name">Para leer</div>
+<div class="day-name">Para ti</div>
 </div>
+
 
 <div class="day" onclick="openDay(13)">
 <div class="day-number">13</div>
 <div class="day-name">El juego</div>
 </div>
 
+
 <div class="day" onclick="openDay(14)">
 <div class="day-number">14</div>
-<div class="day-name">Galería</div>
+<div class="day-name">Recuerdos</div>
 </div>
+
 
 <div class="day" onclick="openDay(15)">
 <div class="day-number">15</div>
 <div class="day-name">Un regalo</div>
 </div>
 
+
 <div class="day" onclick="openDay(16)">
 <div class="day-number">16</div>
 <div class="day-name">Por nosotros</div>
 </div>
+
 
 <div class="day" onclick="openDay(17)">
 <div class="day-number">17</div>
 <div class="day-name">Lo que falta</div>
 </div>
 
+
 <div class="day" onclick="openDay(18)">
 <div class="day-number">18</div>
 <div class="day-name">Mañana</div>
 </div>
 
+
 <div class="day" onclick="openDay(19)">
 <div class="day-number">19</div>
 <div class="day-name">25</div>
 </div>
+
 
 </div>
 
@@ -905,92 +1896,144 @@ Nuestra historia
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 1
-===================================================== -->
+======================================================= -->
 
-<section id="day1" class="screen">
+<section
+    id="day1"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 01</div>
+<div class="page-label">
+✦ Día 01 ✦
+</div>
 
-<h1>El comienzo</h1>
+
+<h1>
+El comienzo
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
 <p>
+
 Hay momentos que, cuando ocurren,
 parecen solamente eso:
+
 </p>
+
 
 <p class="highlight">
 un momento.
 </p>
 
-<p>
-No sabemos que algún día vamos a recordarlos.
-</p>
 
 <p>
+
+No sabemos que algún día vamos
+a recordarlos.
+
+</p>
+
+
+<p>
+
 No sabemos cuánto van a significar.
+
 </p>
 
+
 <p>
+
 No sabemos que, sin darnos cuenta,
 estamos empezando algo.
+
 </p>
 
+
 <p>
+
 Pero después pasa el tiempo...
+
 </p>
 
+
 <p>
+
 y ese pequeño momento termina teniendo
 un lugar propio en nuestra historia.
+
 </p>
 
+
 <p>
+
 Y para mí,
 el nuestro fue uno de esos momentos.
+
 </p>
 
+
 <p>
+
 Por eso quería que la primera puerta
 comenzara aquí.
+
 </p>
 
+
 <p>
+
 No para contarte toda la historia.
+
 </p>
+
 
 <p class="gold">
 Todavía no.
 </p>
 
+
 <p>
+
 Solo para recordarte que, antes de llegar
 a todas las cosas que todavía nos quedan por vivir,
+
 </p>
+
 
 <p class="highlight">
 hubo un comienzo.
 </p>
 
-<p>
-Y me gusta pensar que fue
-el comienzo de algo bonito.
-</p>
 
 <p>
-Así que, amor...
+
+Y me gusta pensar
+que fue el comienzo de algo bonito.
+
 </p>
+
+
+<p>
+
+Así que, amor...
+
+</p>
+
 
 <p class="gold">
 bienvenida a nuestra primera página.
 </p>
+
 
 <p>
 Esto recién empieza.
@@ -998,82 +2041,134 @@ Esto recién empieza.
 
 </div>
 
-<div class="page-nav">
 
-<button class="btn" onclick="showScreen('calendar')">
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
-
-</div>
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 2
-===================================================== -->
+======================================================= -->
 
-<section id="day2" class="screen">
+<section
+    id="day2"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 02</div>
+<div class="page-label">
+✦ Día 02 ✦
+</div>
 
-<h1>Lo que nos une</h1>
+
+<h1>
+Lo que nos une
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
 <p>
-Hay cosas que no necesitan una gran explicación.
+
+Hay cosas que no necesitan
+una gran explicación.
+
 </p>
 
+
 <p>
-A veces están en la manera en que dos personas
-se entienden, se acompañan y comparten pequeñas cosas.
+
+A veces están en la manera en que
+dos personas se entienden,
+se acompañan y comparten
+pequeñas cosas.
+
 </p>
+
 
 <p class="highlight">
+
 Por eso hoy hay cuatro palabras.
+
 </p>
 
+
 <p>
+
 Puedes abrirlas todas.
+
 </p>
 
 </div>
+
 
 <div class="cards">
 
-<div class="card" onclick="openCard(this)">
+
+<div class="card"
+onclick="openCard(this)">
 
 <div class="card-front">
-<div class="card-symbol">♡</div>
-<h3>Confianza</h3>
+
+<div class="card-symbol">
+♡
 </div>
+
+<h3>
+Confianza
+</h3>
+
+</div>
+
 
 <div class="card-content">
 
-<h3>CONFIANZA</h3>
+<h3>
+CONFIANZA
+</h3>
 
 <p>
-Hay algo muy bonito en poder ser una misma
-frente a alguien.
+
+Hay algo muy bonito en poder
+ser una misma frente a alguien.
+
+<br><br>
 
 Poder hablar sin pensar demasiado.
 
+<br><br>
+
 Poder contar cosas pequeñas.
+
+<br><br>
 
 Poder decir lo que sentimos.
 
-Y poder estar incluso cuando no tenemos
-demasiado que decir.
+<br><br>
 
-<strong>Sentir que puedo ser yo contigo
-vale muchísimo.</strong>
+Y poder estar incluso cuando
+no tenemos demasiado que decir.
+
+<br><br>
+
+<strong>
+Sentir que puedo ser yo contigo
+vale muchísimo.
+</strong>
+
 </p>
 
 </div>
@@ -1081,37 +2176,70 @@ vale muchísimo.</strong>
 </div>
 
 
-<div class="card" onclick="openCard(this)">
+
+<div class="card"
+onclick="openCard(this)">
 
 <div class="card-front">
-<div class="card-symbol">✦</div>
-<h3>Complicidad</h3>
+
+<div class="card-symbol">
+✦
 </div>
+
+<h3>
+Complicidad
+</h3>
+
+</div>
+
 
 <div class="card-content">
 
-<h3>COMPLICIDAD</h3>
+<h3>
+COMPLICIDAD
+</h3>
 
 <p>
-Hay cosas que probablemente nadie más entendería
-de la misma manera.
+
+Hay cosas que probablemente nadie
+más entendería de la misma manera.
+
+<br><br>
 
 Una conversación.
 
+<br>
+
 Una mirada.
+
+<br>
 
 Una frase.
 
+<br>
+
 Una tontería que nos hace reír.
 
-Esas pequeñas cosas que terminan siendo
-completamente nuestras.
+<br><br>
+
+Esas pequeñas cosas que terminan
+siendo completamente nuestras.
+
+<br><br>
 
 Y quizás eso es la complicidad:
+
+<br>
+
+<strong>
 tener un pequeño mundo que solamente
 algunas personas conocen.
+</strong>
+
+<br><br>
 
 Y me gusta mucho el nuestro.
+
 </p>
 
 </div>
@@ -1119,39 +2247,73 @@ Y me gusta mucho el nuestro.
 </div>
 
 
-<div class="card" onclick="openCard(this)">
+
+<div class="card"
+onclick="openCard(this)">
 
 <div class="card-front">
-<div class="card-symbol">☾</div>
-<h3>Cariño</h3>
+
+<div class="card-symbol">
+☾
 </div>
+
+<h3>
+Cariño
+</h3>
+
+</div>
+
 
 <div class="card-content">
 
-<h3>CARIÑO</h3>
+<h3>
+CARIÑO
+</h3>
 
 <p>
+
 No siempre hace falta decir grandes cosas.
+
+<br><br>
 
 A veces está en preguntar cómo estás.
 
+<br>
+
 En acordarse de algo que dijiste.
+
+<br>
 
 En querer compartir una noticia.
 
+<br>
+
 En preocuparse.
 
+<br>
+
 En hacer sonreír al otro.
+
+<br><br>
 
 En esos detalles que parecen pequeños
 hasta que alguien los recuerda.
 
+<br><br>
+
 Y contigo he aprendido que el cariño
 también puede vivir en esas cosas.
 
-<strong>En lo pequeño.
+<br><br>
+
+<strong>
+En lo pequeño.
+<br>
 En lo cotidiano.
-En simplemente estar.</strong>
+<br>
+En simplemente estar.
+</strong>
+
 </p>
 
 </div>
@@ -1159,45 +2321,80 @@ En simplemente estar.</strong>
 </div>
 
 
-<div class="card" onclick="openCard(this)">
+
+<div class="card"
+onclick="openCard(this)">
 
 <div class="card-front">
-<div class="card-symbol">∞</div>
-<h3>Conexión</h3>
+
+<div class="card-symbol">
+∞
 </div>
+
+<h3>
+Conexión
+</h3>
+
+</div>
+
 
 <div class="card-content">
 
-<h3>CONEXIÓN</h3>
+<h3>
+CONEXIÓN
+</h3>
 
 <p>
+
 Y después está esto.
+
+<br><br>
 
 Eso que cuesta explicar.
 
-Porque no siempre podemos ponerle un nombre
-a lo que sentimos con alguien.
+<br><br>
+
+Porque no siempre podemos ponerle
+un nombre a lo que sentimos con alguien.
+
+<br><br>
 
 Simplemente existe.
 
-Y quizás por eso algunas personas llegan
-y se sienten diferentes.
+<br><br>
+
+Y quizás por eso algunas personas
+llegan y se sienten diferentes.
+
+<br><br>
 
 No porque todo sea perfecto,
 sino porque, de alguna manera,
 
-<strong>hay algo que permanece.</strong>
+<br><br>
+
+<strong>
+hay algo que permanece.
+</strong>
+
+<br><br>
 
 Y contigo siento eso.
+
 </p>
 
 </div>
 
 </div>
 
+
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1206,19 +2403,30 @@ Y contigo siento eso.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 3
-===================================================== -->
+======================================================= -->
 
-<section id="day3" class="screen">
+<section
+    id="day3"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 03</div>
+<div class="page-label">
+✦ Día 03 ✦
+</div>
 
-<h1>Un recuerdo que todavía no existe</h1>
+
+<h1>
+Un recuerdo que todavía no existe
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1226,9 +2434,11 @@ Y contigo siento eso.
 Amor...
 </p>
 
+
 <p>
 Hoy quiero enseñarte algo.
 </p>
+
 
 <p class="highlight">
 Pero tendrás que descubrirlo tú.
@@ -1236,17 +2446,32 @@ Pero tendrás que descubrirlo tú.
 
 </div>
 
-<div class="photo-box" id="photoBox">
 
-<img src="imagenes/dia-03.jpg" alt="Primer recuerdo">
+<div
+    class="photo-box"
+    id="photoBox"
+>
+
+<img
+    src="imagenes/dia-03.jpg"
+    class="photo-hidden"
+    alt="Recuerdo"
+>
+
 
 <div class="photo-cover">
-<button class="btn" onclick="revealPhoto()">
-✦ Descubrir ✦
+
+<button
+    class="btn btn-rosa"
+    onclick="revealPhoto()"
+>
+✦ DESCUBRIR ✦
 </button>
+
 </div>
 
 </div>
+
 
 <div class="page-text">
 
@@ -1254,9 +2479,11 @@ Pero tendrás que descubrirlo tú.
 Hay recuerdos que ya tenemos.
 </p>
 
+
 <p>
 Y hay otros que todavía no existen.
 </p>
+
 
 <p>
 Todavía no sabemos dónde serán,
@@ -1264,22 +2491,28 @@ ni qué estaremos haciendo,
 ni cuándo llegarán.
 </p>
 
+
 <p>
 Pero algún día van a convertirse
 en esos recuerdos que recordamos y decimos:
 </p>
 
+
 <p class="highlight">
 “¿Te acuerdas de aquel día?”
 </p>
+
 
 <p>
 Y eso es lo bonito.
 </p>
 
+
 <p>
-Que todavía hay momentos que no conocemos.
+Que todavía hay momentos
+que no conocemos.
 </p>
+
 
 <p class="gold">
 Historias que todavía no hemos vivido.
@@ -1287,7 +2520,11 @@ Historias que todavía no hemos vivido.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1296,19 +2533,30 @@ Historias que todavía no hemos vivido.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 4
-===================================================== -->
+======================================================= -->
 
-<section id="day4" class="screen">
+<section
+    id="day4"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 04</div>
+<div class="page-label">
+✦ Día 04 ✦
+</div>
 
-<h1>Hay algo escondido</h1>
+
+<h1>
+Hay algo escondido
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1316,9 +2564,11 @@ Historias que todavía no hemos vivido.
 Hoy no tienes que leer una carta.
 </p>
 
+
 <p class="highlight">
 Tienes que descubrir algo.
 </p>
+
 
 <p>
 Lee con atención.
@@ -1326,17 +2576,23 @@ Lee con atención.
 
 </div>
 
+
 <div class="riddle">
 
 <div class="riddle-question">
 
-No tengo voz,<br>
-pero puedo decir muchísimo.<br><br>
+No tengo voz,
+<br>
+pero puedo decir muchísimo.
+<br><br>
 
-No tengo memoria,<br>
-pero puedo guardar un momento.<br><br>
+No tengo memoria,
+<br>
+pero puedo guardar un momento.
+<br><br>
 
-No puedo detener el tiempo,<br>
+No puedo detener el tiempo,
+<br>
 pero puedo hacer que vuelvas a él.
 
 <br><br>
@@ -1347,28 +2603,38 @@ pero puedo hacer que vuelvas a él.
 
 </div>
 
-<div class="answer-area">
 
 <input
-id="answerInput"
-class="answer-input"
-placeholder="Escribe tu respuesta..."
-autocomplete="off"
+    id="answerInput"
+    class="answer-input"
+    type="text"
+    placeholder="Escribe tu respuesta..."
 >
+
 
 <br><br>
 
-<button class="btn btn-pink" onclick="checkRiddle()">
-Descubrir
+
+<button
+    class="btn btn-rosa"
+    onclick="checkRiddle()"
+>
+DESCUBRIR
 </button>
 
-<div id="answerMessage" class="answer-message"></div>
+
+<div
+    id="answerMessage"
+    class="answer-message"
+></div>
 
 </div>
 
-</div>
 
-<button class="btn" onclick="showScreen('calendar')">
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1377,19 +2643,30 @@ Descubrir
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 5
-===================================================== -->
+======================================================= -->
 
-<section id="day5" class="screen">
+<section
+    id="day5"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 05</div>
+<div class="page-label">
+✦ Día 05 ✦
+</div>
 
-<h1>Una pequeña elección</h1>
+
+<h1>
+Una pequeña elección
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1397,9 +2674,11 @@ Descubrir
 Hoy puedes elegir.
 </p>
 
+
 <p class="highlight">
 Pero no hay una respuesta correcta.
 </p>
+
 
 <p>
 Solo quiero saber qué elegirías tú.
@@ -1407,219 +2686,78 @@ Solo quiero saber qué elegirías tú.
 
 </div>
 
-<div class="cards" id="choiceCards">
-
-<div class="card" onclick="chooseOption(this,'aventura')">
-<div class="card-front">
-<div class="card-symbol">✦</div>
-<h3>Una aventura</h3>
-</div>
-</div>
-
-<div class="card" onclick="chooseOption(this,'noche')">
-<div class="card-front">
-<div class="card-symbol">☾</div>
-<h3>Una noche tranquila</h3>
-</div>
-</div>
-
-<div class="card" onclick="chooseOption(this,'viaje')">
-<div class="card-front">
-<div class="card-symbol">∞</div>
-<h3>Un viaje</h3>
-</div>
-</div>
-
-<div class="card" onclick="chooseOption(this,'sorpresa')">
-<div class="card-front">
-<div class="card-symbol">♡</div>
-<h3>Una sorpresa</h3>
-</div>
-</div>
-
-</div>
-
-<div id="choiceResult"></div>
-
-<button class="btn" onclick="showScreen('calendar')">
-← Volver al calendario
-</button>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     DÍA 6
-===================================================== -->
-
-<section id="day6" class="screen">
-
-<div class="container page">
-
-<div class="page-label">✦ Día 06</div>
-
-<h1>Algo que quería decirte</h1>
-
-<div class="gold-line"></div>
-
-<div class="page-text">
-
-<p>
-Hay cosas que a veces damos por sentadas.
-</p>
-
-<p>
-Personas que forman parte de nuestros días
-y que quizás no saben cuánto significan.
-</p>
-
-<p>
-Por eso hoy quería detenerme un momento
-para decirte algo sencillo:
-</p>
-
-<p class="highlight">
-me alegra tenerte en mi vida.
-</p>
-
-<p>
-Me alegra cada conversación,
-cada risa,
-cada momento compartido
-y hasta esas pequeñas cosas que parecen no importar.
-</p>
-
-<p>
-Porque cuando alguien importa,
-hasta lo cotidiano puede convertirse
-en algo especial.
-</p>
-
-<p class="gold">
-Y tú eres una de esas personas para mí.
-</p>
-
-</div>
-
-<button class="btn" onclick="showScreen('calendar')">
-← Volver al calendario
-</button>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     DÍA 7
-===================================================== -->
-
-<section id="day7" class="screen">
-
-<div class="container page">
-
-<div class="page-label">✦ Día 07</div>
-
-<h1>Siete pequeñas cosas</h1>
-
-<div class="gold-line"></div>
-
-<div class="page-text">
-
-<p>
-Hoy no hay una gran historia.
-</p>
-
-<p>
-Solo siete pequeñas cosas que quería dejar aquí.
-</p>
-
-</div>
 
 <div class="cards">
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">01</div>
-<h3>Tu forma de reír</h3>
-</div>
-<div class="card-content">
-<h3>01</h3>
-<p>Porque hay risas que simplemente hacen que todo parezca un poco mejor.</p>
-</div>
+
+<div class="card"
+onclick="chooseOption('Una aventura')">
+
+<div class="card-symbol">
+✦
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">02</div>
-<h3>Tu manera de ser</h3>
-</div>
-<div class="card-content">
-<h3>02</h3>
-<p>Porque ser auténtica tiene un valor enorme.</p>
-</div>
+<h3>
+Una aventura
+</h3>
+
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">03</div>
-<h3>Tu compañía</h3>
-</div>
-<div class="card-content">
-<h3>03</h3>
-<p>Porque incluso los momentos normales pueden sentirse diferentes.</p>
-</div>
+
+<div class="card"
+onclick="chooseOption('Una noche tranquila')">
+
+<div class="card-symbol">
+☾
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">04</div>
-<h3>Tus ocurrencias</h3>
-</div>
-<div class="card-content">
-<h3>04</h3>
-<p>Porque algunas de ellas probablemente solo tú podrías inventarlas.</p>
-</div>
+<h3>
+Una noche tranquila
+</h3>
+
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">05</div>
-<h3>Tu forma de querer</h3>
-</div>
-<div class="card-content">
-<h3>05</h3>
-<p>Porque se nota en esos detalles que quizá ni siquiera consideras importantes.</p>
-</div>
+
+<div class="card"
+onclick="chooseOption('Un viaje')">
+
+<div class="card-symbol">
+∞
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">06</div>
-<h3>Los momentos</h3>
-</div>
-<div class="card-content">
-<h3>06</h3>
-<p>Porque los recuerdos más bonitos muchas veces empiezan sin planearlos.</p>
-</div>
+<h3>
+Un viaje
+</h3>
+
 </div>
 
-<div class="card" onclick="openCard(this)">
-<div class="card-front">
-<div class="card-symbol">07</div>
-<h3>Tú</h3>
+
+<div class="card"
+onclick="chooseOption('Una sorpresa')">
+
+<div class="card-symbol">
+♡
 </div>
-<div class="card-content">
-<h3>07</h3>
-<p>Porque al final, de todas las pequeñas cosas, la más importante eres tú.</p>
-</div>
+
+<h3>
+Una sorpresa
+</h3>
+
 </div>
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<div
+    id="choiceResult"
+    class="page-text"
+></div>
+
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1628,19 +2766,399 @@ Solo siete pequeñas cosas que quería dejar aquí.
 </section>
 
 
-<!-- =====================================================
-     DÍA 8
-===================================================== -->
 
-<section id="day8" class="screen">
+<!-- =======================================================
+     DÍA 6
+======================================================= -->
 
-<div class="container page">
+<section
+    id="day6"
+    class="screen"
+>
 
-<div class="page-label">✦ Día 08</div>
+<div class="page">
 
-<h1>Un momento</h1>
+<div class="page-label">
+✦ Día 06 ✦
+</div>
+
+
+<h1>
+Una razón
+</h1>
+
 
 <div class="gold-line"></div>
+
+
+<div class="page-text">
+
+<p>
+No voy a hacer una lista enorme.
+</p>
+
+
+<p>
+Solo voy a dejar una razón.
+</p>
+
+
+<p class="highlight">
+
+Porque contigo incluso las cosas
+más sencillas pueden sentirse especiales.
+
+</p>
+
+
+<p>
+Una conversación cualquiera.
+</p>
+
+
+<p>
+Una risa inesperada.
+</p>
+
+
+<p>
+Un mensaje.
+</p>
+
+
+<p>
+Un momento compartido.
+</p>
+
+
+<p>
+No hace falta que pase algo extraordinario
+para que un día termine siendo bonito.
+</p>
+
+
+<p class="gold">
+A veces basta con compartirlo
+con la persona correcta.
+</p>
+
+</div>
+
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
+← Volver al calendario
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     DÍA 7
+======================================================= -->
+
+<section
+    id="day7"
+    class="screen"
+>
+
+<div class="page">
+
+<div class="page-label">
+✦ Día 07 ✦
+</div>
+
+
+<h1>
+Siete pequeñas cosas
+</h1>
+
+
+<div class="gold-line"></div>
+
+
+<div class="page-text">
+
+<p>
+Hoy hay siete pequeñas cosas.
+</p>
+
+<p>
+Abre las que quieras.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+01
+</div>
+
+<h3>
+Tu forma de reír
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+01
+</h3>
+
+<p>
+Porque hay risas que simplemente
+hacen que todo parezca un poco mejor.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+02
+</div>
+
+<h3>
+Tu manera de ser
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+02
+</h3>
+
+<p>
+Porque ser auténtica tiene un valor enorme.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+03
+</div>
+
+<h3>
+Tu compañía
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+03
+</h3>
+
+<p>
+Porque incluso los momentos normales
+pueden sentirse diferentes.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+04
+</div>
+
+<h3>
+Tus ocurrencias
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+04
+</h3>
+
+<p>
+Porque algunas de ellas probablemente
+solo tú podrías inventarlas.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+05
+</div>
+
+<h3>
+Tu forma de querer
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+05
+</h3>
+
+<p>
+Porque se nota en esos detalles
+que quizá ni siquiera consideras importantes.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+06
+</div>
+
+<h3>
+Los momentos
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+06
+</h3>
+
+<p>
+Porque los recuerdos más bonitos
+muchas veces empiezan sin planearlos.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card"
+onclick="openCard(this)">
+
+<div class="card-front">
+
+<div class="card-symbol">
+07
+</div>
+
+<h3>
+Tú
+</h3>
+
+</div>
+
+<div class="card-content">
+
+<h3>
+07
+</h3>
+
+<p>
+Porque al final, de todas las pequeñas cosas,
+la más importante eres tú.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
+← Volver al calendario
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     DÍA 8
+======================================================= -->
+
+<section
+    id="day8"
+    class="screen"
+>
+
+<div class="page">
+
+<div class="page-label">
+✦ Día 08 ✦
+</div>
+
+
+<h1>
+Un momento
+</h1>
+
+
+<div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1648,13 +3166,16 @@ Solo siete pequeñas cosas que quería dejar aquí.
 Cierra los ojos por un instante.
 </p>
 
+
 <p>
 Imagina una noche cualquiera.
 </p>
 
+
 <p>
 No hay nada extraordinario.
 </p>
+
 
 <p>
 Solo una conversación,
@@ -1664,10 +3185,12 @@ y la sensación de estar exactamente
 donde quieres estar.
 </p>
 
+
 <p class="highlight">
 Quizás los mejores momentos
 no necesitan ser enormes.
 </p>
+
 
 <p>
 A veces solamente necesitan
@@ -1676,7 +3199,11 @@ a las personas correctas.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1685,19 +3212,30 @@ a las personas correctas.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 9
-===================================================== -->
+======================================================= -->
 
-<section id="day9" class="screen">
+<section
+    id="day9"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 09</div>
+<div class="page-label">
+✦ Día 09 ✦
+</div>
 
-<h1>La puerta</h1>
+
+<h1>
+La puerta
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1705,14 +3243,17 @@ a las personas correctas.
 Hay puertas que se abren con una llave.
 </p>
 
+
 <p>
 Otras se abren con una decisión.
 </p>
+
 
 <p>
 Y algunas simplemente aparecen
 cuando llega el momento.
 </p>
+
 
 <p class="highlight">
 Esta es una de ellas.
@@ -1720,14 +3261,25 @@ Esta es una de ellas.
 
 </div>
 
-<button class="btn btn-pink"
-onclick="openDoor()">
-Abrir
+
+<button
+    class="btn btn-rosa"
+    onclick="openDoor()"
+>
+ABRIR
 </button>
 
-<div id="doorMessage" style="margin-top:30px;"></div>
 
-<button class="btn" onclick="showScreen('calendar')" style="margin-top:35px;">
+<div
+    id="doorMessage"
+    class="page-text"
+></div>
+
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1736,19 +3288,30 @@ Abrir
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 10
-===================================================== -->
+======================================================= -->
 
-<section id="day10" class="screen">
+<section
+    id="day10"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 10</div>
+<div class="page-label">
+✦ Día 10 ✦
+</div>
 
-<h1>La canción</h1>
+
+<h1>
+La canción
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1756,34 +3319,47 @@ Abrir
 Hoy no necesito escribir demasiado.
 </p>
 
+
 <p>
 Hay cosas que una canción puede decir
 de una manera que las palabras no consiguen.
 </p>
 
+
 <p class="highlight">
-Así que hoy simplemente quiero que escuches.
+Así que hoy simplemente quiero
+que escuches.
 </p>
 
 </div>
 
+
 <div class="music-box">
 
-<div class="music-symbol">
-♪ 
+<div class="music-icon">
+♪
 </div>
+
 
 <div class="music-title">
 Para ti
 </div>
 
+
 <div class="small-star">
 ✦
 </div>
 
-<audio controls preload="metadata">
 
-<source src="audio/audiodia-10.mp3.mp3" type="audio/mpeg">
+<audio
+    controls
+    preload="metadata"
+>
+
+<source
+    src="audio/audiodia-10.mp3.mp3"
+    type="audio/mpeg"
+>
 
 Tu navegador no puede reproducir este audio.
 
@@ -1791,11 +3367,13 @@ Tu navegador no puede reproducir este audio.
 
 </div>
 
+
 <div class="page-text">
 
 <p>
 Escúchala hasta el final.
 </p>
+
 
 <p class="gold">
 Quizás encuentres algo más que una canción.
@@ -1803,7 +3381,11 @@ Quizás encuentres algo más que una canción.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1812,19 +3394,30 @@ Quizás encuentres algo más que una canción.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 11
-===================================================== -->
+======================================================= -->
 
-<section id="day11" class="screen">
+<section
+    id="day11"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 11</div>
+<div class="page-label">
+✦ Día 11 ✦
+</div>
 
-<h1>Una página de nuestra historia</h1>
+
+<h1>
+Nuestra historia
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1832,6 +3425,7 @@ Quizás encuentres algo más que una canción.
 Si nuestra historia fuera un libro,
 no tendría sentido empezar por el final.
 </p>
+
 
 <p>
 Habría páginas llenas de conversaciones,
@@ -1841,25 +3435,30 @@ días buenos
 y otros simplemente normales.
 </p>
 
+
 <p>
 Y quizás eso sea precisamente
 lo que hace especial una historia:
 </p>
+
 
 <p class="highlight">
 que no está hecha solamente
 de grandes momentos.
 </p>
 
+
 <p>
 Está hecha de todo lo que ocurre
 entre ellos.
 </p>
 
+
 <p>
 De las pequeñas cosas que un día
 terminamos recordando.
 </p>
+
 
 <p class="gold">
 Y esta página es solamente una más.
@@ -1867,7 +3466,11 @@ Y esta página es solamente una más.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1876,19 +3479,30 @@ Y esta página es solamente una más.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 12
-===================================================== -->
+======================================================= -->
 
-<section id="day12" class="screen">
+<section
+    id="day12"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 12</div>
+<div class="page-label">
+✦ Día 12 ✦
+</div>
 
-<h1>Para leer despacio</h1>
+
+<h1>
+Para leer despacio
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1896,25 +3510,31 @@ Y esta página es solamente una más.
 No todo tiene que ocurrir rápido.
 </p>
 
+
 <p>
 Algunas cosas bonitas necesitan tiempo.
 </p>
+
 
 <p>
 Una conversación.
 </p>
 
+
 <p>
 Un recuerdo.
 </p>
+
 
 <p>
 Una etapa.
 </p>
 
+
 <p>
 Una persona.
 </p>
+
 
 <p class="highlight">
 Quizás por eso quería que este regalo
@@ -1923,7 +3543,11 @@ también se descubriera poco a poco.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1932,19 +3556,30 @@ también se descubriera poco a poco.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 13
-===================================================== -->
+======================================================= -->
 
-<section id="day13" class="screen">
+<section
+    id="day13"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 13</div>
+<div class="page-label">
+✦ Día 13 ✦
+</div>
 
-<h1>El juego</h1>
+
+<h1>
+El juego
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1952,19 +3587,29 @@ también se descubriera poco a poco.
 Hoy toca jugar.
 </p>
 
+
 <p class="highlight">
 Pero esta vez no hay respuestas correctas.
 </p>
 
 </div>
 
-<button class="btn btn-pink" onclick="playGame()">
-Empezar
+
+<button
+    class="btn btn-rosa"
+    onclick="playGame()"
+>
+EMPEZAR
 </button>
 
-<div id="gameArea" style="margin-top:35px;"></div>
 
-<button class="btn" onclick="showScreen('calendar')" style="margin-top:35px;">
+<div id="gameArea"></div>
+
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -1973,19 +3618,30 @@ Empezar
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 14
-===================================================== -->
+======================================================= -->
 
-<section id="day14" class="screen">
+<section
+    id="day14"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 14</div>
+<div class="page-label">
+✦ Día 14 ✦
+</div>
 
-<h1>Una galería</h1>
+
+<h1>
+Recuerdos
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -1994,18 +3650,24 @@ Hay imágenes que cuentan historias
 sin necesitar demasiadas palabras.
 </p>
 
+
 <p>
-Este día queda preparado para guardar
-algunas de ellas.
+Y hay recuerdos que solamente
+necesitan un pequeño lugar para quedarse.
 </p>
 
 </div>
 
+
 <div class="photo-box">
 
-<img src="imagenes/dia-03.jpg" alt="Recuerdo">
+<img
+    src="imagenes/dia-03.jpg"
+    alt="Recuerdo"
+>
 
 </div>
+
 
 <div class="page-text">
 
@@ -2016,7 +3678,11 @@ Pero una historia guarda mucho más.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -2025,19 +3691,30 @@ Pero una historia guarda mucho más.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 15
-===================================================== -->
+======================================================= -->
 
-<section id="day15" class="screen">
+<section
+    id="day15"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 15</div>
+<div class="page-label">
+✦ Día 15 ✦
+</div>
 
-<h1>Si pudiera regalarte algo</h1>
+
+<h1>
+Si pudiera regalarte algo
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -2045,37 +3722,48 @@ Pero una historia guarda mucho más.
 No elegiría algo que pudiera envolverse.
 </p>
 
+
 <p>
 Te regalaría tiempo.
 </p>
+
 
 <p>
 Momentos.
 </p>
 
+
 <p>
 Viajes.
 </p>
+
 
 <p>
 Risas.
 </p>
 
+
 <p>
 Días que después podamos recordar.
 </p>
+
 
 <p class="highlight">
 Porque algunos regalos no se guardan.
 </p>
 
-<p>
+
+<p class="gold">
 Se viven.
 </p>
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -2084,19 +3772,30 @@ Se viven.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 16
-===================================================== -->
+======================================================= -->
 
-<section id="day16" class="screen">
+<section
+    id="day16"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 16</div>
+<div class="page-label">
+✦ Día 16 ✦
+</div>
 
-<h1>Por todo lo vivido</h1>
+
+<h1>
+Por nosotros
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -2104,22 +3803,27 @@ Se viven.
 Hoy solamente quiero brindar por eso.
 </p>
 
+
 <p>
 Por los días que ya existen.
 </p>
+
 
 <p>
 Por las historias que conocemos.
 </p>
 
+
 <p>
 Por las cosas que nos hicieron reír.
 </p>
+
 
 <p>
 Por las que quizás en aquel momento
 no parecían importantes.
 </p>
+
 
 <p class="highlight">
 Y por todo lo que todavía
@@ -2128,7 +3832,11 @@ no sabemos que vamos a recordar.
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -2137,19 +3845,30 @@ no sabemos que vamos a recordar.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 17
-===================================================== -->
+======================================================= -->
 
-<section id="day17" class="screen">
+<section
+    id="day17"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 17</div>
+<div class="page-label">
+✦ Día 17 ✦
+</div>
 
-<h1>Lo que todavía falta</h1>
+
+<h1>
+Lo que todavía falta
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
@@ -2157,30 +3876,39 @@ no sabemos que vamos a recordar.
 Hay lugares que todavía no conocemos.
 </p>
 
+
 <p>
 Fotos que todavía no existen.
 </p>
 
+
 <p>
 Historias que todavía no podemos contar.
 </p>
+
 
 <p>
 Días que todavía no sabemos
 que terminarán siendo importantes.
 </p>
 
+
 <p class="highlight">
 Y quizás esa sea una de las mejores partes:
 </p>
 
-<p>
+
+<p class="gold">
 todavía queda muchísimo por descubrir.
 </p>
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -2189,15 +3917,22 @@ todavía queda muchísimo por descubrir.
 </section>
 
 
-<!-- =====================================================
+
+<!-- =======================================================
      DÍA 18
-===================================================== -->
+======================================================= -->
 
-<section id="day18" class="screen">
+<section
+    id="day18"
+    class="screen"
+>
 
-<div class="container page">
+<div class="page">
 
-<div class="page-label">✦ Día 18</div>
+<div class="page-label">
+✦ Día 18 ✦
+</div>
+
 
 <div class="page-text">
 
@@ -2207,30 +3942,47 @@ Mañana.
 
 </div>
 
-<div style="margin:80px 0;">
 
-<div class="small-star">✦</div>
+<div style="margin:60px 0 80px;">
 
-<h1 style="
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(70px,13vw,150px);
-font-weight:400;
-">
+<div class="decor-star">
+✦
+</div>
+
+
+<div
+    style="
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(170px,30vw,300px);
+        line-height:.7;
+        color:transparent;
+        -webkit-text-stroke:1px var(--dorado);
+    "
+>
 25
-</h1>
+</div>
+
 
 <div class="gold-line"></div>
 
-<p style="
-font-family:'Cormorant Garamond',serif;
-font-size:25px;
-">
-Una última página antes de la gran celebración.
+
+<p
+    style="
+        font-family:'Cormorant Garamond',serif;
+        font-size:25px;
+        color:var(--texto);
+    "
+>
+Una última página antes de celebrar.
 </p>
 
 </div>
 
-<button class="btn" onclick="showScreen('calendar')">
+
+<button
+    class="btn"
+    onclick="showScreen('calendar')"
+>
 ← Volver al calendario
 </button>
 
@@ -2239,71 +3991,94 @@ Una última página antes de la gran celebración.
 </section>
 
 
-<!-- =====================================================
-     DÍA 19
-===================================================== -->
 
-<section id="day19" class="screen">
+<!-- =======================================================
+     DÍA 19 — 25
+======================================================= -->
 
-<div class="container page">
+<section
+    id="day19"
+    class="screen"
+>
 
-<div class="confetti" id="confetti"></div>
+<div
+    id="confetti"
+    class="confetti"
+></div>
+
+
+<div class="page">
 
 <div class="page-label">
 ✦ Día 19 ✦
 </div>
 
-<div style="margin-top:45px;">
+
+<div style="margin-top:60px;">
 
 <div class="final-number">
 25
 </div>
 
-<h1 style="
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(45px,7vw,75px);
-font-weight:500;
-margin-top:45px;
-">
+
+<h1
+    style="
+        margin-top:55px;
+        font-family:'Cormorant Garamond',serif;
+        font-size:clamp(48px,7vw,78px);
+        font-weight:500;
+    "
+>
 Felices 25
 </h1>
 
+
 <div class="gold-line"></div>
+
 
 <div class="page-text">
 
 <p>
-Hoy no quiero hacerte mirar solamente hacia atrás.
+Hoy no quiero hacerte mirar
+solamente hacia atrás.
 </p>
+
 
 <p>
 Quiero que mires hacia adelante.
 </p>
 
+
 <p>
 Hacia todo lo que todavía falta.
 </p>
 
+
 <p>
 Todas las páginas que todavía no existen.
 </p>
+
 
 <p>
 Todos esos momentos que todavía
 no sabemos que vamos a recordar.
 </p>
 
+
 <p class="highlight">
 Porque 25 no es un final.
 </p>
+
 
 <p>
 Es otra página.
 </p>
 
+
 <p>
 Una nueva etapa.
 </p>
+
 
 <p>
 Y espero que esté llena de cosas bonitas,
@@ -2313,27 +4088,33 @@ risas
 y muchísimos motivos para sonreír.
 </p>
 
+
 <p class="gold">
 Feliz cumpleaños, amor.
 </p>
+
 
 <p>
 Gracias por dejarme formar parte
 de algunas de tus páginas.
 </p>
 
+
 <p>
 Y recuerda:
 </p>
+
 
 <p class="highlight">
 esta historia no termina aquí.
 </p>
 
+
 <p>
 Apenas estamos escribiendo
 las mejores páginas.
 </p>
+
 
 <p class="gold">
 DMS ✦
@@ -2348,238 +4129,304 @@ DMS ✦
 </section>
 
 
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
 <script>
 
-/* =========================
-   NAVEGACIÓN
-========================= */
+
+/* =========================================================
+   CAMBIAR PANTALLA
+========================================================= */
 
 function showScreen(id){
 
-    document.querySelectorAll('.screen').forEach(screen=>{
-        screen.classList.remove('active');
-    });
+    document
+        .querySelectorAll('.screen')
+        .forEach(screen => {
 
-    const target=document.getElementById(id);
+            screen.classList.remove('active');
+
+        });
+
+
+    const target =
+        document.getElementById(id);
+
 
     if(target){
+
         target.classList.add('active');
+
         window.scrollTo({
             top:0,
             behavior:'instant'
         });
-    }
-
-}
-
-
-/* =========================
-   DÍAS
-========================= */
-
-function openDay(day){
-
-    showScreen('day'+day);
-
-    if(day===19){
-        createConfetti();
-    }
-
-}
-
-
-/* =========================
-   TARJETAS
-========================= */
-
-function openCard(card){
-
-    if(!card.classList.contains('open')){
-
-        card.classList.add('open');
 
     }
 
 }
 
 
-/* =========================
-   FOTO
-========================= */
 
-function revealPhoto(){
+/* =========================================================
+   CONTRASEÑA
+========================================================= */
 
-    const box=document.getElementById('photoBox');
+function checkPassword(){
 
-    if(box){
-        box.classList.add('revealed');
-    }
+    const input =
+        document.getElementById('passwordInput');
 
-}
+    const message =
+        document.getElementById('passwordMessage');
 
 
-/* =========================
-   ACERTIJO
-========================= */
+    const clave = "2509";
 
-function checkRiddle(){
 
-    const input=document.getElementById('answerInput');
-    const message=document.getElementById('answerMessage');
+    if(input.value === clave){
 
-    const answer=input.value
-        .trim()
-        .toLowerCase();
+        message.innerHTML =
+            "✦ Contraseña correcta.";
 
-    const valid=[
-        'foto',
-        'fotografía',
-        'fotografia',
-        'una foto',
-        'una fotografía',
-        'una fotografia'
-    ];
+        setTimeout(() => {
 
-    if(valid.includes(answer)){
+            showScreen('welcome');
 
-        message.innerHTML=
-        '✦ Correcto.<br><br>' +
-        'Hay cosas que pueden guardar un instante ' +
-        'para que podamos volver a él.';
+            input.value = "";
+
+        },700);
 
     }else{
 
-        message.innerHTML=
-        'No exactamente... ✦<br>' +
-        'Piénsalo un poquito más.';
+        message.innerHTML =
+            "No es esa... intenta recordar nuestra historia. ✦";
+
+        input.value = "";
+
+        input.focus();
 
     }
 
 }
 
 
-/* =========================
-   ELECCIÓN
-========================= */
 
-function chooseOption(card,option){
+/* =========================================================
+   ABRIR DÍA
+========================================================= */
 
-    document.querySelectorAll('#choiceCards .card')
-    .forEach(c=>{
-        c.style.opacity='.35';
-    });
+function openDay(day){
 
-    card.style.opacity='1';
+    showScreen('day' + day);
 
-    const texts={
 
-        aventura:
-        'Elegiste aventura. Entonces todavía quedan muchas historias por descubrir.',
+    if(day === 19){
 
-        noche:
-        'Elegiste una noche tranquila. A veces los mejores planes son simplemente estar.',
+        createConfetti();
 
-        viaje:
-        'Elegiste un viaje. Hay lugares que todavía no conocemos.',
+    }
 
-        sorpresa:
-        'Elegiste una sorpresa. Entonces hiciste exactamente lo que esperaba: dejarte sorprender.'
+}
 
-    };
 
-    document.getElementById('choiceResult').innerHTML=`
 
-        <div class="page-text">
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+function openCard(card){
+
+    card.classList.toggle('open');
+
+}
+
+
+
+/* =========================================================
+   FOTO DÍA 3
+========================================================= */
+
+function revealPhoto(){
+
+    const box =
+        document.getElementById('photoBox');
+
+
+    if(box){
+
+        box.classList.add('revealed');
+
+    }
+
+}
+
+
+
+/* =========================================================
+   ACERTIJO
+========================================================= */
+
+function checkRiddle(){
+
+    const input =
+        document.getElementById('answerInput');
+
+    const message =
+        document.getElementById('answerMessage');
+
+
+    const answer =
+        input.value
+        .trim()
+        .toLowerCase();
+
+
+    const correct = [
+
+        "foto",
+        "fotografía",
+        "fotografia",
+        "una foto",
+        "una fotografía",
+        "una fotografia"
+
+    ];
+
+
+    if(correct.includes(answer)){
+
+        message.innerHTML =
+            "✦ Correcto.<br><br>" +
+            "Una fotografía puede guardar un instante " +
+            "para que podamos volver a él.";
+
+    }else{
+
+        message.innerHTML =
+            "No exactamente... ✦<br>" +
+            "Piénsalo un poquito más.";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   DÍA 5
+========================================================= */
+
+function chooseOption(option){
+
+    const result =
+        document.getElementById('choiceResult');
+
+
+    result.innerHTML = `
 
         <p class="gold">
-        ${texts[option]}
+            Elegiste: ${option}.
         </p>
 
         <p>
-        Y al final...
-        no importa demasiado qué elegiste.
+            Pero al final no importa demasiado
+            qué elegiste.
         </p>
 
         <p class="highlight">
-        Me gusta saber que eres tú
-        quien está descubriendo cada página.
+            Lo bonito es seguir descubriendo
+            cada página a tu manera.
         </p>
-
-        </div>
 
     `;
 
 }
 
 
-/* =========================
-   PUERTA DÍA 9
-========================= */
+
+/* =========================================================
+   DÍA 9
+========================================================= */
 
 function openDoor(){
 
-    document.getElementById('doorMessage').innerHTML=`
+    const message =
+        document.getElementById('doorMessage');
 
-        <div class="page-text">
+
+    message.innerHTML = `
 
         <p class="highlight">
-        Puerta abierta.
+            Puerta abierta.
         </p>
 
         <p>
-        Hay algo esperando más adelante.
+            Algunas cosas no se pueden descubrir
+            todas de una vez.
         </p>
 
         <p class="gold">
-        Pero tendrás que seguir avanzando.
+            Sigue avanzando.
         </p>
-
-        </div>
 
     `;
 
 }
 
 
-/* =========================
-   JUEGO DÍA 13
-========================= */
+
+/* =========================================================
+   DÍA 13
+========================================================= */
 
 function playGame(){
 
-    const area=document.getElementById('gameArea');
+    const area =
+        document.getElementById('gameArea');
 
-    area.innerHTML=`
+
+    area.innerHTML = `
 
         <div class="riddle">
 
             <div class="riddle-question">
 
-                Si pudieras elegir ahora mismo...
+                Si pudieras guardar para siempre
+                una sola cosa...
 
                 <br><br>
 
                 <strong>
-                ¿qué guardarías para siempre?
+                    ¿qué elegirías?
                 </strong>
 
             </div>
 
             <br>
 
-            <button class="btn"
-            onclick="gameAnswer('momento')">
-            Un momento
+            <button
+                class="btn"
+                onclick="gameAnswer('momento')"
+            >
+                Un momento
             </button>
 
-            <button class="btn"
-            onclick="gameAnswer('persona')">
-            Una persona
+            <button
+                class="btn"
+                onclick="gameAnswer('persona')"
+            >
+                Una persona
             </button>
 
-            <button class="btn"
-            onclick="gameAnswer('recuerdo')">
-            Un recuerdo
+            <button
+                class="btn"
+                onclick="gameAnswer('recuerdo')"
+            >
+                Un recuerdo
             </button>
 
         </div>
@@ -2588,26 +4435,29 @@ function playGame(){
 
 }
 
+
 function gameAnswer(answer){
 
-    const area=document.getElementById('gameArea');
+    const area =
+        document.getElementById('gameArea');
 
-    area.innerHTML=`
+
+    area.innerHTML = `
 
         <div class="page-text">
 
             <p class="gold">
-            Buena elección.
+                Buena elección. ✦
             </p>
 
             <p>
-            Aunque quizás hay algo que no se puede
-            guardar de ninguna de esas maneras.
+                Aunque quizás hay algo que no se puede
+                guardar de ninguna de esas maneras.
             </p>
 
             <p class="highlight">
-            Lo que sentimos cuando un momento
-            realmente importa.
+                Lo que sentimos cuando un momento
+                realmente importa.
             </p>
 
         </div>
@@ -2617,32 +4467,50 @@ function gameAnswer(answer){
 }
 
 
-/* =========================
-   CONFETI
-========================= */
+
+/* =========================================================
+   CONFETI FINAL
+========================================================= */
 
 function createConfetti(){
 
-    const container=document.getElementById('confetti');
+    const container =
+        document.getElementById('confetti');
 
-    if(!container || container.children.length>0){
+
+    if(
+        !container ||
+        container.children.length > 0
+    ){
+
         return;
+
     }
 
-    for(let i=0;i<45;i++){
 
-        const piece=document.createElement('span');
+    for(let i=0; i<55; i++){
 
-        piece.style.left=Math.random()*100+'%';
+        const piece =
+            document.createElement('span');
 
-        piece.style.animationDuration=
-            (4+Math.random()*5)+'s';
 
-        piece.style.animationDelay=
-            Math.random()*4+'s';
+        piece.style.left =
+            Math.random() * 100 + "%";
 
-        piece.style.transform=
-            `rotate(${Math.random()*360}deg)`;
+
+        piece.style.animationDuration =
+            4 + Math.random() * 5 + "s";
+
+
+        piece.style.animationDelay =
+            Math.random() * 4 + "s";
+
+
+        piece.style.background =
+            Math.random() > .5
+                ? "var(--dorado)"
+                : "var(--rosa)";
+
 
         container.appendChild(piece);
 
@@ -2650,7 +4518,29 @@ function createConfetti(){
 
 }
 
+
+
+/* =========================================================
+   ENTER EN CONTRASEÑA
+========================================================= */
+
+document
+    .getElementById('passwordInput')
+    .addEventListener(
+        'keydown',
+        function(event){
+
+            if(event.key === 'Enter'){
+
+                checkPassword();
+
+            }
+
+        }
+    );
+
 </script>
+
 
 </body>
 </html>
