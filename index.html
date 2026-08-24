@@ -84,15 +84,8 @@ body{
         transform:translateY(110vh) scale(.5);
         opacity:0;
     }
-
-    15%{
-        opacity:.6;
-    }
-
-    80%{
-        opacity:.25;
-    }
-
+    15%{opacity:.6;}
+    80%{opacity:.25;}
     100%{
         transform:translateY(-10vh) scale(1.5);
         opacity:0;
@@ -146,7 +139,6 @@ body{
         opacity:0;
         transform:translateY(35px) scale(.98);
     }
-
     to{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -162,7 +154,13 @@ body{
    TIPOGRAFÍA
 ========================================================= */
 
-.serif{
+.serif,
+h1,h2,h3,
+.signature,
+.calendar-number,
+.door-number,
+.word,
+.letter-title{
     font-family:'Cormorant Garamond',serif;
 }
 
@@ -175,7 +173,6 @@ body{
 }
 
 h1,h2,h3{
-    font-family:'Cormorant Garamond',serif;
     font-weight:400;
 }
 
@@ -212,12 +209,11 @@ p{
 }
 
 .gold{
-    color:var(--gold-light);
+    color:var(--gold-light)!important;
 }
 
 .signature{
     margin-top:38px;
-    font-family:'Cormorant Garamond',serif;
     font-size:30px;
     color:var(--gold-light);
 }
@@ -269,6 +265,12 @@ button{
     box-shadow:0 15px 45px rgba(201,164,92,.12);
 }
 
+.secret-btn{
+    font-size:11px;
+    padding:18px 40px;
+    box-shadow:0 0 30px rgba(201,164,92,.08);
+}
+
 /* =========================================================
    PORTADA
 ========================================================= */
@@ -276,8 +278,7 @@ button{
 .cover-number{
     color:transparent;
     -webkit-text-stroke:1px var(--gold);
-    text-shadow:
-        0 0 40px rgba(201,164,92,.12);
+    text-shadow:0 0 40px rgba(201,164,92,.12);
     animation:numberBreath 4s ease-in-out infinite;
 }
 
@@ -286,7 +287,6 @@ button{
         transform:scale(1);
         text-shadow:0 0 30px rgba(201,164,92,.08);
     }
-
     50%{
         transform:scale(1.035);
         text-shadow:0 0 65px rgba(201,164,92,.2);
@@ -379,7 +379,6 @@ button{
 .calendar-number{
     position:relative;
     z-index:2;
-    font-family:'Cormorant Garamond',serif;
     font-size:34px;
 }
 
@@ -411,7 +410,6 @@ button{
     0%,100%{
         box-shadow:0 0 0 0 rgba(201,164,92,.05);
     }
-
     50%{
         box-shadow:0 0 30px rgba(201,164,92,.16);
     }
@@ -459,7 +457,6 @@ button{
 }
 
 .letter-title{
-    font-family:'Cormorant Garamond',serif;
     color:var(--gold-light);
     font-size:30px;
     margin-bottom:30px;
@@ -470,7 +467,7 @@ button{
 }
 
 /* =========================================================
-   PALABRAS QUE APARECEN
+   PALABRAS
 ========================================================= */
 
 .words{
@@ -486,7 +483,6 @@ button{
     padding:13px 20px;
     border:1px solid rgba(201,164,92,.25);
     background:rgba(255,255,255,.03);
-    font-family:'Cormorant Garamond',serif;
     font-size:22px;
     color:var(--cream);
     opacity:0;
@@ -529,31 +525,12 @@ button{
     transition:.6s;
 }
 
-.door::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.1),
-        transparent
-    );
-    transform:translateX(-120%);
-    transition:.8s;
-}
-
-.door:hover::after{
-    transform:translateX(120%);
-}
-
 .door:hover{
     transform:translateY(-10px);
     border-color:var(--gold);
 }
 
 .door-number{
-    font-family:'Cormorant Garamond',serif;
     font-size:60px;
     color:var(--gold);
     margin-top:45px;
@@ -612,7 +589,6 @@ button{
         opacity:0;
         transform:translateY(25px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -667,9 +643,7 @@ button{
 }
 
 @keyframes discSpin{
-    to{
-        transform:rotate(360deg);
-    }
+    to{transform:rotate(360deg);}
 }
 
 .music-box{
@@ -683,7 +657,6 @@ button{
 audio{
     width:100%;
     margin-top:20px;
-    filter:sepia(.25);
 }
 
 /* =========================================================
@@ -696,6 +669,7 @@ audio{
     border:1px solid rgba(201,164,92,.3);
     padding:10px;
     background:rgba(0,0,0,.35);
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
 }
 
 .video-box video{
@@ -706,7 +680,7 @@ audio{
 }
 
 /* =========================================================
-   CUENTA REGRESIVA
+   CUENTA
 ========================================================= */
 
 .countdown{
@@ -766,12 +740,196 @@ audio{
     margin:45px auto;
 }
 
-.initials{
-    margin-top:60px;
-    color:var(--gold);
+/* =========================================================
+   FINAL SECRETO
+========================================================= */
+
+.secret-screen{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(213,154,168,.12),
+            transparent 35%
+        ),
+        #050405;
+}
+
+.secret-title{
     font-family:'Cormorant Garamond',serif;
-    font-size:24px;
-    letter-spacing:8px;
+    font-size:clamp(35px,7vw,75px);
+    color:var(--cream);
+}
+
+.secret-box{
+    width:210px;
+    height:210px;
+    margin:55px auto 35px;
+    position:relative;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--gold);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(213,154,168,.12),
+            rgba(201,164,92,.05)
+        );
+    box-shadow:
+        0 0 50px rgba(201,164,92,.08),
+        inset 0 0 40px rgba(255,255,255,.025);
+    transition:.6s;
+    animation:secretPulse 3s ease-in-out infinite;
+}
+
+.secret-box:hover{
+    transform:scale(1.06) rotate(-1deg);
+    box-shadow:
+        0 0 80px rgba(201,164,92,.2),
+        0 25px 80px rgba(0,0,0,.5);
+}
+
+.secret-box::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border:1px solid rgba(201,164,92,.35);
+    transform:rotate(45deg);
+}
+
+.secret-box::after{
+    content:"✦";
+    position:absolute;
+    font-size:32px;
+    color:var(--gold-light);
+}
+
+@keyframes secretPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.035);}
+}
+
+.secret-box.opened{
+    animation:secretOpen 1.2s forwards;
+}
+
+@keyframes secretOpen{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15) rotate(3deg);}
+    100%{
+        transform:scale(.2) rotate(180deg);
+        opacity:0;
+    }
+}
+
+.secret-reveal{
+    display:none;
+    animation:secretAppear 1.4s ease forwards;
+}
+
+@keyframes secretAppear{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.cinematic{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    background:#050405;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:30px;
+}
+
+.cinematic.active{
+    display:flex;
+    animation:cinematicIn 1.2s ease;
+}
+
+@keyframes cinematicIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.cinematic-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(30px,6vw,65px);
+    color:var(--cream);
+    max-width:800px;
+    line-height:1.2;
+}
+
+.cinematic-sub{
+    margin-top:20px;
+    color:var(--gold-light);
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.secret-video-screen{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201,164,92,.1),
+            transparent 45%
+        ),
+        #050405;
+}
+
+.video-intro{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(28px,5vw,55px);
+    color:var(--cream);
+    margin-bottom:20px;
+}
+
+.final-love{
+    opacity:0;
+    transform:translateY(25px);
+    transition:2s ease;
+}
+
+.final-love.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.final-love-small{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    color:var(--cream);
+}
+
+.final-initials{
+    font-family:'Cormorant Garamond',serif;
+    font-size:75px;
+    letter-spacing:15px;
+    color:var(--gold-light);
+    margin-top:15px;
+    text-shadow:0 0 40px rgba(201,164,92,.3);
+    animation:initialsGlow 3s ease-in-out infinite;
+}
+
+@keyframes initialsGlow{
+    0%,100%{
+        text-shadow:0 0 25px rgba(201,164,92,.15);
+    }
+    50%{
+        text-shadow:0 0 70px rgba(201,164,92,.45);
+    }
 }
 
 /* =========================================================
@@ -783,7 +941,7 @@ audio{
     top:-20px;
     width:5px;
     height:18px;
-    z-index:100;
+    z-index:300;
     pointer-events:none;
     animation:confettiFall 4s linear forwards;
 }
@@ -796,7 +954,7 @@ audio{
 }
 
 /* =========================================================
-   ERROR PASSWORD
+   ERROR
 ========================================================= */
 
 .error{
@@ -814,10 +972,6 @@ audio{
 
     .calendar{
         gap:7px;
-    }
-
-    .calendar-day{
-        min-width:0;
     }
 
     .calendar-number{
@@ -855,6 +1009,15 @@ audio{
     .count-number{
         font-size:38px;
     }
+
+    .secret-box{
+        width:175px;
+        height:175px;
+    }
+
+    .final-initials{
+        font-size:55px;
+    }
 }
 
 </style>
@@ -863,6 +1026,7 @@ audio{
 <body>
 
 <div id="particles"></div>
+
 <div class="glow glow-one"></div>
 <div class="glow glow-two"></div>
 
@@ -886,7 +1050,7 @@ Para alguien muy especial
 <div class="line"></div>
 
 <h2>
-para tus 25
+Para tus 25
 </h2>
 
 <p class="subtitle">
@@ -981,7 +1145,7 @@ No es esa. Piensa en nosotras.
 <div class="content">
 
 <div class="eyebrow">
-Bienvenida, Ana Lidia
+Bienvenida
 </div>
 
 <h2>
@@ -1089,12 +1253,12 @@ El comienzo
 <div class="letter">
 
 <div class="letter-title">
-Para Ana Lidia
+Para ti
 </div>
 
 <p>
-Si estás leyendo esto, significa que abriste la primera
-puerta.
+Amor, si estás leyendo esto, significa que abriste
+la primera puerta.
 </p>
 
 <p>
@@ -1569,7 +1733,7 @@ Para cuando me extrañes
 </div>
 
 <p>
-Si hoy me extrañas, quiero que recuerdes algo.
+Amor, si hoy me extrañas, quiero que recuerdes algo.
 </p>
 
 <p>
@@ -1725,7 +1889,7 @@ VOLVER AL CALENDARIO
 
 
 <!-- =====================================================
-     DÍA 11 — MUSICA
+     DÍA 11
 ===================================================== -->
 
 <section class="screen music-screen" id="day11">
@@ -1762,8 +1926,8 @@ Esta es una de esas.
 </p>
 
 <audio controls>
-    <source src="audio/bemaste.mp3" type="audio/mpeg">
-    Tu navegador no puede reproducir este audio.
+<source src="audio/bemaste.mp3" type="audio/mpeg">
+Tu navegador no puede reproducir este audio.
 </audio>
 
 </div>
@@ -1792,7 +1956,7 @@ VOLVER AL CALENDARIO
 <div class="eyebrow">Día 12</div>
 
 <h2>
-Para Ana Lidia
+Para ti
 </h2>
 
 <div class="letter">
@@ -1802,7 +1966,7 @@ Una carta que quería escribirte
 </div>
 
 <p>
-Ana Lidia:
+Amor:
 </p>
 
 <p>
@@ -1852,7 +2016,7 @@ uno más contigo.
 </p>
 
 <p class="subtitle gold">
-Feliz casi cumpleaños, Ana Lidia.
+Feliz casi cumpleaños, amor.
 </p>
 
 </div>
@@ -2369,7 +2533,7 @@ VOLVER AL CALENDARIO
 
 <!-- =====================================================
      DÍA 22
-========================================================= -->
+===================================================== -->
 
 <section class="screen" id="day22">
 
@@ -2421,8 +2585,6 @@ Algún día podremos llenarlas de fotografías.
 
 </div>
 
-</div>
-
 <button class="main-btn" onclick="showScreen('calendar')">
 VOLVER AL CALENDARIO
 </button>
@@ -2446,7 +2608,7 @@ VOLVER AL CALENDARIO
 Hay algo que todavía no sabes
 </h2>
 
-<div class="envelope" onclick="openSecret()">
+<div class="envelope" onclick="openSecret23()">
 
 <div class="envelope-symbol">
 II
@@ -2460,7 +2622,7 @@ Hay algo escondido aquí.
 Toca para descubrirlo.
 </p>
 
-<div class="envelope-message" id="secretMessage">
+<div class="envelope-message" id="secretMessage23">
 
 <div class="letter">
 
@@ -2599,11 +2761,11 @@ VOLVER AL CALENDARIO
 </div>
 
 <h2>
-Ana Lidia
+Feliz cumpleaños
 </h2>
 
 <p class="subtitle">
-Feliz cumpleaños.
+Feliz cumpleaños, amor.
 </p>
 
 <div class="line"></div>
@@ -2656,7 +2818,7 @@ de lo que a veces puedes llegar a pensar.
 </p>
 
 <p class="subtitle gold">
-Felices 25, Ana Lidia.
+Felices 25, amor.
 </p>
 
 <p>
@@ -2676,62 +2838,138 @@ aunque sea de esta manera.
 
 </div>
 
-<button class="main-btn" onclick="birthdayMoment()">
-TODAVÍA HAY ALGO MÁS
+<button class="main-btn secret-btn" onclick="openFinalSecret()">
+¿TODAVÍA QUIERES DESCUBRIR UNA ÚLTIMA COSA?
 </button>
 
-<div class="card choice-result" id="birthdayMessage">
+</div>
 
-<h3>
-Ahora sí.
-</h3>
+</section>
+
+
+<!-- =====================================================
+     PANTALLA SECRETA 1
+===================================================== -->
+
+<section class="screen secret-screen" id="finalSecret">
+
+<div class="content">
+
+<div class="eyebrow">
+Última puerta
+</div>
+
+<div class="secret-title">
+¿Pensabas que ya había terminado?
+</div>
 
 <p class="subtitle">
-Mira hasta el final.
+No todavía, amor.
+</p>
+
+<div
+class="secret-box"
+id="secretBox"
+onclick="openSecretBox()">
+</div>
+
+<p id="secretHint">
+Hay algo aquí dentro.
+<br>
+Tócalo.
+</p>
+
+<div class="secret-reveal" id="secretReveal">
+
+<p class="subtitle gold">
+Hay algo que preparé especialmente para ti.
+</p>
+
+<button class="main-btn secret-btn" onclick="startFinalVideo()">
+DESCUBRIR
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRANSICIÓN CINEMATOGRÁFICA
+===================================================== -->
+
+<div class="cinematic" id="cinematic">
+
+<div class="cinematic-text" id="cinematicText">
+Espera...
+</div>
+
+<div class="cinematic-sub">
+Una última sorpresa
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     VIDEO SECRETO
+===================================================== -->
+
+<section class="screen secret-video-screen" id="finalVideo">
+
+<div class="content">
+
+<div class="eyebrow">
+Solo para ti
+</div>
+
+<div class="video-intro">
+Este momento es solamente para ti.
+</div>
+
+<p>
+Después de 25 días de pequeñas sorpresas...
 </p>
 
 <div class="video-box">
 
-<!--
-COLOCA TU VIDEO EN:
+<video
+id="birthdayVideo"
+controls
+playsinline
+preload="metadata"
+onended="videoFinished()">
 
-video/cumpleanos.mp4
+<source src="video/cumpleanos.mp4" type="video/mp4">
 
--->
+Tu navegador no puede reproducir este video.
 
-<video controls playsinline>
-    <source src="video/cumpleanos.mp4" type="video/mp4">
-    Tu navegador no puede reproducir este video.
 </video>
 
 </div>
 
-<p>
-Y si pensabas que todo terminaba aquí...
+<p class="gold">
+Míralo hasta el final.
 </p>
 
-<p class="subtitle gold">
-todavía queda una última cosa.
+<div
+class="final-love"
+id="finalLove">
+
+<p class="final-love-small">
+Todo esto lo hice pensando en ti.
 </p>
 
-<p>
-Hay regalos que se miran.
+<div class="line"></div>
+
+<p class="final-love-small">
+Con amor,
 </p>
 
-<p>
-Y hay regalos que se pueden tocar.
-</p>
-
-<p>
-Pero eso...
-</p>
-
-<p class="subtitle">
-lo descubrirás fuera de esta pantalla.
-</p>
-
-<div class="initials">
-TUS INICIALES
+<div class="final-initials">
+DMS
 </div>
 
 </div>
@@ -2747,18 +2985,10 @@ TUS INICIALES
    CONFIGURACIÓN
 ========================================================= */
 
-/*
-   TRUE:
-   permite probar todos los días ahora.
-
-   FALSE:
-   cada día se desbloquea según la fecha real.
-*/
-
 const MODO_PRUEBA = true;
 
-
 /*
+   Fecha real de comienzo:
    26 de agosto de 2026
 */
 
@@ -2773,7 +3003,7 @@ function createParticles(){
 
     const container=document.getElementById('particles');
 
-    for(let i=0;i<55;i++){
+    for(let i=0;i<65;i++){
 
         const p=document.createElement('div');
 
@@ -2815,11 +3045,12 @@ function showScreen(id){
         top:0,
         behavior:'smooth'
     });
+
 }
 
 
 /* =========================================================
-   CONTRASEÑA
+   PASSWORD
 ========================================================= */
 
 function checkPassword(){
@@ -2827,11 +3058,6 @@ function checkPassword(){
     const input=document.getElementById('passwordInput');
 
     const error=document.getElementById('passwordError');
-
-    /*
-       Puedes cambiar 0226 por la contraseña
-       que quieras.
-    */
 
     if(input.value==="0226"){
 
@@ -2846,7 +3072,9 @@ function checkPassword(){
         input.value='';
 
         input.focus();
+
     }
+
 }
 
 
@@ -2861,7 +3089,6 @@ function getAvailableDay(){
     const start=new Date(FECHA_INICIO);
 
     now.setHours(0,0,0,0);
-
     start.setHours(0,0,0,0);
 
     const difference=Math.floor(
@@ -2869,6 +3096,7 @@ function getAvailableDay(){
     );
 
     return difference+1;
+
 }
 
 
@@ -2879,12 +3107,14 @@ function isDayUnlocked(day){
     }
 
     return day<=getAvailableDay();
+
 }
 
 
 function isCurrentDay(day){
 
     return day===getAvailableDay();
+
 }
 
 
@@ -2907,15 +3137,11 @@ function createCalendar(){
         const unlocked=isDayUnlocked(day);
 
         if(!unlocked){
-
             button.classList.add('locked');
-
         }
 
         if(isCurrentDay(day)){
-
             button.classList.add('today');
-
         }
 
         button.innerHTML=`
@@ -2950,6 +3176,7 @@ function createCalendar(){
         grid.appendChild(button);
 
     }
+
 }
 
 
@@ -3034,6 +3261,7 @@ function choice5(number){
             </p>
 
         `;
+
     }
 
     box.style.display='block';
@@ -3042,6 +3270,7 @@ function choice5(number){
         behavior:'smooth',
         block:'center'
     });
+
 }
 
 
@@ -3076,6 +3305,7 @@ function quiz7(answer){
                 </p>
 
             </div>
+
         `;
 
     }else{
@@ -3098,9 +3328,11 @@ function quiz7(answer){
                 </p>
 
             </div>
+
         `;
 
     }
+
 }
 
 
@@ -3217,10 +3449,10 @@ function reveal17(){
    DÍA 23
 ========================================================= */
 
-function openSecret(){
+function openSecret23(){
 
     const message=
-        document.getElementById('secretMessage');
+        document.getElementById('secretMessage23');
 
     message.style.display='block';
 
@@ -3228,28 +3460,111 @@ function openSecret(){
 
 
 /* =========================================================
-   CUMPLEAÑOS
+   FINAL — PRIMERA PUERTA
 ========================================================= */
 
-function birthdayMoment(){
+function openFinalSecret(){
 
-    const message=
-        document.getElementById('birthdayMessage');
+    showScreen('finalSecret');
 
-    message.style.display='block';
+}
+
+
+/* =========================================================
+   FINAL — CAJA SECRETA
+========================================================= */
+
+function openSecretBox(){
+
+    const box=document.getElementById('secretBox');
+
+    const hint=document.getElementById('secretHint');
+
+    const reveal=document.getElementById('secretReveal');
+
+    if(box.classList.contains('opened')) return;
+
+    box.classList.add('opened');
+
+    hint.style.opacity='0';
+
+    setTimeout(()=>{
+
+        reveal.style.display='block';
+
+    },1000);
+
+}
+
+
+/* =========================================================
+   FINAL — TRANSICIÓN AL VIDEO
+========================================================= */
+
+function startFinalVideo(){
+
+    const cinematic=
+        document.getElementById('cinematic');
+
+    const text=
+        document.getElementById('cinematicText');
+
+    cinematic.classList.add('active');
+
+    text.innerHTML='Espera...';
+
+    setTimeout(()=>{
+
+        text.style.opacity='0';
+
+    },1800);
+
+    setTimeout(()=>{
+
+        text.innerHTML='Hay algo que preparé especialmente para ti.';
+
+        text.style.opacity='1';
+
+    },2800);
+
+    setTimeout(()=>{
+
+        cinematic.classList.remove('active');
+
+        showScreen('finalVideo');
+
+    },5000);
+
+}
+
+
+/* =========================================================
+   VIDEO TERMINADO
+========================================================= */
+
+function videoFinished(){
+
+    const love=
+        document.getElementById('finalLove');
+
+    love.classList.add('visible');
 
     createConfetti();
 
-    message.scrollIntoView({
-        behavior:'smooth',
-        block:'center'
-    });
+    setTimeout(()=>{
+
+        love.scrollIntoView({
+            behavior:'smooth',
+            block:'center'
+        });
+
+    },500);
 
 }
 
 
 /* =========================================================
-   CONFETI ELEGANTE
+   CONFETI
 ========================================================= */
 
 function createConfetti(){
@@ -3258,10 +3573,11 @@ function createConfetti(){
         '•',
         '✦',
         '—',
-        '◆'
+        '◆',
+        '✧'
     ];
 
-    for(let i=0;i<100;i++){
+    for(let i=0;i<120;i++){
 
         const piece=document.createElement('div');
 
@@ -3297,7 +3613,23 @@ function createConfetti(){
         },5000);
 
     }
+
 }
+
+
+/* =========================================================
+   TECLA ENTER PARA PASSWORD
+========================================================= */
+
+document
+.getElementById('passwordInput')
+.addEventListener('keydown',function(event){
+
+    if(event.key==='Enter'){
+        checkPassword();
+    }
+
+});
 
 
 /* =========================================================
