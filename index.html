@@ -7,141 +7,435 @@
 <title>25 días para tus 25 ❤️</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg, #fff0f5, #ffe0eb);
-    color: #5a3040;
-    text-align: center;
+    padding: 0;
 }
 
-.contenedor {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff8f8, #fcebed, #fffdfb);
+    color: #4a3438;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.content {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    animation: appear 1s ease;
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
 }
 
 h1 {
-    font-size: 55px;
-    color: #a64d6f;
+    font-size: clamp(55px, 15vw, 110px);
+    line-height: .9;
+    margin-bottom: 25px;
 }
 
-.subtitulo {
-    font-size: 22px;
-    line-height: 1.6;
+h2 {
+    font-size: clamp(38px, 9vw, 65px);
+    margin-bottom: 25px;
 }
 
-.corazon {
-    font-size: 70px;
-    animation: latido 1.5s infinite;
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    font-weight: 300;
+    margin: 12px 0;
 }
 
-@keyframes latido {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    line-height: 1.5;
 }
 
-.calendario {
+.small {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 30px;
+    border: 1px solid #c8959d;
+    border-radius: 30px;
+    background: rgba(255,255,255,.55);
+    color: #6d454d;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #fff;
+}
+
+input {
+    margin-top: 25px;
+    width: 170px;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 8px;
+    border: none;
+    border-bottom: 1px solid #b9838c;
+    background: transparent;
+    outline: none;
+    color: #5b3b40;
+}
+
+.error {
+    color: #a85c69;
+    font-size: 13px;
+    margin-top: 15px;
+    display: none;
+}
+
+.signature {
+    margin-top: 35px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+}
+
+.days {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 35px;
 }
 
-.dia {
-    background: white;
-    padding: 25px 15px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+.day {
+    padding: 17px 5px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.6);
+    border: 1px solid rgba(190,145,153,.4);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
 }
 
-.dia.bloqueado {
-    opacity: 0.5;
+.day.locked {
+    opacity: .4;
 }
 
-.numero {
-    font-size: 14px;
-    color: #a64d6f;
-    font-weight: bold;
+.heart {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0;
+    animation: floatHeart 7s linear infinite;
+    z-index: 1;
 }
 
-.emoji {
-    font-size: 35px;
-    margin: 10px;
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) scale(.6);
+        opacity: 0;
+    }
+    20% {
+        opacity: .35;
+    }
+    80% {
+        opacity: .35;
+    }
+    100% {
+        transform: translateY(-20vh) scale(1.1);
+        opacity: 0;
+    }
 }
 
-footer {
-    margin-top: 50px;
-    font-size: 14px;
-    opacity: 0.7;
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+@media(max-width:600px) {
+    .days {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+    }
+
+    .day {
+        font-size: 18px;
+        padding: 13px 3px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<!-- CORAZONES -->
+<div class="heart" style="left:8%; animation-delay:0s;">♡</div>
+<div class="heart" style="left:22%; animation-delay:2s;">♡</div>
+<div class="heart" style="left:40%; animation-delay:4s;">♡</div>
+<div class="heart" style="left:63%; animation-delay:1s;">♡</div>
+<div class="heart" style="left:82%; animation-delay:3s;">♡</div>
 
-    <div class="corazon">❤️</div>
 
-    <h1>25 días para tus 25</h1>
+<!-- PANTALLA 1 -->
+<section class="screen active" id="intro">
+    <div class="content">
 
-    <p class="subtitulo">
-        Un pequeño regalo para acompañarte<br>
-        desde el 26 de agosto hasta tu cumpleaños.
-    </p>
+        <p class="small">Para ti, mi amor</p>
 
-    <p>
-        ✨ Cada día habrá algo nuevo esperando por ti ✨
-    </p>
+        <h2>Hay regalos que se abren de una vez...</h2>
 
-    <div class="calendario">
+        <p class="subtitle">
+            y otros que se descubren poco a poco.
+        </p>
 
-        <div class="dia">
-            <div class="numero">DÍA 1</div>
-            <div class="emoji">🔓</div>
-            <h3>El comienzo</h3>
-            <p>Hoy empieza tu regalo ❤️</p>
+        <p>
+            Este es para ti.
+        </p>
+
+        <div class="signature">
+            ❤️
         </div>
 
-        <div class="dia bloqueado">
-            <div class="numero">DÍA 2</div>
-            <div class="emoji">🔒</div>
-            <h3>Bloqueado</h3>
-            <p>Vuelve mañana...</p>
+        <button onclick="showScreen('password')">
+            COMENZAR
+        </button>
+
+    </div>
+</section>
+
+
+<!-- CONTRASEÑA -->
+<section class="screen" id="password">
+    <div class="content">
+
+        <h2>A veces, solo basta recordar el instante en que todo cambió.</h2>
+
+        <p><strong>Cuatro números.</strong></p>
+        <p>Un recuerdo.</p>
+        <p>Un comienzo.</p>
+
+        <p>
+            Un momento pequeño para el mundo,
+            <br>
+            <strong>pero imposible de olvidar para nosotras.</strong>
+        </p>
+
+        <input
+            id="pass"
+            type="password"
+            maxlength="4"
+            inputmode="numeric"
+            placeholder="••••"
+        >
+
+        <br>
+
+        <button onclick="checkPassword()">
+            ABRIR
+        </button>
+
+        <p class="error" id="error">
+            Ese recuerdo todavía no abre esta puerta. ❤️
+        </p>
+
+    </div>
+</section>
+
+
+<!-- PANTALLA 3 -->
+<section class="screen" id="welcome">
+    <div class="content">
+
+        <p class="small">Una pequeña sorpresa para ti</p>
+
+        <h2>Hay fechas que se recuerdan.</h2>
+
+        <p class="subtitle">
+            Y hay otras que se quedan para siempre.
+        </p>
+
+        <p>
+            Esta es una de ellas.
+        </p>
+
+        <p>
+            Ahora sí, mi amor.
+        </p>
+
+        <h2>Bienvenida. ❤️</h2>
+
+        <div class="signature">
+            Con todo mi amor
         </div>
 
-        <div class="dia bloqueado">
-            <div class="numero">DÍA 3</div>
-            <div class="emoji">🔒</div>
-            <h3>Bloqueado</h3>
-            <p>Vuelve mañana...</p>
+        <button onclick="showScreen('days')">
+            CONTINUAR
+        </button>
+
+    </div>
+</section>
+
+
+<!-- CALENDARIO -->
+<section class="screen" id="days">
+    <div class="content">
+
+        <p class="small">26 de agosto — 25 de septiembre</p>
+
+        <h1>25</h1>
+
+        <h2>25 días para tus 25</h2>
+
+        <p class="subtitle">
+            Un día. Una sorpresa.
+        </p>
+
+        <p>
+            ❤️ &nbsp; 25 → 25 &nbsp; ❤️
+        </p>
+
+        <div class="days">
+
+            <div class="day">1</div>
+            <div class="day locked">2</div>
+            <div class="day locked">3</div>
+            <div class="day locked">4</div>
+            <div class="day locked">5</div>
+
+            <div class="day locked">6</div>
+            <div class="day locked">7</div>
+            <div class="day locked">8</div>
+            <div class="day locked">9</div>
+            <div class="day locked">10</div>
+
+            <div class="day locked">11</div>
+            <div class="day locked">12</div>
+            <div class="day locked">13</div>
+            <div class="day locked">14</div>
+            <div class="day locked">15</div>
+
+            <div class="day locked">16</div>
+            <div class="day locked">17</div>
+            <div class="day locked">18</div>
+            <div class="day locked">19</div>
+            <div class="day locked">20</div>
+
+            <div class="day locked">21</div>
+            <div class="day locked">22</div>
+            <div class="day locked">23</div>
+            <div class="day locked">24</div>
+            <div class="day locked">25</div>
+
         </div>
 
-        <div class="dia bloqueado">
-            <div class="numero">DÍA 4</div>
-            <div class="emoji">🔒</div>
-            <h3>Bloqueado</h3>
-            <p>Vuelve mañana...</p>
-        </div>
+        <button onclick="openDay1()">
+            COMENZAR EL VIAJE
+        </button>
 
-        <div class="dia bloqueado">
-            <div class="numero">DÍA 5</div>
-            <div class="emoji">🔒</div>
-            <h3>Bloqueado</h3>
-            <p>Vuelve mañana...</p>
+    </div>
+</section>
+
+
+<!-- DÍA 1 -->
+<section class="screen" id="day1">
+    <div class="content">
+
+        <p class="small">Día 1 de 25</p>
+
+        <h2>El comienzo</h2>
+
+        <p>
+            Esto apenas comienza.
+        </p>
+
+        <p>
+            Durante los próximos días vas a descubrir
+            pequeñas partes de todo lo que preparé para ti.
+        </p>
+
+        <p>
+            Y quiero que disfrutes cada una,
+            sin intentar adivinar qué viene después. ❤️
+        </p>
+
+        <div class="signature">
+            Con amor
         </div>
 
     </div>
+</section>
 
-    <footer>
-        Hecho especialmente para ti ❤️
-    </footer>
 
-</div>
+<script>
+
+function showScreen(id) {
+
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    window.scrollTo(0,0);
+}
+
+
+function checkPassword() {
+
+    const password = document.getElementById("pass").value;
+
+    if(password === "0226") {
+
+        showScreen("welcome");
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+
+function openDay1() {
+
+    showScreen("day1");
+
+}
+
+</script>
 
 </body>
 </html>
