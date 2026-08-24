@@ -7,6 +7,7 @@
 <title>25 días para tus 25 ❤️</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root{
@@ -39,9 +40,9 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
+/* =====================================================
    FONDO ANIMADO
-========================= */
+===================================================== */
 
 .background{
     position:fixed;
@@ -85,9 +86,9 @@ body{
     }
 }
 
-/* =========================
-   CORAZONES
-========================= */
+/* =====================================================
+   CORAZONES FLOTANTES
+===================================================== */
 
 .floating-heart{
     position:fixed;
@@ -100,25 +101,30 @@ body{
 }
 
 @keyframes heartFloat{
+
     0%{
         transform:translateY(0) scale(.5) rotate(0);
         opacity:0;
     }
+
     15%{
         opacity:.5;
     }
+
     75%{
         opacity:.35;
     }
+
     100%{
         transform:translateY(-115vh) scale(1.2) rotate(25deg);
         opacity:0;
     }
+
 }
 
-/* =========================
+/* =====================================================
    PANTALLAS
-========================= */
+===================================================== */
 
 .screen{
     min-height:100vh;
@@ -136,14 +142,17 @@ body{
 }
 
 @keyframes screenIn{
+
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 .content{
@@ -198,9 +207,9 @@ p{
     font-size:28px;
 }
 
-/* =========================
+/* =====================================================
    BOTONES
-========================= */
+===================================================== */
 
 button{
     border:0;
@@ -231,9 +240,9 @@ button{
     transform:scale(.96);
 }
 
-/* =========================
+/* =====================================================
    CONTRASEÑA
-========================= */
+===================================================== */
 
 .password-box{
     width:min(430px,100%);
@@ -267,9 +276,9 @@ input{
     font-size:12px;
 }
 
-/* =========================
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 .calendar{
     margin:35px auto;
@@ -326,21 +335,24 @@ input{
 }
 
 @keyframes pulseDay{
+
     0%,100%{
         box-shadow:0 0 0 0 rgba(201,135,148,.15);
     }
+
     50%{
         box-shadow:0 0 0 10px rgba(201,135,148,0);
     }
+
 }
 
 .calendar-day.locked{
     opacity:.45;
 }
 
-/* =========================
+/* =====================================================
    TARJETAS
-========================= */
+===================================================== */
 
 .card{
     margin:30px auto;
@@ -360,20 +372,24 @@ input{
 }
 
 @keyframes heartbeat{
+
     0%,100%{
         transform:scale(1);
     }
+
     15%{
         transform:scale(1.18);
     }
+
     30%{
         transform:scale(1);
     }
+
 }
 
-/* =========================
+/* =====================================================
    POLAROID
-========================= */
+===================================================== */
 
 .polaroid{
     width:min(340px,90%);
@@ -411,9 +427,9 @@ input{
     margin-top:15px;
 }
 
-/* =========================
+/* =====================================================
    SOBRES
-========================= */
+===================================================== */
 
 .envelope{
     max-width:460px;
@@ -440,9 +456,9 @@ input{
     animation:screenIn .7s ease;
 }
 
-/* =========================
+/* =====================================================
    TARJETAS INTERACTIVAS
-========================= */
+===================================================== */
 
 .reasons{
     display:grid;
@@ -471,9 +487,244 @@ input{
     font-size:25px;
 }
 
-/* =========================
+/* =====================================================
+   DÍA 5 — PUERTAS
+===================================================== */
+
+.day5-intro{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin-top:25px;
+}
+
+.day5-subtitle{
+    font-size:14px;
+    line-height:2;
+    opacity:.75;
+}
+
+.doors{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin:45px auto 30px;
+    flex-wrap:wrap;
+}
+
+.door{
+    position:relative;
+    width:170px;
+    height:220px;
+    border-radius:28px;
+    border:1px solid rgba(190,140,150,.3);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 45px rgba(90,50,60,.10);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease;
+}
+
+.door::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.65),
+        transparent 60%
+    );
+    pointer-events:none;
+}
+
+.door:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:
+        0 30px 60px rgba(90,50,60,.17);
+}
+
+.door:active{
+    transform:scale(.96);
+}
+
+.door-icon{
+    font-size:65px;
+    position:relative;
+    z-index:1;
+    transition:.45s;
+}
+
+.door:hover .door-icon{
+    transform:scale(1.2);
+}
+
+.door-label{
+    position:relative;
+    z-index:1;
+    margin-top:18px;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.6;
+}
+
+.heart-door{
+    background:
+        radial-gradient(circle at 50% 30%,#fff,#ffe8ee 60%,#f6d4dc);
+}
+
+.moon-door{
+    background:
+        radial-gradient(circle at 50% 30%,#fff,#eeeaff 60%,#ddd9f2);
+}
+
+.star-door{
+    background:
+        radial-gradient(circle at 50% 30%,#fff,#fff4d8 60%,#f4e1ae);
+}
+
+/* =====================================================
+   MENSAJE DEL DÍA 5
+===================================================== */
+
+.day5-message{
+    display:none;
+    max-width:680px;
+    margin:35px auto;
+    padding:42px 30px;
+
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(190,140,150,.25);
+    border-radius:32px;
+
+    box-shadow:
+        0 25px 70px rgba(90,50,60,.12);
+
+    backdrop-filter:blur(15px);
+
+    animation:messageReveal .9s ease;
+}
+
+@keyframes messageReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+.day5-message .chosen-icon{
+    font-size:65px;
+    display:inline-block;
+    animation:chosenFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes chosenFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(4deg);
+    }
+
+}
+
+.day5-message h3{
+    font-size:42px;
+    margin:15px 0 25px;
+}
+
+.day5-message p{
+    font-size:16px;
+    line-height:2;
+    margin:18px 0;
+}
+
+.day5-message .emphasis{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin-top:30px;
+}
+
+.day5-message .little-final{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    font-style:italic;
+    opacity:.7;
+    margin-top:30px;
+}
+
+/* FINAL DEL DÍA 5 */
+
+.day5-final{
+    display:none;
+    max-width:600px;
+    margin:35px auto;
+    padding:50px 30px;
+
+    background:rgba(255,255,255,.82);
+    border-radius:32px;
+
+    box-shadow:
+        0 25px 70px rgba(90,50,60,.12);
+
+    animation:messageReveal .9s ease;
+}
+
+.day5-final .final-heart{
+    font-size:75px;
+    animation:heartbeat 1.5s infinite;
+}
+
+.day5-final h3{
+    font-size:45px;
+    margin:15px 0;
+}
+
+.day5-final p{
+    font-size:18px;
+}
+
+/* =====================================================
+   BOTONES DEL DÍA 5
+===================================================== */
+
+.day5-button{
+    margin-top:25px;
+    padding:14px 28px;
+    border-radius:50px;
+    background:#67454d;
+    color:white;
+    letter-spacing:1.5px;
+    font-size:11px;
+    transition:.3s;
+}
+
+.day5-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(80,50,60,.18);
+}
+
+/* =====================================================
    CUMPLEAÑOS
-========================= */
+===================================================== */
 
 .birthday{
     background:
@@ -487,12 +738,15 @@ input{
 }
 
 @keyframes cakeFloat{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-10px);
     }
+
 }
 
 .final-number{
@@ -504,9 +758,9 @@ input{
     color:transparent;
 }
 
-/* =========================
+/* =====================================================
    AUDIO
-========================= */
+===================================================== */
 
 .music-box{
     margin:30px auto;
@@ -520,9 +774,9 @@ audio{
     width:100%;
 }
 
-/* =========================
+/* =====================================================
    CONFETI
-========================= */
+===================================================== */
 
 .confetti{
     position:fixed;
@@ -535,15 +789,17 @@ audio{
 }
 
 @keyframes confettiFall{
+
     to{
         transform:translateY(110vh) rotate(720deg);
         opacity:0;
     }
+
 }
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
@@ -575,7 +831,35 @@ audio{
     .subtitle{
         font-size:25px;
     }
+
+    .doors{
+        gap:14px;
+    }
+
+    .door{
+        width:135px;
+        height:180px;
+        border-radius:23px;
+    }
+
+    .door-icon{
+        font-size:52px;
+    }
+
+    .day5-message{
+        padding:35px 20px;
+    }
+
+    .day5-message h3{
+        font-size:36px;
+    }
+
+    .day5-message p{
+        font-size:15px;
+    }
+
 }
+
 </style>
 </head>
 
@@ -586,7 +870,11 @@ audio{
     <div class="orb two"></div>
 </div>
 
-<!-- CORAZONES -->
+
+<!-- =====================================================
+     CORAZONES
+===================================================== -->
+
 <div class="floating-heart" style="left:8%;animation-duration:10s;">♡</div>
 <div class="floating-heart" style="left:22%;animation-duration:13s;animation-delay:2s;">♡</div>
 <div class="floating-heart" style="left:42%;animation-duration:11s;animation-delay:5s;">♡</div>
@@ -594,9 +882,9 @@ audio{
 <div class="floating-heart" style="left:84%;animation-duration:12s;animation-delay:4s;">♡</div>
 
 
-<!-- =========================
+<!-- =====================================================
      PORTADA
-========================= -->
+===================================================== -->
 
 <section class="screen active" id="intro">
 
@@ -627,9 +915,9 @@ COMENZAR
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CONTRASEÑA
-========================= -->
+===================================================== -->
 
 <section class="screen" id="password">
 
@@ -675,9 +963,9 @@ Casi... piensa en aquel recuerdo. ❤️
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      BIENVENIDA
-========================= -->
+===================================================== -->
 
 <section class="screen" id="welcome">
 
@@ -720,9 +1008,9 @@ ABRIR EL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CALENDARIO
-========================= -->
+===================================================== -->
 
 <section class="screen" id="calendar">
 
@@ -755,9 +1043,9 @@ Un día a la vez. ❤️
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 1
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day1">
 
@@ -838,9 +1126,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 2
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day2">
 
@@ -900,9 +1188,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 3
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day3">
 
@@ -916,7 +1204,6 @@ VOLVER AL CALENDARIO
 
 <div class="polaroid-photo">
 
-<!-- REEMPLAZAR POR TU FOTO -->
 <div style="font-family:'Cormorant Garamond';font-size:24px;">
 Aquí irá nuestra foto ❤️
 </div>
@@ -952,9 +1239,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 4
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day4">
 
@@ -966,12 +1253,35 @@ VOLVER AL CALENDARIO
 
 <div class="reasons">
 
-<div class="reason"><strong>Amorosa</strong>Por la forma en que das cariño.</div>
-<div class="reason"><strong>Amable</strong>Por cómo haces sentir a los demás.</div>
-<div class="reason"><strong>Increíble</strong>Porque simplemente lo eres.</div>
-<div class="reason"><strong>Fuerte</strong>Mucho más de lo que quizás ves.</div>
-<div class="reason"><strong>Divertida</strong>Porque contigo siempre hay una sonrisa.</div>
-<div class="reason"><strong>Especial</strong>Porque no hay otra como tú.</div>
+<div class="reason">
+<strong>Amorosa</strong>
+Por la forma en que das cariño.
+</div>
+
+<div class="reason">
+<strong>Amable</strong>
+Por cómo haces sentir a los demás.
+</div>
+
+<div class="reason">
+<strong>Increíble</strong>
+Porque simplemente lo eres.
+</div>
+
+<div class="reason">
+<strong>Fuerte</strong>
+Mucho más de lo que quizás ves.
+</div>
+
+<div class="reason">
+<strong>Divertida</strong>
+Porque contigo siempre hay una sonrisa.
+</div>
+
+<div class="reason">
+<strong>Especial</strong>
+Porque no hay otra como tú.
+</div>
 
 </div>
 
@@ -992,9 +1302,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
-     DÍA 5
-========================= -->
+<!-- =====================================================
+     DÍA 5 — ELIGE UNA
+===================================================== -->
 
 <section class="screen" id="day5">
 
@@ -1004,43 +1314,290 @@ VOLVER AL CALENDARIO
 
 <h2>Elige una</h2>
 
-<p class="subtitle">
-No sabes qué hay detrás de cada una.
+<p class="day5-intro">
+Hay tres puertas frente a ti.
 </p>
 
-<div class="reasons">
+<p class="day5-subtitle">
+No hay una correcta.<br>
+No hay una equivocada.<br>
+Solo elige la que más te llame la atención. ❤️
+</p>
 
-<button class="reason" onclick="choice(1)">
-<strong>❤️</strong>
-Elegir
+
+<!-- LAS TRES PUERTAS -->
+
+<div class="doors" id="day5Doors">
+
+<button class="door heart-door" onclick="openDay5Door('heart')">
+
+<span class="door-icon">
+❤️
+</span>
+
+<span class="door-label">
+abre
+</span>
+
 </button>
 
-<button class="reason" onclick="choice(2)">
-<strong>🌙</strong>
-Elegir
+
+<button class="door moon-door" onclick="openDay5Door('moon')">
+
+<span class="door-icon">
+🌙
+</span>
+
+<span class="door-label">
+abre
+</span>
+
 </button>
 
-<button class="reason" onclick="choice(3)">
-<strong>✨</strong>
-Elegir
+
+<button class="door star-door" onclick="openDay5Door('star')">
+
+<span class="door-icon">
+✨
+</span>
+
+<span class="door-label">
+abre
+</span>
+
 </button>
 
 </div>
 
-<div class="card hidden-message" id="choiceBox"></div>
 
-<button class="main-btn" onclick="showScreen('calendar')">
+<!-- MENSAJE CORAZÓN -->
+
+<div class="day5-message" id="day5Heart">
+
+<div class="chosen-icon">
+❤️
+</div>
+
+<h3>
+Lo que siento
+</h3>
+
+<p>
+Hay cosas que no siempre sé cómo explicar.
+</p>
+
+<p>
+Pero si tuviera que resumir lo que siento por ti,
+diría que eres de esas personas que llegan a la vida
+y, sin hacer demasiado ruido, terminan ocupando
+un lugar enorme.
+</p>
+
+<p>
+Me gusta tenerte en mi vida.
+</p>
+
+<p>
+Me gusta poder compartir contigo mis días,
+mis pensamientos, mis tonterías y también esos
+momentos en los que simplemente necesitamos sentir
+que alguien está ahí.
+</p>
+
+<p>
+Y si tuviera que elegir una sola palabra para todo esto...
+</p>
+
+<p class="emphasis">
+serías tú. ❤️
+</p>
+
+<p class="little-final">
+Y esto recién empieza...
+</p>
+
+<button class="day5-button" onclick="finishDay5()">
+CONTINUAR ❤️
+</button>
+
+</div>
+
+
+<!-- MENSAJE LUNA -->
+
+<div class="day5-message" id="day5Moon">
+
+<div class="chosen-icon">
+🌙
+</div>
+
+<h3>
+Lo que recuerdo
+</h3>
+
+<p>
+Hay recuerdos que no necesitan ser enormes
+para quedarse con nosotros.
+</p>
+
+<p>
+A veces es una conversación.
+</p>
+
+<p>
+Una risa.
+</p>
+
+<p>
+Una palabra.
+</p>
+
+<p>
+Un momento que en ese instante parecía normal
+y que después terminó significando muchísimo.
+</p>
+
+<p>
+Y creo que una de las cosas más bonitas de lo nuestro
+es que todavía estamos llenando nuestra historia
+de pequeños recuerdos.
+</p>
+
+<p>
+Algunos ya existen.
+</p>
+
+<p>
+Otros todavía están esperando que los vivamos. 🌙
+</p>
+
+<p class="emphasis">
+Y algún día vamos a mirar atrás y decir:
+<br>
+“¿te acuerdas?”
+</p>
+
+<button class="day5-button" onclick="finishDay5()">
+CONTINUAR ❤️
+</button>
+
+</div>
+
+
+<!-- MENSAJE ESTRELLA -->
+
+<div class="day5-message" id="day5Star">
+
+<div class="chosen-icon">
+✨
+</div>
+
+<h3>
+Lo que todavía nos queda
+</h3>
+
+<p>
+Esta es probablemente mi parte favorita.
+</p>
+
+<p>
+Porque nuestra historia no está completa.
+</p>
+
+<p>
+Todavía faltan lugares.
+</p>
+
+<p>
+Viajes.
+</p>
+
+<p>
+Películas.
+</p>
+
+<p>
+Fotos.
+</p>
+
+<p>
+Abrazos.
+</p>
+
+<p>
+Días normales.
+</p>
+
+<p>
+Días increíbles.
+</p>
+
+<p>
+Y un montón de momentos que todavía ni siquiera
+sabemos que vamos a recordar.
+</p>
+
+<p>
+Así que no quiero quedarme solamente con todo
+lo bonito que ya pasó.
+</p>
+
+<p>
+También quiero emocionarme por todo lo bonito
+que todavía nos falta. ✨
+</p>
+
+<p class="emphasis">
+Todavía nos queda muchísimo por vivir. ❤️
+</p>
+
+<button class="day5-button" onclick="finishDay5()">
+CONTINUAR ❤️
+</button>
+
+</div>
+
+
+<!-- FINAL COMÚN -->
+
+<div class="day5-final" id="day5Final">
+
+<div class="final-heart">
+❤️
+</div>
+
+<h3>
+Elegiste una puerta...
+</h3>
+
+<p>
+pero las tres tenían algo en común.
+</p>
+
+<p class="emphasis">
+Tú. ❤️
+</p>
+
+<p>
+Y quizás esa era la única respuesta
+que realmente importaba.
+</p>
+
+<button class="day5-button" onclick="showScreen('calendar')">
 VOLVER AL CALENDARIO
 </button>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 6
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day6">
 
@@ -1092,9 +1649,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 7
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day7">
 
@@ -1131,9 +1688,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 8
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day8">
 
@@ -1145,7 +1702,9 @@ VOLVER AL CALENDARIO
 
 <div class="envelope" onclick="openEnvelope()">
 
-<div class="envelope-icon">💌</div>
+<div class="envelope-icon">
+💌
+</div>
 
 <p class="subtitle">
 Cuando me extrañes
@@ -1179,9 +1738,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 9
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day9">
 
@@ -1232,9 +1791,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 10
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day10">
 
@@ -1246,16 +1805,55 @@ VOLVER AL CALENDARIO
 
 <div class="reasons">
 
-<div class="reason"><strong>01</strong>Tu forma de ser.</div>
-<div class="reason"><strong>02</strong>Tu manera de hacerme sonreír.</div>
-<div class="reason"><strong>03</strong>Tu forma de querer.</div>
-<div class="reason"><strong>04</strong>Tu personalidad.</div>
-<div class="reason"><strong>05</strong>Tu manera de escuchar.</div>
-<div class="reason"><strong>06</strong>Los pequeños detalles.</div>
-<div class="reason"><strong>07</strong>Las conversaciones.</div>
-<div class="reason"><strong>08</strong>Las risas.</div>
-<div class="reason"><strong>09</strong>La confianza.</div>
-<div class="reason"><strong>10</strong>Simplemente tú. ❤️</div>
+<div class="reason">
+<strong>01</strong>
+Tu forma de ser.
+</div>
+
+<div class="reason">
+<strong>02</strong>
+Tu manera de hacerme sonreír.
+</div>
+
+<div class="reason">
+<strong>03</strong>
+Tu forma de querer.
+</div>
+
+<div class="reason">
+<strong>04</strong>
+Tu personalidad.
+</div>
+
+<div class="reason">
+<strong>05</strong>
+Tu manera de escuchar.
+</div>
+
+<div class="reason">
+<strong>06</strong>
+Los pequeños detalles.
+</div>
+
+<div class="reason">
+<strong>07</strong>
+Las conversaciones.
+</div>
+
+<div class="reason">
+<strong>08</strong>
+Las risas.
+</div>
+
+<div class="reason">
+<strong>09</strong>
+La confianza.
+</div>
+
+<div class="reason">
+<strong>10</strong>
+Simplemente tú. ❤️
+</div>
 
 </div>
 
@@ -1268,9 +1866,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 11
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day11">
 
@@ -1282,7 +1880,9 @@ VOLVER AL CALENDARIO
 
 <div class="card">
 
-<div class="heart-big">♫</div>
+<div class="heart-big">
+♫
+</div>
 
 <p>
 Hay canciones que simplemente escuchamos.
@@ -1307,12 +1907,6 @@ Esta es para ti. ❤️
 Aquí colocaremos el audio que quieras utilizar.
 </p>
 
-<!--
-Cuando tengas el archivo de audio,
-colócalo en la carpeta audio y cambia
-"cancion.mp3" por el nombre real.
--->
-
 <audio controls>
 <source src="audio/cancion.mp3" type="audio/mpeg">
 Tu navegador no puede reproducir este audio.
@@ -1331,9 +1925,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 12
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day12">
 
@@ -1365,9 +1959,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 13
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day13">
 
@@ -1415,9 +2009,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 14
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day14">
 
@@ -1461,9 +2055,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 15
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day15">
 
@@ -1500,9 +2094,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 16
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day16">
 
@@ -1550,9 +2144,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 17
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day17">
 
@@ -1596,9 +2190,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 18
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day18">
 
@@ -1641,9 +2235,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 19
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day19">
 
@@ -1684,9 +2278,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 20
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day20">
 
@@ -1726,9 +2320,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 21
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day21">
 
@@ -1760,7 +2354,9 @@ Me gusta de nosotras...
 Y siempre podría encontrar una frase más.
 </p>
 
-<div class="heart-big">♡</div>
+<div class="heart-big">
+♡
+</div>
 
 </div>
 
@@ -1773,9 +2369,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 22
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day22">
 
@@ -1823,9 +2419,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 23
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day23">
 
@@ -1837,7 +2433,9 @@ VOLVER AL CALENDARIO
 
 <div class="envelope" onclick="openSecret()">
 
-<div class="envelope-icon">🔐</div>
+<div class="envelope-icon">
+🔐
+</div>
 
 <p class="subtitle">
 Hay algo escondido aquí.
@@ -1870,9 +2468,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 24
-========================= -->
+===================================================== -->
 
 <section class="screen" id="day24">
 
@@ -1898,7 +2496,9 @@ Mañana se abre la última puerta.
 Y mañana todo será para ti.
 </p>
 
-<div class="heart-big">♡</div>
+<div class="heart-big">
+♡
+</div>
 
 <p>
 Nos vemos mañana, cumpleañera.
@@ -1915,9 +2515,9 @@ VOLVER AL CALENDARIO
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DÍA 25
-========================= -->
+===================================================== -->
 
 <section class="screen birthday" id="day25">
 
@@ -1925,7 +2525,9 @@ VOLVER AL CALENDARIO
 
 <p class="small">19 de septiembre</p>
 
-<div class="final-number">25</div>
+<div class="final-number">
+25
+</div>
 
 <h2>
 Feliz cumpleaños
@@ -1999,10 +2601,6 @@ Y ahora sí...
 tengo algo preparado para ti. ❤️
 </p>
 
-<!--
-AQUÍ DESPUÉS COLOCAREMOS EL VIDEO.
--->
-
 <p>
 🎥 Tu video aparecerá aquí.
 </p>
@@ -2021,23 +2619,21 @@ AQUÍ DESPUÉS COLOCAREMOS EL VIDEO.
 ===================================================== */
 
 /*
-   MODO PRUEBA:
+   TRUE = puedes probar todos los días AHORA.
 
-   true  = puedes abrir los 25 días ahora.
-   false = se activan según las fechas reales.
-
-   Cuando terminemos todo, cambia a false.
+   FALSE = los días se desbloquean automáticamente
+   según el calendario real.
 */
 
 const MODO_PRUEBA = true;
 
 
 /*
-   FECHA DEL DÍA 1:
-
+   Día 1:
    26 de agosto de 2026.
 
-   Día 25 = 19 de septiembre de 2026.
+   Día 25:
+   19 de septiembre de 2026.
 */
 
 const FECHA_INICIO = new Date(2026,7,26);
@@ -2056,13 +2652,16 @@ function showScreen(id){
     const target=document.getElementById(id);
 
     if(target){
+
         target.classList.add('active');
+
     }
 
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
+
 }
 
 
@@ -2073,6 +2672,7 @@ function showScreen(id){
 function checkPassword(){
 
     const value=document.getElementById('passwordInput').value;
+
     const error=document.getElementById('passwordError');
 
     if(value==='0226'){
@@ -2086,6 +2686,7 @@ function checkPassword(){
         error.style.display='block';
 
     }
+
 }
 
 
@@ -2105,21 +2706,30 @@ function createCalendar(){
 
         button.className='calendar-day';
 
-        const unlocked=MODO_PRUEBA || isDayUnlocked(day);
+        const unlocked=
+            MODO_PRUEBA ||
+            isDayUnlocked(day);
 
         if(!unlocked){
+
             button.classList.add('locked');
+
         }
 
         if(isCurrentDay(day)){
+
             button.classList.add('today');
+
         }
 
         button.innerHTML=`
+
             ${day}
+
             <span class="mini">
                 ${unlocked ? 'ABRIR' : '🔒'}
             </span>
+
         `;
 
         button.onclick=()=>{
@@ -2161,23 +2771,61 @@ function getAvailableDay(){
         (now-start)/(1000*60*60*24)
     );
 
+    /*
+       Antes del 26 de agosto:
+       no hay días disponibles.
+
+       Después del 19 de septiembre:
+       se mantiene en el día 25.
+    */
+
+    if(difference < 0){
+
+        return 0;
+
+    }
+
+    if(difference >= 24){
+
+        return 25;
+
+    }
+
     return difference+1;
+
 }
 
 
 function isDayUnlocked(day){
 
-    return day<=getAvailableDay();
+    const available=getAvailableDay();
+
+    return available >= day;
+
 }
 
 
 function isCurrentDay(day){
 
     return day===getAvailableDay();
+
 }
 
 
 function lockedMessage(day){
+
+    const available=getAvailableDay();
+
+    if(available===0){
+
+        alert(
+            'El viaje todavía no comienza. ❤️\n\n' +
+            'La primera sorpresa se abre el 26 de agosto.'
+        );
+
+        return;
+
+    }
 
     alert(
         `Esta sorpresa todavía está esperando su día. ❤️\n\nDía ${day}`
@@ -2198,51 +2846,71 @@ function openDay(day){
 
 
 /* =====================================================
-   DÍA 5
+   DÍA 5 — ABRIR PUERTA
 ===================================================== */
 
-function choice(number){
+function openDay5Door(choice){
 
-    const box=document.getElementById('choiceBox');
+    /*
+       Ocultamos las tres puertas
+    */
 
-    let text='';
+    document.getElementById('day5Doors').style.display='none';
 
-    if(number===1){
 
-        text=`
-            <p class="subtitle">Elegiste el corazón. ❤️</p>
-            <p>
-            Quizás no sea casualidad que hayas elegido justamente este.
-            </p>
-        `;
+    /*
+       Ocultamos todos los mensajes
+    */
 
-    }
+    document.getElementById('day5Heart').style.display='none';
 
-    if(number===2){
+    document.getElementById('day5Moon').style.display='none';
 
-        text=`
-            <p class="subtitle">Elegiste la luna. 🌙</p>
-            <p>
-            Incluso en la distancia hay cosas que consiguen acercarnos.
-            </p>
-        `;
+    document.getElementById('day5Star').style.display='none';
 
-    }
+    document.getElementById('day5Final').style.display='none';
 
-    if(number===3){
 
-        text=`
-            <p class="subtitle">Elegiste la estrella. ✨</p>
-            <p>
-            Algunas personas aparecen y hacen que todo brille un poquito más.
-            </p>
-        `;
+    /*
+       Mostramos el mensaje elegido
+    */
+
+    if(choice==='heart'){
+
+        document.getElementById('day5Heart').style.display='block';
 
     }
 
-    box.innerHTML=text;
 
-    box.style.display='block';
+    if(choice==='moon'){
+
+        document.getElementById('day5Moon').style.display='block';
+
+    }
+
+
+    if(choice==='star'){
+
+        document.getElementById('day5Star').style.display='block';
+
+    }
+
+}
+
+
+/* =====================================================
+   DÍA 5 — FINAL
+===================================================== */
+
+function finishDay5(){
+
+    document.getElementById('day5Heart').style.display='none';
+
+    document.getElementById('day5Moon').style.display='none';
+
+    document.getElementById('day5Star').style.display='none';
+
+    document.getElementById('day5Final').style.display='block';
 
 }
 
@@ -2269,32 +2937,52 @@ function door(number){
     if(number===1){
 
         box.innerHTML=`
-        <p class="subtitle">❤️</p>
-        <p>
-        Hay personas que llegan y simplemente se quedan en algún lugar especial.
-        </p>
+
+            <p class="subtitle">
+                ❤️
+            </p>
+
+            <p>
+                Hay personas que llegan y simplemente
+                se quedan en algún lugar especial.
+            </p>
+
         `;
 
     }
+
 
     if(number===2){
 
         box.innerHTML=`
-        <p class="subtitle">🌙</p>
-        <p>
-        Algunas historias necesitan tiempo para descubrir todo lo bonitas que pueden ser.
-        </p>
+
+            <p class="subtitle">
+                🌙
+            </p>
+
+            <p>
+                Algunas historias necesitan tiempo
+                para descubrir todo lo bonitas que pueden ser.
+            </p>
+
         `;
 
     }
 
+
     if(number===3){
 
         box.innerHTML=`
-        <p class="subtitle">✨</p>
-        <p>
-        Y algunas sorpresas todavía están esperando su momento.
-        </p>
+
+            <p class="subtitle">
+                ✨
+            </p>
+
+            <p>
+                Y algunas sorpresas todavía están
+                esperando su momento.
+            </p>
+
         `;
 
     }
@@ -2332,7 +3020,8 @@ function openSecret(){
 
 function birthdayMoment(){
 
-    const message=document.getElementById('birthdayMessage');
+    const message=
+        document.getElementById('birthdayMessage');
 
     message.style.display='block';
 
@@ -2362,7 +3051,11 @@ function createConfetti(){
         piece.className='confetti';
 
         piece.textContent=
-            symbols[Math.floor(Math.random()*symbols.length)];
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
 
         piece.style.left=
             Math.random()*100+'vw';
@@ -2379,7 +3072,9 @@ function createConfetti(){
         document.body.appendChild(piece);
 
         setTimeout(()=>{
+
             piece.remove();
+
         },4500);
 
     }
