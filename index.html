@@ -3,363 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Una pequeña sorpresa para ti — Ana Lidia</title>
+<title>Felices 25, Ana Lidia ♡</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    min-height:100%;
 }
 
 body{
+    font-family: Georgia, "Times New Roman", serif;
     background:
-        radial-gradient(circle at 20% 20%,rgba(255,190,210,.12),transparent 25%),
-        radial-gradient(circle at 80% 80%,rgba(212,175,55,.08),transparent 25%),
-        #090709;
-    color:#f9edf2;
-    font-family:'Montserrat',sans-serif;
+        radial-gradient(circle at top, #3b152d 0%, #160a13 45%, #080509 100%);
+    color:#fff;
+    min-height:100vh;
     overflow-x:hidden;
 }
 
-button,
-input{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-.hidden{
-    display:none!important;
-}
-
-/* =========================
-   FONDO
-========================= */
-
-.background-particles{
+body::before{
+    content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    overflow:hidden;
-    z-index:0;
-}
-
-.particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:rgba(255,215,150,.65);
-    animation:floatParticle linear infinite;
-}
-
-@keyframes floatParticle{
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-    15%{opacity:1;}
-    85%{opacity:1;}
-    to{
-        transform:translateY(-10vh);
-        opacity:0;
-    }
-}
-
-/* =========================
-   APP
-========================= */
-
-#app{
-    position:relative;
-    z-index:1;
-    min-height:100vh;
-}
-
-.screen{
-    min-height:100vh;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:45px 20px;
-}
-
-.card{
-    width:min(950px,94vw);
     background:
-        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
-    border:1px solid rgba(218,180,75,.3);
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        inset 0 0 40px rgba(255,190,210,.025);
-    border-radius:28px;
-    padding:55px;
-    backdrop-filter:blur(15px);
+        radial-gradient(circle at 20% 20%, rgba(255,190,220,.08), transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(212,169,75,.08), transparent 25%);
 }
 
-.small-label{
-    text-transform:uppercase;
-    letter-spacing:4px;
-    color:#d8b45a;
-    font-size:11px;
-    margin-bottom:18px;
-}
-
-h1,h2,h3{
-    font-family:'Cormorant Garamond',serif;
-    font-weight:500;
-}
-
-h1{
-    font-size:clamp(48px,8vw,92px);
-    line-height:.95;
-}
-
-h2{
-    font-size:clamp(38px,6vw,65px);
-    margin-bottom:25px;
-}
-
-h3{
-    font-size:32px;
-    color:#f4cddd;
-}
-
-p{
-    line-height:1.9;
-    color:#eadde3;
-}
-
-.gold{
-    color:#d9b85d;
-}
-
-.pink{
-    color:#f1b8cb;
-}
-
-.center{
-    text-align:center;
-}
-
-.romantic-text{
-    max-width:720px;
-    margin:0 auto;
-    font-size:17px;
-}
-
-.romantic-text p{
-    margin-bottom:18px;
-}
-
-.quote{
-    font-family:'Cormorant Garamond',serif;
-    font-size:27px;
-    line-height:1.55;
-    color:#f6dce7;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.btn{
-    display:inline-flex;
+.page{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:55px 20px;
     justify-content:center;
     align-items:center;
-    gap:10px;
-    min-height:48px;
-    padding:13px 25px;
-    margin:8px;
-    border-radius:50px;
-    border:1px solid rgba(220,180,75,.55);
-    background:linear-gradient(135deg,#b89038,#e3c66c);
-    color:#140f09;
-    font-weight:600;
-    letter-spacing:1px;
-    transition:.3s ease;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(218,180,80,.2);
-}
-
-.btn.dark{
-    background:rgba(255,255,255,.035);
-    color:#f4dce5;
-    border-color:rgba(255,255,255,.18);
-}
-
-.btn.pink-btn{
-    background:linear-gradient(135deg,#9e4c6d,#d88ca8);
-    color:white;
-    border:none;
-}
-
-.nav-buttons{
-    margin-top:35px;
-    text-align:center;
-}
-
-/* =========================
-   PORTADA
-========================= */
-
-.cover{
-    text-align:center;
-}
-
-.cover .tiny{
-    letter-spacing:6px;
-    text-transform:uppercase;
-    font-size:11px;
-    color:#caa956;
-}
-
-.cover h1{
-    margin:25px 0;
-}
-
-.cover h2{
-    font-size:clamp(28px,5vw,48px);
-    color:#f1c8d6;
-}
-
-.cover-line{
-    width:120px;
-    height:1px;
-    background:#cda84e;
-    margin:30px auto;
-}
-
-.cover-sub{
-    color:#c7b6bd;
-    letter-spacing:2px;
-}
-
-/* =========================
-   PASSWORD
-========================= */
-
-.password-box{
-    max-width:500px;
-    margin:35px auto 0;
-    text-align:center;
-}
-
-.password-input{
-    width:100%;
-    padding:17px 20px;
-    background:rgba(0,0,0,.3);
-    border:1px solid rgba(220,180,75,.35);
-    border-radius:14px;
-    color:white;
-    text-align:center;
-    font-size:23px;
-    letter-spacing:10px;
-    outline:none;
-}
-
-.password-input:focus{
-    border-color:#d9b85d;
-}
-
-.error{
-    color:#e59aaa;
-    margin-top:15px;
-}
-
-/* =========================
-   CALENDARIO
-========================= */
-
-.calendar{
-    width:min(1100px,96vw);
-}
-
-.calendar-header{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.calendar-header h2{
-    margin-bottom:5px;
-}
-
-.calendar-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:15px;
-}
-
-.day-card{
-    min-height:145px;
-    border-radius:20px;
-    border:1px solid rgba(218,180,75,.25);
-    background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));
-    padding:20px;
-    transition:.35s ease;
     position:relative;
-    overflow:hidden;
 }
 
-.day-card:not(.locked):hover{
-    transform:translateY(-7px);
-    border-color:#d8b45a;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+.page.active{
+    display:flex;
 }
 
-.day-number{
-    font-size:12px;
-    letter-spacing:3px;
-    color:#d5b65c;
+.content{
+    width:min(900px,94%);
+    text-align:center;
+    animation:fadeIn .8s ease;
 }
 
-.day-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    margin-top:15px;
-}
-
-.day-status{
-    position:absolute;
-    bottom:15px;
-    left:20px;
-    font-size:10px;
-    color:#a9959d;
-    letter-spacing:1px;
-}
-
-.day-card.locked{
-    opacity:.42;
-    cursor:not-allowed;
-}
-
-/* =========================
-   SLIDES
-========================= */
-
-.slide{
-    animation:slideIn .5s ease;
-}
-
-@keyframes slideIn{
+@keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(18px);
     }
     to{
         opacity:1;
@@ -367,1010 +62,1679 @@ p{
     }
 }
 
-.slide-number{
-    color:#d4b257;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    font-size:11px;
-    margin-bottom:15px;
+h1{
+    color:#e8c36a;
+    font-size:clamp(2.2rem,6vw,4.5rem);
+    margin-bottom:25px;
+    letter-spacing:2px;
 }
 
-.slide-actions{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-top:30px;
+h2{
+    color:#f0c978;
+    font-size:clamp(1.7rem,4vw,3rem);
+    margin-bottom:25px;
 }
 
-/* =========================
-   FOTO
-========================= */
-
-.photo-frame{
-    margin:30px auto;
-    max-width:700px;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid rgba(218,180,75,.45);
-    box-shadow:0 25px 70px rgba(0,0,0,.5);
+h3{
+    color:#f4d78c;
+    margin:20px 0 10px;
 }
 
-.photo-frame img{
-    display:block;
-    width:100%;
-    max-height:650px;
-    object-fit:contain;
-    background:#050405;
+p{
+    max-width:760px;
+    margin:13px auto;
+    line-height:1.8;
+    font-size:1.08rem;
+    color:#f8e9ef;
 }
 
-/* =========================
-   DIA 2
-========================= */
-
-.memory-photo{
-    margin-top:30px;
-    opacity:0;
-    transform:scale(.94);
-    transition:1s ease;
+.gold{
+    color:#e8c36a;
 }
 
-.memory-photo.show{
-    opacity:1;
-    transform:scale(1);
+.subtitle{
+    color:#dcb4c7;
+    font-size:1.1rem;
+    margin-bottom:35px;
 }
 
-/* =========================
-   DIA 3 CAJA
-========================= */
-
-.memory-box{
-    width:190px;
-    height:145px;
-    margin:40px auto;
-    position:relative;
-    transition:.5s;
+button{
+    border:1px solid #d7ad55;
+    background:linear-gradient(135deg,#4b1735,#24101d);
+    color:#f8d982;
+    padding:13px 24px;
+    border-radius:30px;
     cursor:pointer;
+    font-family:Georgia,serif;
+    font-size:1rem;
+    transition:.3s;
+    margin:8px;
 }
 
-.box-body{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:190px;
-    height:110px;
-    background:linear-gradient(145deg,#9b315b,#d47b9c);
-    border-radius:8px 8px 15px 15px;
-    box-shadow:0 20px 40px rgba(0,0,0,.4);
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(226,185,87,.25);
+    background:#54203d;
 }
 
-.box-lid{
-    position:absolute;
-    top:15px;
-    left:-8px;
-    width:206px;
-    height:35px;
-    background:#e0a0b8;
-    border-radius:8px;
-    transform-origin:left center;
-    transition:1s ease;
-    z-index:3;
+.big-number{
+    font-size:clamp(5rem,18vw,12rem);
+    color:#e8c36a;
+    text-shadow:0 0 35px rgba(232,195,106,.3);
 }
 
-.memory-box.open .box-lid{
-    transform:rotate(-20deg) translate(-10px,-35px);
+.heart{
+    font-size:4rem;
+    color:#e8c36a;
+    animation:pulse 2s infinite;
 }
 
-.box-ribbon{
-    position:absolute;
-    width:24px;
-    height:145px;
-    background:#e1c15d;
-    left:83px;
-    top:0;
-    z-index:4;
-    pointer-events:none;
+@keyframes pulse{
+    50%{transform:scale(1.12)}
 }
 
-/* =========================
-   TARJETAS
-========================= */
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+    gap:14px;
+    margin:35px auto;
+    max-width:800px;
+}
+
+.day{
+    min-height:100px;
+    border:1px solid rgba(225,187,99,.5);
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.day:hover{
+    transform:translateY(-5px);
+    background:rgba(211,165,80,.1);
+    box-shadow:0 0 25px rgba(221,182,89,.15);
+}
+
+.day strong{
+    color:#e8c36a;
+    font-size:1.2rem;
+}
+
+.day span{
+    margin-top:8px;
+    color:#d9bac7;
+    font-size:.85rem;
+}
 
 .choice-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    max-width:750px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:15px;
+    max-width:850px;
     margin:30px auto;
 }
 
 .choice{
-    border:1px solid rgba(218,180,75,.3);
-    background:rgba(255,255,255,.035);
+    padding:22px;
+    border:1px solid rgba(225,187,99,.45);
     border-radius:18px;
-    padding:25px;
-    min-height:130px;
-    transition:.35s;
-    color:#f7e8ee;
-    text-align:center;
+    background:rgba(255,255,255,.04);
+    cursor:pointer;
+    transition:.3s;
 }
 
 .choice:hover{
-    transform:translateY(-5px);
-    border-color:#d8b45a;
-    background:rgba(255,255,255,.06);
+    transform:translateY(-4px);
+    background:rgba(225,187,99,.1);
 }
 
-.choice-symbol{
-    font-size:30px;
-    display:block;
+.choice.selected{
+    border-color:#e8c36a;
+    box-shadow:0 0 20px rgba(232,195,106,.2);
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:30px auto;
+}
+
+.memory-card{
+    min-height:170px;
+    border:1px solid rgba(225,187,99,.5);
+    border-radius:22px;
+    padding:30px 20px;
+    background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    transition:.4s;
+}
+
+.memory-card:hover{
+    transform:translateY(-7px) rotate(-1deg);
+    box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+
+.memory-card .symbol{
+    font-size:2.7rem;
+    color:#e8c36a;
     margin-bottom:12px;
 }
 
-/* =========================
-   DIA 9 ESTRELLAS
-========================= */
-
-.stars-container{
-    position:relative;
-    width:100%;
-    max-width:850px;
-    height:550px;
-    margin:20px auto;
-    overflow:hidden;
-    border-radius:25px;
-    background:
-        radial-gradient(circle at center,rgba(70,40,80,.25),transparent 60%),
-        #050507;
-    border:1px solid rgba(218,180,75,.25);
-}
-
-.star{
-    position:absolute;
-    border:0;
-    background:none;
-    color:#a89ca3;
-    font-size:20px;
-    transition:.5s;
-    filter:drop-shadow(0 0 2px rgba(255,255,255,.2));
-}
-
-.star:hover{
-    transform:scale(1.6);
-    color:#fff;
-}
-
-.star.discovered{
-    color:#e5c65e;
-    filter:drop-shadow(0 0 14px #e5c65e);
-}
-
-.reason-overlay{
+.modal{
     position:fixed;
     inset:0;
-    z-index:100;
+    background:rgba(5,3,7,.92);
     display:none;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     padding:20px;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(10px);
+    z-index:1000;
 }
 
-.reason-overlay.active{
+.modal.show{
     display:flex;
 }
 
-.reason-card{
-    width:min(650px,94vw);
-    padding:50px;
-    text-align:center;
-    background:#120c12;
-    border:1px solid rgba(218,180,75,.45);
+.modal-box{
+    width:min(850px,95%);
+    max-height:90vh;
+    overflow:auto;
+    background:linear-gradient(145deg,#29121f,#100910);
+    border:1px solid #cda954;
     border-radius:25px;
-    box-shadow:0 30px 100px #000;
-}
-
-.reason-number{
-    color:#d9b85d;
-    letter-spacing:4px;
-    margin-bottom:20px;
-}
-
-/* =========================
-   DIA 10 MÚSICA
-========================= */
-
-.music-player{
-    max-width:650px;
-    margin:35px auto;
-    padding:40px;
+    padding:30px;
     text-align:center;
-    border:1px solid rgba(218,180,75,.3);
-    border-radius:25px;
-    background:rgba(255,255,255,.03);
+    animation:modalIn .4s ease;
 }
 
-.music-note{
-    font-size:80px;
-    animation:musicFloat 3s ease-in-out infinite;
-    color:#d9b85d;
-}
-
-@keyframes musicFloat{
-    50%{
-        transform:translateY(-10px) rotate(3deg);
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
     }
 }
 
-audio{
-    width:100%;
-    margin-top:25px;
+.modal img{
+    max-width:100%;
+    max-height:65vh;
+    object-fit:contain;
+    border-radius:18px;
+    margin:15px auto;
+    display:block;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
 }
 
-/* =========================
-   DIA 11 RELOJ
-========================= */
-
-.clock{
-    width:210px;
-    height:210px;
-    border-radius:50%;
-    border:2px solid #cba84d;
-    margin:30px auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    box-shadow:0 0 45px rgba(218,180,75,.08);
+.hidden{
+    display:none!important;
 }
 
-.clock-number{
-    font-family:'Cormorant Garamond',serif;
-    font-size:50px;
-    color:#e0c26b;
-}
-
-.clock.stopped{
-    box-shadow:0 0 70px rgba(218,180,75,.3);
-}
-
-/* =========================
-   DIA 12 PISTA
-========================= */
-
-.footprints{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    margin:35px 0;
-}
-
-.foot{
-    font-size:30px;
-    color:#d9b85d;
-    transform:rotate(-25deg);
-    animation:footStep 2s infinite;
-}
-
-.foot:nth-child(2){animation-delay:.2s}
-.foot:nth-child(3){animation-delay:.4s}
-.foot:nth-child(4){animation-delay:.6s}
-.foot:nth-child(5){animation-delay:.8s}
-
-@keyframes footStep{
-    50%{
-        transform:rotate(-25deg) translateY(-8px);
-        opacity:.55;
-    }
-}
-
-/* =========================
-   INPUT JUEGO
-========================= */
-
-.answer-input{
-    width:min(650px,100%);
-    padding:18px;
-    border-radius:15px;
-    background:#0c090c;
-    color:white;
-    border:1px solid rgba(218,180,75,.35);
-    outline:none;
-    text-align:center;
-    font-size:18px;
-}
-
-/* =========================
-   DIA 15 OCULTO
-========================= */
-
-.hidden-memory-page{
-    position:relative;
-    width:100%;
-    max-width:850px;
-    height:560px;
-    margin:30px auto;
-    overflow:hidden;
-    border-radius:25px;
-    background:
-        radial-gradient(circle at 25% 35%,rgba(230,160,185,.09),transparent 20%),
-        radial-gradient(circle at 75% 65%,rgba(218,180,75,.07),transparent 20%),
-        #0b080b;
-    border:1px solid rgba(218,180,75,.22);
-}
-
-.search-hint{
-    text-align:center;
-    margin-top:15px;
-    color:#95868d;
-    font-size:13px;
-}
-
-.secret-zone{
-    position:absolute;
-    width:90px;
-    height:90px;
-    border-radius:50%;
+.envelope{
+    font-size:4rem;
     cursor:pointer;
-    opacity:.01;
+    margin:20px;
+    transition:.3s;
 }
 
-.secret-zone:hover{
-    opacity:.04;
-    background:#d9b85d;
+.envelope:hover{
+    transform:scale(1.12);
 }
 
-.zone-one{
-    left:18%;
-    top:25%;
-}
-
-.zone-two{
-    right:17%;
-    bottom:24%;
-}
-
-.found-memory{
-    display:none;
-    position:absolute;
-    inset:0;
-    background:rgba(5,4,5,.94);
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-}
-
-.found-memory.active{
-    display:flex;
-}
-<!-- =========================================================
-     DÍA 16 — NUESTRO DÍA
-========================================================= -->
-
-<section id="dia16" class="day-page">
-
-    <!-- INTRODUCCIÓN -->
-    <div id="dia16-intro" class="dia16-screen active">
-
-        <div class="day-number">Día 16</div>
-
-        <h1>Nuestro día</h1>
-
-        <div class="dia16-text">
-
-            <p>Hoy quiero jugar contigo.</p>
-
-            <p>Pero esta vez no hay respuestas correctas.</p>
-
-            <p>
-                Hoy quiero que construyas conmigo
-                <strong>nuestro día perfecto.</strong>
-            </p>
-
-            <p>
-                Tú eliges qué hacemos,
-                y yo te voy a enseñar qué habría preparado
-                para nosotras.
-            </p>
-
-        </div>
-
-        <button class="dia16-btn" onclick="dia16Start()">
-            EMPEZAR ✦
-        </button>
-
-    </div>
-
-
-    <!-- PREGUNTA 1 -->
-    <div id="dia16-pregunta1" class="dia16-screen">
-
-        <div class="dia16-progress">01 / 04</div>
-
-        <h2>¿Cómo sería para ti una mañana perfecta juntas?</h2>
-
-        <div class="dia16-options">
-
-            <button onclick="dia16Next(1)">
-                Dormir un poquito más
-            </button>
-
-            <button onclick="dia16Next(1)">
-                Despertarnos sin ninguna prisa
-            </button>
-
-            <button onclick="dia16Next(1)">
-                Empezar el día juntas
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- PREGUNTA 2 -->
-    <div id="dia16-pregunta2" class="dia16-screen">
-
-        <div class="dia16-progress">02 / 04</div>
-
-        <h2>¿Qué no podría faltar en uno de nuestros días juntas?</h2>
-
-        <div class="dia16-options">
-
-            <button onclick="dia16Next(2)">
-                Comer algo rico
-            </button>
-
-            <button onclick="dia16Next(2)">
-                Dormir la siesta
-            </button>
-
-            <button onclick="dia16Next(2)">
-                Hacer el amor
-            </button>
-
-            <button onclick="dia16Next(2)">
-                Todas o casi todas
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- PREGUNTA 3 -->
-    <div id="dia16-pregunta3" class="dia16-screen">
-
-        <div class="dia16-progress">03 / 04</div>
-
-        <h2>
-            ¿Qué plan te gustaría hacer conmigo
-            sin tener nada organizado?
-        </h2>
-
-        <div class="dia16-options">
-
-            <button onclick="dia16Next(3)">
-                Salir sin saber exactamente dónde vamos
-            </button>
-
-            <button onclick="dia16Next(3)">
-                Mirar el atardecer
-            </button>
-
-            <button onclick="dia16Next(3)">
-                Cocinar las dos juntitas
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- PREGUNTA 4 -->
-    <div id="dia16-pregunta4" class="dia16-screen">
-
-        <div class="dia16-progress">04 / 04</div>
-
-        <h2>
-            ¿Qué te gustaría hacer conmigo
-            en una noche tranquila en casa?
-        </h2>
-
-        <div class="dia16-options">
-
-            <button onclick="dia16Next(4)">
-                Una película o una serie
-            </button>
-
-            <button onclick="dia16Next(4)">
-                Algo rico
-            </button>
-
-            <button onclick="dia16Next(4)">
-                Estar abrazadas
-            </button>
-
-            <button onclick="dia16Next(4)">
-                Todo lo anterior
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- FINAL -->
-    <div id="dia16-final" class="dia16-screen">
-
-        <div class="dia16-final-symbol">✦</div>
-
-        <h2>Al final creo que entendí algo...</h2>
-
-        <div class="dia16-text final-text">
-
-            <p>
-                No importa demasiado qué hagamos.
-            </p>
-
-            <p>
-                Puede ser salir,
-                <br>
-                quedarnos en casa,
-                <br>
-                viajar,
-                <br>
-                comer,
-                <br>
-                ver una película
-                <br>
-                o simplemente no hacer absolutamente nada.
-            </p>
-
-            <p class="dia16-last-line">
-                <strong>
-                    Si el día es contigo,
-                    <br>
-                    ya tengo mi plan perfecto.
-                </strong>
-            </p>
-
-        </div>
-
-        <button class="dia16-calendar-btn" onclick="volverCalendario()">
-            ✦ VOLVER AL CALENDARIO ✦
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     ESTILOS EXCLUSIVOS DEL DÍA 16
-========================================================= -->
-
-<style>
-
-#dia16 {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-}
-
-.dia16-screen {
-    width: 100%;
-    min-height: 100vh;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 25px;
-    box-sizing: border-box;
-    animation: dia16FadeIn .7s ease;
-}
-
-.dia16-screen.active {
-    display: flex;
-}
-
-@keyframes dia16FadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.day-number {
-    font-size: 15px;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-    opacity: .75;
-}
-
-.dia16-screen h1 {
-    font-size: clamp(38px, 7vw, 70px);
-    margin: 0 0 35px;
-    letter-spacing: 2px;
-}
-
-.dia16-screen h2 {
-    max-width: 800px;
-    font-size: clamp(25px, 4vw, 43px);
-    line-height: 1.35;
-    margin-bottom: 45px;
-}
-
-.dia16-text {
-    max-width: 720px;
-    font-size: 18px;
-    line-height: 1.9;
-}
-
-.dia16-text p {
-    margin: 0 0 18px;
-}
-
-.dia16-btn,
-.dia16-calendar-btn {
-    margin-top: 35px;
-    padding: 15px 30px;
-    border: 1px solid currentColor;
-    background: transparent;
-    color: inherit;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 13px;
-    letter-spacing: 2px;
-    transition: all .3s ease;
-}
-
-.dia16-btn:hover,
-.dia16-calendar-btn:hover {
-    transform: translateY(-3px);
-}
-
-.dia16-progress {
-    font-size: 13px;
-    letter-spacing: 4px;
-    opacity: .6;
-    margin-bottom: 25px;
-}
-
-.dia16-options {
-    width: min(700px, 100%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.dia16-options button {
-    width: 100%;
-    padding: 19px 25px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,.25);
-    background: rgba(255,255,255,.05);
-    color: inherit;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all .3s ease;
-}
-
-.dia16-options button:hover {
-    transform: translateY(-3px);
-    background: rgba(255,255,255,.12);
-}
-
-.dia16-final-symbol {
-    font-size: 45px;
-    margin-bottom: 25px;
-    animation: dia16Glow 2s infinite alternate;
-}
-
-@keyframes dia16Glow {
-    from {
-        opacity: .45;
-        transform: scale(.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1.08);
-    }
-}
-
-.final-text {
-    max-width: 650px;
-}
-
-.dia16-last-line {
-    margin-top: 35px !important;
-    font-size: 23px;
-    line-height: 1.7;
-}
-
-.dia16-calendar-btn {
-    margin-top: 45px;
-}
-
-</style>
-
-
-<!-- =========================================================
-     JAVASCRIPT DEL DÍA 16
-========================================================= -->
-
-<script>
-
-function dia16HideAll() {
-
-    const screens = document.querySelectorAll(
-        '#dia16 .dia16-screen'
-    );
-
-    screens.forEach(screen => {
-        screen.classList.remove('active');
-    });
-}
-
-
-function dia16Show(id) {
-
-    dia16HideAll();
-
-    const screen = document.getElementById(id);
-
-    if (screen) {
-        screen.classList.add('active');
-    }
-
-}
-
-
-function dia16Start() {
-
-    dia16Show('dia16-pregunta1');
-
-}
-
-
-function dia16Next(question) {
-
-    if (question === 1) {
-        dia16Show('dia16-pregunta2');
-    }
-
-    else if (question === 2) {
-        dia16Show('dia16-pregunta3');
-    }
-
-    else if (question === 3) {
-        dia16Show('dia16-pregunta4');
-    }
-
-    else if (question === 4) {
-        dia16Show('dia16-final');
-    }
-
-}
-
-
-</script>
-
-</script>
-/* =========================
-   DIA 17
-========================= */
-
-.stay-button{
-    font-size:18px;
-    min-width:230px;
-}
-
-.countdown{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,8vw,80px);
-    letter-spacing:5px;
-    color:#e3c768;
-    margin:30px 0;
-}
-
-/* =========================
-   DIA 18
-========================= */
-
-.big-countdown{
+.stars{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    max-width:850px;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+    max-width:700px;
     margin:40px auto;
 }
 
-.time-box{
-    padding:25px 10px;
-    border:1px solid rgba(218,180,75,.3);
-    border-radius:18px;
-    background:rgba(255,255,255,.025);
+.star{
+    font-size:2.5rem;
+    color:#5e5360;
+    cursor:pointer;
+    transition:.4s;
 }
 
-.time-number{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(35px,6vw,65px);
-    color:#e4c86b;
+.star:hover{
+    transform:scale(1.3);
 }
 
-.time-label{
-    font-size:9px;
-    letter-spacing:2px;
-    color:#9f8e96;
+.star.opened{
+    color:#e8c36a;
+    text-shadow:0 0 20px #e8c36a;
 }
 
-/* =========================
-   DIA 19
-========================= */
-
-.final-25{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(130px,25vw,270px);
-    line-height:.8;
-    color:#e3c768;
-    text-shadow:0 0 50px rgba(218,180,75,.2);
+.photo-box{
+    margin:30px auto;
+    max-width:700px;
 }
 
-.video-placeholder{
-    max-width:750px;
-    margin:35px auto;
-    border:1px solid rgba(218,180,75,.3);
-    border-radius:22px;
-    padding:45px;
-    background:rgba(255,255,255,.025);
+.photo-box img{
+    width:100%;
+    max-height:600px;
+    object-fit:contain;
+    border-radius:20px;
+    border:1px solid rgba(232,195,106,.5);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:800px){
-
-    .card{
-        padding:35px 22px;
-    }
-
-    .calendar-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .choice-grid{
-        grid-template-columns:1fr;
-    }
-
-    .big-countdown{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stars-container{
-        height:470px;
-    }
+audio{
+    width:min(600px,90%);
+    margin:25px auto;
 }
 
-@media(max-width:500px){
-
-    .screen{
-        padding:25px 12px;
-    }
-
-    .calendar-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .day-card{
-        min-height:125px;
-        padding:15px;
-    }
-
-    .day-title{
-        font-size:22px;
-    }
-
-    .day-status{
-        left:15px;
-        bottom:10px;
-    }
-
-    .quote{
-        font-size:23px;
-    }
+.input{
+    width:min(550px,90%);
+    padding:15px 20px;
+    border-radius:30px;
+    border:1px solid #cda954;
+    background:#160b12;
+    color:white;
+    text-align:center;
+    font-size:1rem;
+    outline:none;
 }
+
+.countdown{
+    font-size:clamp(2rem,8vw,5rem);
+    color:#e8c36a;
+    letter-spacing:5px;
+    margin:30px 0;
+}
+
+.footer-buttons{
+    margin-top:35px;
+}
+
+.quote{
+    border-left:2px solid #d6ad59;
+    max-width:700px;
+    margin:30px auto;
+    padding-left:25px;
+    text-align:left;
+}
+
+.option-button{
+    width:100%;
+    margin:0;
+}
+
+.small{
+    font-size:.9rem;
+    color:#caaeb9;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="background-particles" id="particles"></div>
+<!-- =========================================================
+     PORTADA
+========================================================= -->
 
-<div id="app"></div>
+<section class="page active" id="page-cover">
+<div class="content">
 
-<div class="reason-overlay" id="reasonOverlay">
-    <div class="reason-card">
-        <div class="reason-number" id="reasonNumber"></div>
-        <div class="quote" id="reasonText"></div>
-        <p id="reasonRemaining" style="margin-top:25px;"></p>
-        <button class="btn" onclick="closeReason()">CONTINUAR ✦</button>
-    </div>
+    <div class="heart">♡</div>
+
+    <h2>Una pequeña sorpresa para ti</h2>
+
+    <h1>Felices 25<br>Ana Lidia</h1>
+
+    <p class="subtitle">
+        19 días · 19 páginas · una historia
+    </p>
+
+    <p class="gold">Ana Lidia</p>
+
+    <button onclick="goTo('page-before')">
+        ✦ COMENZAR ✦
+    </button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     ANTES DE COMENZAR
+========================================================= -->
+
+<section class="page" id="page-before">
+<div class="content">
+
+<h1>Una pequeña historia</h1>
+
+<p>Amor...</p>
+
+<p>
+Esto no es solamente un regalo.
+Quería hacer algo diferente para tus 25.
+Algo que no pudieras abrir de una vez y terminar.
+Quiero que lo descubrieras poco a poco.
+</p>
+
+<p>
+Desde hoy hasta el 19 de septiembre, cada día habrá una pequeña puerta.
+No tienes que descubrirlo todo hoy.
+La idea es que vuelvas mañana.
+Y pasado.
+Y al día siguiente.
+</p>
+
+<p>
+Porque esta historia tiene una fecha final.
+</p>
+
+<h2>Tu cumpleaños.</h2>
+
+<p>
+Pero antes de llegar a él, hay 19 días para recorrer.
+</p>
+
+<button onclick="goTo('page-password')">
+    CONTINUAR
+</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CONTRASEÑA
+========================================================= -->
+
+<section class="page" id="page-password">
+<div class="content">
+
+<h1>Una contraseña</h1>
+
+<p>
+Hay cuatro números escondidos,
+de un recuerdo que guardamos las dos.
+</p>
+
+<p>
+Los dos primeros marcan el día
+en que nuestra historia comenzó.
+</p>
+
+<p>
+Los dos últimos guardan el año
+en que aquel momento nació.
+</p>
+
+<p>
+No fue una fecha para el mundo,
+ni quedó escrita en ningún calendario,
+pero para nosotras dos
+se volvió un recuerdo extraordinario.
+</p>
+
+<input
+    class="input"
+    id="passwordInput"
+    maxlength="4"
+    placeholder="____"
+    type="text"
+>
+
+<br>
+
+<button onclick="checkPassword()">
+    DESBLOQUEAR
+</button>
+
+<p id="passwordMessage"></p>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CALENDARIO
+========================================================= -->
+
+<section class="page" id="calendar">
+<div class="content">
+
+<h1>19 días hasta los 25</h1>
+
+<p>Tu calendario</p>
+
+<p class="subtitle">Elige el día</p>
+
+<div class="calendar">
+
+<script>
+for(let i=1;i<=19;i++){
+    document.write(`
+        <div class="day" onclick="openDay(${i})">
+            <strong>DÍA ${String(i).padStart(2,'0')}</strong>
+            <span>${dayNames[i] || ''}</span>
+        </div>
+    `);
+}
+</script>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 1
+========================================================= -->
+
+<section class="page" id="day1">
+<div class="content">
+
+<h1>Día 1 — Comienzo</h1>
+
+<p class="gold">Para Ana Lidia</p>
+
+<p>
+Si estás leyendo esto, significa que abriste la primera puerta.
+Y quizás todavía no entiendas exactamente qué estoy haciendo con todo esto.
+</p>
+
+<p>
+La verdad es que no quería regalarte algo que pudieras abrir una vez,
+mirar durante unos minutos y guardar.
+</p>
+
+<p>
+Quería regalarte algo que tuviera tiempo.
+Algo que te acompañara durante los días anteriores a tus 25 años.
+</p>
+
+<p>
+Porque 25 no es solamente un número.
+Es una etapa, una historia, todas las cosas que ya viviste
+y todas las que todavía te esperan.
+</p>
+
+<p>
+Y yo quería formar una pequeña parte de esos días.
+</p>
+
+<p>
+Así que no intentes descubrirlo todo hoy.
+Mañana habrá otra puerta.
+Y después otra.
+Y otra.
+</p>
+
+<p>
+Solo quiero que disfrutes el viaje.
+</p>
+
+<h2>Esto recién comienza. ♡</h2>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 2
+========================================================= -->
+
+<section class="page" id="day2">
+<div class="content">
+
+<h1>Día 2</h1>
+
+<p>
+Hoy quiero llevarte un poquito hacia atrás.
+A ese momento en el que nuestra historia comenzó.
+</p>
+
+<p>
+No sabíamos todo lo que vendría después.
+No sabíamos cuántas cosas íbamos a compartir.
+No sabíamos cuántos recuerdos íbamos a terminar guardando.
+</p>
+
+<p>
+Solo éramos nosotras dos...
+y estaba comenzando algo que hoy significa muchísimo para mí.
+</p>
+
+<div class="photo-box">
+    <img src="dia2.jpg" alt="Nuestro recuerdo del día 2">
+</div>
+
+<h2>Ahora quiero jugar contigo</h2>
+
+<p>
+Hay cuatro palabras aquí.
+Cada una guarda una pequeña parte
+de lo que significa para mí lo nuestro.
+</p>
+
+<div class="card-grid">
+
+<div class="memory-card" onclick="showWord('confianza')">
+<div class="symbol">♡</div>
+<strong>CONFIANZA</strong>
+</div>
+
+<div class="memory-card" onclick="showWord('complicidad')">
+<div class="symbol">✦</div>
+<strong>COMPLICIDAD</strong>
+</div>
+
+<div class="memory-card" onclick="showWord('carino')">
+<div class="symbol">☾</div>
+<strong>CARIÑO</strong>
+</div>
+
+<div class="memory-card" onclick="showWord('conexion')">
+<div class="symbol">∞</div>
+<strong>CONEXIÓN</strong>
+</div>
+
+</div>
+
+<div id="day2Complete" class="hidden">
+
+<h1>TÚ</h1>
+
+<p>
+Porque al final,
+detrás de todas estas palabras,
+siempre termino llegando al mismo lugar.
+</p>
+
+<h2>A ti.</h2>
+
+<p>
+Y qué suerte la mía
+de poder decir que formas parte de mi vida.
+</p>
+
+<p class="gold">Día 02 desbloqueado. ♡</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 3
+========================================================= -->
+
+<section class="page" id="day3">
+<div class="content">
+
+<h1>✦ DÍA 3 ✦</h1>
+<h2>LA CAJA DE RECUERDOS</h2>
+
+<div
+    class="envelope"
+    onclick="openMemoryBox()"
+    id="memoryBox"
+>
+    📦
+</div>
+
+<p id="boxText">
+Toca la caja para abrirla.
+</p>
+
+<div id="memoryChoices" class="card-grid hidden">
+
+<div class="memory-card" onclick="openMemory('photo')">
+<div class="symbol">📷</div>
+<strong>UNO</strong>
+<p>Una fotografía</p>
+</div>
+
+<div class="memory-card" onclick="openMemory('moment')">
+<div class="symbol">✦</div>
+<strong>DOS</strong>
+<p>Un momento</p>
+</div>
+
+<div class="memory-card" onclick="openMemory('future')">
+<div class="symbol">♡</div>
+<strong>TRES</strong>
+<p>Un futuro recuerdo</p>
+</div>
+
+</div>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 4
+========================================================= -->
+
+<section class="page" id="day4">
+<div class="content">
+
+<h1>✦ DÍA 04 ✦</h1>
+<h2>Si tuvieras que elegir...</h2>
+
+<p>
+Amor...
+hoy no quiero contarte algo.
+Hoy quiero hacerte elegir.
+</p>
+
+<p>
+Entre pequeñas cosas, momentos, planes y algunas preguntas
+que quizás te hagan sonreír.
+</p>
+
+<p>No hay respuestas correctas.</p>
+
+<div id="question4"></div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 5
+========================================================= -->
+
+<section class="page" id="day5">
+<div class="content">
+
+<h1>✦ DÍA 05 ✦</h1>
+<h2>¿CUÁNTO ME CONOCES?</h2>
+
+<p>
+Amor...
+Hoy te toca a ti.
+</p>
+
+<p>
+Después de todas las páginas que has ido descubriendo,
+quiero comprobar una cosita...
+</p>
+
+<h2>¿Cuánto crees que me conoces? ♡</h2>
+
+<p>
+Pero no vale pensarlo demasiado.
+Elige lo primero que creas que elegiría yo.
+Y no hagas trampa. ✦
+</p>
+
+<div id="quiz5"></div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 6
+========================================================= -->
+
+<section class="page" id="day6">
+<div class="content">
+
+<h1>✦ DÍA 06 ✦</h1>
+
+<p><strong>Hoy no tienes que descubrir nada.</strong></p>
+
+<p>
+Hoy quiero dejarte algo diferente.
+</p>
+
+<p>
+Pequeñas palabras para distintos momentos.
+</p>
+
+<p>No tienes que abrirlas todas ahora.</p>
+
+<h2>Elige la que necesites.</h2>
+
+<div class="card-grid">
+
+<div class="memory-card" onclick="showEnvelope(1)">
+<div class="symbol">♡</div>
+<strong>Ábreme cuando estés feliz</strong>
+</div>
+
+<div class="memory-card" onclick="showEnvelope(2)">
+<div class="symbol">☾</div>
+<strong>Ábreme cuando tengas un día difícil</strong>
+</div>
+
+<div class="memory-card" onclick="showEnvelope(3)">
+<div class="symbol">✦</div>
+<strong>Ábreme cuando me extrañes</strong>
+</div>
+
+<div class="memory-card" onclick="showEnvelope(4)">
+<div class="symbol">∞</div>
+<strong>Ábreme cuando quieras recordar cuánto te quiero</strong>
+</div>
+
+</div>
+
+<div id="envelopeText"></div>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 7
+========================================================= -->
+
+<section class="page" id="day7">
+<div class="content">
+
+<h1>✦ DÍA 07 ✦</h1>
+<h2>Pista #1</h2>
+
+<p>
+Hay algo que nace,<br>
+que un día florece,<br>
+y cuando aparece,<br>
+todo el mundo embellece.
+</p>
+
+<p>
+Pero esta vez...
+deseo que contigo permanezca,
+y que con los años jamás desvanezca.
+</p>
+
+<p>
+Que el tiempo no borre este lazo sincero,
+y al ver su belleza,
+recuerdes lo mucho que te quiero. ✦
+</p>
+
+<p>
+Hay otra cosa escondida,
+que tiene que ver con una palabra querida,
+un pequeño nombre que tú me dices,
+y que consigue que mi corazón sonría. ♡
+</p>
+
+<p>
+No camina,
+no habla,
+no puede abrazarte primero,
+pero quizás termine siendo tu pequeño compañero.
+</p>
+
+<p>
+Y cuando llegue a tus brazos,
+quizás entiendas el porqué de esta pista.
+</p>
+
+<p>
+Ahora tienes las dos pistas,
+pero todavía no la respuesta.
+</p>
+
+<p>
+Dos pequeñas pistas,
+dos secretos por guardar:
+una para conservar,
+otra para abrazar.
+</p>
+
+<p>
+Pero ninguna de las dos te voy a revelar.
+Tendrás que esperar, amor...
+porque lo más bonito todavía está por llegar.
+</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 8
+========================================================= -->
+
+<section class="page" id="day8">
+<div class="content">
+
+<h1>✦ DÍA 08 ✦</h1>
+<h2>TE CONOZCO</h2>
+
+<p>
+Hoy no quiero preguntarte cuánto me conoces a mí.
+</p>
+
+<p>
+Hoy quiero demostrarte cuánto he aprendido de ti.
+</p>
+
+<p>
+Porque cuando quieres a alguien,
+empiezas a guardar pequeños detalles.
+</p>
+
+<button onclick="startQuiz8()">COMENZAR</button>
+
+<div id="quiz8"></div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 9
+========================================================= -->
+
+<section class="page" id="day9">
+<div class="content">
+
+<h1>✦ DÍA 09 ✦</h1>
+<h2>25 cosas por las que te amo</h2>
+
+<p>
+Amor...
+hoy quiero hacer algo diferente.
+</p>
+
+<p>
+Hay 25 estrellas frente a ti.
+Cada una guarda una pequeña razón
+por la que te amo.
+</p>
+
+<p>
+Puedes elegirlas en el orden que quieras.
+No hay una primera.
+No hay una última.
+</p>
+
+<div class="stars" id="stars"></div>
+
+<div id="starCounter" class="gold">0 / 25</div>
+
+<div id="starFinal" class="hidden">
+
+<h2>25 de 25</h2>
+
+<p>
+Has encontrado todas.
+</p>
+
+<p>
+Pero hay algo que quiero que recuerdes...
+</p>
+
+<p>
+Estas son solamente 25 razones.
+Porque podría pasarme toda la vida
+encontrando nuevas razones para amarte.
+Y probablemente nunca terminaría.
+</p>
+
+<p>
+Porque lo que siento por ti
+no cabe en una lista.
+</p>
+
+<h2>♡</h2>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 10
+========================================================= -->
+
+<section class="page" id="day10">
+<div class="content">
+
+<h1>✦ DÍA 10 ✦</h1>
+<h2>Una canción para ti</h2>
+
+<p>
+Hay canciones que simplemente escuchamos.
+</p>
+
+<p>
+Y hay otras que, por alguna razón,
+terminan quedándose con nosotros.
+</p>
+
+<p>
+Hoy quiero regalarte una de esas.
+</p>
+
+<div class="heart">♫</div>
+
+<button onclick="showSong10()">
+DESCUBRIR ✦
+</button>
+
+<div id="song10" class="hidden">
+
+<h1>♫</h1>
+
+<h2>Bemaste</h2>
+
+<p>Tiago PZK</p>
+
+<p>
+Esta canción es para ti.
+</p>
+
+<p>
+No solamente porque me gusta,
+ni porque quería poner cualquier canción aquí.
+</p>
+
+<p>
+La elegí porque quería que este momento
+tuviera una canción propia.
+</p>
+
+<p>
+Así que ahora sí...
+dale play.
+</p>
+
+<audio id="bemasteAudio" controls preload="metadata">
+    <source src="Bemaste.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir este audio.
+</audio>
+
+<p>
+Este momento es para ti. ♡
+</p>
+
+<hr>
+
+<p>
+Y ahora que terminó...
+quizás la canción siga siendo exactamente la misma.
+</p>
+
+<p>
+Pero espero que, cuando vuelva a sonar algún día,
+te acuerdes de estos 25.
+</p>
+
+<p>
+De este regalo.
+De esta pequeña historia.
+De este día.
+Y de todas las cosas que todavía quedan por descubrir.
+</p>
+
+<h2>♫ 10 / 19 ♫</h2>
+
+<p>
+Una canción.<br>
+Un momento.<br>
+Un recuerdo nuevo.
+</p>
+
+<p>
+Feliz día 10, amor. ♡
+</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 11
+========================================================= -->
+
+<section class="page" id="day11">
+<div class="content">
+
+<h1>✦ DÍA 11 ✦</h1>
+<h2>Guardar el tiempo</h2>
+
+<p>
+Amor...
+</p>
+
+<p>
+Si pudieras detener el tiempo por un instante,
+¿en cuál te quedarías?
+</p>
+
+<p>
+No tienes que responder.
+Hoy solo quiero imaginarlo contigo.
+</p>
+
+<div class="big-number">⏳</div>
+
+<button onclick="startTimeGame()">
+DETENER EL TIEMPO ✦
+</button>
+
+<div id="timeChoices" class="hidden">
+
+<p>Toca una.</p>
+
+<div class="choice-grid">
+
+<div class="choice" onclick="timeScene('sunrise')">🌅<br>UN AMANECER</div>
+<div class="choice" onclick="timeScene('night')">🌙<br>UNA NOCHE</div>
+<div class="choice" onclick="timeScene('day')">☀️<br>UN DÍA CUALQUIERA</div>
+<div class="choice" onclick="timeScene('future')">✨<br>UN MOMENTO QUE TODAVÍA NO EXISTE</div>
+
+</div>
+
+</div>
+
+<div id="timeFinal" class="hidden"></div>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 12
+========================================================= -->
+
+<section class="page" id="day12">
+<div class="content">
+
+<h1>✦ DÍA 12 ✦</h1>
+<h2>Otra pista</h2>
+
+<p>
+Hay algo que quiero que descubras...
+</p>
+
+<p>
+Amor...
+Hoy quiero jugar un poquito contigo.
+</p>
+
+<p>
+Solo te voy a dejar una pista:
+</p>
+
+<h2>Es algo que elegí pensando en ti.</h2>
+
+<p>
+En ti, en tu forma de ser,
+en tu estilo, en esas pequeñas cosas
+que sé que te gustan y que hacen que seas tan tú.
+</p>
+
+<p>
+Es de esas cosas que no están hechas
+simplemente para tenerlas,
+sino para disfrutarlas,
+para estrenarlas,
+para hacerlas parte de uno de esos tantos días
+que todavía nos quedan por vivir.
+</p>
+
+<p>
+Quizás cuando finalmente lo veas
+pienses: “ahhh, con razón...”
+</p>
+
+<p>
+Todavía falta un poquito para descubrirlo.
+</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 13
+========================================================= -->
+
+<section class="page" id="day13">
+<div class="content">
+
+<h1>✦ DÍA 13 ✦</h1>
+<h2>DESCUBRE</h2>
+
+<p>
+Hoy quiero comprobar una cosa...
+</p>
+
+<p>
+Hay una canción que no es simplemente una canción.
+Es una de esas que, cuando empieza,
+puede llevarme directamente a nosotras.
+</p>
+
+<p>
+La canción que más te recuerde a mí.
+</p>
+
+<p>
+Quiero que la recuerdes tú.
+</p>
+
+<input
+    id="songAnswer"
+    class="input"
+    placeholder="Escribe aquí el nombre..."
+>
+
+<br>
+
+<button onclick="checkSong13()">DESBLOQUEAR</button>
+
+<div id="song13Result"></div>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 14
+========================================================= -->
+
+<section class="page" id="day14">
+<div class="content">
+
+<h1>✦ DÍA 14 ✦</h1>
+<h2>ADIVINA, ADIVINADORA</h2>
+
+<p>
+Amor...
+</p>
+
+<p>
+Hoy quiero hacerte pensar,
+pero sin hacerte estudiar. 🤭
+</p>
+
+<p>
+Te voy a dejar unas adivinanzas
+que tendrás que intentar descifrar.
+</p>
+
+<div id="riddle14"></div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 15
+========================================================= -->
+
+<section class="page" id="day15">
+<div class="content">
+
+<h1>✦ DÍA 15 ✦</h1>
+<h2>DOS RECUERDOS</h2>
+
+<p>
+Hay algo que quiero enseñarte...
+</p>
+
+<p>
+No voy a decirte qué es.
+Tampoco voy a decirte dónde está.
+</p>
+
+<p>
+Solo voy a dejarte dos pequeños recuerdos
+escondidos en esta página.
+</p>
+
+<p>
+Tú tendrás que encontrarlos.
+</p>
+
+<p>
+Cuando estés lista...
+</p>
+
+<h2>empieza a buscar.</h2>
+
+<div
+    id="hiddenMemory1"
+    class="memory-card"
+    style="margin:25px auto;max-width:260px;"
+    onclick="findHiddenMemory(1)"
+>
+    ✦
+</div>
+
+<div
+    id="hiddenMemory2"
+    class="memory-card"
+    style="margin:25px auto;max-width:260px;"
+    onclick="findHiddenMemory(2)"
+>
+    ♡
+</div>
+
+<div id="memory15Counter" class="gold">
+0 / 2 recuerdos encontrados
+</div>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 16
+========================================================= -->
+
+<section class="page" id="day16">
+<div class="content">
+
+<h1>✦ DÍA 16 ✦</h1>
+<h2>NUESTRO DÍA</h2>
+
+<p>
+Hoy quiero jugar contigo.
+</p>
+
+<p>
+Pero esta vez no hay respuestas correctas.
+</p>
+
+<p>
+Hoy quiero que construyas conmigo
+nuestro día perfecto.
+</p>
+
+<p>
+Tú eliges qué hacemos,
+y yo te voy a enseñar qué habría preparado para nosotras.
+</p>
+
+<div id="game16"></div>
+
+<div id="final16" class="hidden">
+
+<h2>Al final creo que entendí algo...</h2>
+
+<p>
+No importa demasiado qué hagamos.
+</p>
+
+<p>
+Puede ser salir,
+quedarnos en casa,
+viajar,
+comer,
+ver una película
+o simplemente no hacer absolutamente nada.
+</p>
+
+<p>
+Si el día es contigo,
+ya tengo mi plan perfecto.
+</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 17
+========================================================= -->
+
+<section class="page" id="day17">
+<div class="content">
+
+<h1>✦ DÍA 17 ✦</h1>
+
+<h2>Antes de que llegue</h2>
+
+<p>
+Quédate unos segundos.
+</p>
+
+<p>
+Sin buscar pistas.
+Sin intentar descubrir qué viene.
+Solo piensa en nosotras.
+</p>
+
+<p>
+En cómo comenzó todo.
+En cada momento que hemos compartido.
+En las risas, en las conversaciones,
+en los días bonitos
+y también en todo aquello que hemos aprendido juntas.
+</p>
+
+<p>
+Porque si llegaste hasta aquí,
+ya descubriste muchas de las pequeñas cosas
+que preparé para ti.
+</p>
+
+<p>
+Pero todavía no termina.
+</p>
+
+<h2>De hecho...</h2>
+
+<p>
+Estamos a punto de llegar
+a la parte que más he estado esperando.
+</p>
+
+<p>
+Mañana ya no tendrás que buscar una pista.
+Mañana solo tendrás que mirar el reloj.
+</p>
+
+<p>
+Porque cada segundo que pase
+nos llevará un poquito más cerca.
+</p>
+
+<p>
+Y cuando llegue el momento...
+quiero que recuerdes algo:
+</p>
+
+<p>
+Hice todo esto porque quería regalarte
+algo más que un cumpleaños.
+</p>
+
+<p>
+Quería regalarte un pedacito de mí,
+de nosotras,
+de nuestra historia.
+</p>
+
+<h2>Gracias por recorrerlo conmigo, amor.</h2>
+
+<p>
+Mañana empieza la cuenta regresiva.
+</p>
+
+<h2>Ya falta muy poquito.</h2>
+
+<p class="gold">Nos vemos mañana.</p>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 18
+========================================================= -->
+
+<section class="page" id="day18">
+<div class="content">
+
+<h1>✦ DÍA 18 ✦</h1>
+<h2>Ya falta poquito...</h2>
+
+<p>Amor,</p>
+
+<p>
+después de tantos días,
+tantas pistas,
+tantos pequeños secretos...
+</p>
+
+<p>
+ya estamos llegando.
+</p>
+
+<p>
+Y esta vez no quiero darte una pista.
+Solo quiero que mires cuánto falta
+para que llegue tu día.
+</p>
+
+<div class="countdown" id="countdown">
+00 : 00 : 00 : 00
+</div>
+
+<p>DÍAS · HORAS · MINUTOS · SEGUNDOS</p>
+
+<p>
+Cada segundo que pasa
+nos acerca un poquito más
+a tu día.
+</p>
+
+<h2>(te me estás haciendo viejita 🤭)</h2>
+
+<button onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     DÍA 19
+========================================================= -->
+
+<section class="page" id="day19">
+<div class="content">
+
+<div class="big-number">25</div>
+
+<h1>Feliz cumpleaños, amor.</h1>
+
+<p>
+Hoy no quiero hablarte solamente de un día.
+Quiero hablarte de todo lo que significa
+haber llegado hasta aquí contigo.
+</p>
+
+<p>
+De cada momento que guardamos,
+de cada risa,
+de cada abrazo,
+de cada pequeño recuerdo
+que terminó convirtiéndose en parte de nuestra historia.
+</p>
+
+<p>
+Y si pudiera pedir un solo deseo para este día,
+sería muy sencillo:
+</p>
+
+<h2>
+seguir llenando nuestra historia
+de momentos que algún día
+podamos volver a recordar juntas.
+</h2>
+
+<p>
+Porque todavía nos quedan
+muchísimas páginas por escribir.
+</p>
+
+<p>
+Y esta vez...
+quiero que mires algo.
+</p>
+
+<button onclick="showFinalVideo()">
+UNA ÚLTIMA COSA PARA TI
+</button>
+
+<div id="final19" class="hidden">
+
+<div class="photo-box">
+
+<!--
+    SI TIENES UN VIDEO:
+    cambia "video-final.mp4" por el nombre exacto.
+-->
+
+<video
+    id="birthdayVideo"
+    controls
+    style="width:100%;border-radius:20px;"
+>
+    <source src="video-final.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<p>
+Si llegaste hasta aquí...
+</p>
+
+<p>
+Quiero que sepas que cada detalle de estos 25 días
+fue pensado para ti.
+</p>
+
+<p>
+No porque necesitara una fecha para decirte cuánto te quiero,
+sino porque me hacía ilusión regalarte
+un poquito de felicidad.
+</p>
+
+<p>
+Espero que cuando vuelvas a mirar estas páginas,
+puedas sentir aunque sea un poquito
+de todo el amor con el que las hice.
+</p>
+
+<p>
+Gracias por ser tú.
+</p>
+
+<p>
+Gracias por existir en mi vida.
+</p>
+
+<p>
+Y gracias por todos los momentos
+que todavía nos quedan por vivir juntas.
+</p>
+
+<h2>Feliz cumpleaños, mi amor.</h2>
+
+<p>
+Esto es solo el comienzo de todo
+lo que todavía quiero vivir contigo.
+</p>
+
+<h2>Con amor,</h2>
+
+<h1>DMS</h1>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div class="modal" id="modal">
+<div class="modal-box">
+
+<div id="modalContent"></div>
+
+<button onclick="closeModal()">CERRAR</button>
+
+</div>
 </div>
 
 
 <script>
 
-/* ============================================================
-   CONFIGURACIÓN
-============================================================ */
+/* =========================================================
+   NOMBRES DEL CALENDARIO
+========================================================= */
 
-const PASSWORD = "0226";
-
-const app = document.getElementById("app");
-
-let currentDay = 0;
-let daySlides = {};
-let currentSlide = 0;
-
-let discoveredStars = new Set();
-let day3Opened = false;
-let day3Choices = new Set();
-
-let day15Found = new Set();
-
-let selectedAnswersDay4 = [];
-let selectedAnswersDay5 = [];
-
-let countdownTimer = null;
-
-
-/* ============================================================
-   PARTÍCULAS
-============================================================ */
-
-function createParticles(){
-
-    const container = document.getElementById("particles");
-
-    for(let i=0;i<45;i++){
-
-        const p = document.createElement("div");
-
-        p.className = "particle";
-
-        p.style.left = Math.random()*100 + "%";
-        p.style.animationDuration = (8 + Math.random()*15) + "s";
-        p.style.animationDelay = (-Math.random()*15) + "s";
-
-        container.appendChild(p);
-    }
-}
-
-createParticles();
+const dayNames = {
+1:"Comienzo",
+2:"Recuerdos",
+3:"Caja de recuerdos",
+4:"Si tuvieras que elegir",
+5:"¿Cuánto me conoces?",
+6:"Palabras para ti",
+7:"Pista",
+8:"Te conozco",
+9:"25 estrellas",
+10:"Una canción",
+11:"Guardar el tiempo",
+12:"Otra pista",
+13:"Descubre",
+14:"Adivina",
+15:"Dos recuerdos",
+16:"Nuestro día",
+17:"Antes de que llegue",
+18:"Ya casi",
+19:"El final"
+};
 
 
-/* ============================================================
+/* =========================================================
    NAVEGACIÓN
-============================================================ */
+========================================================= */
 
-function showScreen(html){
+function goTo(id){
 
-    app.innerHTML = `
-        <div class="screen">
-            ${html}
-        </div>
-    `;
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -1378,4411 +1742,1723 @@ function showScreen(html){
     });
 }
 
-
-function backCalendar(){
-
-    currentDay = 0;
-    currentSlide = 0;
-
-    showCalendar();
+function goCalendar(){
+    goTo("calendar");
 }
-
-
-/* ============================================================
-   PORTADA
-============================================================ */
-
-function showCover(){
-
-    showScreen(`
-
-        <div class="card cover">
-
-            <div class="tiny">
-                Una pequeña sorpresa para ti
-            </div>
-
-            <h1>
-                Felices 25
-            </h1>
-
-            <h2>
-                Ana Lidia
-            </h2>
-
-            <div class="cover-line"></div>
-
-            <p class="cover-sub">
-                19 días · 19 páginas · una historia
-            </p>
-
-            <div style="margin-top:35px;">
-
-                <button class="btn" onclick="showIntroduction()">
-                    COMENZAR ✦
-                </button>
-
-            </div>
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   INTRODUCCIÓN
-============================================================ */
-
-function showIntroduction(){
-
-    showScreen(`
-
-        <div class="card">
-
-            <div class="small-label">
-                Ana Lidia · Antes de comenzar
-            </div>
-
-            <h2>
-                Una pequeña historia
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Amor...
-                </p>
-
-                <p>
-                    Esto no es solamente un regalo.
-                    Quería hacer algo diferente para tus 25.
-                    Algo que no pudieras abrir de una vez y terminar.
-                </p>
-
-                <p>
-                    Quiero que lo descubrieras poco a poco.
-                    Desde hoy hasta el 19 de septiembre,
-                    cada día habrá una pequeña puerta.
-                </p>
-
-                <p>
-                    No tienes que descubrirlo todo hoy.
-                    La idea es que vuelvas mañana.
-                    Y pasado.
-                    Y al día siguiente.
-                </p>
-
-                <p>
-                    Porque esta historia tiene una fecha final.
-                </p>
-
-                <p class="quote center">
-                    Tu cumpleaños.
-                </p>
-
-                <p>
-                    Pero antes de llegar a él,
-                    hay 19 días para recorrer.
-                </p>
-
-            </div>
-
-            <div class="nav-buttons">
-
-                <button class="btn" onclick="showPassword()">
-                    CONTINUAR ✦
-                </button>
-
-            </div>
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   CONTRASEÑA
-============================================================ */
-
-function showPassword(){
-
-    showScreen(`
-
-        <div class="card">
-
-            <div class="small-label">
-                Una contraseña
-            </div>
-
-            <h2>
-                Cuatro números.
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hay cuatro números escondidos,
-                    de un recuerdo que guardamos las dos.
-                </p>
-
-                <p>
-                    Los dos primeros marcan el día
-                    en que nuestra historia comenzó.
-                </p>
-
-                <p>
-                    Los dos últimos guardan el año
-                    en que aquel momento nació.
-                </p>
-
-                <p>
-                    No fue una fecha para el mundo,
-                    ni quedó escrita en ningún calendario,
-                    pero para nosotras dos
-                    se volvió un recuerdo extraordinario.
-                </p>
-
-                <p>
-                    Si recuerdas cuál fue aquel día,
-                    los cuatro números hallarás.
-                </p>
-
-                <p>
-                    Y si aún guardas aquel momento...
-                    la puerta atravesarás.
-                </p>
-
-            </div>
-
-            <div class="password-box">
-
-                <input
-                    id="passwordInput"
-                    class="password-input"
-                    maxlength="4"
-                    inputmode="numeric"
-                    placeholder="••••"
-                    onkeydown="if(event.key==='Enter')checkPassword()"
-                >
-
-                <br>
-
-                <button class="btn" onclick="checkPassword()">
-                    DESBLOQUEAR
-                </button>
-
-                <div id="passwordError"></div>
-
-            </div>
-
-        </div>
-
-    `);
-}
-
-
-function checkPassword(){
-
-    const input = document.getElementById("passwordInput");
-    const error = document.getElementById("passwordError");
-
-    if(input.value === PASSWORD){
-
-        showCalendar();
-
-    }else{
-
-        error.className = "error";
-        error.textContent = "Mmm... esos no son los cuatro números. ♡";
-
-        input.value = "";
-        input.focus();
-    }
-}
-
-
-/* ============================================================
-   CALENDARIO
-============================================================ */
-
-const days = [
-
-    ["Día 1","Comienzo"],
-    ["Día 2","¿Recuerdas?"],
-    ["Día 3","La caja de recuerdos"],
-    ["Día 4","Si tuvieras que elegir..."],
-    ["Día 5","¿Cuánto me conoces?"],
-    ["Día 6","Palabras para ti"],
-    ["Día 7","Pista"],
-    ["Día 8","Te conozco"],
-    ["Día 9","25 estrellas"],
-    ["Día 10","Una canción para ti"],
-    ["Día 11","Guardar el tiempo"],
-    ["Día 12","Otra pista"],
-    ["Día 13","Descubre"],
-    ["Día 14","Adivina, adivinadora"],
-    ["Día 15","Dos recuerdos"],
-    ["Día 16","Nuestro día"],
-    ["Día 17","Antes de que llegue"],
-    ["Día 18","Ya casi, amor"],
-    ["Día 19","El final 25"]
-
-];
-
-
-function showCalendar(){
-
-    let html = `
-
-        <div class="calendar">
-
-            <div class="calendar-header">
-
-                <div class="small-label">
-                    Tu calendario
-                </div>
-
-                <h2>
-                    19 días hasta los 25
-                </h2>
-
-                <p>
-                    Elige el día.
-                </p>
-
-            </div>
-
-            <div class="calendar-grid">
-
-    `;
-
-    days.forEach((day,index)=>{
-
-        html += `
-
-            <div
-                class="day-card"
-                onclick="openDay(${index+1})"
-            >
-
-                <div class="day-number">
-                    ${day[0]}
-                </div>
-
-                <div class="day-title">
-                    ${day[1]}
-                </div>
-
-                <div class="day-status">
-                    ABRIR ✦
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-    html += `
-
-            </div>
-
-        </div>
-
-    `;
-
-    showScreen(html);
-}
-
-
-/* ============================================================
-   ABRIR DÍA
-============================================================ */
 
 function openDay(day){
 
-    currentDay = day;
-    currentSlide = 0;
-
-    if(day === 1) return day1();
-    if(day === 2) return day2();
-    if(day === 3) return day3();
-    if(day === 4) return day4();
-    if(day === 5) return day5();
-    if(day === 6) return day6();
-    if(day === 7) return day7();
-    if(day === 8) return day8();
-    if(day === 9) return day9();
-    if(day === 10) return day10();
-    if(day === 11) return day11();
-    if(day === 12) return day12();
-    if(day === 13) return day13();
-    if(day === 14) return day14();
-    if(day === 15) return day15();
-    if(day === 16) return day16();
-    if(day === 17) return day17();
-    if(day === 18) return day18();
-    if(day === 19) return day19();
+    if(day === 1) goTo("day1");
+    if(day === 2) goTo("day2");
+    if(day === 3) goTo("day3");
+    if(day === 4) goTo("day4");
+    if(day === 5) goTo("day5");
+    if(day === 6) goTo("day6");
+    if(day === 7) goTo("day7");
+    if(day === 8) goTo("day8");
+    if(day === 9) goTo("day9");
+    if(day === 10) goTo("day10");
+    if(day === 11) goTo("day11");
+    if(day === 12) goTo("day12");
+    if(day === 13) goTo("day13");
+    if(day === 14) goTo("day14");
+    if(day === 15) goTo("day15");
+    if(day === 16){
+        goTo("day16");
+        startGame16();
+    }
+    if(day === 17) goTo("day17");
+    if(day === 18) goTo("day18");
+    if(day === 19) goTo("day19");
 }
 
 
-/* ============================================================
-   FUNCIÓN BOTÓN CALENDARIO
-============================================================ */
+/* =========================================================
+   CONTRASEÑA
+========================================================= */
 
-function calendarButton(){
+function checkPassword(){
 
-    return `
+    const value =
+        document.getElementById("passwordInput").value.trim();
 
-        <div class="nav-buttons">
+    if(value === "0226"){
 
-            <button class="btn dark" onclick="backCalendar()">
-                ✦ VOLVER AL CALENDARIO ✦
-            </button>
+        document.getElementById("passwordMessage").innerHTML =
+        "✦ Correcto. La puerta está abierta. ✦";
 
-        </div>
+        setTimeout(()=>{
+            goCalendar();
+        },700);
 
-    `;
+    }else{
+
+        document.getElementById("passwordMessage").innerHTML =
+        "Mmm... todavía no, amor. ♡";
+
+    }
 }
 
 
-/* ============================================================
-   DÍA 1
-============================================================ */
-
-function day1(){
-
-    showScreen(`
-
-        <div class="card">
-
-            <div class="slide-number">
-                Día 01 · Comienzo
-            </div>
-
-            <h2>
-                Para Ana Lidia
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Si estás leyendo esto, significa que abriste
-                    la primera puerta.
-                </p>
-
-                <p>
-                    Y quizás todavía no entiendas exactamente
-                    qué estoy haciendo con todo esto.
-                </p>
-
-                <p>
-                    La verdad es que no quería regalarte algo
-                    que pudieras abrir una vez, mirar durante
-                    unos minutos y guardar.
-                </p>
-
-                <p>
-                    Quería regalarte algo que tuviera tiempo.
-                </p>
-
-                <p>
-                    Algo que te acompañara durante los días
-                    anteriores a tus 25 años.
-                </p>
-
-                <p>
-                    Porque 25 no es solamente un número.
-                    Es una etapa, una historia, todas las cosas
-                    que ya viviste y todas las que todavía
-                    te esperan.
-                </p>
-
-                <p>
-                    Y yo quería formar una pequeña parte
-                    de esos días.
-                </p>
-
-                <p>
-                    Quería dejarte palabras bonitas,
-                    pequeños detalles y momentos para que
-                    cada día tuviera algo diferente.
-                </p>
-
-                <p>
-                    Así que no intentes descubrirlo todo hoy.
-                </p>
-
-                <p>
-                    Mañana habrá otra puerta.
-                    Y después otra.
-                    Y otra.
-                </p>
-
-                <p>
-                    Solo quiero que disfrutes el viaje.
-                </p>
-
-                <p class="quote center">
-                    Esto recién comienza. ♡
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
+/* =========================================================
    DÍA 2
-============================================================ */
-
-function day2(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 02
-            </div>
-
-            <h2>
-                ¿Recuerdas?
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    No sabíamos todo lo que vendría después.
-                </p>
-
-                <p>
-                    No sabíamos cuántas cosas íbamos a compartir.
-                </p>
-
-                <p>
-                    No sabíamos cuántos recuerdos íbamos a terminar
-                    guardando.
-                </p>
-
-                <p>
-                    Solo éramos nosotras dos...
-                </p>
-
-                <p class="quote">
-                    y estaba comenzando algo que hoy significa
-                    muchísimo para mí.
-                </p>
-
-            </div>
-
-            <button
-                class="btn"
-                onclick="revealDay2Photo()"
-            >
-                ✦ ABRIR EL RECUERDO ✦
-            </button>
-
-            <div id="day2Photo" class="photo-frame memory-photo">
-
-                <img
-                    src="dia2.jpg"
-                    alt="Nuestro recuerdo"
-                    onerror="this.parentElement.innerHTML='<p style=\'padding:50px;text-align:center\'>No se encontró dia2.jpg</p>'"
-                >
-
-            </div>
-
-            <div id="day2Text" class="romantic-text hidden">
-
-                <p>
-                    Hay momentos que quizás parecían pequeños
-                    cuando ocurrieron.
-                </p>
-
-                <p>
-                    Pero con el tiempo terminan ocupando
-                    un lugar enorme en nuestra historia.
-                </p>
-
-                <p>
-                    Y este es uno de ellos.
-                </p>
-
-                <p class="quote">
-                    Qué bonito poder mirarlo ahora y saber
-                    todo lo que vino después. ♡
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function revealDay2Photo(){
-
-    const photo = document.getElementById("day2Photo");
-    const text = document.getElementById("day2Text");
-
-    photo.classList.add("show");
-
-    setTimeout(()=>{
-        text.classList.remove("hidden");
-    },700);
-}
-
-
-/* ============================================================
-   DÍA 3
-============================================================ */
-
-function day3(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 03
-            </div>
-
-            <h2>
-                La caja de recuerdos
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hoy hay algo diferente.
-                </p>
-
-                <p>
-                    Una pequeña caja guarda tres cosas.
-                </p>
-
-                <p>
-                    Cada una tiene una historia distinta.
-                </p>
-
-                <p>
-                    No tienes que abrirlas en ningún orden.
-                    Simplemente elige la que quieras descubrir.
-                </p>
-
-            </div>
-
-            <div
-                class="memory-box"
-                id="memoryBox"
-                onclick="openMemoryBox()"
-            >
-
-                <div class="box-lid"></div>
-                <div class="box-body"></div>
-                <div class="box-ribbon"></div>
-
-            </div>
-
-            <div id="day3Options" class="hidden">
-
-                <p class="quote">
-                    La caja está abierta.
-                </p>
-
-                <p>
-                    Ahora elige qué quieres descubrir.
-                </p>
-
-                <div class="choice-grid">
-
-                    <button class="choice" onclick="day3Choice(1)">
-
-                        <span class="choice-symbol">📷</span>
-
-                        <strong>UNO</strong>
-
-                        <br>
-
-                        Una fotografía
-
-                    </button>
-
-                    <button class="choice" onclick="day3Choice(2)">
-
-                        <span class="choice-symbol">✦</span>
-
-                        <strong>DOS</strong>
-
-                        <br>
-
-                        Un momento
-
-                    </button>
-
-                    <button class="choice" onclick="day3Choice(3)">
-
-                        <span class="choice-symbol">♡</span>
-
-                        <strong>TRES</strong>
-
-                        <br>
-
-                        Un futuro recuerdo
-
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div id="day3Complete" class="hidden">
-
-                <p class="quote">
-                    Hay recuerdos que podemos mirar.
-                </p>
-
-                <p class="quote">
-                    Hay recuerdos que podemos contar.
-                </p>
-
-                <p class="quote">
-                    Y hay recuerdos que todavía
-                    nos están esperando.
-                </p>
-
-                <p class="quote gold">
-                    Y esos son mis favoritos.
-                </p>
-
-                <p>
-                    Porque significan que todavía queda mucho
-                    por vivir.
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function openMemoryBox(){
-
-    const box = document.getElementById("memoryBox");
-
-    box.classList.add("open");
-
-    setTimeout(()=>{
-
-        document.getElementById("day3Options")
-            .classList.remove("hidden");
-
-    },800);
-}
-
-
-function day3Choice(choice){
-
-    if(choice === 1){
-
-        showScreen(`
-
-            <div class="card center">
-
-                <div class="slide-number">
-                    Día 03 · Uno
-                </div>
-
-                <h2>
-                    📷 Una fotografía
-                </h2>
-
-                <div class="photo-frame">
-
-                    <img src="dia3.jpg" alt="Recuerdo del día 3">
-
-                </div>
-
-                <div class="romantic-text">
-
-                    <p>
-                        Esta existe.
-                    </p>
-
-                    <p>
-                        Es un momento que ya pasó,
-                        una pequeña parte de nuestra historia
-                        que ahora podemos mirar.
-                    </p>
-
-                    <p>
-                        Y quizás algún día,
-                        cuando haya muchas más,
-                        esta sea solamente una de tantas.
-                    </p>
-
-                    <p>
-                        Pero hoy quería guardarla aquí.
-                    </p>
-
-                </div>
-
-                <button class="btn" onclick="returnDay3()">
-                    VOLVER A LA CAJA ✦
-                </button>
-
-                ${calendarButton()}
-
-            </div>
-
-        `);
-
-        day3Choices.add(1);
-
-    }
-
-
-    if(choice === 2){
-
-        showScreen(`
-
-            <div class="card center">
-
-                <div class="slide-number">
-                    Día 03 · Dos
-                </div>
-
-                <h2>
-                    ✦ Un momento
-                </h2>
-
-                <div class="romantic-text">
-
-                    <p>
-                        Este no está en una fotografía.
-                    </p>
-
-                    <p>
-                        Porque hay momentos que no necesitan
-                        una cámara para quedarse con nosotras.
-                    </p>
-
-                    <p>
-                        Una conversación.
-                    </p>
-
-                    <p>
-                        Una risa.
-                    </p>
-
-                    <p>
-                        Una noche.
-                    </p>
-
-                    <p>
-                        Una frase.
-                    </p>
-
-                    <p>
-                        Algo que ocurrió y que quizás parecía
-                        completamente normal en ese momento.
-                    </p>
-
-                    <p>
-                        Pero que después terminó convirtiéndose
-                        en un recuerdo.
-                    </p>
-
-                    <p class="quote">
-                        Y esos también cuentan. ♡
-                    </p>
-
-                </div>
-
-                <button class="btn" onclick="returnDay3()">
-                    VOLVER A LA CAJA ✦
-                </button>
-
-                ${calendarButton()}
-
-            </div>
-
-        `);
-
-        day3Choices.add(2);
-
-    }
-
-
-    if(choice === 3){
-
-        showScreen(`
-
-            <div class="card center">
-
-                <div class="slide-number">
-                    Día 03 · Tres
-                </div>
-
-                <h2>
-                    ♡ Un futuro recuerdo
-                </h2>
-
-                <div class="quote" style="margin:40px 0;">
-
-                    <div>
-                        TODAVÍA
-                    </div>
-
-                    <div>
-                        NO
-                    </div>
-
-                    <div>
-                        EXISTE
-                    </div>
-
-                </div>
-
-                <div class="romantic-text">
-
-                    <p>
-                        Este es diferente.
-                    </p>
-
-                    <p>
-                        Porque todavía no puedo enseñártelo.
-                    </p>
-
-                    <p>
-                        Pero algún día habrá algo aquí.
-                    </p>
-
-                    <p>
-                        Y cuando llegue ese momento,
-                        quiero que podamos mirar atrás
-                        y recordar que alguna vez
-                        fue solamente una posibilidad.
-                    </p>
-
-                    <p>
-                        Un momento que todavía no conocíamos.
-                    </p>
-
-                </div>
-
-                <button
-                    class="btn"
-                    onclick="saveFutureMemory()"
-                >
-                    GUARDAR PARA EL FUTURO
-                </button>
-
-                <div id="futureSaved"></div>
-
-                <br>
-
-                <button class="btn dark" onclick="returnDay3()">
-                    VOLVER A LA CAJA
-                </button>
-
-                ${calendarButton()}
-
-            </div>
-
-        `);
-
-        day3Choices.add(3);
-    }
-}
-
-
-function saveFutureMemory(){
-
-    document.getElementById("futureSaved").innerHTML = `
-
-        <div style="margin:25px 0;">
-
-            <p class="quote gold">
-                Guardado.
-            </p>
-
-            <p>
-                <em>
-                    Este recuerdo todavía está por vivir.
-                </em>
-            </p>
-
-        </div>
-
-    `;
-}
-
-
-function returnDay3(){
-
-    day3();
-
-    setTimeout(()=>{
-
-        const options = document.getElementById("day3Options");
-
-        options.classList.remove("hidden");
-
-        const box = document.getElementById("memoryBox");
-
-        box.classList.add("open");
-
-    },50);
-}
-
-
-/* ============================================================
-   DÍA 4
-============================================================ */
-
-const day4Questions = [
-
-    {
-        title:"PREGUNTA 01",
-        text:"Si pudiéramos escaparnos ahora mismo...",
-        options:[
-            "🌊 Playa",
-            "🏙️ Una ciudad nueva",
-            "🌿 Un lugar tranquilo",
-            "🏡 Quedarnos juntas en casa"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 02",
-        text:"¿Qué plan te parece más bonito?",
-        options:[
-            "🌙 Una noche hablando de todo",
-            "😂 Una noche riéndonos de cualquier cosa",
-            "🎬 Película + comida + manta",
-            "✨ Salir sin saber exactamente qué haremos"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 03",
-        text:"Si pudieras guardar un momento para repetirlo...",
-        options:[
-            "♡ Una conversación",
-            "✦ Una noche especial",
-            "📸 Un día que nos hizo felices",
-            "∞ Uno que todavía no vivimos"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 04",
-        text:"¿Qué pequeño detalle te hace más feliz?",
-        options:[
-            "💌 Un mensaje inesperado",
-            "🎁 Una sorpresa",
-            "😂 Que te hagan reír",
-            "🤍 Que recuerden algo que dijiste"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 05",
-        text:"¿Qué elegirías para una tarde perfecta?",
-        options:[
-            "☕ Café y conversación",
-            "🍿 Película y algo rico",
-            "🎶 Música y cantar juntas",
-            "🌅 Salir a caminar y hablar"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 06",
-        text:"Si nuestra historia fuera una película...",
-        options:[
-            "😂 Comedia",
-            "💗 Romance",
-            "✨ Aventura",
-            "🎭 Una mezcla de todo"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 07",
-        text:"¿Qué prefieres recibir?",
-        options:[
-            "💌 Una carta escrita a mano",
-            "📷 Una fotografía inesperada",
-            "🎁 Una sorpresa",
-            "✨ Algo completamente inesperado"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 08",
-        text:"Si pudiéramos crear un recuerdo ahora mismo...",
-        options:[
-            "🌊 Frente al mar",
-            "🌙 Bajo las estrellas",
-            "🏙️ En una ciudad desconocida",
-            "🏡 En nuestro lugar favorito"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 09",
-        text:"¿Qué te gustaría tener dentro de unos años?",
-        options:[
-            "📷 Muchas fotografías para mirar atrás",
-            "📖 Muchas historias para contar",
-            "🌎 Muchos lugares conocidos",
-            "🤍 Muchos momentos que recordar"
-        ]
-    },
-
-    {
-        title:"PREGUNTA 10",
-        text:"¿Qué elegirías volver a vivir?",
-        options:[
-            "✦ LO QUE YA VIVIMOS",
-            "✦ LO QUE TODAVÍA NOS FALTA VIVIR"
-        ]
-    }
-
-];
-
-
-function day4(){
-
-    currentSlide = 0;
-
-    showDay4Slide();
-
-}
-
-
-function showDay4Slide(){
-
-    if(currentSlide >= day4Questions.length){
-
-        showDay4Final();
-
-        return;
-    }
-
-    const q = day4Questions[currentSlide];
-
-    let options = "";
-
-    q.options.forEach((option,index)=>{
-
-        options += `
-
-            <button
-                class="choice"
-                onclick="selectDay4(${index})"
-            >
-                ${option}
-            </button>
-
-        `;
-
-    });
-
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 04
-            </div>
-
-            ${
-                currentSlide === 0
-                ?
-                `
-                <h2>
-                    Si tuvieras que elegir...
-                </h2>
-
-                <div class="romantic-text">
-
-                    <p>
-                        Amor...
-                    </p>
-
-                    <p>
-                        hoy no quiero contarte algo.
-                    </p>
-
-                    <p>
-                        Hoy quiero hacerte elegir.
-                    </p>
-
-                    <p>
-                        Entre pequeñas cosas,
-                        momentos, planes y algunas preguntas
-                        que quizás te hagan sonreír.
-                    </p>
-
-                    <p>
-                        No hay respuestas correctas.
-                        Solo elige lo que más te guste.
-                    </p>
-
-                </div>
-                `
-                :
-                `<h2>${q.title}</h2>`
-            }
-
-            ${
-                currentSlide === 0
-                ?
-                `
-                <button class="btn" onclick="currentSlide=0; showDay4Slide();">
-                    EMPEZAR ✦
-                </button>
-                `
-                :
-                `
-                <h3 style="margin-bottom:30px;">
-                    ${q.text}
-                </h3>
-
-                <div class="choice-grid">
-                    ${options}
-                </div>
-                `
-            }
-
-            ${calendarButton()}
-
-        </div>
-
+========================================================= */
+
+const words = {
+
+confianza:`
+<h2>♡ CONFIANZA</h2>
+<p>
+Hay algo especial en poder hablar
+sin tener que pensar demasiado cada palabra.
+</p>
+<p>
+Poder contar una cosa pequeña
+simplemente porque quieres compartirla.
+</p>
+<p>
+Poder decir lo que piensas,
+lo que sientes,
+lo que te preocupa
+o lo que te hace feliz.
+</p>
+<p>
+Y también está esa tranquilidad
+de saber que puedes ser tú misma.
+</p>
+<p>Sin aparentar.</p>
+<p>Sin medir cada gesto.</p>
+<p>Simplemente tú.</p>
+<p>
+Y creo que eso es de las cosas
+que más valoro de nosotras.
+</p>
+`,
+
+complicidad:`
+<h2>✦ COMPLICIDAD</h2>
+<p>
+Son esas cosas que probablemente
+no tendrían la misma gracia
+para nadie más.
+</p>
+<p>Una conversación.</p>
+<p>Una frase.</p>
+<p>Una ocurrencia.</p>
+<p>Una tontería que nos hace reír.</p>
+<p>
+Un momento que, visto desde fuera,
+quizás no significaría demasiado.
+</p>
+<p>
+Pero que para nosotras
+tiene su propia historia.
+</p>
+<p>
+Porque poco a poco vamos creando
+pequeños códigos,
+recuerdos y momentos
+que se vuelven solamente nuestros.
+</p>
+<p>
+Y me encanta ese pequeño mundo que tenemos.
+</p>
+`,
+
+carino:`
+<h2>☾ CARIÑO</h2>
+<p>
+A veces no aparece en grandes gestos.
+</p>
+<p>
+Está en preguntar cómo estás.
+En acordarse de algo que dijiste.
+En querer saber cómo te fue.
+</p>
+<p>
+En preocuparse.
+En querer hacerte sonreír.
+</p>
+<p>
+En esos detalles que quizá parecen pequeños
+cuando ocurren,
+pero que después terminan quedándose
+en la memoria.
+</p>
+<p>
+Creo que el cariño también vive ahí.
+</p>
+<p>
+En lo sencillo.
+En lo cotidiano.
+En querer estar presente.
+</p>
+`,
+
+conexion:`
+<h2>∞ CONEXIÓN</h2>
+<p>
+Hay cosas que no sabemos explicar
+demasiado bien.
+</p>
+<p>
+No tienen una fecha.
+No tienen una definición exacta.
+Simplemente se sienten.
+</p>
+<p>
+Es esa sensación de encontrar a alguien
+con quien existe algo diferente.
+</p>
+<p>
+De poder estar lejos
+y aun así sentir cercanía.
+</p>
+<p>
+De compartir algo que no depende
+de estar en el mismo lugar.
+</p>
+<p>
+Y quizás lo más bonito
+es que no hace falta entenderlo completamente
+para saber que está ahí.
+</p>
+<p>
+Yo simplemente sé que contigo existe.
+</p>
+<p>
+Y eso es suficiente.
+</p>
+`
+};
+
+let discoveredWords = new Set();
+
+function showWord(word){
+
+    showModal(words[word] + `
+        <p class="gold">✓ DESCUBIERTO</p>
     `);
 
-}
+    discoveredWords.add(word);
 
-
-function selectDay4(index){
-
-    selectedAnswersDay4.push(index);
-
-    if(currentSlide === 5){
-
-        showScreen(`
-
-            <div class="card center">
-
-                <div class="slide-number">
-                    Día 04 · Pregunta 06
-                </div>
-
-                <h2>
-                    ✦
-                </h2>
-
-                <div class="romantic-text">
-
-                    <p>
-                        Aunque, pensándolo bien...
-                    </p>
-
-                    <p class="quote">
-                        creo que nuestra película
-                        tendría un poquito de todo. ✦
-                    </p>
-
-                </div>
-
-                <button class="btn" onclick="nextDay4()">
-                    SIGUIENTE ✦
-                </button>
-
-                ${calendarButton()}
-
-            </div>
-
-        `);
-
-        return;
-    }
-
-    nextDay4();
-}
-
-
-function nextDay4(){
-
-    currentSlide++;
-    showDay4Slide();
-}
-
-
-function showDay4Final(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 04 · Final del juego
-            </div>
-
-            <h2>
-                Y listo.
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Ya elegiste.
-                </p>
-
-                <p>
-                    Algunas respuestas probablemente eran fáciles.
-                </p>
-
-                <p>
-                    Otras quizás te hicieron pensarlo un poquito.
-                </p>
-
-                <p>
-                    Pero hay algo que quería que supieras:
-                </p>
-
-                <p>
-                    no importaba qué elegías.
-                </p>
-
-                <p>
-                    No había respuestas correctas.
-                    No había respuestas equivocadas.
-                </p>
-
-                <p>
-                    Porque este juego nunca se trató de acertar.
-                </p>
-
-                <p>
-                    Solo quería regalarte unos minutos
-                    para imaginar, elegir y sonreír.
-                </p>
-
-                <p>
-                    Y si alguna de tus respuestas coincidió
-                    con las que yo habría elegido...
-                </p>
-
-                <p class="quote">
-                    bueno...
-                </p>
-
-                <p class="quote gold">
-                    eso me gusta todavía más. ♡
-                </p>
-
-            </div>
-
-            <h3 style="margin-top:30px;">
-                10 / 10 ✦
-            </h3>
-
-            <p style="margin-top:15px;">
-                Día 04 completado.
-            </p>
-
-            <p class="quote">
-                Pero tranquila, amor...
-                todavía quedan 15 puertas.
-            </p>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-}
-
-
-/* ============================================================
-   DÍA 5
-============================================================ */
-
-const day5Questions = [
-
-    ["COMIDA","Si pudiera elegir una comida ahora mismo, ¿cuál crees que escogería?",["🍕 Pizza","🍔 Hamburguesa","🍝 Pasta","🍗 Otra"]],
-
-    ["COLOR","Si tuviera que elegir un color que me represente...",["🩷 Rosa","🖤 Negro","💙 Azul","💜 Morado"]],
-
-    ["DULCE O SALADO","Cuando tengo que elegir...",["🍫 Algo dulce","🍟 Algo salado","😈 Depende del día"]],
-
-    ["PLAN PERFECTO","¿Qué plan crees que disfrutaría más?",["🌙 Quedarme tranquila en casa","🍿 Película + comida","🎉 Salir y hacer algo divertido","✈️ Irme de viaje"]],
-
-    ["BEBIDA","Si me das a elegir una bebida...",["🥤 Refresco","🧃 Jugo","☕ Café","💧 Agua"]],
-
-    ["PERSONALIDAD","Cuando estoy de buen humor, ¿qué crees que hago más?",["😂 Me río por cualquier cosa","🗣️ Hablo muchísimo","💃 Me pongo a hacer cualquier tontería","😌 Simplemente disfruto el momento"]],
-
-    ["UN REGALO","Si quisieras sorprenderme con algo pequeño, ¿qué crees que me haría más ilusión?",["💐 Flores","🍫 Mi dulce favorito","🧸 Algo bonito que pueda guardar","💌 Algo hecho especialmente para mí"]],
-
-    ["VIAJE","Si mañana pudiéramos desaparecer juntas...",["🏖️ Playa","🏙️ Una ciudad nueva","🏔️ Un lugar rodeado de naturaleza","🏨 Un hotel bonito y no hacer absolutamente nada"]]
-
-];
-
-
-function day5(){
-
-    currentSlide = 0;
-
-    showDay5Slide();
-}
-
-
-function showDay5Slide(){
-
-    if(currentSlide >= day5Questions.length){
-
-        showDay5Final();
-
-        return;
-    }
-
-    const q = day5Questions[currentSlide];
-
-    let htmlOptions = "";
-
-    q[2].forEach((option,index)=>{
-
-        htmlOptions += `
-
-            <button
-                class="choice"
-                onclick="selectDay5(${index})"
-            >
-                ${option}
-            </button>
-
-        `;
-
-    });
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 05
-            </div>
-
-            <h2>
-                ¿Cuánto me conoces?
-            </h2>
-
-            ${
-                currentSlide === 0
-                ?
-                `
-                <div class="romantic-text">
-
-                    <p>
-                        Amor...
-                    </p>
-
-                    <p>
-                        Hoy te toca a ti.
-                    </p>
-
-                    <p>
-                        Después de todas las páginas que has ido
-                        descubriendo, quiero comprobar una cosita...
-                    </p>
-
-                    <p class="quote">
-                        ¿Cuánto crees que me conoces? ♡
-                    </p>
-
-                    <p>
-                        Pero no vale pensarlo demasiado.
-                    </p>
-
-                    <p>
-                        Elige lo primero que creas que elegiría yo.
-                    </p>
-
-                    <p>
-                        Y no hagas trampa. ✦
-                    </p>
-
-                </div>
-                `
-                :
-                ""
-            }
-
-            <h3 style="margin-top:25px;">
-                🎀 ${q[0]}
-            </h3>
-
-            <p style="margin:20px 0 25px;">
-                ${q[1]}
-            </p>
-
-            <div class="choice-grid">
-                ${htmlOptions}
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-}
-
-
-function selectDay5(index){
-
-    selectedAnswersDay5.push(index);
-
-    currentSlide++;
-
-    showDay5Slide();
-}
-
-
-function showDay5Final(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 05 · Resultado
-            </div>
-
-            <h2>
-                Muy bien, amor. ♡
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Ya sé que me conoces mucho
-                    y eso me encanta.
-                </p>
-
-                <p>
-                    Y después de todas esas respuestas,
-                    creo que puedo decir que sí...
-                </p>
-
-                <p class="quote gold">
-                    sabes bastante de mí.
-                </p>
-
-                <p>
-                    Bueno...
-                </p>
-
-                <p>
-                    a esperar a mañana.
-                </p>
-
-                <p class="quote">
-                    Un beshitooooo. 💗
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-}
-
-
-/* ============================================================
-   DÍA 6
-============================================================ */
-
-function day6(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 06
-            </div>
-
-            <h2>
-                Hoy no tienes que descubrir nada.
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hoy quiero dejarte algo diferente.
-                </p>
-
-                <p>
-                    Porque no todos los días son iguales.
-                </p>
-
-                <p>
-                    Habrá días en los que estés feliz,
-                    días en los que tengas muchísimo que contarme,
-                    días en los que no puedas parar de reír...
-                </p>
-
-                <p>
-                    y también habrá días simplemente normales.
-                </p>
-
-                <p>
-                    Por eso preparé algo para ti.
-                </p>
-
-                <p class="quote">
-                    Pequeñas palabras para distintos momentos.
-                </p>
-
-                <p>
-                    No tienes que abrirlas todas ahora.
-                </p>
-
-                <p>
-                    Elige la que necesites.
-                </p>
-
-            </div>
-
-            <div class="choice-grid">
-
-                <button class="choice" onclick="day6Letter(1)">
-                    ♡
-                    <br><br>
-                    Ábreme cuando estés feliz
-                </button>
-
-                <button class="choice" onclick="day6Letter(2)">
-                    ☾
-                    <br><br>
-                    Ábreme cuando tengas un día difícil
-                </button>
-
-                <button class="choice" onclick="day6Letter(3)">
-                    ✦
-                    <br><br>
-                    Ábreme cuando me extrañes
-                </button>
-
-                <button class="choice" onclick="day6Letter(4)">
-                    ∞
-                    <br><br>
-                    Ábreme cuando quieras recordar cuánto te quiero
-                </button>
-
-            </div>
-
-            <div id="day6Letter"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function day6Letter(n){
-
-    const texts = {
-
-        1:`
-            <h3>♡ Cuando estés feliz</h3>
-            <div class="romantic-text">
-                <p>
-                    Quiero que disfrutes muchísimo ese momento.
-                </p>
-                <p>
-                    Y si algo bonito te está pasando,
-                    quiero que sepas que me encanta imaginarte sonriendo.
-                </p>
-                <p>
-                    Disfrútalo.
-                </p>
-                <p>
-                    Y cuando puedas...
-                </p>
-                <p class="quote">
-                    ven a contármelo.
-                </p>
-                <p>
-                    Quiero conocer también tus momentos felices.
-                </p>
-            </div>
-        `,
-
-        2:`
-            <h3>☾ Cuando tengas un día difícil</h3>
-            <div class="romantic-text">
-                <p>
-                    No voy a decirte que todo está bien
-                    porque quizás hoy simplemente no lo sientas así.
-                </p>
-                <p>
-                    Solo quiero recordarte algo:
-                </p>
-                <p class="quote">
-                    no tienes que poder con todo siempre.
-                </p>
-                <p>
-                    Respira.
-                </p>
-                <p>
-                    Tómate tu tiempo.
-                </p>
-                <p>
-                    Y recuerda que no tienes que atravesar
-                    un día difícil fingiendo que estás bien.
-                </p>
-                <p>
-                    Si quieres hablar, aquí estoy.
-                    Si quieres distraerte, también.
-                </p>
-                <p>
-                    Y si solamente quieres sentir que alguien está contigo...
-                </p>
-                <p class="quote">
-                    piensa en mí.
-                </p>
-            </div>
-        `,
-
-        3:`
-            <h3>✦ Cuando me extrañes</h3>
-            <div class="romantic-text">
-                <p>
-                    Si estás leyendo esto,
-                    probablemente me estés echando un poquito de menos.
-                </p>
-                <p>
-                    Así que voy a aprovechar para recordarte
-                    que yo también pienso en ti
-                    en muchísimos momentos del día.
-                </p>
-                <p>
-                    Quizás ahora mismo no podamos estar juntas,
-                    pero eso no hace que estés menos presente.
-                </p>
-                <p>
-                    Estás en mis pensamientos,
-                    en mis recuerdos
-                    y en todas esas pequeñas cosas
-                    que de repente me hacen pensar:
-                </p>
-                <p class="quote">
-                    “esto le gustaría a Ana.”
-                </p>
-                <p>
-                    Así que cuando me extrañes...
-                </p>
-                <p class="quote">
-                    ven a buscarme. 🤍
-                </p>
-            </div>
-        `,
-
-        4:`
-            <h3>∞ Cuando quieras recordar cuánto te quiero</h3>
-            <div class="romantic-text">
-                <p>
-                    Esta no necesita una ocasión especial.
-                </p>
-                <p>
-                    Solo quería dejarte algo escrito
-                    para esos momentos en los que necesites recordarlo:
-                </p>
-                <p class="quote gold">
-                    te quiero.
-                </p>
-                <p>
-                    Te quiero en los días fáciles
-                    y en los complicados.
-                </p>
-                <p>
-                    Te quiero cuando estamos hablando durante horas
-                    y cuando simplemente compartimos silencio.
-                </p>
-                <p>
-                    Te quiero por todo lo que ya conozco de ti
-                    y por todo lo que todavía me queda por descubrir.
-                </p>
-                <p>
-                    Y si alguna vez se te olvida...
-                </p>
-                <p class="quote">
-                    vuelve aquí.
-                </p>
-                <p>
-                    Yo te lo vuelvo a recordar. ♡
-                </p>
-            </div>
-        `
-
-    };
-
-    document.getElementById("day6Letter").innerHTML = `
-
-        <div style="margin-top:40px;padding:30px;border-top:1px solid rgba(218,180,75,.2);">
-            ${texts[n]}
-        </div>
-
-    `;
-}
-
-
-/* ============================================================
-   DÍA 7
-============================================================ */
-
-function day7(){
-
-    showScreen(`
-
-        <div class="card">
-
-            <div class="slide-number">
-                Día 07 · Pista
-            </div>
-
-            <h2>
-                Dos pequeñas pistas
-            </h2>
-
-            <div class="romantic-text">
-
-                <p class="quote">
-                    Hay algo que nace,
-                    que un día florece,
-                    y cuando aparece,
-                    todo el mundo embellece.
-                </p>
-
-                <p>
-                    Pero esta vez...
-                </p>
-
-                <p>
-                    Deseo que contigo permanezca,
-                    y que con los años jamás desvanezca.
-                </p>
-
-                <p>
-                    Que el tiempo no borre este lazo sincero,
-                    y al ver su belleza,
-                    recuerdes lo mucho que te quiero. ✦
-                </p>
-
-                <hr style="border-color:rgba(218,180,75,.15);margin:35px 0;">
-
-                <p class="quote">
-                    Hay otra cosa escondida,
-                    que tiene que ver con una palabra querida,
-                    un pequeño nombre que tú me dices,
-                    y que consigue que mi corazón sonría. ♡
-                </p>
-
-                <p>
-                    No camina,
-                    no habla,
-                    no puede abrazarte primero,
-                    pero quizás termine siendo tu pequeño compañero.
-                </p>
-
-                <p>
-                    Y cuando llegue a tus brazos,
-                    quizás entiendas el porqué
-                    de esta pista que hoy te dejo.
-                </p>
-
-                <p class="quote">
-                    Ahora tienes las dos pistas,
-                    pero todavía no la respuesta.
-                </p>
-
-                <p>
-                    Dos pequeñas pistas,
-                    dos secretos por guardar:
-                    una para conservar,
-                    otra para abrazar.
-                </p>
-
-                <p>
-                    Pero ninguna de las dos te voy a revelar.
-                </p>
-
-                <p class="quote gold">
-                    Tendrás que esperar, amor…
-                    porque lo más bonito todavía está por llegar.
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   DÍA 8
-============================================================ */
-
-function day8(){
-
-    currentSlide = 0;
-
-    showDay8Start();
-}
-
-
-function showDay8Start(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 08
-            </div>
-
-            <h2>
-                Te conozco
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hoy no quiero preguntarte cuánto me conoces a mí.
-                </p>
-
-                <p>
-                    Hoy quiero demostrarte
-                    cuánto he aprendido de ti.
-                </p>
-
-                <p>
-                    Porque cuando quieres a alguien,
-                    empiezas a guardar pequeños detalles.
-                </p>
-
-                <p>
-                    Cosas que quizás para otros no significan nada...
-                </p>
-
-                <p class="quote">
-                    pero que para mí son parte de ti.
-                </p>
-
-                <p>
-                    Así que vamos a ver si puedo demostrarlo.
-                </p>
-
-            </div>
-
-            <button class="btn" onclick="showDay8Question(1)">
-                COMENZAR ✦
-            </button>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-const day8Questions = [
-
-    {
-        text:"Si tuviera que elegir un color que me haga pensar inmediatamente en ti, ¿cuál sería?",
-        options:["🩷 Rosa","🖤 Negro","💙 Azul","💜 Morado"],
-        correct:0,
-        response:`
-            <p class="quote">Correcto.</p>
-            <p>Rosa.</p>
-            <p>
-                No sé si será porque es bonito,
-                o porque desde que te conozco
-                el rosa también me recuerda a ti.
-            </p>
-        `
-    },
-
-    {
-        text:"Si llegas a tener hambre, ¿qué ocurre?",
-        options:[
-            "A) Te pones de maaaaaallllll humor.",
-            "B) Te conviertes en otra persona.",
-            "C) Nada, eres exactamente igual."
-        ],
-        correct:1,
-        response:`
-            <p class="quote">JAJA. Correcto.</p>
-            <p>
-                Porque una cosa sí he aprendido:
-            </p>
-            <p class="quote">
-                contigo y el hambre no se juega.
-            </p>
-            <p>
-                Primero comida.
-                Después hablamos.
-            </p>
-        `
-    },
-
-    {
-        text:"Hay algo que siempre puede acompañarte. ¿Qué es?",
-        options:["🎵 Música","📚 Libros","☕ Café","🌙 Sueño"],
-        correct:0,
-        response:`
-            <p class="quote">Correcto.</p>
-            <p>
-                Y creo que si algún día hago una playlist
-                con todos nuestros momentos,
-                necesitaríamos más de una vida para terminarla.
-            </p>
-        `
-    },
-
-    {
-        text:"Hay algo verde, cremoso y que sé que te encanta. ¿Qué es?",
-        options:["🥑 Aguacate","🥒 Pepino","🍏 Manzana","🥝 Kiwi"],
-        correct:0,
-        response:`
-            <p class="quote">Exactamente.</p>
-            <p>
-                Ya veo que hoy estoy demostrando
-                que sí presto atención.
-            </p>
-        `
-    },
-
-    {
-        text:"Cuando llega uno de esos días en los que solo quieres estar tranquila, ¿qué plan podría ganarte fácilmente?",
-        options:[
-            "🎬 Series y películas",
-            "🏃 Salir a correr",
-            "📚 Estudiar",
-            "🧹 Ordenar todo"
-        ],
-        correct:0,
-        response:`
-            <p class="quote">Correcto.</p>
-            <p>
-                Una buena serie,
-                una buena película,
-                algo rico para comer...
-            </p>
-            <p class="quote">
-                y tú.
-            </p>
-            <p>
-                Creo que ya tenemos plan.
-            </p>
-        `
-    }
-
-];
-
-
-function showDay8Question(number){
-
-    const q = day8Questions[number-1];
-
-    let opts = "";
-
-    q.options.forEach((option,index)=>{
-
-        opts += `
-
-            <button
-                class="choice"
-                onclick="answerDay8(${number},${index})"
-            >
-                ${option}
-            </button>
-
-        `;
-
-    });
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 08 · ${number}/5
-            </div>
-
-            <h2>
-                ${q.text}
-            </h2>
-
-            <div class="choice-grid">
-                ${opts}
-            </div>
-
-            <div id="day8Response"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function answerDay8(number,index){
-
-    const q = day8Questions[number-1];
-
-    if(index === q.correct){
-
-        document.getElementById("day8Response").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:30px;">
-                ${q.response}
-            </div>
-
-            ${
-                number < 5
-                ?
-                `<button class="btn" onclick="showDay8Question(${number+1})">
-                    SIGUIENTE ✦
-                </button>`
-                :
-                `
-                <button class="btn" onclick="day8Final()">
-                    TERMINAR ✦
-                </button>
-                `
-            }
-
-        `;
-
-    }else{
-
-        document.getElementById("day8Response").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:30px;">
-
-                <p>
-                    Mmm... no exactamente. 🤭
-                </p>
-
-                <p>
-                    Piensa un poquito en mí...
-                </p>
-
-            </div>
-
-            <button
-                class="btn"
-                onclick="showDay8Question(${number})"
-            >
-                INTENTAR DE NUEVO
-            </button>
-
-        `;
-
-    }
-}
-
-
-function day8Final(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 08 · Resultado
-            </div>
-
-            <h2>
-                5 / 5
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Pero espera...
-                </p>
-
-                <p>
-                    esto no era realmente un juego.
-                </p>
-
-                <p>
-                    Porque no quiero simplemente decir
-                    que te conozco.
-                </p>
-
-                <p class="quote">
-                    Quiero seguir conociéndote.
-                </p>
-
-                <p>
-                    Quiero aprenderme tus gustos,
-                    tus manías, tus días buenos,
-                    tus días malos,
-                    lo que te hace reír
-                    y hasta lo que te pone de mal humor
-                    cuando tienes hambre.
-                </p>
-
-                <p>
-                    Porque cada pequeño detalle tuyo
-                    termina siendo otro motivo
-                    para quererte un poquito más.
-                </p>
-
-                <p class="quote gold">
-                    Y todavía me faltan muchísimas cosas
-                    por descubrir de ti. ♡
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   DÍA 9
-============================================================ */
-
-const reasons = [
-
-    "Te amo por esa manera tan tuya de hacer que un momento cualquiera termine convirtiéndose en un recuerdo.",
-
-    "Te amo por tu forma de hacerme sonreír incluso cuando no era lo que esperaba.",
-
-    "Te amo por todas esas pequeñas cosas tuyas que quizás tú ni siquiera notas.",
-
-    "Te amo por la tranquilidad que siento cuando puedo simplemente ser yo contigo.",
-
-    "Te amo por las conversaciones que empiezan hablando de cualquier cosa y terminan significando muchísimo.",
-
-    "Te amo por la forma en que haces especiales algunos días normales.",
-
-    "Te amo porque contigo he aprendido que los pequeños detalles pueden quedarse para siempre.",
-
-    "Te amo por tu manera de hacerme sentir acompañada.",
-
-    "Te amo por cada risa que hemos compartido.",
-
-    "Te amo por los recuerdos que ya tenemos.",
-
-    "Te amo por todo lo que todavía nos queda por descubrir.",
-
-    "Te amo porque hay momentos en los que simplemente pienso en ti y sonrío.",
-
-    "Te amo por tu forma de ser tan tú.",
-
-    "Te amo por las cosas que solo nosotras entendemos.",
-
-    "Te amo por cada conversación que me gustaría volver a vivir.",
-
-    "Te amo porque contigo lo cotidiano puede sentirse diferente.",
-
-    "Te amo por cada pequeño momento que terminó formando parte de nuestra historia.",
-
-    "Te amo por cómo haces que quiera guardar más recuerdos contigo.",
-
-    "Te amo porque eres una persona que quiero seguir descubriendo.",
-
-    "Te amo por cada vez que consigues hacerme feliz sin darte cuenta.",
-
-    "Te amo por tu manera de estar presente.",
-
-    "Te amo porque nuestra historia todavía tiene muchísimas páginas.",
-
-    "Te amo por todo lo que hemos vivido.",
-
-    "Te amo por todo lo que todavía podemos vivir.",
-
-    "Te amo simplemente porque eres tú."
-
-];
-
-
-function day9(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 09
-            </div>
-
-            <h2>
-                25 cosas por las que te amo
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Amor...
-                </p>
-
-                <p>
-                    hoy quiero hacer algo diferente.
-                </p>
-
-                <p>
-                    Hay 25 estrellas frente a ti.
-                    Cada una guarda una pequeña razón
-                    por la que te amo.
-                </p>
-
-                <p>
-                    Puedes elegirlas en el orden que quieras.
-                </p>
-
-                <p>
-                    No hay una primera.
-                    No hay una última.
-                </p>
-
-                <p class="quote">
-                    Solo tienes que dejarte llevar.
-                </p>
-
-            </div>
-
-            <div class="stars-container" id="starsContainer"></div>
-
-            <h3 id="starCounter">
-                0 / 25
-            </h3>
-
-            <div id="starFinal"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-    createStars();
-}
-
-
-function createStars(){
-
-    const container = document.getElementById("starsContainer");
-
-    container.innerHTML = "";
-
-    for(let i=0;i<25;i++){
-
-        const star = document.createElement("button");
-
-        star.className = "star";
-
-        if(discoveredStars.has(i)){
-            star.classList.add("discovered");
-        }
-
-        star.innerHTML = "✦";
-
-        star.style.left = (5 + Math.random()*88) + "%";
-        star.style.top = (5 + Math.random()*85) + "%";
-        star.style.fontSize = (16 + Math.random()*20) + "px";
-
-        star.onclick = ()=>openReason(i,star);
-
-        container.appendChild(star);
-    }
-
-    updateStarCounter();
-}
-
-
-function openReason(index,star){
-
-    if(discoveredStars.has(index)) return;
-
-    discoveredStars.add(index);
-
-    star.classList.add("discovered");
-
-    document.getElementById("reasonNumber").textContent =
-        `RAZÓN #${String(index+1).padStart(2,"0")}`;
-
-    document.getElementById("reasonText").textContent =
-        reasons[index];
-
-    document.getElementById("reasonRemaining").textContent =
-        `Una menos... quedan ${25-discoveredStars.size}.`;
-
-    document.getElementById("reasonOverlay")
-        .classList.add("active");
-
-    updateStarCounter();
-}
-
-
-function closeReason(){
-
-    document.getElementById("reasonOverlay")
-        .classList.remove("active");
-
-    if(discoveredStars.size === 25){
-
-        document.getElementById("starFinal").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:30px;">
-
-                <h2>
-                    25 de 25
-                </h2>
-
-                <p>
-                    Has encontrado todas.
-                </p>
-
-                <p>
-                    Pero hay algo que quiero que recuerdes...
-                </p>
-
-                <p class="quote">
-                    Estas son solamente 25 razones.
-                </p>
-
-                <p>
-                    Porque podría pasarme toda la vida
-                    encontrando nuevas razones para amarte.
-                </p>
-
-                <p>
-                    Y probablemente nunca terminaría.
-                </p>
-
-                <p class="quote gold">
-                    Porque lo que siento por ti
-                    no cabe en una lista. ♡
-                </p>
-
-            </div>
-
-        `;
-
-    }
-}
-
-
-function updateStarCounter(){
-
-    const counter = document.getElementById("starCounter");
-
-    if(counter){
-        counter.textContent = `${discoveredStars.size} / 25`;
-    }
-}
-
-
-/* ============================================================
-   DÍA 10
-============================================================ */
-
-function day10(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 10
-            </div>
-
-            <h2>
-                Una canción para ti
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hay canciones que simplemente escuchamos.
-                </p>
-
-                <p>
-                    Y hay otras que, por alguna razón,
-                    terminan quedándose con nosotros.
-                </p>
-
-                <p class="quote">
-                    Hoy quiero regalarte una de esas.
-                </p>
-
-            </div>
-
-            <div class="music-player">
-
-                <div class="music-note">
-                    ♫
-                </div>
-
-                <h3>
-                    Bemaste
-                </h3>
-
-                <p>
-                    Tiago PZK
-                </p>
-
-                <p style="margin-top:20px;">
-                    Esta canción es para ti.
-                </p>
-
-                <p>
-                    No solamente porque me gusta,
-                    ni porque quería poner cualquier canción aquí.
-                </p>
-
-                <p>
-                    La elegí porque quería que este momento
-                    tuviera una canción propia.
-                </p>
-
-                <p class="quote">
-                    Así que ahora sí...
-                </p>
-
-                <audio
-                    id="bemasteAudio"
-                    controls
-                    preload="metadata"
-                >
-                    <source src="Bemaste.mp3" type="audio/mpeg">
-                    Tu navegador no puede reproducir este audio.
-                </audio>
-
-            </div>
-
-            <div class="romantic-text">
-
-                <p>
-                    Este momento es para ti. ♡
-                </p>
-
-                <p>
-                    Y ahora que terminó...
-                </p>
-
-                <p>
-                    quizás la canción siga siendo exactamente la misma.
-                </p>
-
-                <p>
-                    Pero espero que, cuando vuelva a sonar algún día,
-                    te acuerdes de estos 25.
-                </p>
-
-                <p>
-                    De este regalo.
-                    De esta pequeña historia.
-                    De este día.
-                </p>
-
-                <p class="quote">
-                    Y de todas las cosas que todavía
-                    quedan por descubrir.
-                </p>
-
-            </div>
-
-            <div style="margin-top:30px;">
-
-                <div class="slide-number">
-                    ♫ 10 / 19 ♫
-                </div>
-
-                <p>
-                    Una canción.
-                    Un momento.
-                    Un recuerdo nuevo.
-                </p>
-
-                <p class="quote gold">
-                    Feliz día 10, amor. ♡
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   DÍA 11
-============================================================ */
-
-function day11(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 11
-            </div>
-
-            <h2>
-                Guardar el tiempo
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Amor...
-                </p>
-
-                <p>
-                    si pudieras detener el tiempo
-                    por un instante,
-                    ¿en cuál te quedarías?
-                </p>
-
-                <p>
-                    No tienes que responder.
-                </p>
-
-                <p class="quote">
-                    Hoy solo quiero imaginarlo contigo.
-                </p>
-
-            </div>
-
-            <div class="clock" id="clock">
-
-                <div class="clock-number" id="clockNumber">
-                    00
-                </div>
-
-            </div>
-
-            <button class="btn" onclick="stopTime()">
-                DETENER EL TIEMPO ✦
-            </button>
-
-            <div id="timeScenes" class="hidden">
-
-                <p style="margin-top:30px;">
-                    Toca una.
-                    Aquí no hay que elegir solamente una.
-                </p>
-
-                <div class="choice-grid">
-
-                    <button class="choice" onclick="timeScene(1)">
-                        🌅
-                        <br><br>
-                        UN AMANECER
-                    </button>
-
-                    <button class="choice" onclick="timeScene(2)">
-                        🌙
-                        <br><br>
-                        UNA NOCHE
-                    </button>
-
-                    <button class="choice" onclick="timeScene(3)">
-                        ☀️
-                        <br><br>
-                        UN DÍA CUALQUIERA
-                    </button>
-
-                    <button class="choice" onclick="timeScene(4)">
-                        ✨
-                        <br><br>
-                        UN MOMENTO QUE TODAVÍA NO EXISTE
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div id="timeResult"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function stopTime(){
-
-    const clock = document.getElementById("clock");
-
-    clock.classList.add("stopped");
-
-    document.getElementById("clockNumber").textContent = "⏳";
-
-    document.getElementById("timeScenes")
-        .classList.remove("hidden");
-}
-
-
-function timeScene(n){
-
-    const scenes = {
-
-        1:`
-            <h3>🌅 UN AMANECER</h3>
-            <div class="romantic-text">
-                <p>
-                    Hay algo bonito en los comienzos.
-                </p>
-                <p>
-                    En esos momentos en los que todavía
-                    no sabemos cómo será el día.
-                </p>
-                <p>
-                    Todo está por suceder.
-                </p>
-                <p>
-                    Y quizás por eso los comienzos
-                    tienen algo especial.
-                </p>
-                <p class="quote">
-                    Como nosotras frente a todo
-                    lo que todavía nos queda.
-                </p>
-            </div>
-        `,
-
-        2:`
-            <h3>🌙 UNA NOCHE</h3>
-            <div class="romantic-text">
-                <p>
-                    Y después están las noches.
-                </p>
-                <p>
-                    Esas en las que el tiempo parece
-                    pasar diferente.
-                </p>
-                <p>
-                    Cuando una conversación puede durar horas
-                    y aun así parecer demasiado corta.
-                </p>
-                <p>
-                    Cuando una risa puede convertirse
-                    en uno de esos recuerdos que aparecen
-                    mucho después.
-                </p>
-                <p class="quote">
-                    Hay momentos que simplemente
-                    dan ganas de quedarse un poquito más.
-                </p>
-            </div>
-        `,
-
-        3:`
-            <h3>☀️ UN DÍA CUALQUIERA</h3>
-            <div class="romantic-text">
-                <p>
-                    Quizás este sea mi favorito.
-                </p>
-                <p>
-                    Un día que no tenía nada especial.
-                </p>
-                <p>
-                    Sin una celebración.
-                    Sin una fecha importante.
-                    Sin nada extraordinario.
-                </p>
-                <p>
-                    Y, sin embargo,
-                    termina siendo bonito
-                    simplemente porque estabas tú.
-                </p>
-                <p class="quote">
-                    A veces una persona convierte
-                    lo cotidiano en recuerdo.
-                </p>
-            </div>
-        `,
-
-        4:`
-            <h3>✨ UN MOMENTO QUE TODAVÍA NO EXISTE</h3>
-            <div class="romantic-text">
-                <p>
-                    Este no puedo enseñártelo.
-                </p>
-                <p>
-                    Todavía no existe.
-                </p>
-                <p>
-                    No sé cuándo llegará.
-                    No sé dónde estaremos.
-                    No sé qué estaremos haciendo.
-                </p>
-                <p>
-                    Pero algún día,
-                    sin darnos cuenta,
-                    estaremos viviendo algo
-                    que ahora mismo solamente podemos imaginar.
-                </p>
-                <p class="quote">
-                    Qué bonito que todavía no sabíamos
-                    que ese momento iba a llegar.
-                </p>
-            </div>
-        `
-
-    };
-
-    document.getElementById("timeResult").innerHTML = `
-
-        <div style="margin-top:35px;padding-top:30px;border-top:1px solid rgba(218,180,75,.18);">
-            ${scenes[n]}
-        </div>
-
-    `;
-
-}
-
-
-/* ============================================================
-   DÍA 12
-============================================================ */
-
-function day12(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 12 · Otra pista
-            </div>
-
-            <div class="footprints">
-
-                <span class="foot">♡</span>
-                <span class="foot">♡</span>
-                <span class="foot">♡</span>
-                <span class="foot">♡</span>
-                <span class="foot">♡</span>
-
-            </div>
-
-            <h2>
-                Hay algo que quiero que descubras...
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Amor...
-                </p>
-
-                <p>
-                    Hoy quiero jugar un poquito contigo.
-                </p>
-
-                <p>
-                    No voy a decirte qué es,
-                    porque me hace demasiada gracia imaginarte
-                    intentando descubrirlo antes de tiempo. 🤭
-                </p>
-
-                <p>
-                    Solo te voy a dejar una pista:
-                </p>
-
-                <p class="quote gold">
-                    es algo que elegí pensando en ti.
-                </p>
-
-                <p>
-                    En ti, en tu forma de ser,
-                    en tu estilo, en esas pequeñas cosas
-                    que sé que te gustan y que hacen que seas tan tú.
-                </p>
-
-                <p>
-                    Y hay algo más...
-                </p>
-
-                <p>
-                    Es de esas cosas que no están hechas
-                    simplemente para tenerlas,
-                    sino para disfrutarlas,
-                    para estrenarlas,
-                    para hacerlas parte de uno de esos tantos días
-                    que todavía nos quedan por vivir.
-                </p>
-
-                <p>
-                    Quizás cuando finalmente lo veas
-                    pienses:
-                </p>
-
-                <p class="quote">
-                    “ahhh, con razón...”
-                </p>
-
-                <p>
-                    Y espero que cuando llegue ese momento
-                    te acuerdes de que detrás de este pequeño regalo
-                    hubo alguien que simplemente pensó en ti.
-                </p>
-
-                <p class="quote gold">
-                    No te voy a dar ninguna pista más.
-                </p>
-
-                <p>
-                    Así que paciencia, mi amor.
-                </p>
-
-                <p>
-                    Todavía falta un poquito para descubrirlo.
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-/* ============================================================
-   DÍA 13
-============================================================ */
-
-function day13(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 13 · Descubre
-            </div>
-
-            <h2>
-                Hoy quiero comprobar una cosa...
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hay una canción que no es simplemente una canción.
-                </p>
-
-                <p>
-                    Es una de esas que, cuando empieza,
-                    puede llevarme directamente a nosotras.
-                </p>
-
-                <p>
-                    Una canción que forma parte de nuestra historia.
-                </p>
-
-                <p class="quote">
-                    La canción que más te recuerde a mí.
-                </p>
-
-                <p>
-                    Así que hoy no voy a darte opciones.
-                </p>
-
-                <p>
-                    No voy a ponerte pistas demasiado fáciles.
-                </p>
-
-                <p class="quote">
-                    Quiero que la recuerdes tú.
-                </p>
-
-                <p>
-                    ¿Cuál es?
-                </p>
-
-            </div>
-
-            <input
-                id="songAnswer"
-                class="answer-input"
-                placeholder="Escribe aquí el nombre de la canción"
-            >
-
-            <br>
-
-            <button class="btn" onclick="checkSong()">
-                DESBLOQUEAR
-            </button>
-
-            <div id="songResult"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function checkSong(){
-
-    const input = document.getElementById("songAnswer");
-
-    const answer = input.value
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g,"");
-
-    if(answer === "dichavate"){
-
-        document.getElementById("songResult").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:35px;">
-
-                <p class="quote gold">
-                    ✦ CORRECTO ✦
-                </p>
-
-                <p>
-                    Sabía que la ibas a recordar.
-                </p>
-
-                <p>
-                    Después de todo...
-                </p>
-
-                <p class="quote">
-                    ¿Cómo ibas a olvidar la canción que nos unió?
-                </p>
-
-                <p>
-                    Ahora sí.
-                </p>
-
-                <p>
-                    Haz clic abajo.
-                    Quiero que la vuelvas a escuchar,
-                    pero esta vez pensando en nosotras.
-                </p>
-
-            </div>
-
-            <div class="music-player">
-
-                <div class="music-note">
-                    ♫
-                </div>
-
-                <h3>
-                    Dichavate
-                </h3>
-
-                <audio controls preload="metadata">
-
-                    <source
-                        src="Dichavate.mp3"
-                        type="audio/mpeg"
-                    >
-
-                </audio>
-
-            </div>
-
-            <div class="romantic-text">
-
-                <p>
-                    Y pensar que todo comenzó con una canción...
-                </p>
-
-                <p>
-                    Qué bonito que algo que parecía tan pequeño
-                    terminara formando parte de nuestra historia.
-                </p>
-
-                <p class="quote gold">
-                    Ahora cada vez que la escuches,
-                    espero que pienses en nosotras.
-                </p>
-
-            </div>
-
-        `;
-
-    }else{
-
-        document.getElementById("songResult").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:30px;">
-
-                <p>
-                    Mmm... esa no es.
-                </p>
-
-                <p>
-                    No te rindas todavía, amor.
-                </p>
-
-                <p>
-                    Piensa en nosotras.
-                </p>
-
-                <p class="quote">
-                    En cómo empezó todo.
-                </p>
-
-                <p>
-                    Estoy segura de que la tienes
-                    en algún rincón de tu memoria.
-                </p>
-
-            </div>
-
-            <button class="btn" onclick="document.getElementById('songAnswer').focus()">
-                INTENTAR DE NUEVO
-            </button>
-
-        `;
-
-    }
-}
-
-
-/* ============================================================
-   DÍA 14
-============================================================ */
-
-const riddles = [
-
-    {
-        title:"ADIVINANZA 1",
-        text:`
-            No tengo manos y puedo abrazar,
-            no tengo boca y te puedo hablar.
-            Puedo aparecer sin avisar,
-            y con una sola palabra te puedo alegrar.
-            <br><br>
-            ¿Qué soy?
-        `,
-        options:[
-            "💌 A) Un mensaje",
-            "📷 B) Una fotografía",
-            "🎁 C) Un regalo",
-            "🌙 D) Un sueño"
-        ],
-        correct:0
-    },
-
-    {
-        title:"ADIVINANZA 2",
-        text:`
-            No tiene forma, tampoco color,
-            pero puede crecer cuando existe amor.
-            No pesa nada, pero tiene valor,
-            y cuando es verdadero, se siente mejor.
-            <br><br>
-            ¿Qué es?
-        `,
-        options:[
-            "♡ A) El cariño",
-            "☀️ B) El calor",
-            "🎵 C) La música",
-            "✨ D) Un sueño"
-        ],
-        correct:0
-    },
-
-    {
-        title:"ADIVINANZA 3",
-        text:`
-            Puede durar un instante,
-            pero quedarse para siempre.
-            Puede aparecer en una imagen,
-            o vivir solamente en la mente.
-            <br><br>
-            A veces hace reír,
-            otras veces emocionar,
-            pero cuando vuelve a nosotros,
-            nos hace volver atrás.
-            <br><br>
-            ¿Qué es?
-        `,
-        options:[
-            "📷 A) Una fotografía",
-            "✨ B) Un recuerdo",
-            "💭 C) Un sueño",
-            "💌 D) Una carta"
-        ],
-        correct:1
-    },
-
-    {
-        title:"ADIVINANZA 4",
-        text:`
-            Puede empezar con un “hola”,
-            y terminar al amanecer.
-            Puede hacernos reír por horas
-            sin saber cómo ni por qué.
-            <br><br>
-            Puede hablar de cualquier cosa,
-            de la vida o del corazón,
-            y aunque parezca algo pequeño,
-            puede acercarnos un montón.
-            <br><br>
-            ¿Qué es?
-        `,
-        options:[
-            "💬 A) Una conversación",
-            "🎬 B) Una película",
-            "🍕 C) Una comida",
-            "🌙 D) Una noche"
-        ],
-        correct:0
-    },
-
-    {
-        title:"ADIVINANZA 5",
-        text:`
-            No se puede tocar,
-            tampoco se puede mirar,
-            pero entre dos personas
-            puede comenzar a crecer sin parar.
-            <br><br>
-            Se construye con momentos,
-            con cariño y con verdad,
-            y mientras más pasa el tiempo,
-            más bonita puede estar.
-            <br><br>
-            No es un cuento ni una canción,
-            aunque tenga mucho que contar.
-            <br><br>
-            ¿Qué es eso que entre nosotras
-            seguimos dejando avanzar?
-        `,
-        options:[
-            "📖 A) Una historia",
-            "🌙 B) Un sueño",
-            "💌 C) Una promesa",
-            "♡ D) Un recuerdo"
-        ],
-        correct:0
-    }
-
-];
-
-
-function day14(){
-
-    currentSlide = 0;
-
-    showRiddle();
-}
-
-
-function showRiddle(){
-
-    const r = riddles[currentSlide];
-
-    let options = "";
-
-    r.options.forEach((option,index)=>{
-
-        options += `
-
-            <button
-                class="choice"
-                onclick="answerRiddle(${index})"
-            >
-                ${option}
-            </button>
-
-        `;
-
-    });
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 14 · ${currentSlide+1}/5
-            </div>
-
-            <h2>
-                Adivina, adivinadora
-            </h2>
-
-            ${
-                currentSlide === 0
-                ?
-                `
-                <div class="romantic-text">
-
-                    <p>
-                        Amor...
-                    </p>
-
-                    <p>
-                        Hoy quiero hacerte pensar,
-                        pero sin hacerte estudiar. 🤭
-                    </p>
-
-                    <p>
-                        Te voy a dejar unas adivinanzas
-                        que tendrás que intentar descifrar.
-                    </p>
-
-                    <p>
-                        Algunas serán sencillas,
-                        otras te harán dudar,
-                        pero si prestas atención,
-                        quizás todas puedas acertar.
-                    </p>
-
-                    <p class="quote">
-                        A ver qué tan buena eres para adivinar. ♡
-                    </p>
-
-                </div>
-                `
-                :
-                ""
-            }
-
-            <h3 style="margin-top:25px;">
-                ${r.title}
-            </h3>
-
-            <div class="romantic-text">
-                <p class="quote">
-                    ${r.text}
-                </p>
-            </div>
-
-            <div class="choice-grid">
-                ${options}
-            </div>
-
-            <div id="riddleResult"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-}
-
-
-function answerRiddle(index){
-
-    const r = riddles[currentSlide];
-
-    if(index !== r.correct){
-
-        document.getElementById("riddleResult").innerHTML = `
-
-            <div style="margin-top:25px;">
-
-                <p>
-                    Mmm... no es esa. 🤭
-                </p>
-
-                <button
-                    class="btn"
-                    onclick="showRiddle()"
-                >
-                    INTENTAR DE NUEVO
-                </button>
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-    if(currentSlide < 4){
-
-        currentSlide++;
-
-        showRiddle();
+    if(discoveredWords.size === 4){
 
         setTimeout(()=>{
 
-            const result = document.getElementById("riddleResult");
+            document.getElementById("day2Complete")
+                .classList.remove("hidden");
 
-            if(result){
-
-                result.innerHTML = `
-
-                    <div class="romantic-text">
-
-                        <p class="quote gold">
-                            ¡Correcto, amor! ✦
-                        </p>
-
-                    </div>
-
-                `;
-
-            }
-
-        },50);
-
-    }else{
-
-        showRiddleFinal();
-
+        },500);
     }
-
 }
 
 
-function showRiddleFinal(){
+/* =========================================================
+   MODAL
+========================================================= */
 
-    showScreen(`
+function showModal(content){
 
-        <div class="card center">
+    document.getElementById("modalContent").innerHTML = content;
 
-            <div class="slide-number">
-                Día 14 · Resultado
-            </div>
+    document.getElementById("modal")
+        .classList.add("show");
+}
 
-            <h2>
-                ✦ 5 / 5 ✦
-            </h2>
+function closeModal(){
 
-            <div class="romantic-text">
-
-                <p class="quote gold">
-                    Muy bien, mi amor.
-                </p>
-
-                <p>
-                    Todas acertadas.
-                </p>
-
-                <p>
-                    Y aunque hoy eran solamente adivinanzas,
-                    hubo una respuesta que me gustó especialmente.
-                </p>
-
-                <p class="quote">
-                    Nuestra historia.
-                </p>
-
-                <p>
-                    Porque todavía no sabemos
-                    cuántas páginas le quedan,
-                    ni cuántos momentos vamos a guardar,
-                    ni cuántas cosas nos quedan por vivir.
-                </p>
-
-                <p class="quote gold">
-                    Pero hay algo que sí sé:
-                </p>
-
-                <p class="quote">
-                    quiero seguir escribiéndola contigo. ♡
-                </p>
-
-                <p>
-                    Día 14 completado.
-                </p>
-
-                <p>
-                    Y ahora sí...
-                </p>
-
-                <p class="quote">
-                    hasta mañana, amor. 💗
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
+    document.getElementById("modal")
+        .classList.remove("show");
 }
 
 
-/* ============================================================
-   DÍA 15
-============================================================ */
+/* =========================================================
+   DÍA 3
+========================================================= */
 
-function day15(){
+function openMemoryBox(){
 
-    day15Found = new Set();
+    document.getElementById("boxText").innerHTML =
+    "La caja está abierta. Ahora elige un recuerdo.";
 
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 15
-            </div>
-
-            <h2>
-                Dos recuerdos
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hay algo que quiero enseñarte...
-                </p>
-
-                <p>
-                    No voy a decirte qué es.
-                </p>
-
-                <p>
-                    Tampoco voy a decirte dónde está.
-                </p>
-
-                <p>
-                    Solo voy a dejarte dos pequeños recuerdos
-                    escondidos en esta página.
-                </p>
-
-                <p class="quote">
-                    Tú tendrás que encontrarlos.
-                </p>
-
-                <p>
-                    Cuando estés lista...
-                    empieza a buscar.
-                </p>
-
-            </div>
-
-            <div class="hidden-memory-page">
-
-                <div
-                    class="secret-zone zone-one"
-                    onclick="findMemory(1)"
-                ></div>
-
-                <div
-                    class="secret-zone zone-two"
-                    onclick="findMemory(2)"
-                ></div>
-
-                <div
-                    id="foundMemory"
-                    class="found-memory"
-                ></div>
-
-            </div>
-
-            <p class="search-hint">
-                Explora la pantalla y toca los lugares que quieras descubrir.
-            </p>
-
-            <div id="day15Status" style="margin-top:20px;">
-                0 / 2 recuerdos encontrados
-            </div>
-
-            <div id="day15Final"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
+    document.getElementById("memoryChoices")
+        .classList.remove("hidden");
 }
 
+function openMemory(type){
 
-function findMemory(n){
+    let content="";
 
-    if(day15Found.has(n)) return;
+    if(type === "photo"){
 
-    day15Found.add(n);
+        content = `
+        <h2>📷 UNA FOTOGRAFÍA</h2>
 
-    const overlay = document.getElementById("foundMemory");
+        <img src="dia3.jpg" alt="Fotografía del día 3">
 
-    if(n === 1){
+        <p>
+        Esta existe.
+        </p>
 
-        overlay.innerHTML = `
+        <p>
+        Es un momento que ya pasó,
+        una pequeña parte de nuestra historia
+        que ahora podemos mirar.
+        </p>
 
-            <div style="width:min(650px,95%);text-align:center;">
+        <p>
+        Y quizás algún día,
+        cuando haya muchas más,
+        esta sea solamente una de tantas.
+        </p>
 
-                <div class="slide-number">
-                    RECUERDO 01
-                </div>
-
-                <div class="photo-frame">
-
-                    <img
-                        src="recuerdo1.jpg"
-                        alt="Recuerdo 1"
-                    >
-
-                </div>
-
-                <button
-                    class="btn"
-                    onclick="saveFoundMemory()"
-                >
-                    GUARDAR RECUERDO
-                </button>
-
-            </div>
-
-        `;
-
-    }else{
-
-        overlay.innerHTML = `
-
-            <div style="width:min(650px,95%);text-align:center;">
-
-                <div class="slide-number">
-                    RECUERDO 02
-                </div>
-
-                <div class="photo-frame">
-
-                    <img
-                        src="recuerdo2.jpg"
-                        alt="Recuerdo 2"
-                    >
-
-                </div>
-
-                <button
-                    class="btn"
-                    onclick="saveFoundMemory()"
-                >
-                    GUARDAR RECUERDO
-                </button>
-
-            </div>
-
+        <p>
+        Pero hoy quería guardarla aquí.
+        </p>
         `;
 
     }
 
-    overlay.classList.add("active");
+    if(type === "moment"){
 
-    document.getElementById("day15Status").textContent =
-        `${day15Found.size} / 2 recuerdos encontrados`;
+        content = `
+        <h2>✦ DOS — UN MOMENTO</h2>
 
-}
+        <p>
+        Este no está en una fotografía.
+        </p>
 
+        <p>
+        Porque hay momentos que no necesitan
+        una cámara para quedarse con nosotras.
+        </p>
 
-function saveFoundMemory(){
+        <p>Una conversación.</p>
+        <p>Una risa.</p>
+        <p>Una noche.</p>
+        <p>Una frase.</p>
 
-    document.getElementById("foundMemory")
-        .classList.remove("active");
+        <p>
+        Algo que ocurrió y que quizás parecía
+        completamente normal en ese momento.
+        </p>
 
-    if(day15Found.size === 2){
+        <p>
+        Pero que después terminó convirtiéndose
+        en un recuerdo.
+        </p>
 
-        document.getElementById("day15Final").innerHTML = `
-
-            <div class="romantic-text" style="margin-top:35px;">
-
-                <p class="quote gold">
-                    Los encontraste.
-                </p>
-
-                <p>
-                    Dos pequeños recuerdos
-                    que estaban escondidos esperando
-                    que los encontraras.
-                </p>
-
-                <p>
-                    Y quizás eso sea lo bonito de recordar:
-                    que a veces una sola imagen
-                    puede llevarnos de vuelta
-                    a un momento que creíamos perdido.
-                </p>
-
-                <p class="quote">
-                    Guárdalos, amor.
-                </p>
-
-                <p>
-                    Porque todavía nos quedan
-                    muchísimos recuerdos por crear juntas.
-                </p>
-
-            </div>
-
+        <p>
+        Y esos también cuentan.
+        </p>
         `;
 
     }
+
+    if(type === "future"){
+
+        content = `
+        <h2>♡ TRES — UN FUTURO RECUERDO</h2>
+
+        <p class="gold">
+        TODAVÍA<br>
+        NO<br>
+        EXISTE
+        </p>
+
+        <p>
+        Este es diferente.
+        </p>
+
+        <p>
+        Porque todavía no puedo enseñártelo.
+        </p>
+
+        <p>
+        Pero algún día habrá algo aquí.
+        </p>
+
+        <p>
+        Y cuando llegue ese momento,
+        quiero que podamos mirar atrás
+        y recordar que alguna vez
+        fue solamente una posibilidad.
+        </p>
+
+        <p>
+        Un momento que todavía no conocíamos.
+        </p>
+
+        <button onclick="closeModal()">
+            GUARDAR PARA EL FUTURO
+        </button>
+        `;
+
+    }
+
+    showModal(content);
 }
 
 
-/* ============================================================
-   DÍA 16
-============================================================ */
+/* =========================================================
+   DÍA 4
+========================================================= */
 
-const day16Questions = [
+let q4 = 0;
 
-    {
-        q:"¿Cómo sería para ti una mañana perfecta juntas?",
-        options:[
-            "Dormir un poquito más, despertarnos sin ninguna prisa y empezar el día juntas.",
-            "Levantarnos temprano y salir a recorrer algún lugar.",
-            "Preparar algo rico y quedarnos tranquilas."
-        ]
-    },
+const questions4 = [
 
-    {
-        q:"¿Qué no podría faltar en uno de nuestros días juntas?",
-        options:[
-            "Comer algo rico",
-            "Dormir una siesta",
-            "Pasar horas hablando",
-            "Todas o casi todas"
-        ]
-    },
+{
+q:"Si pudiéramos escaparnos ahora mismo...",
+a:[
+"🌊 Playa",
+"🏙️ Una ciudad nueva",
+"🌿 Un lugar tranquilo",
+"🏡 Quedarnos juntas en casa"
+]
+},
 
-    {
-        q:"¿Qué plan te gustaría hacer conmigo sin tener nada organizado?",
-        options:[
-            "Salir sin saber exactamente dónde vamos",
-            "Mirar el atardecer",
-            "Cocinar las dos juntitas"
-        ]
-    },
+{
+q:"¿Qué plan te parece más bonito?",
+a:[
+"🌙 Una noche hablando de todo",
+"😂 Una noche riéndonos de cualquier cosa",
+"🎬 Película + comida + manta",
+"✨ Salir sin saber exactamente qué haremos"
+]
+},
 
-    {
-        q:"¿Qué te gustaría hacer conmigo en una noche tranquila en casa?",
-        options:[
-            "Una película o una serie",
-            "Algo rico",
-            "Estar abrazadas",
-            "Todo lo anterior"
-        ]
-    }
+{
+q:"Si pudieras guardar un momento para repetirlo...",
+a:[
+"♡ Una conversación",
+"✦ Una noche especial",
+"📸 Un día que nos hizo felices",
+"∞ Uno que todavía no vivimos"
+]
+},
+
+{
+q:"¿Qué pequeño detalle te hace más feliz?",
+a:[
+"💌 Un mensaje inesperado",
+"🎁 Una sorpresa",
+"😂 Que te hagan reír",
+"🤍 Que recuerden algo que dijiste"
+]
+},
+
+{
+q:"¿Qué elegirías para una tarde perfecta?",
+a:[
+"☕ Café y conversación",
+"🍿 Película y algo rico",
+"🎶 Música y cantar juntas",
+"🌅 Salir a caminar y hablar"
+]
+},
+
+{
+q:"Si nuestra historia fuera una película...",
+a:[
+"😂 Comedia",
+"💗 Romance",
+"✨ Aventura",
+"🎭 Una mezcla de todo"
+]
+},
+
+{
+q:"¿Qué prefieres recibir?",
+a:[
+"💌 Una carta escrita a mano",
+"📷 Una fotografía inesperada",
+"🎁 Una sorpresa",
+"✨ Algo completamente inesperado"
+]
+},
+
+{
+q:"Si pudiéramos crear un recuerdo ahora mismo...",
+a:[
+"🌊 Frente al mar",
+"🌙 Bajo las estrellas",
+"🏙️ En una ciudad desconocida",
+"🏡 En nuestro lugar favorito"
+]
+},
+
+{
+q:"¿Qué te gustaría tener dentro de unos años?",
+a:[
+"Muchas fotografías para mirar atrás",
+"Muchas historias para contar",
+"Muchos lugares conocidos",
+"🤍 Muchos momentos que recordar"
+]
+},
+
+{
+q:"¿Qué elegirías volver a vivir?",
+a:[
+"✦ LO QUE YA VIVIMOS ✦",
+"✦ LO QUE TODAVÍA NOS FALTA VIVIR ✦"
+]
+}
 
 ];
 
+function renderQ4(){
 
-function day16(){
+    if(q4 >= questions4.length){
 
-    currentSlide = 0;
+        document.getElementById("question4").innerHTML = `
 
-    showDay16Question();
-}
+        <h2>10 / 10 ✦</h2>
 
+        <p>
+        Y listo.
+        </p>
 
-function showDay16Question(){
+        <p>
+        Ya elegiste.
+        </p>
 
-    if(currentSlide >= day16Questions.length){
+        <p>
+        Algunas respuestas probablemente eran fáciles.
+        Otras quizás te hicieron pensarlo un poquito.
+        </p>
 
-        showDay16Final();
+        <p>
+        Pero no importaba qué elegías.
+        No había respuestas correctas.
+        No había respuestas equivocadas.
+        </p>
+
+        <p>
+        Porque este juego nunca se trató de acertar.
+        Solo quería regalarte unos minutos
+        para imaginar, elegir y sonreír.
+        </p>
+
+        <p>
+        Y si alguna de tus respuestas coincidió
+        con las que yo habría elegido...
+        bueno...
+        eso me gusta todavía más. ♡
+        </p>
+
+        <h2>Día 04 completado.</h2>
+
+        <button onclick="goCalendar()">
+        ✦ VOLVER AL CALENDARIO ✦
+        </button>
+        `;
 
         return;
     }
 
-    const q = day16Questions[currentSlide];
+    const current = questions4[q4];
 
-    let options = "";
+    document.getElementById("question4").innerHTML = `
 
-    q.options.forEach((o,i)=>{
+        <h2>${current.q}</h2>
 
-        options += `
+        <div class="choice-grid">
 
-            <button
+        ${current.a.map((answer,index)=>`
+
+            <div
                 class="choice"
-                onclick="answerDay16()"
+                onclick="answer4(${index})"
             >
-                ${o}
-            </button>
+                ${answer}
+            </div>
+
+        `).join("")}
+
+        </div>
+    `;
+}
+
+function answer4(){
+
+    q4++;
+
+    if(q4 === 6){
+
+        document.getElementById("question4").innerHTML += `
+        <p class="gold">
+        Aunque, pensándolo bien...
+        creo que nuestra película
+        tendría un poquito de todo. ✦
+        </p>
+        `;
+    }
+
+    setTimeout(renderQ4,500);
+}
+
+renderQ4();
+
+
+/* =========================================================
+   DÍA 5
+========================================================= */
+
+const questions5 = [
+
+"Si pudiera elegir una comida ahora mismo, ¿cuál crees que escogería?",
+"Si tuviera que elegir un color que me represente...",
+"Cuando tengo que elegir...",
+"¿Qué plan crees que disfrutaría más?",
+"Si me das a elegir una bebida...",
+"Cuando estoy de buen humor, ¿qué crees que hago más?",
+"Si quisieras sorprenderme con algo pequeño, ¿qué crees que me haría más ilusión?",
+"Si mañana pudiéramos desaparecer juntas..."
+];
+
+const answers5 = [
+
+["🍕 Pizza","🍔 Hamburguesa","🍝 Pasta","🍗 Otra"],
+["🩷 Rosa","🖤 Negro","💙 Azul","💜 Morado"],
+["🍫 Algo dulce","🍟 Algo salado","😈 Depende del día"],
+["🌙 Quedarme tranquila en casa","🍿 Película + comida","🎉 Salir y hacer algo divertido","✈️ Irme de viaje"],
+["🥤 Refresco","🧃 Jugo","☕ Café","💧 Agua"],
+["😂 Me río por cualquier cosa","🗣️ Hablo muchísimo","💃 Me pongo a hacer cualquier tontería","😌 Simplemente disfruto el momento"],
+["💐 Flores","🍫 Mi dulce favorito","🧸 Algo bonito que pueda guardar","💌 Algo hecho especialmente para mí"],
+["🏖️ Playa","🏙️ Una ciudad nueva","🏔️ Un lugar rodeado de naturaleza","🏨 Un hotel bonito y no hacer absolutamente nada"]
+];
+
+let q5=0;
+
+function renderQuiz5(){
+
+    if(q5>=questions5.length){
+
+        document.getElementById("quiz5").innerHTML=`
+
+        <h2>✦ ¡Muy bien! ✦</h2>
+
+        <p>
+        Muy bien amor, ya sé que me conoces mucho
+        y eso me encanta.
+        </p>
+
+        <p>
+        Bueno, a esperar a mañana...
+        </p>
+
+        <h2>Un beshitooooo. ♡</h2>
+
+        <button onclick="goCalendar()">
+        ✦ VOLVER AL CALENDARIO ✦
+        </button>
+        `;
+
+        return;
+    }
+
+    document.getElementById("quiz5").innerHTML=`
+
+        <h2>PREGUNTA ${q5+1}</h2>
+
+        <p>${questions5[q5]}</p>
+
+        <div class="choice-grid">
+
+        ${answers5[q5].map((a,i)=>`
+            <div class="choice" onclick="answer5()">
+                ${a}
+            </div>
+        `).join("")}
+
+        </div>
+    `;
+}
+
+function answer5(){
+
+    q5++;
+
+    setTimeout(renderQuiz5,350);
+}
+
+renderQuiz5();
+
+
+/* =========================================================
+   DÍA 6
+========================================================= */
+
+const envelopes = {
+
+1:`
+<h2>♡ Ábreme cuando estés feliz</h2>
+<p>
+Quiero que disfrutes muchísimo ese momento.
+</p>
+<p>
+Y si algo bonito te está pasando,
+quiero que sepas que me encanta imaginarte sonriendo.
+</p>
+<p>Disfrútalo.</p>
+<p>Y cuando puedas...</p>
+<h2>ven a contármelo.</h2>
+<p>Quiero conocer también tus momentos felices.</p>
+`,
+
+2:`
+<h2>☾ Ábreme cuando tengas un día difícil</h2>
+<p>
+No voy a decirte que todo está bien
+porque quizás hoy simplemente no lo sientas así.
+</p>
+<p>
+Solo quiero recordarte algo:
+</p>
+<h2>no tienes que poder con todo siempre.</h2>
+<p>
+Respira.
+Tómate tu tiempo.
+</p>
+<p>
+Y recuerda que no tienes que atravesar
+un día difícil fingiendo que estás bien.
+</p>
+<p>
+Si quieres hablar, aquí estoy.
+Si quieres distraerte, también.
+</p>
+<p>
+Y si solamente quieres sentir que alguien está contigo...
+</p>
+<h2>piensa en mí.</h2>
+`,
+
+3:`
+<h2>✦ Ábreme cuando me extrañes</h2>
+<p>
+Si estás leyendo esto,
+probablemente me estés echando un poquito de menos.
+</p>
+<p>
+Así que voy a aprovechar para recordarte
+que yo también pienso en ti
+en muchísimos momentos del día.
+</p>
+<p>
+Quizás ahora mismo no podamos estar juntas,
+pero eso no hace que estés menos presente.
+</p>
+<p>
+Estás en mis pensamientos,
+en mis recuerdos
+y en todas esas pequeñas cosas
+que de repente me hacen pensar:
+</p>
+<h2>“esto le gustaría a Ana.”</h2>
+<p>
+Así que cuando me extrañes...
+ven a buscarme. 🤍
+</p>
+`,
+
+4:`
+<h2>∞ Ábreme cuando quieras recordar cuánto te quiero</h2>
+<p>
+Esta no necesita una ocasión especial.
+</p>
+<p>
+Solo quería dejarte algo escrito
+para esos momentos en los que necesites recordarlo:
+</p>
+<h1>te quiero.</h1>
+<p>
+Te quiero en los días fáciles
+y en los complicados.
+</p>
+<p>
+Te quiero cuando estamos hablando durante horas
+y cuando simplemente compartimos silencio.
+</p>
+<p>
+Te quiero por todo lo que ya conozco de ti
+y por todo lo que todavía me queda por descubrir.
+</p>
+<p>
+Y si alguna vez se te olvida...
+</p>
+<h2>vuelve aquí.</h2>
+<p>Yo te lo vuelvo a recordar. ♡</p>
+`
+};
+
+let openedEnvelopes = new Set();
+
+function showEnvelope(n){
+
+    openedEnvelopes.add(n);
+
+    document.getElementById("envelopeText").innerHTML =
+    `<div class="quote">${envelopes[n]}</div>`;
+
+    if(openedEnvelopes.size===4){
+
+        document.getElementById("envelopeText").innerHTML += `
+
+        <h2>Ya los abriste todos.</h2>
+
+        <p>
+        Pero espero que no necesites volver aquí
+        demasiado seguido.
+        </p>
+
+        <p>
+        Aunque si algún día lo haces...
+        </p>
+
+        <h2>ya sabes dónde encontrarme.</h2>
+
+        <p>🤍</p>
+
+        <h2>Día 6 completado.</h2>
+        `;
+    }
+}
+
+
+/* =========================================================
+   DÍA 8
+========================================================= */
+
+const quiz8Questions = [
+
+{
+q:"Si tuviera que elegir un color que me haga pensar inmediatamente en ti, ¿cuál sería?",
+a:["🩷 Rosa","🖤 Negro","💙 Azul","💜 Morado"],
+correct:0
+},
+
+{
+q:"Si llegas a tener hambre, ¿qué ocurre?",
+a:["A) Te pones de maaaaallllll humor.","B) Te conviertes en otra persona.","C) Nada, eres exactamente igual."],
+correct:1
+},
+
+{
+q:"Hay algo que siempre puede acompañarte. ¿Qué es?",
+a:["🎵 Música","📚 Libros","🌧️ La lluvia","☕ Café"],
+correct:0
+},
+
+{
+q:"Hay algo verde, cremoso y que sé que te encanta. ¿Qué es?",
+a:["🥑 Aguacate","🥦 Brócoli","🍏 Manzana","🥝 Kiwi"],
+correct:0
+},
+
+{
+q:"Cuando quieres estar tranquila, ¿qué plan podría ganarte fácilmente?",
+a:["🎬 Series y películas","🏃 Salir a correr","📚 Estudiar","🧹 Ordenar"],
+correct:0
+}
+];
+
+let q8=0;
+
+function startQuiz8(){
+
+    q8=0;
+    renderQuiz8();
+}
+
+function renderQuiz8(){
+
+    if(q8>=quiz8Questions.length){
+
+        document.getElementById("quiz8").innerHTML=`
+
+        <h1>5/5</h1>
+
+        <p>
+        Pero espera...
+        esto no era realmente un juego.
+        </p>
+
+        <p>
+        Porque no quiero simplemente decir
+        que te conozco.
+        </p>
+
+        <p>
+        Quiero seguir conociéndote.
+        </p>
+
+        <p>
+        Quiero aprenderme tus gustos,
+        tus manías,
+        tus días buenos,
+        tus días malos,
+        lo que te hace reír
+        y hasta lo que te pone de mal humor
+        cuando tienes hambre.
+        </p>
+
+        <p>
+        Porque cada pequeño detalle tuyo
+        termina siendo otro motivo
+        para quererte un poquito más.
+        </p>
+
+        <button onclick="goCalendar()">
+        ✦ VOLVER AL CALENDARIO ✦
+        </button>
+        `;
+
+        return;
+    }
+
+    const q=quiz8Questions[q8];
+
+    document.getElementById("quiz8").innerHTML=`
+
+    <h2>PRUEBA ${q8+1}</h2>
+
+    <p>${q.q}</p>
+
+    <div class="choice-grid">
+
+    ${q.a.map((a,i)=>`
+
+        <div
+            class="choice"
+            onclick="answer8(${i})"
+        >
+            ${a}
+        </div>
+
+    `).join("")}
+
+    </div>
+    `;
+}
+
+function answer8(i){
+
+    const q=quiz8Questions[q8];
+
+    if(i===q.correct){
+
+        q8++;
+
+        renderQuiz8();
+
+    }else{
+
+        document.getElementById("quiz8").innerHTML += `
+        <p class="gold">
+        Mmm... piensa un poquito más, amor. ♡
+        </p>
+        `;
+    }
+}
+
+
+/* =========================================================
+   DÍA 9 — ESTRELLAS
+========================================================= */
+
+const reasons = [
+
+"Te amo por esa manera tan tuya de hacer que un momento cualquiera termine convirtiéndose en un recuerdo.",
+
+"Te amo por las pequeñas cosas que haces sin darte cuenta.",
+
+"Te amo por tu manera de hacerme sonreír.",
+
+"Te amo por cada conversación que hemos compartido.",
+
+"Te amo por la confianza que existe entre nosotras.",
+
+"Te amo por nuestras pequeñas complicidades.",
+
+"Te amo por cada recuerdo que hemos creado.",
+
+"Te amo porque contigo lo cotidiano puede sentirse especial.",
+
+"Te amo por la manera en que eres tú misma.",
+
+"Te amo por tus ocurrencias.",
+
+"Te amo por cada momento que me haces guardar en la memoria.",
+
+"Te amo porque siempre hay algo nuevo que descubrir de ti.",
+
+"Te amo por tu forma de mirar las cosas.",
+
+"Te amo por las veces que me haces reír.",
+
+"Te amo por la tranquilidad que siento al compartir contigo.",
+
+"Te amo por cada pequeño detalle.",
+
+"Te amo por todas nuestras conversaciones.",
+
+"Te amo por lo bonito que es imaginar futuros recuerdos juntas.",
+
+"Te amo por cada día que forma parte de nuestra historia.",
+
+"Te amo por tu forma de ser.",
+
+"Te amo por todo lo que hemos aprendido juntas.",
+
+"Te amo por los momentos inesperados.",
+
+"Te amo por todo lo que todavía nos queda por vivir.",
+
+"Te amo porque nuestra historia todavía tiene muchas páginas.",
+
+"Te amo simplemente por ser tú."
+];
+
+let openedStars = new Set();
+
+function createStars(){
+
+    const container=document.getElementById("stars");
+
+    container.innerHTML="";
+
+    for(let i=0;i<25;i++){
+
+        const star=document.createElement("div");
+
+        star.className="star";
+
+        star.innerHTML="★";
+
+        star.onclick=()=>openStar(i,star);
+
+        container.appendChild(star);
+    }
+}
+
+function openStar(i,element){
+
+    if(openedStars.has(i)) return;
+
+    openedStars.add(i);
+
+    element.classList.add("opened");
+
+    showModal(`
+
+        <h2>RAZÓN #${String(i+1).padStart(2,"0")}</h2>
+
+        <p>${reasons[i]}</p>
+
+        <p class="gold">
+        Una menos... quedan ${25-openedStars.size}.
+        </p>
+
+    `);
+
+    document.getElementById("starCounter").innerText =
+        `${openedStars.size} / 25`;
+
+    if(openedStars.size===25){
+
+        document.getElementById("starFinal")
+            .classList.remove("hidden");
+    }
+}
+
+createStars();
+
+
+/* =========================================================
+   DÍA 10
+========================================================= */
+
+function showSong10(){
+
+    document.getElementById("song10")
+        .classList.remove("hidden");
+
+    const audio=document.getElementById("bemasteAudio");
+
+    audio.load();
+
+}
+
+
+/* =========================================================
+   DÍA 11
+========================================================= */
+
+function startTimeGame(){
+
+    document.getElementById("timeChoices")
+        .classList.remove("hidden");
+}
+
+const timeTexts={
+
+sunrise:`
+<h2>🌅 UN AMANECER</h2>
+<p>
+Hay algo bonito en los comienzos.
+</p>
+<p>
+En esos momentos en los que todavía
+no sabemos cómo será el día.
+</p>
+<p>
+Todo está por suceder.
+</p>
+<p>
+Y quizás por eso los comienzos
+tienen algo especial.
+</p>
+`,
+
+night:`
+<h2>🌙 UNA NOCHE</h2>
+<p>
+Y después están las noches.
+</p>
+<p>
+Esas en las que el tiempo parece
+pasar diferente.
+</p>
+<p>
+Cuando una conversación puede durar horas
+y aun así parecer demasiado corta.
+</p>
+<p>
+Hay momentos que simplemente
+dan ganas de quedarse un poquito más.
+</p>
+`,
+
+day:`
+<h2>☀️ UN DÍA CUALQUIERA</h2>
+<p>
+Quizás este sea mi favorito.
+</p>
+<p>
+Un día que no tenía nada especial.
+Sin una celebración.
+Sin una fecha importante.
+Sin nada extraordinario.
+</p>
+<p>
+Y, sin embargo,
+termina siendo bonito
+simplemente porque estabas tú.
+</p>
+`,
+
+future:`
+<h2>✨ UN MOMENTO QUE TODAVÍA NO EXISTE</h2>
+<p>
+Este no puedo enseñártelo.
+Todavía no existe.
+</p>
+<p>
+No sé cuándo llegará.
+No sé dónde estaremos.
+No sé qué estaremos haciendo.
+</p>
+<p>
+Pero algún día,
+sin darnos cuenta,
+estaremos viviendo algo
+que ahora mismo solamente podemos imaginar.
+</p>
+`
+};
+
+function timeScene(scene){
+
+    showModal(
+        timeTexts[scene] +
+        `<p class="gold">✓ DESCUBIERTO</p>`
+    );
+
+}
+
+
+/* =========================================================
+   DÍA 13
+========================================================= */
+
+function checkSong13(){
+
+    const value=document
+        .getElementById("songAnswer")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const result=document.getElementById("song13Result");
+
+    if(value.includes("dichavate")){
+
+        result.innerHTML=`
+
+        <h2>✦ CORRECTO ✦</h2>
+
+        <p>
+        Sabía que la ibas a recordar.
+        </p>
+
+        <p>
+        Después de todo...
+        </p>
+
+        <h2>
+        ¿Cómo ibas a olvidar
+        la canción que nos unió?
+        </h2>
+
+        <button onclick="playDichavate()">
+        ESCUCHAR NUESTRA CANCIÓN
+        </button>
+
+        <audio id="dichavateAudio" controls class="hidden">
+            <source src="Dichavate.mp3" type="audio/mpeg">
+        </audio>
 
         `;
 
-    });
+    }else{
 
-    showScreen(`
+        result.innerHTML=`
 
-        <div class="card center">
+        <p class="gold">
+        Mmm... esa no es.
+        </p>
 
-            <div class="slide-number">
-                Día 16 · ${currentSlide+1}/4
-            </div>
+        <p>
+        No te rindas todavía, amor.
+        Piensa en nosotras.
+        </p>
 
-            <h2>
-                Nuestro día
-            </h2>
+        `;
 
-            <div class="romantic-text">
+    }
+}
 
-                ${
-                    currentSlide === 0
-                    ?
-                    `
-                    <p>
-                        Hoy quiero jugar contigo.
-                    </p>
+function playDichavate(){
 
-                    <p>
-                        Pero esta vez no hay respuestas correctas.
-                    </p>
+    const audio=document.getElementById("dichavateAudio");
 
-                    <p class="quote">
-                        Hoy quiero que construyas conmigo
-                        nuestro día perfecto.
-                    </p>
+    audio.classList.remove("hidden");
 
-                    <p>
-                        Tú eliges qué hacemos,
-                        y yo te voy a enseñar
-                        qué habría preparado para nosotras.
-                    </p>
-                    `
-                    :
-                    ""
-                }
+    audio.load();
 
-            </div>
+    audio.play().catch(()=>{});
+}
 
-            <h3 style="margin-top:30px;">
-                ${q.q}
-            </h3>
 
-            <div class="choice-grid">
-                ${options}
-            </div>
+/* =========================================================
+   DÍA 14
+========================================================= */
 
-            ${calendarButton()}
+const riddles=[
 
+{
+text:`
+No tengo manos y puedo abrazar,
+no tengo boca y te puedo hablar.
+Puedo aparecer sin avisar,
+y con una sola palabra te puedo alegrar.
+`,
+answers:[
+"💌 A) Un mensaje",
+"📷 B) Una fotografía",
+"🎁 C) Un regalo",
+"🌙 D) Un sueño"
+],
+correct:0
+},
+
+{
+text:`
+No tiene forma, tampoco color,
+pero puede crecer cuando existe amor.
+No pesa nada, pero tiene valor,
+y cuando es verdadero, se siente mejor.
+`,
+answers:[
+"♡ A) El cariño",
+"☀️ B) El calor",
+"🎵 C) La música",
+"✨ D) Un sueño"
+],
+correct:0
+},
+
+{
+text:`
+Puede durar un instante,
+pero quedarse para siempre.
+Puede aparecer en una imagen,
+o vivir solamente en la mente.
+A veces hace reír,
+otras veces emocionar,
+pero cuando vuelve a nosotros,
+nos hace volver atrás.
+`,
+answers:[
+"📷 A) Una fotografía",
+"✨ B) Un recuerdo",
+"💭 C) Un sueño",
+"💌 D) Una carta"
+],
+correct:1
+},
+
+{
+text:`
+Puede empezar con un “hola”,
+y terminar al amanecer.
+Puede hacernos reír por horas
+sin saber cómo ni por qué.
+Puede hablar de cualquier cosa,
+de la vida o del corazón,
+y aunque parezca algo pequeño,
+puede acercarnos un montón.
+`,
+answers:[
+"💬 A) Una conversación",
+"🎬 B) Una película",
+"🍕 C) Una comida",
+"🌙 D) Una noche"
+],
+correct:0
+},
+
+{
+text:`
+No se puede tocar,
+tampoco se puede mirar,
+pero entre dos personas
+puede comenzar a crecer sin parar.
+Se construye con momentos,
+con cariño y con verdad,
+y mientras más pasa el tiempo,
+más bonita puede estar.
+No es un cuento ni una canción,
+aunque tenga mucho que contar.
+¿Qué es eso que entre nosotras
+seguimos dejando avanzar?
+`,
+answers:[
+"📖 A) Una historia",
+"🌙 B) Un sueño",
+"💌 C) Una promesa",
+"♡ D) Un recuerdo"
+],
+correct:0
+}
+
+];
+
+let riddleIndex=0;
+
+function renderRiddle14(){
+
+    if(riddleIndex>=riddles.length){
+
+        document.getElementById("riddle14").innerHTML=`
+
+        <h1>✦ 5 / 5 ✦</h1>
+
+        <p>
+        Muy bien, mi amor.
+        </p>
+
+        <p>
+        Todas acertadas.
+        </p>
+
+        <p>
+        Y aunque hoy eran solamente adivinanzas,
+        hubo una respuesta que me gustó especialmente.
+        </p>
+
+        <h2>Nuestra historia.</h2>
+
+        <p>
+        Porque todavía no sabemos
+        cuántas páginas le quedan,
+        ni cuántos momentos vamos a guardar,
+        ni cuántas cosas nos quedan por vivir.
+        </p>
+
+        <p>
+        Pero hay algo que sí sé:
+        </p>
+
+        <h2>
+        quiero seguir escribiéndola contigo. ♡
+        </h2>
+
+        <p>Día 14 completado.</p>
+
+        <button onclick="goCalendar()">
+        ✦ VOLVER AL CALENDARIO ✦
+        </button>
+        `;
+
+        return;
+    }
+
+    const r=riddles[riddleIndex];
+
+    document.getElementById("riddle14").innerHTML=`
+
+    <h2>✦ ADIVINANZA ${riddleIndex+1} ✦</h2>
+
+    <div class="quote">
+    ${r.text}
+    </div>
+
+    <div class="choice-grid">
+
+    ${r.answers.map((a,i)=>`
+
+        <div class="choice" onclick="answerRiddle(${i})">
+            ${a}
         </div>
 
-    `);
+    `).join("")}
 
+    </div>
+    `;
 }
 
+function answerRiddle(i){
 
-function answerDay16(){
+    if(i===riddles[riddleIndex].correct){
 
-    currentSlide++;
+        riddleIndex++;
 
-    showDay16Question();
+        renderRiddle14();
+
+    }else{
+
+        document.getElementById("riddle14").innerHTML += `
+
+        <p class="gold">
+        Mmm... esa no era. Intenta otra vez, amor. ♡
+        </p>
+
+        `;
+
+    }
 }
 
-
-function showDay16Final(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 16 · Final
-            </div>
-
-            <h2>
-                Nuestro día perfecto
-            </h2>
-
-            <div class="final-day-summary romantic-text">
-
-                <p>
-                    Al final creo que entendí algo...
-                </p>
-
-                <p>
-                    No importa demasiado qué hagamos.
-                </p>
-
-                <p>
-                    Puede ser salir,
-                    quedarnos en casa,
-                    viajar,
-                    comer,
-                    ver una película
-                    o simplemente no hacer absolutamente nada.
-                </p>
-
-                <p class="quote gold">
-                    Si el día es contigo,
-                    ya tengo mi plan perfecto. ♡
-                </p>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
+renderRiddle14();
 
 
-/* ============================================================
-   DÍA 17
-============================================================ */
+/* =========================================================
+   DÍA 15
+   LAS FOTOS ESTÁN AQUÍ:
+   recuerdo1.jpg
+   recuerdo2.jpg
+========================================================= */
 
-function day17(){
+let memoriesFound=0;
 
-    showScreen(`
+function findHiddenMemory(number){
 
-        <div class="card center">
+    if(number===1){
 
-            <div class="slide-number">
-                Día 17
-            </div>
+        showModal(`
 
-            <h2>
-                Antes de que llegue
-            </h2>
+            <h2>📷 PRIMER RECUERDO</h2>
 
-            <div class="romantic-text">
-
-                <p>
-                    Antes de seguir...
-                </p>
-
-                <p>
-                    quiero pedirte algo.
-                </p>
-
-            </div>
-
-            <button
-                class="btn stay-button"
-                onclick="stayDay17()"
+            <img
+                src="recuerdo1.jpg"
+                alt="Primer recuerdo"
             >
-                QUEDARME AQUÍ
+
+            <button onclick="saveMemory15(1)">
+                GUARDAR RECUERDO
             </button>
 
-            <div id="day17Text"></div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function stayDay17(){
-
-    document.getElementById("day17Text").innerHTML = `
-
-        <div class="romantic-text" style="margin-top:40px;">
-
-            <p class="quote">
-                Quédate unos segundos.
-            </p>
-
-            <p>
-                Sin buscar pistas.
-                Sin intentar descubrir qué viene.
-            </p>
-
-            <p>
-                Solo piensa en nosotras.
-            </p>
-
-            <p>
-                En cómo comenzó todo.
-            </p>
-
-            <p>
-                En cada momento que hemos compartido.
-            </p>
-
-            <p>
-                En las risas, en las conversaciones,
-                en los días bonitos
-                y también en todo aquello
-                que hemos aprendido juntas.
-            </p>
-
-            <p>
-                Porque si llegaste hasta aquí,
-                ya descubriste muchas de las pequeñas cosas
-                que preparé para ti.
-            </p>
-
-            <p>
-                Pero todavía no termina.
-            </p>
-
-            <p class="quote">
-                De hecho...
-            </p>
-
-            <p>
-                estamos a punto de llegar
-                a la parte que más he estado esperando.
-            </p>
-
-            <p>
-                Mañana ya no tendrás que buscar una pista.
-            </p>
-
-            <p>
-                Mañana solo tendrás que mirar el reloj.
-            </p>
-
-            <p>
-                Porque cada segundo que pase
-                nos llevará un poquito más cerca.
-            </p>
-
-            <p>
-                Y cuando llegue el momento...
-            </p>
-
-            <p class="quote">
-                quiero que recuerdes algo:
-            </p>
-
-            <p>
-                hice todo esto porque quería regalarte
-                algo más que un cumpleaños.
-            </p>
-
-            <p>
-                Quería regalarte un pedacito de mí,
-                de nosotras,
-                de nuestra historia.
-            </p>
-
-            <p class="quote gold">
-                Gracias por recorrerlo conmigo, amor.
-            </p>
-
-            <p>
-                Mañana empieza la cuenta regresiva.
-            </p>
-
-            <p>
-                Ya falta muy poquito.
-            </p>
-
-            <div style="margin-top:45px;">
-
-                <p class="quote">
-                    Nos vemos mañana.
-                </p>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* ============================================================
-   DÍA 18
-============================================================ */
-
-function day18(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="slide-number">
-                Día 18
-            </div>
-
-            <h2>
-                Ya falta poquito...
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Amor,
-                </p>
-
-                <p>
-                    después de tantos días,
-                    tantas pistas,
-                    tantos pequeños secretos...
-                </p>
-
-                <p class="quote">
-                    ya estamos llegando.
-                </p>
-
-                <p>
-                    Y esta vez no quiero darte una pista.
-                </p>
-
-                <p>
-                    Solo quiero que mires cuánto falta
-                    para que llegue tu día.
-                </p>
-
-                <p>
-                    Así que disfruta estos últimos momentos...
-                </p>
-
-                <p class="quote gold">
-                    porque ya casi es tu cumpleaños, amor.
-                </p>
-
-                <p>
-                    <em>
-                        Te me estás haciendo viejita. 🤭
-                    </em>
-                </p>
-
-            </div>
-
-            <div class="big-countdown">
-
-                <div class="time-box">
-                    <div class="time-number" id="cdDays">00</div>
-                    <div class="time-label">DÍAS</div>
-                </div>
-
-                <div class="time-box">
-                    <div class="time-number" id="cdHours">00</div>
-                    <div class="time-label">HORAS</div>
-                </div>
-
-                <div class="time-box">
-                    <div class="time-number" id="cdMinutes">00</div>
-                    <div class="time-label">MINUTOS</div>
-                </div>
-
-                <div class="time-box">
-                    <div class="time-number" id="cdSeconds">00</div>
-                    <div class="time-label">SEGUNDOS</div>
-                </div>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-
-    startBirthdayCountdown();
-}
-
-
-function startBirthdayCountdown(){
-
-    if(countdownTimer){
-        clearInterval(countdownTimer);
-    }
-
-    function update(){
-
-        const now = new Date();
-
-        let target = new Date(
-            now.getFullYear(),
-            8,
-            19,
-            0,
-            0,
-            0,
-            0
-        );
-
-        if(now >= target){
-
-            target = new Date(
-                now.getFullYear()+1,
-                8,
-                19,
-                0,
-                0,
-                0,
-                0
-            );
-
-        }
-
-        const diff = target - now;
-
-        const days = Math.floor(diff/(1000*60*60*24));
-
-        const hours = Math.floor(
-            (diff%(1000*60*60*24))/(1000*60*60)
-        );
-
-        const minutes = Math.floor(
-            (diff%(1000*60*60))/(1000*60)
-        );
-
-        const seconds = Math.floor(
-            (diff%(1000*60))/1000
-        );
-
-        const d = document.getElementById("cdDays");
-
-        if(!d) return;
-
-        d.textContent = String(days).padStart(2,"0");
-
-        document.getElementById("cdHours").textContent =
-            String(hours).padStart(2,"0");
-
-        document.getElementById("cdMinutes").textContent =
-            String(minutes).padStart(2,"0");
-
-        document.getElementById("cdSeconds").textContent =
-            String(seconds).padStart(2,"0");
+        `);
 
     }
 
-    update();
+    if(number===2){
 
-    countdownTimer = setInterval(update,1000);
-}
+        showModal(`
 
+            <h2>♡ SEGUNDO RECUERDO</h2>
 
-/* ============================================================
-   DÍA 19
-============================================================ */
-
-function day19(){
-
-    showScreen(`
-
-        <div class="card center">
-
-            <div class="final-25">
-                25
-            </div>
-
-            <h2>
-                Feliz cumpleaños, amor.
-            </h2>
-
-            <div class="romantic-text">
-
-                <p>
-                    Hoy no quiero hablarte solamente de un día.
-                </p>
-
-                <p>
-                    Quiero hablarte de todo lo que significa
-                    haber llegado hasta aquí contigo.
-                </p>
-
-                <p>
-                    De cada momento que guardamos,
-                    de cada risa, de cada abrazo,
-                    de cada pequeño recuerdo
-                    que terminó convirtiéndose
-                    en parte de nuestra historia.
-                </p>
-
-                <p>
-                    Y si pudiera pedir un solo deseo
-                    para este día, sería muy sencillo:
-                </p>
-
-                <p class="quote gold">
-                    seguir llenando nuestra historia
-                    de momentos que algún día
-                    podamos volver a recordar juntas.
-                </p>
-
-                <p>
-                    Porque todavía nos quedan
-                    muchísimas páginas por escribir.
-                </p>
-
-                <p class="quote">
-                    Y esta vez...
-                    quiero que mires algo.
-                </p>
-
-            </div>
-
-            <div class="video-placeholder">
-
-                <h3>
-                    UNA ÚLTIMA COSA PARA TI
-                </h3>
-
-                <p style="margin:20px 0;">
-                    Toca para abrir el último recuerdo.
-                </p>
-
-                <button
-                    class="btn"
-                    onclick="unlockFinalVideo()"
-                >
-                    UNA ÚLTIMA COSA PARA TI ✦
-                </button>
-
-                <div id="finalVideo"></div>
-
-            </div>
-
-            ${calendarButton()}
-
-        </div>
-
-    `);
-}
-
-
-function unlockFinalVideo(){
-
-    const box = document.getElementById("finalVideo");
-
-    box.innerHTML = `
-
-        <div style="margin-top:35px;">
-
-            <div
-                style="
-                    width:100%;
-                    aspect-ratio:16/9;
-                    border:1px solid rgba(218,180,75,.3);
-                    border-radius:15px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    background:#050405;
-                "
+            <img
+                src="recuerdo2.jpg"
+                alt="Segundo recuerdo"
             >
 
-                <p class="quote">
-                    Aquí aparecerá tu video.
-                </p>
+            <button onclick="saveMemory15(2)">
+                GUARDAR RECUERDO
+            </button>
 
+        `);
+
+    }
+
+}
+
+let savedMemory1=false;
+let savedMemory2=false;
+
+function saveMemory15(number){
+
+    if(number===1) savedMemory1=true;
+    if(number===2) savedMemory2=true;
+
+    memoriesFound =
+        (savedMemory1 ? 1 : 0) +
+        (savedMemory2 ? 1 : 0);
+
+    document.getElementById("memory15Counter").innerText =
+        `${memoriesFound} / 2 recuerdos encontrados`;
+
+    closeModal();
+
+    if(memoriesFound===2){
+
+        showModal(`
+
+        <h2>Los encontraste. ♡</h2>
+
+        <p>
+        Dos pequeños recuerdos
+        que estaban escondidos esperando que los encontraras.
+        </p>
+
+        <p>
+        Y quizás eso sea lo bonito de recordar:
+        que a veces una sola imagen
+        puede llevarnos de vuelta
+        a un momento que creíamos perdido.
+        </p>
+
+        <p>
+        Guárdalos, amor.
+        </p>
+
+        <p>
+        Porque todavía nos quedan
+        muchísimos recuerdos por crear juntas.
+        </p>
+
+        `);
+    }
+}
+
+
+/* =========================================================
+   DÍA 16
+========================================================= */
+
+const game16Questions=[
+
+{
+q:"¿Cómo sería para ti una mañana perfecta juntas?",
+a:[
+"Dormir un poquito más",
+"Despertarnos sin ninguna prisa",
+"Empezar el día juntas"
+]
+},
+
+{
+q:"¿Qué no podría faltar en uno de nuestros días juntas?",
+a:[
+"Comer algo rico",
+"Dormir la siesta",
+"Pasar tiempo juntas",
+"Todas o casi todas"
+]
+},
+
+{
+q:"¿Qué plan te gustaría hacer conmigo sin tener nada organizado?",
+a:[
+"Salir sin saber exactamente dónde vamos",
+"Mirar el atardecer",
+"Cocinar las dos juntitas"
+]
+},
+
+{
+q:"¿Qué te gustaría hacer conmigo en una noche tranquila en casa?",
+a:[
+"Una película o una serie",
+"Algo rico",
+"Estar juntas y disfrutar la noche",
+"Todo lo anterior"
+]
+}
+
+];
+
+let game16Index=0;
+
+function startGame16(){
+
+    game16Index=0;
+
+    document.getElementById("final16")
+        .classList.add("hidden");
+
+    renderGame16();
+}
+
+function renderGame16(){
+
+    if(game16Index>=game16Questions.length){
+
+        document.getElementById("game16").innerHTML="";
+
+        document.getElementById("final16")
+            .classList.remove("hidden");
+
+        return;
+    }
+
+    const q=game16Questions[game16Index];
+
+    document.getElementById("game16").innerHTML=`
+
+        <h2>${q.q}</h2>
+
+        <div class="choice-grid">
+
+        ${q.a.map((a,i)=>`
+
+            <div
+                class="choice"
+                onclick="answerGame16()"
+            >
+                ${a}
             </div>
 
-            <div class="romantic-text" style="margin-top:35px;">
-
-                <p>
-                    Si llegaste hasta aquí...
-                </p>
-
-                <p>
-                    quiero que sepas que cada detalle
-                    de estos 25 días fue pensado para ti.
-                </p>
-
-                <p>
-                    No porque necesitara una fecha
-                    para decirte cuánto te amo,
-                    sino porque me hacía ilusión
-                    regalarte un poquito de felicidad.
-                </p>
-
-                <p>
-                    Espero que cuando vuelvas a mirar
-                    estas páginas, puedas sentir aunque sea
-                    un poquito de todo el amor
-                    con el que las hice.
-                </p>
-
-                <p class="quote">
-                    Gracias por ser tú.
-                </p>
-
-                <p class="quote">
-                    Gracias por existir en mi vida.
-                </p>
-
-                <p>
-                    Y gracias por todos los momentos
-                    que todavía nos quedan por vivir juntas.
-                </p>
-
-                <p class="quote gold">
-                    Feliz cumpleaños, mi amor.
-                </p>
-
-                <p>
-                    Esto es solo el comienzo de todo
-                    lo que todavía quiero vivir contigo.
-                </p>
-
-                <p class="quote">
-                    Con amor,
-                </p>
-
-                <h2>
-                    DMS
-                </h2>
-
-            </div>
+        `).join("")}
 
         </div>
 
+        <p class="small">
+        ${game16Index+1} / ${game16Questions.length}
+        </p>
+
     `;
+}
+
+function answerGame16(){
+
+    game16Index++;
+
+    setTimeout(renderGame16,350);
+}
+
+
+/* =========================================================
+   DÍA 18 — CUENTA REGRESIVA
+========================================================= */
+
+function updateCountdown(){
+
+    const birthday =
+        new Date("2026-09-19T00:00:00-03:00");
+
+    const now=new Date();
+
+    let diff=birthday-now;
+
+    if(diff<0) diff=0;
+
+    const days=Math.floor(diff/(1000*60*60*24));
+
+    const hours=Math.floor(
+        (diff/(1000*60*60))%24
+    );
+
+    const minutes=Math.floor(
+        (diff/(1000*60))%60
+    );
+
+    const seconds=Math.floor(
+        (diff/1000)%60
+    );
+
+    const element=document.getElementById("countdown");
+
+    if(element){
+
+        element.innerText=
+        `${String(days).padStart(2,"0")} : `+
+        `${String(hours).padStart(2,"0")} : `+
+        `${String(minutes).padStart(2,"0")} : `+
+        `${String(seconds).padStart(2,"0")}`;
+
+    }
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+
+/* =========================================================
+   DÍA 19
+========================================================= */
+
+function showFinalVideo(){
+
+    document.getElementById("final19")
+        .classList.remove("hidden");
+
+    const video=document.getElementById("birthdayVideo");
+
+    video.load();
 
 }
 
 
-/* ============================================================
-   INICIO
-============================================================ */
+/* =========================================================
+   CERRAR MODAL AL TOCAR FUERA
+========================================================= */
 
-showCover();
+document.getElementById("modal")
+.addEventListener("click",function(e){
+
+    if(e.target===this){
+        closeModal();
+    }
+
+});
+
+
+/* =========================================================
+   TECLA ESC
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+        closeModal();
+    }
+
+});
 
 </script>
 
