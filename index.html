@@ -744,19 +744,427 @@ audio{
 .found-memory.active{
     display:flex;
 }
+<!-- =========================================================
+     DÍA 16 — NUESTRO DÍA
+========================================================= -->
 
-/* =========================
-   DIA 16
-========================= */
+<section id="dia16" class="day-page">
 
-.final-day-summary{
-    margin-top:40px;
-    padding:30px;
-    border:1px solid rgba(218,180,75,.25);
-    border-radius:20px;
-    background:rgba(255,255,255,.025);
+    <!-- INTRODUCCIÓN -->
+    <div id="dia16-intro" class="dia16-screen active">
+
+        <div class="day-number">Día 16</div>
+
+        <h1>Nuestro día</h1>
+
+        <div class="dia16-text">
+
+            <p>Hoy quiero jugar contigo.</p>
+
+            <p>Pero esta vez no hay respuestas correctas.</p>
+
+            <p>
+                Hoy quiero que construyas conmigo
+                <strong>nuestro día perfecto.</strong>
+            </p>
+
+            <p>
+                Tú eliges qué hacemos,
+                y yo te voy a enseñar qué habría preparado
+                para nosotras.
+            </p>
+
+        </div>
+
+        <button class="dia16-btn" onclick="dia16Start()">
+            EMPEZAR ✦
+        </button>
+
+    </div>
+
+
+    <!-- PREGUNTA 1 -->
+    <div id="dia16-pregunta1" class="dia16-screen">
+
+        <div class="dia16-progress">01 / 04</div>
+
+        <h2>¿Cómo sería para ti una mañana perfecta juntas?</h2>
+
+        <div class="dia16-options">
+
+            <button onclick="dia16Next(1)">
+                Dormir un poquito más
+            </button>
+
+            <button onclick="dia16Next(1)">
+                Despertarnos sin ninguna prisa
+            </button>
+
+            <button onclick="dia16Next(1)">
+                Empezar el día juntas
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREGUNTA 2 -->
+    <div id="dia16-pregunta2" class="dia16-screen">
+
+        <div class="dia16-progress">02 / 04</div>
+
+        <h2>¿Qué no podría faltar en uno de nuestros días juntas?</h2>
+
+        <div class="dia16-options">
+
+            <button onclick="dia16Next(2)">
+                Comer algo rico
+            </button>
+
+            <button onclick="dia16Next(2)">
+                Dormir la siesta
+            </button>
+
+            <button onclick="dia16Next(2)">
+                Hacer el amor
+            </button>
+
+            <button onclick="dia16Next(2)">
+                Todas o casi todas
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREGUNTA 3 -->
+    <div id="dia16-pregunta3" class="dia16-screen">
+
+        <div class="dia16-progress">03 / 04</div>
+
+        <h2>
+            ¿Qué plan te gustaría hacer conmigo
+            sin tener nada organizado?
+        </h2>
+
+        <div class="dia16-options">
+
+            <button onclick="dia16Next(3)">
+                Salir sin saber exactamente dónde vamos
+            </button>
+
+            <button onclick="dia16Next(3)">
+                Mirar el atardecer
+            </button>
+
+            <button onclick="dia16Next(3)">
+                Cocinar las dos juntitas
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREGUNTA 4 -->
+    <div id="dia16-pregunta4" class="dia16-screen">
+
+        <div class="dia16-progress">04 / 04</div>
+
+        <h2>
+            ¿Qué te gustaría hacer conmigo
+            en una noche tranquila en casa?
+        </h2>
+
+        <div class="dia16-options">
+
+            <button onclick="dia16Next(4)">
+                Una película o una serie
+            </button>
+
+            <button onclick="dia16Next(4)">
+                Algo rico
+            </button>
+
+            <button onclick="dia16Next(4)">
+                Estar abrazadas
+            </button>
+
+            <button onclick="dia16Next(4)">
+                Todo lo anterior
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL -->
+    <div id="dia16-final" class="dia16-screen">
+
+        <div class="dia16-final-symbol">✦</div>
+
+        <h2>Al final creo que entendí algo...</h2>
+
+        <div class="dia16-text final-text">
+
+            <p>
+                No importa demasiado qué hagamos.
+            </p>
+
+            <p>
+                Puede ser salir,
+                <br>
+                quedarnos en casa,
+                <br>
+                viajar,
+                <br>
+                comer,
+                <br>
+                ver una película
+                <br>
+                o simplemente no hacer absolutamente nada.
+            </p>
+
+            <p class="dia16-last-line">
+                <strong>
+                    Si el día es contigo,
+                    <br>
+                    ya tengo mi plan perfecto.
+                </strong>
+            </p>
+
+        </div>
+
+        <button class="dia16-calendar-btn" onclick="volverCalendario()">
+            ✦ VOLVER AL CALENDARIO ✦
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ESTILOS EXCLUSIVOS DEL DÍA 16
+========================================================= -->
+
+<style>
+
+#dia16 {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
 }
 
+.dia16-screen {
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 25px;
+    box-sizing: border-box;
+    animation: dia16FadeIn .7s ease;
+}
+
+.dia16-screen.active {
+    display: flex;
+}
+
+@keyframes dia16FadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.day-number {
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    opacity: .75;
+}
+
+.dia16-screen h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    margin: 0 0 35px;
+    letter-spacing: 2px;
+}
+
+.dia16-screen h2 {
+    max-width: 800px;
+    font-size: clamp(25px, 4vw, 43px);
+    line-height: 1.35;
+    margin-bottom: 45px;
+}
+
+.dia16-text {
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.dia16-text p {
+    margin: 0 0 18px;
+}
+
+.dia16-btn,
+.dia16-calendar-btn {
+    margin-top: 35px;
+    padding: 15px 30px;
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 2px;
+    transition: all .3s ease;
+}
+
+.dia16-btn:hover,
+.dia16-calendar-btn:hover {
+    transform: translateY(-3px);
+}
+
+.dia16-progress {
+    font-size: 13px;
+    letter-spacing: 4px;
+    opacity: .6;
+    margin-bottom: 25px;
+}
+
+.dia16-options {
+    width: min(700px, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.dia16-options button {
+    width: 100%;
+    padding: 19px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.05);
+    color: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .3s ease;
+}
+
+.dia16-options button:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.12);
+}
+
+.dia16-final-symbol {
+    font-size: 45px;
+    margin-bottom: 25px;
+    animation: dia16Glow 2s infinite alternate;
+}
+
+@keyframes dia16Glow {
+    from {
+        opacity: .45;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+.final-text {
+    max-width: 650px;
+}
+
+.dia16-last-line {
+    margin-top: 35px !important;
+    font-size: 23px;
+    line-height: 1.7;
+}
+
+.dia16-calendar-btn {
+    margin-top: 45px;
+}
+
+</style>
+
+
+<!-- =========================================================
+     JAVASCRIPT DEL DÍA 16
+========================================================= -->
+
+<script>
+
+function dia16HideAll() {
+
+    const screens = document.querySelectorAll(
+        '#dia16 .dia16-screen'
+    );
+
+    screens.forEach(screen => {
+        screen.classList.remove('active');
+    });
+}
+
+
+function dia16Show(id) {
+
+    dia16HideAll();
+
+    const screen = document.getElementById(id);
+
+    if (screen) {
+        screen.classList.add('active');
+    }
+
+}
+
+
+function dia16Start() {
+
+    dia16Show('dia16-pregunta1');
+
+}
+
+
+function dia16Next(question) {
+
+    if (question === 1) {
+        dia16Show('dia16-pregunta2');
+    }
+
+    else if (question === 2) {
+        dia16Show('dia16-pregunta3');
+    }
+
+    else if (question === 3) {
+        dia16Show('dia16-pregunta4');
+    }
+
+    else if (question === 4) {
+        dia16Show('dia16-final');
+    }
+
+}
+
+
+</script>
+
+</script>
 /* =========================
    DIA 17
 ========================= */
