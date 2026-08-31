@@ -57,35 +57,22 @@
         .dia:hover {background:var(--dorado); color:var(--blanco); transform:scale(1.08);}
         .bloque {background:rgba(255,255,255,0.85); padding:35px; border-radius:20px; box-shadow:0 8px 30px var(--sombra); max-width:700px; width:100%;}
         .imagen {max-width:100%; border-radius:12px; margin:20px 0; box-shadow:0 4px 20px var(--sombra);}
-        .oculto {opacity:0; transition:opacity 1s ease;}
-        .visible {opacity:1;}
-        .huella {font-size:2rem; margin:10px; letter-spacing:12px;}
-        .estrella {font-size:2rem; cursor:pointer; transition:all 0.3s;}
-        .estrella:hover {transform:scale(1.3);}
-        .encendida {color:var(--dorado); text-shadow:0 0 12px var(--dorado);}
-        .apagada {color:#ccc;}
+        .oculto-pantalla {display:none !important;}
         .opcion {padding:12px 20px; border:1px solid var(--rosa-bebe); border-radius:12px; margin:8px; cursor:pointer; transition:all 0.3s;}
         .opcion:hover {border-color:var(--dorado); background:rgba(248,215,226,0.35);}
         .reloj-digitos {font-size:3.5rem; font-family:monospace; color:var(--dorado); letter-spacing:6px;}
-        .particulas {position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:-1;}
-        .particula {position:absolute; width:6px; height:6px; background:var(--dorado); border-radius:50%; opacity:0; animation:flotar 8s infinite ease-in-out;}
-        @keyframes flotar {
-            0% {transform:translateY(100vh); opacity:0;}
-            10% {opacity:0.6;}
-            90% {opacity:0.6;}
-            100% {transform:translateY(-10vh); opacity:0;}
-        }
         .tarjeta {border:2px solid var(--rosa-bebe); border-radius:14px; padding:22px; margin:12px; cursor:pointer; transition:all 0.4s ease; background:rgba(255,255,255,0.7);}
         .tarjeta:hover {border-color:var(--dorado); transform:translateY(-4px);}
         .sobre {border:2px solid var(--dorado); border-radius:14px; padding:22px; margin:12px; cursor:pointer; transition:all 0.3s;}
         .sobre:hover {background:rgba(212,175,55,0.08);}
         audio {width:100%; margin:15px 0;}
-        .oculto-pantalla {display:none;}
+        .estrella {font-size:2rem; cursor:pointer; transition:all 0.3s; display:inline-block; margin:6px;}
+        .estrella:hover {transform:scale(1.3);}
+        .encendida {color:var(--dorado); text-shadow:0 0 12px var(--dorado);}
+        .apagada {color:#ccc;}
     </style>
 </head>
 <body>
-
-<div class="particulas" id="particulas"></div>
 
 <!-- ============================================== PORTAADA -->
 <div class="pagina activa" id="portada">
@@ -197,7 +184,7 @@
 <div class="pagina" id="dia2">
     <div class="bloque">
         <h2 class="subtitulo">Día 2</h2>
-        <div class="texto" id="d2-texto">
+        <div id="d2-texto" class="texto">
             ¿Recuerdas?<br><br>
             No sabíamos todo lo que vendría después.<br>
             No sabíamos cuántas cosas íbamos a compartir.<br>
@@ -253,30 +240,19 @@
     </div>
 </div>
 
-<!-- ============================================== DÍA 4 a DÍA 19 (continuación) -->
+<!-- ============================================== DÍA 4 -->
 <div class="pagina" id="dia4">
     <div class="bloque">
         <h2 class="subtitulo">Día 4 · Si tuvieras que elegir…</h2>
         <div id="d4-inicio">
             <p class="texto">Amor… hoy no quiero contarte algo. Hoy quiero hacerte elegir. Entre pequeñas cosas, momentos, planes y algunas preguntas que quizás te hagan sonreír.<br><br>No hay respuestas correctas. Solo elige lo que más te guste.<br>¿Lista?</p>
-            <button class="boton boton-dorado" onclick="d4p1()">EMPEZAR ✦</button>
+            <button class="boton boton-dorado" onclick="d4preguntar()">EMPEZAR ✦</button>
         </div>
         <div id="d4-preguntas" class="oculto-pantalla"></div>
-        <div id="d4-final" class="oculto-pantalla">
-            <p class="texto">Y listo. Ya elegiste.<br>
-            Algunas respuestas probablemente eran fáciles. Otras quizás te hicieron pensarlo un poquito.<br><br>
-            Pero hay algo que quería que supieras: no importaba qué elegías. No había respuestas correctas. No había respuestas equivocadas.<br>
-            Porque este juego nunca se trató de acertar.<br>
-            Solo quería regalarte unos minutos para imaginar, elegir y sonreír.<br><br>
-            Y si alguna de tus respuestas coincidió con las que yo habría elegido… bueno… eso me gusta todavía más. ♡<br><br>
-            10 / 10 ✦<br>
-            Día 04 completado.<br>
-            Pero tranquila, amor… todavía quedan 15 puertas.</p>
-            <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
-        </div>
     </div>
 </div>
 
+<!-- ============================================== DÍA 5 -->
 <div class="pagina" id="dia5">
     <div class="bloque">
         <h2 class="subtitulo">Día 5 · ¿Cuánto me conoces?</h2>
@@ -285,14 +261,11 @@
             ¿Cuánto crees que me conoces? ♡<br><br>
             Pero no vale pensarlo demasiado. Elige lo primero que creas que elegiría yo. Y no hagas trampa. ✦
         </div>
-        <div id="d5-preguntas"></div>
-        <div id="d5-final" class="oculto-pantalla">
-            <p class="texto">✅ ¡Todas correctas!<br><br>Muy bien amor, ya sé que me conoces mucho y eso me encanta. Bueno a esperar a mañana. Un beshitooooo. ♡</p>
-            <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
-        </div>
+        <div id="d5-contenido"></div>
     </div>
 </div>
 
+<!-- ============================================== DÍA 6 -->
 <div class="pagina" id="dia6">
     <div class="bloque">
         <h2 class="subtitulo">Día 6 · Pequeñas palabras</h2>
@@ -301,7 +274,7 @@
         <div class="sobre" onclick="abrirSobre('dificil')">☾ Ábreme cuando tengas un día difícil</div>
         <div class="sobre" onclick="abrirSobre('extranes')">✦ Ábreme cuando me extrañes</div>
         <div class="sobre" onclick="abrirSobre('cuantotequiero')">∞ Ábreme cuando quieras recordar cuánto te quiero</div>
-        <div id="sobre-contenido" style="margin-top:25px;"></div>
+        <div id="sobre-contenido"></div>
         <div id="d6-final" class="oculto-pantalla" style="margin-top:30px;">
             <p class="texto">Ya los abriste todos. Pero espero que no necesites volver aquí demasiado seguido. Aunque si algún día lo haces… ya sabes dónde encontrarme. 🤍<br><br>Día 6 completado.</p>
             <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
@@ -309,6 +282,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 7 -->
 <div class="pagina" id="dia7">
     <div class="bloque">
         <h2 class="subtitulo">Día 7 · Pista #1</h2>
@@ -342,6 +316,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 8 -->
 <div class="pagina" id="dia8">
     <div class="bloque">
         <h2 class="subtitulo">Día 8 · Te conozco</h2>
@@ -349,14 +324,11 @@
             <p class="texto">Hoy no quiero preguntarte cuánto me conoces a mí. Hoy quiero demostrarte cuánto he aprendido de ti.<br><br>Porque cuando quieres a alguien, empiezas a guardar pequeños detalles. Así que vamos a ver si puedo demostrarlo.</p>
             <button class="boton boton-dorado" onclick="d8comenzar()">COMENZAR ✦</button>
         </div>
-        <div id="d8-contenido" class="oculto-pantalla"></div>
-        <div id="d8-final" class="oculto-pantalla">
-            <p class="texto">5/5 ✦<br><br>Tu color. Tu música. Tu comida. Tus series. Tus pequeños detalles.<br><br>Porque no quiero simplemente decir que te conozco. Quiero seguir conociéndote. Quiero aprenderme tus gustos, tus manías, tus días buenos, tus días malos, lo que te hace reír y hasta lo que te pone de mal humor cuando tienes hambre.<br><br>Porque cada pequeño detalle tuyo termina siendo otro motivo para quererte un poquito más. Y todavía me faltan muchísimas cosas por descubrir de ti.</p>
-            <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
-        </div>
+        <div id="d8-contenido"></div>
     </div>
 </div>
 
+<!-- ============================================== DÍA 9 -->
 <div class="pagina" id="dia9">
     <div class="bloque">
         <h2 class="subtitulo">Día 9 · 25 estrellas ✨</h2>
@@ -370,6 +342,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 10 -->
 <div class="pagina" id="dia10">
     <div class="bloque">
         <h2 class="subtitulo">Día 10 · Una canción para ti ♫</h2>
@@ -388,6 +361,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 11 -->
 <div class="pagina" id="dia11">
     <div class="bloque">
         <h2 class="subtitulo">Día 11 · Guardar el tiempo ⏳</h2>
@@ -402,24 +376,21 @@
             <div class="tarjeta" onclick="abrirEscena('futuro')">✨ Un momento que todavía no existe</div>
             <div id="escena-contenido" style="margin-top:25px;"></div>
         </div>
-        <div id="d11-final" class="oculto-pantalla">
-            <p class="texto">No podemos detener el tiempo. Ni volver atrás. Ni saber exactamente qué nos espera. Pero sí podemos hacer algo: vivir los momentos mientras están aquí. Guardarlos. Disfrutarlos.<br><br>Y si algo deseo para tus 25… es que estén llenos de momentos que algún día quieras volver a recordar. Y ojalá muchos de ellos los vivamos juntas. ♡</p>
+    </div>
+</div>
+
+<!-- ============================================== DÍA 12 -->
+<div class="pagina" id="dia12">
+    <div class="bloque">
+        <h2 class="subtitulo">Día 12 · Otra pista</h2>
+        <div id="d12-contenido" style="min-height:300px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+            <p class="texto">Hay algo que quiero que descubras…<br><br>Amor…<br>Hoy quiero jugar un poquito contigo.<br>No voy a decirte qué es, porque me hace demasiada gracia imaginarte intentando descubrirlo antes de tiempo 🤭<br><br>Solo te voy a dejar una pista:<br><br>✨ Es algo que elegí pensando en ti, en tu forma de ser, en tu estilo, en esas pequeñas cosas que sé que te gustan y que hacen que seas tan tú.<br><br>Y hay algo más…<br>Es de esas cosas que no están hechas simplemente para guardarlas. Están para disfrutarlas, para estrenarlas, para llevarlas contigo… y convertirlas en parte de esos días bonitos que todavía nos quedan por vivir juntas.<br><br>Quizás cuando finalmente lo veas pienses: “ahhh, con razón…”<br><br>Y espero que cuando llegue ese momento, te acuerdes de que detrás de este pequeño detalle hubo alguien que simplemente pensó en ti.<br><br>No te voy a dar ninguna pista más.<br>Así que paciencia, mi amor.<br>Todavía falta un poquito para descubrirlo. 🤍</p>
             <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
         </div>
     </div>
 </div>
 
-<div class="pagina" id="dia12">
-    <div class="bloque">
-        <h2 class="subtitulo">Día 12 · Otra pista</h2>
-        <div id="d12-pantalla" style="min-height:320px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-            <div id="huellas-d12" class="huella oculto"></div>
-            <div id="texto-d12" class="texto oculto"></div>
-            <button id="boton-d12" class="boton oculto" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
-        </div>
-    </div>
-</div>
-
+<!-- ============================================== DÍA 13 -->
 <div class="pagina" id="dia13">
     <div class="bloque">
         <h2 class="subtitulo">Día 13 · Descubre</h2>
@@ -437,6 +408,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 14 -->
 <div class="pagina" id="dia14">
     <div class="bloque">
         <h2 class="subtitulo">Día 14 · Adivina, adivinadora</h2>
@@ -444,15 +416,16 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 15 -->
 <div class="pagina" id="dia15">
     <div class="bloque">
         <h2 class="subtitulo">Día 15 · Dos recuerdos</h2>
         <p class="texto">Hay algo que quiero enseñarte… Dos pequeños recuerdos escondidos en esta página. Toca donde creas que están. ✨</p>
-        <div style="position:relative; width:100%; height:400px; border-radius:16px; background:linear-gradient(135deg, var(--rosa-bebe) 0%, var(--blanco) 100%);" id="zona-busqueda">
-            <div id="foto1-lugar" style="position:absolute; top:15%; left:15%; width:30%; height:35%; cursor:pointer;" onclick="mostrarFoto1()"></div>
-            <div id="foto2-lugar" style="position:absolute; bottom:15%; right:15%; width:30%; height:35%; cursor:pointer;" onclick="mostrarFoto2()"></div>
+        <div style="position:relative; width:100%; height:400px; border-radius:16px; background:linear-gradient(135deg, var(--rosa-bebe) 0%, var(--blanco) 100%);">
+            <div id="zona-f1" style="position:absolute; top:15%; left:15%; width:30%; height:35%; cursor:pointer;" onclick="mostrarFoto1()"></div>
+            <div id="zona-f2" style="position:absolute; bottom:15%; right:15%; width:30%; height:35%; cursor:pointer;" onclick="mostrarFoto2()"></div>
         </div>
-        <div id="fotos-encontradas" style="margin-top:25px;"></div>
+        <div id="fotos-encontradas"></div>
         <div id="d15-final" class="oculto-pantalla">
             <p class="texto">Los encontraste ✨<br><br>Dos pequeños recuerdos que estaban escondidos esperando que los encontraras. Y quizás eso sea lo bonito de recordar: que a veces una sola imagen puede llevarnos de vuelta a un momento que creíamos perdido.<br><br>Guárdalos, amor. Porque todavía nos quedan muchísimos recuerdos por crear juntas.</p>
             <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
@@ -460,18 +433,16 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 16 -->
 <div class="pagina" id="dia16">
     <div class="bloque">
         <h2 class="subtitulo">Día 16 · Nuestro día</h2>
         <p class="texto">Hoy quiero que construyas conmigo nuestro día perfecto. Tú eliges. ✦</p>
-        <div id="d16-preguntas"></div>
-        <div id="d16-final" class="oculto-pantalla">
-            <p class="texto">Al final creo que entendí algo… No importa demasiado qué hagamos. Puede ser salir, quedarnos en casa, viajar, comer, ver una película o simplemente no hacer nada.<br><br>Si el día es contigo… ya tengo mi plan perfecto. ♡</p>
-            <button class="boton" onclick="ir('calendario')">✦ VOLVER AL CALENDARIO ✦</button>
-        </div>
+        <div id="d16-contenido"></div>
     </div>
 </div>
 
+<!-- ============================================== DÍA 17 -->
 <div class="pagina" id="dia17">
     <div class="bloque">
         <h2 class="subtitulo">Día 17 · Antes de que llegue</h2>
@@ -486,6 +457,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 18 -->
 <div class="pagina" id="dia18">
     <div class="bloque">
         <h2 class="subtitulo">Día 18 · Ya casi, amor…</h2>
@@ -497,6 +469,7 @@
     </div>
 </div>
 
+<!-- ============================================== DÍA 19 -->
 <div class="pagina" id="dia19">
     <div class="bloque">
         <h1 style="font-size:4rem; color:var(--dorado);">25</h1>
@@ -506,8 +479,8 @@
             Y si pudiera pedir un solo deseo para este día, sería muy sencillo: seguir llenando nuestra historia de momentos que algún día podamos volver a recordar juntas. Porque todavía nos quedan muchísimas páginas por escribir.<br><br>
             Y esta vez… quiero que mires algo.
         </div>
-        <button class="boton boton-dorado" onclick="desbloquearVideo()">✨ UNA ÚLTIMA COSA PARA TI ✨</button>
-        <div id="video-final" class="oculto-pantalla" style="margin-top:30px;">
+        <button class="boton boton-dorado" onclick="desbloquearFinal()">✨ UNA ÚLTIMA COSA PARA TI ✨</button>
+        <div id="final-texto" class="oculto-pantalla" style="margin-top:30px;">
             <p class="texto">Si llegaste hasta aquí… quiero que sepas que cada detalle de estos días fue pensado para ti. No porque necesitara una fecha para decirte cuánto te amo, sino porque me hacía ilusión regalarte un poquito de felicidad.<br><br>
             Espero que cuando vuelvas a mirar estas páginas, puedas sentir aunque sea un poquito de todo el amor con el que las hice.<br><br>
             Gracias por ser tú. Gracias por existir en mi vida. Y gracias por todos los momentos que todavía nos quedan por vivir juntas.<br><br>
@@ -518,72 +491,104 @@
     </div>
 </div>
 
+<!-- ============================================== JAVASCRIPT COMPLETO -->
 <script>
-// ============ UTILIDADES GENERALES =============
+// === UTILIDADES GENERALES ===
 function ir(id) {
-    document.querySelectorAll('.pagina').forEach(p=>p.classList.remove('activa'));
+    document.querySelectorAll('.pagina').forEach(p => p.classList.remove('activa'));
     document.getElementById(id).classList.add('activa');
     window.scrollTo(0,0);
-    if(id==='dia12') iniciarDia12();
-    if(id==='dia9') iniciarDia9();
-    if(id==='dia18') iniciarCuenta();
-    if(id==='dia4') iniciarDia4();
-    if(id==='dia5') iniciarDia5();
-    if(id==='dia6') estadoSobres={abiertos:0};
-    if(id==='dia8') d8paso=0;
-    if(id==='dia11') d11contador=0;
-    if(id==='dia14') iniciarDia14();
-    if(id==='dia15') {f1=false;f2=false;}
-    if(id==='dia16') d16paso=0;
 }
+
 function validarClave(){
-    const c=document.getElementById('clave').value;
-    if(c==='0226') ir('calendario');
-    else {
-        const m=document.getElementById('mensaje-clave');
+    const c = document.getElementById('clave').value.trim();
+    if(c === '0226') {
+        document.getElementById('mensaje-clave').style.display='none';
+        ir('calendario');
+    } else {
+        const m = document.getElementById('mensaje-clave');
         m.style.display='block';
         m.textContent='Esa no es… piensa bien en la fecha en que todo comenzó ♡';
     }
 }
 
-// ============ DÍA 2 ============
-let tarjetasAbiertas={a:0,c:0,co:0,ca:0};
+// === DÍA 2 ===
+let tarjetas = {c:0, co:0, ca:0, cox:0};
 function dia2parte2(){
     document.getElementById('d2-texto').style.display='none';
     document.getElementById('d2-boton').style.display='none';
-    document.getElementById('d2-juego').style.display='block';
+    document.getElementById('d2-juego').classList.remove('oculto-pantalla');
 }
 function abrirTarjeta(n){
-    const c=document.getElementById('d2-contenido');
+    const cont = document.getElementById('d2-contenido');
     let txt='';
-    if(n==='confianza'){txt='<p><strong>CONFIANZA</strong><br><br>Hay algo especial en poder hablar sin tener que pensar demasiado cada palabra. Poder contar una cosa pequeña simplemente porque quieres compartirla. Poder decir lo que piensas, lo que sientes, lo que te preocupa o lo que te hace feliz.<br><br>Y también está esa tranquilidad de saber que puedes ser tú misma. Sin aparentar. Sin medir cada gesto. Simplemente tú.<br><br>Y creo que eso es de las cosas que más valoro de nosotras.<br><br>✓ DESCUBIERTO</p>';tarjetasAbiertas.a=1;}
-    if(n==='complicidad'){txt='<p><strong>COMPLICIDAD</strong><br><br>Son esas cosas que probablemente no tendrían la misma gracia para nadie más. Una conversación. Una frase. Una ocurrencia. Una tontería que nos hace reír.<br><br>Un momento que, visto desde fuera, quizás no significaría demasiado. Pero que para nosotras tiene su propia historia.<br><br>Porque poco a poco vamos creando pequeños códigos, recuerdos y momentos que se vuelven solamente nuestros. Y me encanta ese pequeño mundo que tenemos.<br><br>✓ DESCUBIERTO</p>';tarjetasAbiertas.co=1;}
-    if(n==='carino'){txt='<p><strong>CARIÑO</strong><br><br>A veces no aparece en grandes gestos. Está en preguntar cómo estás. En acordarse de algo que dijiste. En querer saber cómo te fue. En compartir una noticia porque eres de las primeras personas a las que quieres contársela.<br><br>En preocuparse. En querer hacerte sonreír. En esos detalles que quizás parecen pequeños cuando ocurren, pero que después terminan quedándose en la memoria.<br><br>Creo que el cariño también vive ahí. En lo sencillo. En lo cotidiano. En querer estar presente, incluso cuando no puedes estar físicamente.<br><br>✓ DESCUBIERTO</p>';tarjetasAbiertas.ca=1;}
-    if(n==='conexion'){txt='<p><strong>CONEXIÓN</strong><br><br>Hay cosas que no sabemos explicar demasiado bien. No tienen una fecha. No tienen una definición exacta. Simplemente se sienten.<br><br>Es esa sensación de encontrar a alguien con quien existe algo diferente. De poder estar lejos y aun así sentir cercanía. De compartir algo que no depende de estar en el mismo lugar.<br><br>Y quizás lo más bonito es que no hace falta entenderlo completamente para saber que está ahí. Yo simplemente sé que contigo existe.<br><br>Y eso es suficiente.<br><br>✓ DESCUBIERTO</p>';tarjetasAbiertas.c=1;}
-    c.innerHTML=txt+'<br><button class="boton" onclick="cerrarTarjeta()">CERRAR</button>';
-    if(tarjetasAbiertas.a+tarjetasAbiertas.co+tarjetasAbiertas.ca+tarjetasAbiertas.c===4)
-        setTimeout(()=>document.getElementById('d2-final').style.display='block',600);
+    if(n==='confianza'){
+        txt='<p class="texto"><strong>CONFIANZA</strong><br><br>Hay algo especial en poder hablar sin tener que pensar demasiado cada palabra. Poder contar una cosa pequeña simplemente porque quieres compartirla. Poder decir lo que piensas, lo que sientes, lo que te preocupa o lo que te hace feliz.<br><br>Y también está esa tranquilidad de saber que puedes ser tú misma. Sin aparentar. Sin medir cada gesto. Simplemente tú.<br><br>Y creo que eso es de las cosas que más valoro de nosotras.<br><br>✓ DESCUBIERTO</p>';
+        tarjetas.c=1;
+    }
+    if(n==='complicidad'){
+        txt='<p class="texto"><strong>COMPLICIDAD</strong><br><br>Son esas cosas que probablemente no tendrían la misma gracia para nadie más. Una conversación. Una frase. Una ocurrencia. Una tontería que nos hace reír.<br><br>Un momento que, visto desde fuera, quizás no significaría demasiado. Pero que para nosotras tiene su propia historia.<br><br>Porque poco a poco vamos creando pequeños códigos, recuerdos y momentos que se vuelven solamente nuestros. Y me encanta ese pequeño mundo que tenemos.<br><br>✓ DESCUBIERTO</p>';
+        tarjetas.co=1;
+    }
+    if(n==='carino'){
+        txt='<p class="texto"><strong>CARIÑO</strong><br><br>A veces no aparece en grandes gestos. Está en preguntar cómo estás. En acordarse de algo que dijiste. En querer saber cómo te fue. En compartir una noticia porque eres de las primeras personas a las que quieres contársela.<br><br>En preocuparse. En querer hacerte sonreír. En esos detalles que quizás parecen pequeños cuando ocurren, pero que después terminan quedándose en la memoria.<br><br>Creo que el cariño también vive ahí. En lo sencillo. En lo cotidiano. En querer estar presente, incluso cuando no puedes estar físicamente.<br><br>✓ DESCUBIERTO</p>';
+        tarjetas.ca=1;
+    }
+    if(n==='conexion'){
+        txt='<p class="texto"><strong>CONEXIÓN</strong><br><br>Hay cosas que no sabemos explicar demasiado bien. No tienen una fecha. No tienen una definición exacta. Simplemente se sienten.<br><br>Es esa sensación de encontrar a alguien con quien existe algo diferente. De poder estar lejos y aun así sentir cercanía. De compartir algo que no depende de estar en el mismo lugar.<br><br>Y quizás lo más bonito es que no hace falta entenderlo completamente para saber que está ahí. Yo simplemente sé que contigo existe.<br><br>Y eso es suficiente.<br><br>✓ DESCUBIERTO</p>';
+        tarjetas.cox=1;
+    }
+    cont.innerHTML = txt + '<br><button class="boton" onclick="cerrarTarjeta()">CERRAR</button>';
+    if(tarjetas.c + tarjetas.co + tarjetas.ca + tarjetas.cox === 4){
+        setTimeout(()=>document.getElementById('d2-final').classList.remove('oculto-pantalla'), 600);
+    }
 }
-function cerrarTarjeta(){document.getElementById('d2-contenido').innerHTML='';}
+function cerrarTarjeta(){
+    document.getElementById('d2-contenido').innerHTML='';
+}
 
-// ============ DÍA 3 ============
-let cajaEstado={foto:0,momento:0,futuro:0};
+// === DÍA 3 ===
+let caja = {foto:0, momento:0, futuro:0};
 function abrirCaja(){
     document.getElementById('caja-inicio').style.display='none';
-    document.getElementById('caja-opciones').style.display='block';
+    document.getElementById('caja-opciones').classList.remove('oculto-pantalla');
+}
+function volverCaja(){
+    document.getElementById('caja-contenido').innerHTML='';
+}
+function comprobarCaja(){
+    if(caja.foto && caja.momento && caja.futuro){
+        setTimeout(()=>document.getElementById('caja-final').classList.remove('oculto-pantalla'), 500);
+    }
 }
 function verFoto(){
-    document.getElementById('caja-opciones').style.display='none';
-    document.getElementById('caja-contenido').innerHTML=`<img src="dia3.jpg" class="imagen" alt="Recuerdo" onerror="this.style.display='none'"><p class="texto">Esta existe.<br>Es un momento que ya pasó, una pequeña parte de nuestra historia que ahora podemos mirar.<br><br>Y quizás algún día, cuando haya muchas más, esta sea solamente una de tantas. Pero hoy quería guardarla aquí.</p><br><button class="boton" onclick="volverCaja()">← VOLVER</button>`;
-    cajaEstado.foto=1;
+    document.getElementById('caja-contenido').innerHTML = `<img src="dia3.jpg" class="imagen" alt="Recuerdo" onerror="this.style.display='none'"><p class="texto">Esta existe.<br>Es un momento que ya pasó, una pequeña parte de nuestra historia que ahora podemos mirar.<br><br>Y quizás algún día, cuando haya muchas más, esta sea solamente una de tantas. Pero hoy quería guardarla aquí.</p><br><button class="boton" onclick="volverCaja()">← VOLVER</button>`;
+    caja.foto=1;
     comprobarCaja();
 }
 function verMomento(){
-    document.getElementById('caja-opciones').style.display='none';
-    document.getElementById('caja-contenido').innerHTML=`<p class="texto">Este no está en una fotografía.<br>Porque hay momentos que no necesitan una cámara para quedarse con nosotros. Una conversación. Una risa. Una noche. Una frase.<br><br>Algo que ocurrió y que quizás parecía completamente normal en ese momento. Pero que después terminó convirtiéndose en un recuerdo. Y esos también cuentan.</p><br><button class="boton" onclick="volverCaja()">← VOLVER</button>`;
-    cajaEstado.momento=1;
+    document.getElementById('caja-contenido').innerHTML = `<p class="texto">Este no está en una fotografía.<br>Porque hay momentos que no necesitan una cámara para quedarse con nosotros. Una conversación. Una risa. Una noche. Una frase.<br><br>Algo que ocurrió y que quizás parecía completamente normal en ese momento. Pero que después terminó convirtiéndose en un recuerdo. Y esos también cuentan.</p><br><button class="boton" onclick="volverCaja()">← VOLVER</button>`;
+    caja.momento=1;
     comprobarCaja();
 }
 function verFuturo(){
-    document.getElementById('caja-opciones').style.display='none';
-    document.getElementById('
+    document.getElementById('caja-contenido').innerHTML = `<p class="texto">TODAVÍA NO EXISTE<br><br>Este es diferente.<br>Porque todavía no puedo enseñártelo.<br>Pero algún día habrá algo aquí.<br>Y cuando llegue ese momento, quiero que podamos mirar atrás y recordar que alguna vez fue solamente una posibilidad.<br><br>Un momento que todavía no conocíamos.</p><br><button class="boton boton-dorado" onclick="guardarFuturo()">✦ GUARDAR PARA EL FUTURO ✦</button>`;
+    caja.futuro=1;
+    comprobarCaja();
+}
+function guardarFuturo(){
+    document.getElementById('caja-contenido').innerHTML = `<p class="texto">Guardado.<br>Este recuerdo todavía está por vivir.</p><br><button class="boton" onclick="volverCaja()">← VOLVER</button>`;
+}
+
+// === DÍA 4 ===
+let d4paso=0;
+const d4preguntas = [
+    {t:'Si pudiéramos escaparnos ahora mismo… ¿qué elegirías?', o:['🌊 Playa','🏙️ Una ciudad nueva','🌿 Un lugar tranquilo','🏡 Quedarnos juntas en casa']},
+    {t:'¿Qué plan te parece más bonito?', o:['🌙 Una noche hablando de todo','😂 Una noche riéndonos de cualquier cosa','🎬 Película + comida + manta','✨ Salir sin saber exactamente qué haremos']},
+    {t:'Si pudieras guardar un momento para repetirlo…', o:['♡ Una conversación','✦ Una noche especial','📸 Un día que nos hizo felices','∞ Uno que todavía no vivimos']},
+    {t:'¿Qué pequeño detalle te hace más feliz?', o:['💌 Un mensaje inesperado','🎁 Una sorpresa','😂 Que te hagan reír','🤍 Que recuerden algo que dijiste']},
+    {t:'¿Qué elegirías para una tarde perfecta?', o:['☕ Café y conversación','🍿 Película y algo rico','🎶 Música y cantar juntas','🌅 Salir a caminar y hablar']},
+    {t:'Si nuestra historia fuera una película… ¿qué género tendría?', o:['😂 Comedia','💗 Romance','✨ Aventura','🎭 Una mezcla de todo']},
+    {t:'¿Qué prefieres recibir?', o:['💌 Una carta escrita a mano','📷 Una fotografía inesperada','🎁 Una sorpresa','✨ Algo completamente inesperado']},
+    {t:'Si pudiéramos crear un recuerdo ahora mismo…', o:['🌊 Frente al mar','🌙 Bajo las estrellas','🏙️ En una ciudad desconocida','🏡 En nuestro lugar favorito']},
+    {t:'¿Qué te gustaría tener dentro de unos años?', o:['Muchas fotografías para mirar atrás','Muchas historias para contar','Muchos lugares conocidos','🤍 Muchos momentos que recordar']},
