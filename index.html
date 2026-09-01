@@ -686,6 +686,19 @@ audio{
     .memory1{left:10%;top:28%}
     .memory2{right:10%;bottom:25%}
 }
+    .locked-day {
+    opacity: 0.55;
+    cursor: not-allowed !important;
+    position: relative;
+}
+
+.lock-icon {
+    display: block;
+    font-size: 18px;
+    margin-top: 5px;
+    pointer-events: none;
+}
+
 </style>
 </head>
 
@@ -2611,6 +2624,70 @@ showToast("No se encontró Dichavate.mp3. Debe estar junto al index.html.");
 });
 }
 
+});
+    /* =================================
+   BLOQUEO DE DÍAS FUTUROS 1 AL 19
+   ================================= */
+
+function actualizarDias() {
+
+    const hoy = new Date();
+    const diaActual = hoy.getDate();
+
+    for (let dia = 1; dia <= 19; dia++) {
+
+        const elemento = document.getElementById("day" + dia);
+
+        if (!elemento) continue;
+
+        /* Buscar si ya tiene candado */
+        const candadoAnterior =
+            elemento.querySelector(".lock-icon");
+
+        if (candadoAnterior) {
+            candadoAnterior.remove();
+        }
+
+        /* DÍAS FUTUROS */
+        if (dia > diaActual) {
+
+            elemento.classList.add("locked-day");
+
+            const candado = document.createElement("span");
+            candado.className = "lock-icon";
+            candado.textContent = "🔒";
+
+            elemento.appendChild(candado);
+
+            /* Impedir que se abra */
+            elemento.onclick = function(event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (typeof showToast === "function") {
+                    showToast("🔒 Este día todavía no está disponible.");
+                } else {
+                    alert("🔒 Este día todavía no está disponible.");
+                }
+
+                return false;
+            };
+
+        } else {
+
+            /* DÍAS DE HOY Y ANTERIORES */
+            elemento.classList.remove("locked-day");
+
+        }
+    }
+}
+
+
+/* Ejecutar cuando carga la página */
+
+document.addEventListener("DOMContentLoaded", function() {
+    actualizarDias();
 });
 
 </script>
