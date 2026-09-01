@@ -2625,14 +2625,13 @@ showToast("No se encontró Dichavate.mp3. Debe estar junto al index.html.");
 }
 
 });
-    /* =================================
-   BLOQUEO DE DÍAS FUTUROS 1 AL 19
-   ================================= */
+/* ================================
+   BLOQUEO REAL DE DÍAS 1 AL 19
+   ================================ */
 
-function actualizarDias() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const hoy = new Date();
-    const diaActual = hoy.getDate();
+    const hoy = new Date().getDate();
 
     for (let dia = 1; dia <= 19; dia++) {
 
@@ -2640,54 +2639,65 @@ function actualizarDias() {
 
         if (!elemento) continue;
 
-        /* Buscar si ya tiene candado */
-        const candadoAnterior =
-            elemento.querySelector(".lock-icon");
-
-        if (candadoAnterior) {
-            candadoAnterior.remove();
-        }
-
-        /* DÍAS FUTUROS */
-        if (dia > diaActual) {
+        if (dia > hoy) {
 
             elemento.classList.add("locked-day");
 
-            const candado = document.createElement("span");
-            candado.className = "lock-icon";
-            candado.textContent = "🔒";
+            /* Candado */
+            if (!elemento.querySelector(".lock-icon")) {
 
-            elemento.appendChild(candado);
+                const candado = document.createElement("span");
 
-            /* Impedir que se abra */
-            elemento.onclick = function(event) {
+                candado.className = "lock-icon";
+                candado.textContent = "🔒";
 
-                event.preventDefault();
-                event.stopPropagation();
+                elemento.appendChild(candado);
+            }
 
-                if (typeof showToast === "function") {
-                    showToast("🔒 Este día todavía no está disponible.");
-                } else {
-                    alert("🔒 Este día todavía no está disponible.");
+            /* Bloquear TODOS los botones dentro del día */
+
+            const botones = elemento.querySelectorAll("button");
+
+            botones.forEach(function (boton) {
+
+                boton.disabled = true;
+
+                boton.style.cursor = "not-allowed";
+                boton.style.opacity = "0.5";
+
+                boton.addEventListener("click", function (e) {
+
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
+                    if (typeof showToast === "function") {
+                        showToast("🔒 Este día todavía no está disponible.");
+                    } else {
+                        alert("🔒 Este día todavía no está disponible.");
+                    }
+
+                    return false;
+
+                }, true);
+
+            });
+
+            /* Bloquear también el contenedor */
+
+            elemento.addEventListener("click", function (e) {
+
+                if (e.target === elemento) {
+
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+
                 }
 
-                return false;
-            };
-
-        } else {
-
-            /* DÍAS DE HOY Y ANTERIORES */
-            elemento.classList.remove("locked-day");
+            }, true);
 
         }
     }
-}
 
-
-/* Ejecutar cuando carga la página */
-
-document.addEventListener("DOMContentLoaded", function() {
-    actualizarDias();
 });
 
 </script>
