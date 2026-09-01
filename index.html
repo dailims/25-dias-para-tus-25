@@ -1801,9 +1801,18 @@ showScreen('calendar');
 }
 
 function openDay(day){
-showScreen('day'+day);
-}
 
+    const hoy = new Date().getDate();
+
+    // Si el día todavía no llegó, NO se puede entrar
+    if(day > hoy){
+        showToast("🔒 Este día todavía no está disponible.");
+        return;
+    }
+
+    // Solo permite entrar a días disponibles
+    showScreen('day' + day);
+}
 /* CONTRASEÑA */
 
 const codeInputs=document.querySelectorAll('.code-input input');
