@@ -1092,55 +1092,173 @@ DESBLOQUEAR
 <button class="btn back" onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
 </section>
 
-<!-- DÍA 10 -->
+<!-- ==================== DÍA 10 ==================== -->
 
 <section id="day10" class="screen">
-<div class="music-screen">
 
-<div class="eyebrow">Día 10</div>
-<h2>Una canción para ti</h2>
+    <div class="music-screen">
 
-<div class="card center">
+        <div class="eyebrow">Día 10</div>
 
-<p>Hay canciones que simplemente escuchamos.</p>
-<p>Y hay otras que, por alguna razón, terminan quedándose con nosotros.</p>
+        <h2>Una canción para ti</h2>
 
-<div class="big-symbol">♫</div>
+        <div class="card center">
 
-<button class="btn gold" onclick="showMusic10()">DESCUBRIR ✦</button>
+            <p>
+                Hay canciones que simplemente escuchamos.
+            </p>
 
-<div id="music10" style="display:none">
+            <p>
+                Y hay otras que, por alguna razón,
+                terminan quedándose con nosotros.
+            </p>
 
-<div class="album" id="album10">♫</div>
+            <div class="big-symbol">♫</div>
 
-<h3>Bemaste</h3>
-<p class="gold">Tiago PZK</p>
+            <button class="btn gold" onclick="showMusic10()">
+                DESCUBRIR ✦
+            </button>
 
-<div class="divider"></div>
 
-<p>Esta canción es para ti.</p>
-<p>La elegí porque quería que este momento tuviera una canción propia.</p>
+            <!-- ==================== BEMASTE ==================== -->
 
-<audio id="bemaste" controls>
-    <source src="./Bemaste.mp3" type="audio/mpeg">
-</audio>
+            <div id="music10" style="display:none">
 
-<p class="small">
-Si no empieza automáticamente, pulsa ▶ en el reproductor.
-</p>
+                <div class="album" id="album10">
+                    ♫
+                </div>
 
-<button class="btn" onclick="playAudio('bemaste')">
-▶ REPRODUCIR
-</button>
+                <h3>Bemaste</h3>
 
-<div id="musicText" style="margin-top:25px"></div>
+                <p class="gold">
+                    Tiago PZK
+                </p>
 
-</div>
-</div>
+                <div class="divider"></div>
 
-<button class="btn back" onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
+                <p>
+                    Esta canción es para ti.
+                </p>
 
-</div>
+                <p>
+                    La elegí porque quería que este momento
+                    tuviera una canción propia.
+                </p>
+
+
+                <!-- REPRODUCTOR DE BEMASTE -->
+
+                <audio id="bemaste" controls>
+                    <source src="./Bemaste.mp3" type="audio/mpeg">
+                    Tu navegador no puede reproducir esta canción.
+                </audio>
+
+                <p class="small">
+                    Si no empieza automáticamente,
+                    pulsa ▶ en el reproductor.
+                </p>
+
+
+                <button class="btn" onclick="playAudio('bemaste')">
+                    ▶ REPRODUCIR
+                </button>
+
+
+                <div id="musicText" style="margin-top:25px"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- VOLVER AL CALENDARIO -->
+
+        <button class="btn back" onclick="goCalendar()">
+            ✦ VOLVER AL CALENDARIO ✦
+        </button>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* ==================== FUNCIÓN DÍA 10 ==================== */
+
+function showMusic10(){
+
+    const music = document.getElementById('music10');
+    const audio = document.getElementById('bemaste');
+
+    /* Mostrar Bemaste solamente al abrir el Día 10 */
+    music.style.display = 'block';
+
+    /* Preparar la canción */
+    audio.load();
+
+}
+
+
+/* ==================== REPRODUCIR BEMASTE ==================== */
+
+function playAudio(id){
+
+    const audio = document.getElementById(id);
+
+    if(!audio) return;
+
+    audio.play()
+    .then(() => {
+
+        if(id === 'bemaste'){
+
+            document
+                .getElementById('album10')
+                .classList
+                .add('playing');
+
+            document.getElementById('musicText').innerHTML = `
+
+                <div class="card">
+
+                    <p>
+                        Este momento es para ti. ♡
+                    </p>
+
+                    <p>
+                        Espero que cuando vuelva a sonar
+                        algún día, te acuerdes de estos 25.
+                    </p>
+
+                    <p>
+                        De este regalo. De esta pequeña historia.
+                        Y de todas las cosas que todavía quedan
+                        por descubrir.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    })
+    .catch(() => {
+
+        if(typeof showToast === "function"){
+
+            showToast(
+                "Pulsa ▶ en el reproductor para escuchar la canción."
+            );
+
+        }
+
+    });
+
+}
+
+</script>
 </section>   <!-- DÍA 11 -->
 
 <section id="day11" class="screen">
@@ -1216,60 +1334,120 @@ Si no empieza automáticamente, pulsa ▶ en el reproductor.
 <button class="btn back" onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
 </section>
 
-<!-- DÍA 13 -->
+<!-- ==================== DÍA 13 ==================== -->
 
-<section id="day13" class="screen">
-<div class="card center">
+<div class="day" id="day13">
 
-<div class="eyebrow">Día 13 · Descubre</div>
-<h2>La canción que nos recuerda</h2>
+    <h2>DÍA 13</h2>
 
-<p>Hoy no voy a darte opciones.</p>
-<p>Quiero que recuerdes tú la canción.</p>
-<p>¿Cuál es?</p>
+    <div class="card">
+        <h3>🎵 Nuestra canción</h3>
 
-<input
-id="songGuess"
-type="text"
-placeholder="Escribe aquí el nombre..."
-style="
-width:min(500px,100%);
-padding:16px;
-margin:25px 0;
-background:#100c10;
-border:1px solid rgba(246,184,202,.3);
-border-radius:14px;
-color:white;
-outline:none;
-">
+        <p>
+            A ver si recuerdas cuál es...
+        </p>
 
-<br>
+        <input
+            type="text"
+            id="songGuess"
+            placeholder="Escribe el nombre de la canción"
+        >
 
-<button class="btn gold" onclick="checkSong()">DESBLOQUEAR</button>
+        <button class="btn gold" onclick="checkSong()">
+            DESBLOQUEAR
+        </button>
 
-<div id="songResult" style="margin-top:25px"></div>
+        <div id="songResult" style="margin-top:25px"></div>
 
-<div id="dichavatePlayer" style="display:none;margin-top:30px">
+        <!-- DICHAVATE: SOLO APARECE AL DESBLOQUEAR EL DÍA 13 -->
+        <div
+            id="dichavatePlayer"
+            style="display:none;margin-top:30px"
+        >
 
-<h3>Dichavate</h3>
+            <h3>Dichavate ♡</h3>
 
-<div class="album" id="album13">♫</div>
+            <div class="album" id="album13">♫</div>
 
-<audio id="dichavate" controls>
-    <source src="./Dichavate.mp3" type="audio/mpeg">
-</audio>
+            <audio id="dichavate" controls>
+                <source src="./Dichavate.mp3" type="audio/mpeg">
+            </audio>
 
-<p class="small">Si el audio no comienza solo, presiona ▶.</p>
+        </div>
 
-<button class="btn" onclick="playAudio('dichavate')">
-▶ ESCUCHAR NUESTRA CANCIÓN
-</button>
+    </div>
 
 </div>
-</div>
 
-<button class="btn back" onclick="goCalendar()">✦ VOLVER AL CALENDARIO ✦</button>
-</section>
+
+<script>
+
+/* ==================== DÍA 13 ==================== */
+
+function normalizeText(text){
+    return text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .toLowerCase()
+        .trim();
+}
+
+function checkSong(){
+
+    const guess = normalizeText(
+        document.getElementById('songGuess').value
+    );
+
+    const result = document.getElementById('songResult');
+    const player = document.getElementById('dichavatePlayer');
+    const audio = document.getElementById('dichavate');
+
+    if(
+        guess === "dichavate" ||
+        guess.includes("dichavate")
+    ){
+
+        result.innerHTML = `
+            <div class="card">
+                <h3>✦ CORRECTO ✦</h3>
+                <p>Sabía que la recordarías. ♡</p>
+                <p>Esta canción tiene algo especial para nosotras.</p>
+            </div>
+        `;
+
+        /* Mostrar Dichavate SOLO dentro del Día 13 */
+        player.style.display = "block";
+
+        /* Empezar la canción */
+        audio.currentTime = 0;
+
+        audio.play().catch(() => {
+            showToast("Pulsa ▶ en el reproductor para escuchar la canción.");
+        });
+
+    } else {
+
+        result.innerHTML = `
+            <div class="card">
+                <p class="pink">Mmm... esa no es. ♡</p>
+                <p>Piensa un poquito más en nuestra canción.</p>
+
+                <button
+                    class="btn"
+                    onclick="
+                        document.getElementById('songGuess').value='';
+                        document.getElementById('songResult').innerHTML=''
+                    "
+                >
+                    INTENTAR DE NUEVO
+                </button>
+            </div>
+        `;
+
+    }
+}
+
+</script>
 
 <!-- DÍA 14 -->
 
