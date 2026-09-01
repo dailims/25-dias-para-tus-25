@@ -1744,13 +1744,48 @@ const days=[
 const calendar=document.getElementById('calendarDays');
 
 days.forEach((d,i)=>{
-calendar.innerHTML+=`
-<div class="day">
-<div class="day-number">${d[0]}</div>
-<div class="day-title">${d[1]}</div>
-<button onclick="openDay(${i+1})">ABRIR ✦</button>
-</div>
-`;
+
+    const dia = i + 1;
+    const hoy = new Date().getDate();
+
+    if(dia > hoy){
+
+        calendar.innerHTML += `
+        <div class="day locked-day">
+
+            <div class="day-number">${d[0]}</div>
+
+            <div class="day-title">${d[1]}</div>
+
+            <div class="lock-icon">🔒</div>
+
+            <button
+                type="button"
+                onclick="showToast('🔒 Este día todavía no está disponible.')"
+            >
+                🔒 BLOQUEADO
+            </button>
+
+        </div>
+        `;
+
+    } else {
+
+        calendar.innerHTML += `
+        <div class="day">
+
+            <div class="day-number">${d[0]}</div>
+
+            <div class="day-title">${d[1]}</div>
+
+            <button onclick="openDay(${dia})">
+                ABRIR ✦
+            </button>
+
+        </div>
+        `;
+    }
+
 });
 
 /* NAVEGACIÓN */
